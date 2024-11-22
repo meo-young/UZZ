@@ -1,0 +1,39 @@
+18_brag_p.png
+	size: 468, 392
+	filter: Linear, Linear
+	pma: true
+ob_10
+	bounds: 364, 255, 17, 25
+	offsets: 1, 1, 19, 27
+	rotate: 90
+ob_11
+	bounds: 364, 123, 23, 33
+	offsets: 1, 1, 25, 35
+ob_12
+	bounds: 158, 6, 24, 39
+	offsets: 1, 1, 26, 41
+	rotate: 90
+ob_13
+	bounds: 392, 39, 58, 37
+ob_14
+	bounds: 0, 0, 158, 30
+	offsets: 1, 1, 160, 32
+ob_15
+	bounds: 364, 156, 93, 97
+	offsets: 100, 0, 256, 97
+ob_16
+	bounds: 392, 76, 80, 75
+	rotate: 90
+ob_17
+	bounds: 393, 253, 75, 138
+ob_18
+	bounds: 239, 272, 154, 119
+ob_19
+	bounds: 252, 122, 150, 112
+	rotate: 90
+ob_20
+	bounds: 252, 21, 140, 101
+ob_21
+	bounds: 0, 200, 239, 191
+ob_22
+	bounds: 0, 30, 252, 170

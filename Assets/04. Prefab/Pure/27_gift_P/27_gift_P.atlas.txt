@@ -1,0 +1,35 @@
+27_gift_P.png
+	size: 488, 420
+	filter: Linear, Linear
+	pma: true
+ob_10
+	bounds: 360, 214, 125, 116
+ob_11
+	bounds: 0, 245, 116, 100
+ob_12
+	bounds: 116, 236, 123, 109
+ob_13
+	bounds: 0, 109, 167, 127
+	offsets: 1, 1, 171, 129
+ob_14
+	bounds: 27, 345, 214, 73
+ob_15
+	bounds: 239, 220, 121, 110
+ob_17
+	bounds: 167, 0, 247, 214
+ob_7
+	bounds: 0, 402, 16, 27
+	rotate: 90
+ob_8
+	bounds: 241, 330, 88, 100
+	rotate: 90
+ob_9
+	bounds: 341, 330, 88, 98
+	rotate: 90
+
+27_gift_P_2.png
+	size: 252, 340
+	filter: Linear, Linear
+	pma: true
+ob_16
+	bounds: 0, 0, 251, 339

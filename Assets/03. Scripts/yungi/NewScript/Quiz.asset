@@ -1,0 +1,228 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 8
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b38d93a486ad684193ac1b9c1afbcc7, type: 3}
+  m_Name: Quiz
+  m_EditorClassIdentifier: 
+  Entities:
+  - index: 0
+    type: 0
+    dialog: "\uC0AC\uB78C\uC758 \uC2EC\uC7A5\uC740 \uD558\uB8E8\uC5D0 \uC57D 10\uB9CC
+      \uBC88 \uB6F4\uB2E4."
+    answer: 1
+  - index: 1
+    type: 0
+    dialog: "\uB098\uBB34\uB294 \uBB3C\uC744 \uD761\uC218\uD558\uC9C0 \uC54A\uB294\uB2E4."
+    answer: 0
+  - index: 2
+    type: 0
+    dialog: "\uD53C\uCE74\uC18C\uB294 20\uC138\uAE30\uC5D0 \uD65C\uB3D9\uD55C \uD654\uAC00\uB2E4."
+    answer: 1
+  - index: 3
+    type: 0
+    dialog: "\uD0DC\uC591\uC740 \uC9C0\uAD6C\uBCF4\uB2E4 \uD06C\uC9C0 \uC54A\uB2E4."
+    answer: 0
+  - index: 4
+    type: 0
+    dialog: "\uC218\uD559\uC5D0\uC11C \uC6D0\uC758 \uB458\uB808\uB294 \u03C0\uB85C
+      \uACC4\uC0B0\uB41C\uB2E4."
+    answer: 1
+  - index: 5
+    type: 0
+    dialog: "\uBB3C\uC740 0\uB3C4\uC5D0\uC11C \uB053\uB294\uB2E4."
+    answer: 0
+  - index: 6
+    type: 0
+    dialog: "\uC0AC\uB78C\uC758 \uB1CC\uB294 80%\uAC00 \uBB3C\uB85C \uC774\uB8E8\uC5B4\uC838
+      \uC788\uB2E4."
+    answer: 1
+  - index: 7
+    type: 0
+    dialog: "\uC0AC\uC790\uB294 \uD480\uB9CC \uBA39\uB294\uB2E4."
+    answer: 0
+  - index: 8
+    type: 0
+    dialog: "\uB300\uC11C\uC591\uACFC \uD0DC\uD3C9\uC591\uC740 \uC11C\uB85C \uB9CC\uB09C\uB2E4."
+    answer: 1
+  - index: 9
+    type: 0
+    dialog: "\uACE0\uB798\uB294 \uBB3C\uACE0\uAE30\uAC00 \uC544\uB2C8\uB2E4."
+    answer: 1
+  - index: 10
+    type: 0
+    dialog: "\uBE5B\uC740 \uC18C\uB9AC\uBCF4\uB2E4 \uBE60\uB974\uB2E4."
+    answer: 1
+  - index: 11
+    type: 0
+    dialog: "\uD53C\uC544\uB178\uB294 \uD604\uC545\uAE30\uC774\uB2E4."
+    answer: 0
+  - index: 12
+    type: 0
+    dialog: "\uBC40\uC740 \uB2E4\uB9AC\uAC00 \uC5C6\uB2E4."
+    answer: 1
+  - index: 13
+    type: 0
+    dialog: "\uC9C0\uAD6C\uC758 1\uB144\uC740 365\uC77C\uC774 \uB118\uB294\uB2E4."
+    answer: 1
+  - index: 14
+    type: 0
+    dialog: "\uB2EC\uC740 \uC9C0\uAD6C \uC8FC\uC704\uB97C \uD558\uB8E8\uC5D0 \uD55C
+      \uBC88 \uB3C8\uB2E4."
+    answer: 0
+  - index: 15
+    type: 0
+    dialog: "\uBB3C\uC740 \uC5BC\uBA74 \uBB34\uAC8C\uAC00 \uC904\uC5B4\uB4E0\uB2E4."
+    answer: 0
+  - index: 16
+    type: 0
+    dialog: "\uC804\uAE30\uB294 \uC591\uC804\uD558\uC640 \uC74C\uC804\uD558\uB85C
+      \uB098\uB25C\uB2E4."
+    answer: 1
+  - index: 17
+    type: 0
+    dialog: "\uD638\uC8FC\uB294 \uB0A8\uBC18\uAD6C\uC5D0 \uC788\uB2E4."
+    answer: 1
+  - index: 18
+    type: 0
+    dialog: "\uB3D9\uBB3C \uC911\uC5D0 \uC0AC\uB78C\uBCF4\uB2E4 \uB098\uC774\uAC00
+      \uB9CE\uC740 \uC885\uC740 \uC5C6\uB2E4."
+    answer: 0
+  - index: 19
+    type: 0
+    dialog: "\uAC15\uC544\uC9C0\uB294 \uACE0\uC591\uC774\uBCF4\uB2E4 \uC218\uBA85\uC774
+      \uC9E7\uB2E4."
+    answer: 1
+  - index: 20
+    type: 0
+    dialog: "\uD50C\uB77C\uBC0D\uACE0\uB294 \uBD84\uD64D\uC0C9\uC774\uB2E4."
+    answer: 1
+  - index: 21
+    type: 0
+    dialog: "\uCF54\uB07C\uB9AC\uB294 \uB6F0\uC9C0 \uBABB\uD55C\uB2E4."
+    answer: 1
+  - index: 22
+    type: 0
+    dialog: "\uC9C0\uAD6C\uB294 \uC6B0\uC8FC\uC5D0\uC11C \uD30C\uB780\uC0C9\uC73C\uB85C
+      \uBCF4\uC778\uB2E4."
+    answer: 1
+  - index: 23
+    type: 0
+    dialog: "\uAE08\uC740 \uCCA0\uBCF4\uB2E4 \uAC00\uBCCD\uB2E4."
+    answer: 0
+  - index: 24
+    type: 0
+    dialog: "\uAC70\uBD81\uC774\uB294 \uC218\uBC31 \uB144\uC744 \uC0B4 \uC218 \uC788\uB2E4."
+    answer: 1
+  - index: 25
+    type: 0
+    dialog: "\uC778\uAC04\uC758 \uBF08\uB294 \uCCA0\uBCF4\uB2E4 \uAC15\uD558\uB2E4."
+    answer: 1
+  - index: 26
+    type: 0
+    dialog: "\uBE44\uAC00 \uB0B4\uB9AC\uBA74 \uD558\uB298\uC740 \uBD89\uC740\uC0C9\uC774
+      \uB41C\uB2E4."
+    answer: 0
+  - index: 27
+    type: 0
+    dialog: "\uB2EC\uC740 \uC9C0\uAD6C\uC5D0\uC11C \uD56D\uC0C1 \uAC19\uC740 \uBA74\uC744
+      \uBCF4\uC5EC\uC900\uB2E4."
+    answer: 1
+  - index: 28
+    type: 0
+    dialog: "\uACE0\uC591\uC774\uB294 \uBB3C\uC744 \uC2EB\uC5B4\uD55C\uB2E4."
+    answer: 1
+  - index: 29
+    type: 0
+    dialog: "\uBE59\uD558\uC758 \uB300\uBD80\uBD84\uC740 \uBD81\uADF9\uC5D0 \uC788\uB2E4."
+    answer: 0
+  - index: 30
+    type: 0
+    dialog: "\uC62C\uB9BC\uD53D\uC740 4\uB144\uB9C8\uB2E4 \uC5F4\uB9B0\uB2E4."
+    answer: 1
+  - index: 31
+    type: 0
+    dialog: "\uC6B0\uC720\uB294 \uC0B0\uC131\uC774 \uC544\uB2C8\uB2E4."
+    answer: 1
+  - index: 32
+    type: 0
+    dialog: "\uBAA8\uAE30\uB294 \uC0AC\uB78C\uC758 \uD53C\uB97C \uBE68\uC9C0 \uC54A\uB294\uB2E4."
+    answer: 0
+  - index: 33
+    type: 0
+    dialog: "\uD53C\uB77C\uBBF8\uB4DC\uB294 \uC774\uC9D1\uD2B8\uC5D0\uB9CC \uC788\uB2E4."
+    answer: 0
+  - index: 34
+    type: 0
+    dialog: "\uC9C0\uAD6C\uC5D0\uC11C \uAC00\uC7A5 \uD070 \uB300\uB959\uC740 \uC544\uC2DC\uC544\uB2E4."
+    answer: 1
+  - index: 35
+    type: 0
+    dialog: "\uC0C1\uC5B4\uB294 \uD3C9\uC0DD \uACC4\uC18D \uC774\uBE68\uC774 \uC790\uB780\uB2E4."
+    answer: 1
+  - index: 36
+    type: 0
+    dialog: "\uC6B0\uC8FC\uB294 \uACC4\uC18D \uD655\uC7A5\uB418\uACE0 \uC788\uB2E4."
+    answer: 1
+  - index: 37
+    type: 0
+    dialog: "\uD3EC\uC720\uB958 \uC911\uC5D0\uC11C \uB0A0 \uC218 \uC788\uB294 \uB3D9\uBB3C\uC740
+      \uC5C6\uB2E4."
+    answer: 0
+  - index: 38
+    type: 0
+    dialog: "\uD638\uB791\uC774\uB294 \uC721\uC2DD\uB3D9\uBB3C\uC774\uB2E4."
+    answer: 1
+  - index: 39
+    type: 0
+    dialog: "\uC0AC\uB9C9\uC5D0\uB294 \uC2DD\uBB3C\uC774 \uC790\uB77C\uC9C0 \uC54A\uB294\uB2E4."
+    answer: 0
+  - index: 40
+    type: 0
+    dialog: "\uC6D0\uC22D\uC774\uB294 \uACFC\uC77C\uB9CC \uBA39\uB294\uB2E4."
+    answer: 0
+  - index: 41
+    type: 0
+    dialog: "\uAC70\uBBF8\uB294 \uACE4\uCDA9\uC774\uB2E4."
+    answer: 0
+  - index: 42
+    type: 0
+    dialog: "\uB098\uBB34\uB294 \uBC24\uC5D0 \uC0B0\uC18C\uB97C \uBC30\uCD9C\uD55C\uB2E4."
+    answer: 0
+  - index: 43
+    type: 0
+    dialog: "\uD574\uB9C8\uB294 \uC218\uCEF7\uC774 \uC0C8\uB07C\uB97C \uB0B3\uB294\uB2E4."
+    answer: 1
+  - index: 44
+    type: 0
+    dialog: "\uD0DC\uC591\uC740 \uB9E4\uC77C \uAC19\uC740 \uBC29\uD5A5\uC73C\uB85C
+      \uB3C8\uB2E4."
+    answer: 0
+  - index: 45
+    type: 0
+    dialog: "\uBCC4\uC740 \uBC24\uC5D0\uB9CC \uBCF4\uC778\uB2E4."
+    answer: 0
+  - index: 46
+    type: 0
+    dialog: "\uBB3C\uACE0\uAE30\uB294 \uBB3C \uC18D\uC5D0\uC11C\uB3C4 \uC228\uC744
+      \uC270\uB2E4."
+    answer: 1
+  - index: 47
+    type: 0
+    dialog: "\uC0C8\uB294 \uB300\uBD80\uBD84 \uB0A0 \uC218 \uC788\uB2E4."
+    answer: 1
+  - index: 48
+    type: 0
+    dialog: "\uB098\uBB34\uB294 1\uB144\uC5D0 \uD55C \uBC88\uB9CC \uC790\uB780\uB2E4."
+    answer: 0
+  - index: 49
+    type: 0
+    dialog: "\uC6B0\uC720\uB294 \uAC80\uC740 \uC18C\uC5D0\uC11C\uB9CC \uB098\uC628\uB2E4."
+    answer: 0

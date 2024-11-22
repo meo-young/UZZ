@@ -1,0 +1,48 @@
+4_tp_p.png
+	size: 464, 460
+	filter: Linear, Linear
+	pma: true
+ob_10
+	bounds: 215, 125, 129, 128
+ob_11
+	bounds: 339, 253, 125, 119
+ob_12
+	bounds: 302, 390, 71, 67
+ob_14
+	bounds: 165, 412, 137, 45
+ob_15
+	bounds: 24, 435, 58, 22
+ob_16
+	bounds: 0, 241, 215, 81
+ob_17
+	bounds: 126, 430, 27, 39
+	rotate: 90
+ob_18
+	bounds: 82, 432, 25, 44
+	rotate: 90
+ob_19
+	bounds: 123, 322, 115, 90
+	offsets: 0, 3, 118, 93
+ob_20
+	bounds: 0, 344, 123, 88
+	offsets: 82, 0, 205, 89
+ob_21
+	bounds: 238, 300, 90, 101
+	rotate: 90
+ob_22
+	bounds: 373, 372, 86, 85
+	offsets: 0, 4, 242, 89
+ob_23
+	bounds: 0, 444, 13, 24
+	rotate: 90
+ob_25
+	bounds: 0, 0, 193, 241
+	offsets: 0, 0, 194, 241
+
+4_tp_p_2.png
+	size: 276, 344
+	filter: Linear, Linear
+	pma: true
+ob_24
+	bounds: 0, 0, 274, 341
+	offsets: 0, 1, 277, 351

@@ -1,0 +1,42 @@
+17_hug_P.png
+	size: 480, 420
+	filter: Linear, Linear
+	pma: true
+ob_10
+	bounds: 457, 109, 22, 30
+ob_11
+	bounds: 457, 70, 18, 20
+ob_12
+	bounds: 0, 0, 124, 44
+ob_13
+	bounds: 250, 140, 121, 110
+ob_14
+	bounds: 371, 139, 111, 106
+	rotate: 90
+ob_15
+	bounds: 250, 54, 112, 86
+	offsets: 0, 4, 112, 90
+ob_16
+	bounds: 0, 217, 245, 202
+	offsets: 0, 1, 245, 203
+ob_17
+	bounds: 362, 65, 95, 74
+	offsets: 0, 38, 177, 112
+ob_18
+	bounds: 362, 4, 61, 81
+	rotate: 90
+ob_19
+	bounds: 245, 250, 224, 169
+	offsets: 2, 0, 226, 211
+ob_20
+	bounds: 124, 1, 43, 105
+	offsets: 1, 1, 45, 107
+	rotate: 90
+ob_7
+	bounds: 457, 90, 20, 19
+ob_8
+	bounds: 0, 44, 173, 250
+	offsets: 1, 0, 224, 250
+	rotate: 90
+ob_9
+	bounds: 229, 2, 48, 42

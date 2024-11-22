@@ -1,0 +1,36 @@
+29_minigame_p.png
+	size: 504, 452
+	filter: Linear, Linear
+	pma: true
+ob_10
+	bounds: 126, 359, 93, 90
+ob_11
+	bounds: 26, 362, 87, 100
+	rotate: 90
+ob_12
+	bounds: 0, 251, 141, 108
+ob_13
+	bounds: 354, 352, 122, 97
+ob_15
+	bounds: 219, 355, 94, 135
+	rotate: 90
+ob_16
+	bounds: 321, 87, 265, 181
+	rotate: 90
+ob_17
+	bounds: 0, 0, 267, 181
+	offsets: 0, 0, 268, 181
+ob_18
+	bounds: 141, 181, 174, 180
+	rotate: 90
+ob_9
+	bounds: 0, 432, 17, 26
+	rotate: 90
+
+29_minigame_p_2.png
+	size: 212, 228
+	filter: Linear, Linear
+	pma: true
+ob_14
+	bounds: 0, 0, 211, 225
+	offsets: 0, 0, 249, 225

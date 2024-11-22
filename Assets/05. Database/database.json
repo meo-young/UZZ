@@ -1,0 +1,40 @@
+{
+    "gameInfo": {
+        "totalDayCounter": 1,
+        "playTime": 64.83197784423828,
+        "inGameTime": 3044.730224609375,
+        "timeType": 3,
+        "likeabilityTimer": 696.3510131835938,
+        "likeabilityFlag": false,
+        "lastConnectTime": "2024-11-22 오후 11:16:13",
+        "dew": 0.0,
+        "cycleFlag": true
+    },
+    "flowerInfo": {
+        "level": 0,
+        "exp": 0,
+        "totalGetDew": 0,
+        "isStepUp": false,
+        "dewCounter": 753.1434936523438
+    },
+    "presentInfo": {
+        "presentFlag": false,
+        "presentTimer": 56.772422790527347
+    },
+    "pureInfo": {
+        "level": 3,
+        "likeability": 0,
+        "autoText": true,
+        "interactionText": false
+    },
+    "fieldWorkInfo": {
+        "level": 1,
+        "coolTimeList": [
+            -174.90435791015626,
+            -696.3575439453125,
+            -696.3575439453125,
+            -696.3575439453125,
+            -696.3575439453125
+        ]
+    }
+}

@@ -1,0 +1,54 @@
+19_lift_P.png
+	size: 500, 500
+	filter: Linear, Linear
+	pma: true
+ob_11
+	bounds: 460, 353, 38, 42
+	offsets: 1, 1, 40, 44
+ob_12
+	bounds: 460, 312, 37, 41
+	offsets: 1, 1, 39, 43
+ob_13
+	bounds: 479, 442, 56, 20
+	offsets: 1, 1, 58, 22
+	rotate: 90
+ob_14
+	bounds: 268, 423, 211, 75
+	offsets: 1, 5, 215, 82
+ob_15
+	bounds: 460, 287, 25, 37
+	offsets: 1, 1, 27, 39
+	rotate: 90
+ob_16
+	bounds: 460, 395, 23, 39
+	offsets: 1, 1, 25, 41
+	rotate: 90
+ob_17
+	bounds: 324, 89, 87, 163
+	rotate: 90
+ob_18
+	bounds: 243, 5, 81, 171
+	offsets: 0, 5, 81, 176
+ob_19
+	bounds: 0, 205, 118, 77
+	offsets: 0, 0, 123, 77
+	rotate: 90
+ob_20
+	bounds: 77, 214, 109, 77
+	rotate: 90
+ob_21
+	bounds: 268, 176, 247, 192
+	rotate: 90
+ob_22
+	bounds: 407, 1, 83, 88
+ob_23
+	bounds: 324, 0, 83, 89
+ob_24
+	bounds: 0, 323, 268, 175
+ob_25
+	bounds: 0, 2, 174, 243
+	offsets: 34, 0, 208, 243
+	rotate: 90
+ob_9
+	bounds: 479, 418, 12, 24
+	offsets: 1, 1, 14, 26

@@ -1,0 +1,54 @@
+16_grooming_P.png
+	size: 460, 500
+	filter: Linear, Linear
+	pma: true
+ob_10
+	bounds: 0, 254, 168, 112
+	offsets: 19, 8, 188, 120
+ob_11
+	bounds: 98, 366, 96, 169
+	offsets: 5, 0, 101, 169
+	rotate: 90
+ob_12
+	bounds: 358, 408, 102, 89
+	offsets: 0, 0, 103, 89
+ob_14
+	bounds: 25, 473, 24, 38
+	rotate: 90
+ob_15
+	bounds: 91, 469, 28, 37
+	rotate: 90
+ob_16
+	bounds: 185, 462, 173, 35
+ob_17
+	bounds: 128, 464, 57, 33
+ob_18
+	bounds: 63, 473, 24, 28
+	rotate: 90
+ob_19
+	bounds: 0, 379, 90, 98
+	offsets: 1, 37, 191, 135
+	rotate: 90
+ob_20
+	bounds: 0, 0, 256, 179
+	offsets: 12, 0, 268, 232
+ob_7
+	bounds: 0, 477, 20, 25
+	rotate: 90
+ob_8
+	bounds: 168, 179, 179, 121
+ob_9
+	bounds: 267, 300, 125, 108
+	offsets: 0, 1, 125, 109
+
+16_grooming_P_2.png
+	size: 420, 260
+	filter: Linear, Linear
+	pma: true
+ob_21
+	bounds: 0, 0, 259, 224
+	offsets: 37, 30, 296, 357
+	rotate: 90
+ob_22
+	bounds: 224, 14, 196, 245
+	offsets: 0, 0, 197, 245
