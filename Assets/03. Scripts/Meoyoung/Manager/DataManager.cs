@@ -12,6 +12,7 @@ public class GameData
     public PresentInfo presentInfo = new();
     public PureInfo pureInfo = new();
     public FieldWorkInfo fieldWorkInfo = new();
+    public DiaryInfo diaryInfo = new();
 }
 
 public class DataManager : MonoBehaviour
@@ -71,6 +72,8 @@ public class DataManager : MonoBehaviour
 
         PureStat.instance.pureInfo.level = gameData.pureInfo.level;
         PureStat.instance.pureInfo.likeability = gameData.pureInfo.likeability;
+
+        DiaryUI.instance.diaryInfo = gameData.diaryInfo;
     }
 
     public float GetIntervalDateTime()
@@ -105,6 +108,8 @@ public class DataManager : MonoBehaviour
         gameData.presentInfo = PresentManager.instance.presentInfo;
 
         gameData.pureInfo = PureStat.instance.pureInfo;
+
+        gameData.diaryInfo = DiaryUI.instance.diaryInfo;
 
         string json = JsonUtility.ToJson(gameData, true);
         File.WriteAllText(dataPath, json);
