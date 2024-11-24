@@ -4917,6 +4917,9 @@ ParticleSystemRenderer:
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -4938,9 +4941,9 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1692101203
-  m_SortingLayer: 0
-  m_SortingOrder: 20
+  m_SortingLayerID: -1978177935
+  m_SortingLayer: 4
+  m_SortingOrder: 100
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 1
@@ -4955,13 +4958,15 @@ ParticleSystemRenderer:
   m_RenderAlignment: 0
   m_Pivot: {x: 0, y: 0, z: 0}
   m_Flip: {x: 0.5, y: 0.5, z: 0}
-  m_UseCustomVertexStreams: 1
   m_EnableGPUInstancing: 1
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
   m_FreeformStretching: 0
   m_RotateWithStretchDirection: 1
+  m_UseCustomVertexStreams: 1
   m_VertexStreams: 00010304052225
+  m_UseCustomTrailVertexStreams: 0
+  m_TrailVertexStreams: 00010304
   m_Mesh: {fileID: 0}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
@@ -9816,6 +9821,9 @@ ParticleSystemRenderer:
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -9837,9 +9845,9 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -1978177935
+  m_SortingLayer: 4
+  m_SortingOrder: 100
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 1
@@ -9854,13 +9862,15 @@ ParticleSystemRenderer:
   m_RenderAlignment: 0
   m_Pivot: {x: 0, y: 0, z: 0}
   m_Flip: {x: 0, y: 0, z: 0}
-  m_UseCustomVertexStreams: 1
   m_EnableGPUInstancing: 1
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
   m_FreeformStretching: 0
   m_RotateWithStretchDirection: 1
+  m_UseCustomVertexStreams: 1
   m_VertexStreams: 00010304052225
+  m_UseCustomTrailVertexStreams: 0
+  m_TrailVertexStreams: 00010304
   m_Mesh: {fileID: 0}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
@@ -9893,6 +9903,18 @@ PrefabInstance:
     - target: {fileID: 2966954034946761048, guid: 8c5e3c67702467f4f813eec85456a121, type: 3}
       propertyPath: m_RenderMode
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2966954034946761048, guid: 8c5e3c67702467f4f813eec85456a121, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2966954034946761048, guid: 8c5e3c67702467f4f813eec85456a121, type: 3}
+      propertyPath: m_SortingOrder
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2966954034946761048, guid: 8c5e3c67702467f4f813eec85456a121, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1978177935
       objectReference: {fileID: 0}
     - target: {fileID: 5925558113741945237, guid: 8c5e3c67702467f4f813eec85456a121, type: 3}
       propertyPath: m_LocalScale.x
@@ -10206,11 +10228,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 820486267844189319, guid: eeca9b4f4e78cad4f8f205842da745c5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 20.130001
+      value: 8.78
       objectReference: {fileID: 0}
     - target: {fileID: 820486267844189319, guid: eeca9b4f4e78cad4f8f205842da745c5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 31.05
+      value: -7.87
       objectReference: {fileID: 0}
     - target: {fileID: 820486267844189319, guid: eeca9b4f4e78cad4f8f205842da745c5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10244,6 +10266,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3490935545096121740, guid: eeca9b4f4e78cad4f8f205842da745c5, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490935545096121740, guid: eeca9b4f4e78cad4f8f205842da745c5, type: 3}
+      propertyPath: m_SortingOrder
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3490935545096121740, guid: eeca9b4f4e78cad4f8f205842da745c5, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1978177935
+      objectReference: {fileID: 0}
     - target: {fileID: 7179039868407766443, guid: eeca9b4f4e78cad4f8f205842da745c5, type: 3}
       propertyPath: m_Name
       value: splash_leaf_2
@@ -10269,6 +10303,18 @@ PrefabInstance:
     - target: {fileID: 2732024869754684374, guid: 8c5e3c67702467f4f813eec85456a121, type: 3}
       propertyPath: m_Name
       value: splash_paricle
+      objectReference: {fileID: 0}
+    - target: {fileID: 2966954034946761048, guid: 8c5e3c67702467f4f813eec85456a121, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2966954034946761048, guid: 8c5e3c67702467f4f813eec85456a121, type: 3}
+      propertyPath: m_SortingOrder
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2966954034946761048, guid: 8c5e3c67702467f4f813eec85456a121, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1978177935
       objectReference: {fileID: 0}
     - target: {fileID: 5925558113741945237, guid: 8c5e3c67702467f4f813eec85456a121, type: 3}
       propertyPath: m_LocalPosition.x
