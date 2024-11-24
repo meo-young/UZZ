@@ -2,8 +2,25 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
-  tags: []
+  serializedVersion: 3
+  tags:
+  - Pure_HelpWork
+  - FieldWorkPanel
+  - Big_Dust
+  - Drop
+  - Notice_rest
+  - Meteor
+  - Food
+  - Flower
+  - Floor
+  - CenterPos
+  - Pure_PresentGive
+  - Pure_Walk
+  - Pure_Idle
+  - Pure_PresentReady
+  - PresentPanel
+  - FlowerStepUp
+  - Fish
   layers:
   - Default
   - TransparentFX
@@ -41,3 +58,23 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Sky
+    uniqueID: 4140553133
+    locked: 0
+  - name: City
+    uniqueID: 4190781185
+    locked: 0
+  - name: Window
+    uniqueID: 2449520791
+    locked: 0
+  - name: Object
+    uniqueID: 2316789361
+    locked: 0
+  - name: UI
+    uniqueID: 1702216685
+    locked: 0
+  - name: Particle
+    uniqueID: 2048449371
+    locked: 0
+  m_RenderingLayers:
+  - Default
