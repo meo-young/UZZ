@@ -69,7 +69,6 @@ public class DiaryUI : MonoBehaviour
 
     private int currentIndex;
     private float Dew => MainManager.instance.gameInfo.dew;
-
     private void Awake()
     {
         if(instance == null)

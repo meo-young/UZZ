@@ -7,6 +7,7 @@ public class DrawManager : MonoBehaviour
     {
         public string title;                // 테마 이름
         public Furniture[] furnitures;      // 테마에 속한 가구 정보
+        public int length;                // 테마에 속한 각 가구들 개수
     }
 
     public struct Furniture
@@ -57,6 +58,7 @@ public class DrawManager : MonoBehaviour
             drawdatas[int.Parse(value[0])].furnitures[int.Parse(value[2])].probability = float.Parse(value[9]);
             drawdatas[int.Parse(value[0])].furnitures[int.Parse(value[2])].power = int.Parse(value[10]);
             drawdatas[int.Parse(value[0])].furnitures[int.Parse(value[2])].requiredPower = int.Parse(value[11]);
+            drawdatas[int.Parse(value[0])].length++;
         }
     }
 
