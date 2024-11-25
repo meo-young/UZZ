@@ -1,9 +1,63 @@
 fileFormatVersion: 2
-guid: 09147b9e16929b74da3740f28ce9369a
+guid: 0f39d5a0430bcde4b8b1cc5471f08f07
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 2066485454131512347
+    second: 23_fertilizer_P_0
+  - first:
+      213: 3599071162295802494
+    second: 23_fertilizer_P_1
+  - first:
+      213: -5708153599696641383
+    second: 23_fertilizer_P_2
+  - first:
+      213: -307291414542508280
+    second: 23_fertilizer_P_3
+  - first:
+      213: 300616236949119510
+    second: 23_fertilizer_P_4
+  - first:
+      213: -1671884151722858016
+    second: 23_fertilizer_P_5
+  - first:
+      213: 974557998110472013
+    second: 23_fertilizer_P_6
+  - first:
+      213: 3571677374259808447
+    second: 23_fertilizer_P_7
+  - first:
+      213: 5284201480449404880
+    second: 23_fertilizer_P_8
+  - first:
+      213: 4582130080616078642
+    second: 23_fertilizer_P_9
+  - first:
+      213: 3726758481679475815
+    second: 23_fertilizer_P_10
+  - first:
+      213: 4973229619123439588
+    second: 23_fertilizer_P_11
+  - first:
+      213: -8718668637972079835
+    second: 23_fertilizer_P_12
+  - first:
+      213: -4647871585858837784
+    second: 23_fertilizer_P_13
+  - first:
+      213: 3318122443614654204
+    second: 23_fertilizer_P_14
+  - first:
+      213: 7184875004788546344
+    second: 23_fertilizer_P_15
+  - first:
+      213: -5247320909185394629
+    second: 23_fertilizer_P_16
+  - first:
+      213: 135387330090732911
+    second: 23_fertilizer_P_17
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -39,11 +93,11 @@ TextureImporter:
     mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: 1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -67,12 +121,12 @@ TextureImporter:
   swizzle: 50462976
   cookieLightType: 0
   platformSettings:
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -80,12 +134,12 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -93,12 +147,12 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
+  - serializedVersion: 4
     buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -106,12 +160,12 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Server
+  - serializedVersion: 4
+    buildTarget: iOS
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -123,15 +177,18 @@ TextureImporter:
     serializedVersion: 2
     sprites: []
     outline: []
+    customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
     nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
