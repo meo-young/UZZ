@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -13,21 +13,21 @@ public class DiaryInfo
 public class DiaryUI : MonoBehaviour
 {
     public static DiaryUI instance;
-    public struct StoryData            // ½ºÅä¸® µ¥ÀÌÅÍÅ×ÀÌºí
+    public struct StoryData            // ìŠ¤í† ë¦¬ ë°ì´í„°í…Œì´ë¸”
     {
-        public string title;                // ½ºÅä¸® Á¦¸ñ
-        public int imageIndex;              // ½ºÅä¸® ¹Ì¸®º¸±â ÀÌ¹ÌÁö
-        public string description;          // ½ºÅä¸® ¼³¸í ÅØ½ºÆ®
-        public int requiredDew;             // ½ºÅä¸® ÇÊ¿äÀçÈ­
+        public string title;                // ìŠ¤í† ë¦¬ ì œëª©
+        public int imageIndex;              // ìŠ¤í† ë¦¬ ë¯¸ë¦¬ë³´ê¸° ì´ë¯¸ì§€
+        public string description;          // ìŠ¤í† ë¦¬ ì„¤ëª… í…ìŠ¤íŠ¸
+        public int requiredDew;             // ìŠ¤í† ë¦¬ í•„ìš”ì¬í™”
     }
 
-    public struct CharacterData        // Ä³¸¯ÅÍ µ¥ÀÌÅÍÅ×ÀÌºí
+    public struct CharacterData        // ìºë¦­í„° ë°ì´í„°í…Œì´ë¸”
     {
-        public string height;               // Å°
-        public string weight;               // ¸ö¹«°Ô
-        public string goodInfo;             // ÀßÇÏ´Â °Í
-        public string badInfo;              // ¸øÇÏ´Â °Í
-        public int imageIndex;              // Ä³¸¯ÅÍ ÀÌ¹ÌÁö
+        public string height;               // í‚¤
+        public string weight;               // ëª¸ë¬´ê²Œ
+        public string goodInfo;             // ì˜í•˜ëŠ” ê²ƒ
+        public string badInfo;              // ëª»í•˜ëŠ” ê²ƒ
+        public int imageIndex;              // ìºë¦­í„° ì´ë¯¸ì§€
     }
 
     [Header("# Diary Info")]
@@ -69,7 +69,6 @@ public class DiaryUI : MonoBehaviour
 
     private int currentIndex;
     private float Dew => MainManager.instance.gameInfo.dew;
-
     private void Awake()
     {
         if(instance == null)
@@ -81,7 +80,7 @@ public class DiaryUI : MonoBehaviour
         UpdateDiaryDataTable();
     }
     #region DiaryFunction
-    public void OnDiaryBtnHandler()         // Diary È°¼ºÈ­ ±â´É
+    public void OnDiaryBtnHandler()         // Diary í™œì„±í™” ê¸°ëŠ¥
     {
         if (diaryUI.activeSelf)
             diaryUI.SetActive(false);
@@ -111,14 +110,14 @@ public class DiaryUI : MonoBehaviour
             storyUI.SetActive(true);
     }
 
-    public void OnNextBtnHandler()          // Next Btn ±â´É
+    public void OnNextBtnHandler()          // Next Btn ê¸°ëŠ¥
     {
         currentIndex++;
         ControlBtnVisibility();
         InitDiaryInfo();
     }
 
-    void ControlNextBtnVisibility()         // Next Btn È°¼ºÈ­ ±â´É
+    void ControlNextBtnVisibility()         // Next Btn í™œì„±í™” ê¸°ëŠ¥
     {
         if (currentIndex == diaryInfo.level)
             nextBtn.SetActive(false);
@@ -126,14 +125,14 @@ public class DiaryUI : MonoBehaviour
             nextBtn.SetActive(true);
     }
 
-    public void OnPrevBtnHandler()          // Prev Btn ±â´É
+    public void OnPrevBtnHandler()          // Prev Btn ê¸°ëŠ¥
     {
         currentIndex--;
         ControlBtnVisibility();
         InitDiaryInfo();
     }
 
-    void ControlPrevBtnVisibility()         // Prev Btn È°¼ºÈ­ ±â´É
+    void ControlPrevBtnVisibility()         // Prev Btn í™œì„±í™” ê¸°ëŠ¥
     {
         if(currentIndex == 0)
             prevBtn.SetActive(false);
@@ -141,7 +140,7 @@ public class DiaryUI : MonoBehaviour
             prevBtn.SetActive(true);
     }
 
-    void ControlBtnVisibility()             // Btn È°¼ºÈ­ ±â´É
+    void ControlBtnVisibility()             // Btn í™œì„±í™” ê¸°ëŠ¥
     {
         ControlPrevBtnVisibility();
         ControlNextBtnVisibility();        
@@ -172,12 +171,12 @@ public class DiaryUI : MonoBehaviour
         SceneManager.LoadScene("Story");
     }
 
-    void CheckIndex()                       // Current Index¸¦ ÇöÀç Level·Î ÃÊ±âÈ­
+    void CheckIndex()                       // Current Indexë¥¼ í˜„ì¬ Levelë¡œ ì´ˆê¸°í™”
     {
         currentIndex = diaryInfo.level;
     }
 
-    void IsAvailableAppreicate()            // ÀçÈ­°¡ ÃæºĞÇÏ¸é ¹öÆ° È°¼ºÈ­. ¾ø´Ù¸é ºñÈ°¼ºÈ­
+    void IsAvailableAppreicate()            // ì¬í™”ê°€ ì¶©ë¶„í•˜ë©´ ë²„íŠ¼ í™œì„±í™”. ì—†ë‹¤ë©´ ë¹„í™œì„±í™”
     {
         if(diaryInfo.level !=  currentIndex)
         {
@@ -195,7 +194,7 @@ public class DiaryUI : MonoBehaviour
         }
     }
 
-    void InitDiaryInfo()                    // Current Index¿¡ µû¶ó Diary ³»¿ë ÃÊ±âÈ­
+    void InitDiaryInfo()                    // Current Indexì— ë”°ë¼ Diary ë‚´ìš© ì´ˆê¸°í™”
     {
         titleText.text = storyData[currentIndex].title;
         storyPreviewImage.sprite = storyImages[storyData[currentIndex].imageIndex];
@@ -218,9 +217,8 @@ public class DiaryUI : MonoBehaviour
 
     #endregion
 
-
     #region DataTable
-    void UpdateDiaryDataTable()             // DiaryDataTable ÃÊ±âÈ­
+    void UpdateDiaryDataTable()             // DiaryDataTable ì´ˆê¸°í™”
     {
         storyData = new StoryData[100]; 
         StringReader reader = new StringReader(storyDataTable.text);
