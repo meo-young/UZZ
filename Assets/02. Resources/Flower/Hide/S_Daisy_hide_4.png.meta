@@ -129,10 +129,10 @@ TextureImporter:
       name: S_Daisy_hide_4_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 836
-        height: 1300
+        x: 142
+        y: 19
+        width: 838
+        height: 1428
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
