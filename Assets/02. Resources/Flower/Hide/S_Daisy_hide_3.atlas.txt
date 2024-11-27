@@ -1,0 +1,26 @@
+S_Daisy_hide_3_1.png
+	size: 592, 148
+	filter: Linear, Linear
+	pma: true
+0_B_Leaf
+	bounds: 320, 75, 123, 72
+0_F_Leaf
+	bounds: 202, 87, 118, 60
+	offsets: 0, 5, 118, 65
+0_Stem
+	bounds: 63, 119, 28, 139
+	offsets: 48, 0, 94, 182
+	rotate: 90
+1_Flower
+	bounds: 443, 0, 147, 147
+	offsets: 0, 1, 152, 148
+1_Stem
+	bounds: 0, 125, 22, 63
+	rotate: 90
+
+S_Daisy_hide_3_2.png
+	size: 840, 1036
+	filter: Linear, Linear
+	pma: true
+Pot
+	bounds: 0, 0, 838, 1034
