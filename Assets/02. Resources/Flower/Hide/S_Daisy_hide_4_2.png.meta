@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      S_Daisy_hide_4_2_0: 3442254410441160058
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
