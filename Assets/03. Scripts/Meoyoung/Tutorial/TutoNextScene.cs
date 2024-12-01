@@ -3,8 +3,11 @@ using UnityEngine.SceneManagement;
 
 public class TutoNextScene : MonoBehaviour
 {
+    [SerializeField] string sceneName;
     public void LoadNextScene()
     {
-        SceneManager.LoadScene("Main");
+        TutorialChecker.instance.flag = true;
+        TutorialDataManager.instance.JsonSave();
+        SceneManager.LoadScene(sceneName);
     }
 }

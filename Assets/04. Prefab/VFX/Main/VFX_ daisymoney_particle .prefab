@@ -288,7 +288,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1
+      scalar: 0.2
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -4848,7 +4848,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fcf9958157243ef43ab60795f7ee7c80, type: 2}
+  - {fileID: 2100000, guid: 25a749d69ac585449bc351f4947e590d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4866,8 +4866,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 2048449371
-  m_SortingLayer: 6
+  m_SortingLayerID: -1978177935
+  m_SortingLayer: 4
   m_SortingOrder: 100
   m_RenderMode: 0
   m_MeshDistribution: 0
@@ -4914,5 +4914,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   centerTransform: {fileID: 0}
-  rotationSpeed: 10
+  rotationSpeed: 50
   radius: 1
