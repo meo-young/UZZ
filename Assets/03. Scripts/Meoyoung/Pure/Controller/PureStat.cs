@@ -7,7 +7,7 @@ using UnityEngine;
 [System.Serializable]
 public class PureInfo
 {
-    public int level;
+    public int level = 1;
     public int likeability;
     public bool autoText;
     public bool interactionText;
