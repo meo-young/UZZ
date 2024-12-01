@@ -5,7 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class TitleManager : MonoBehaviour
 {
+    [Header("# Tutorial Checker")]
+    [SerializeField] TutorialChecker tutoChecker;
+    [SerializeField] TutorialDataManager tutoDataManager;
 
+    [Header("# Scene info")]
+    [SerializeField] string sceneName;
+    [SerializeField] string tutorialName;
     private bool sceneChanged;
 
     private void Awake()
@@ -26,6 +32,13 @@ public class TitleManager : MonoBehaviour
     void ChangeSceneToMain()
     {
         sceneChanged = true;
-        SceneManager.LoadScene("Main");
+        if(tutoChecker.flag)
+        {
+            Destroy(tutoChecker.gameObject);
+            Destroy(tutoDataManager.gameObject);
+            SceneManager.LoadScene(sceneName);
+        }
+        else 
+            SceneManager.LoadScene(tutorialName);
     }
 }
