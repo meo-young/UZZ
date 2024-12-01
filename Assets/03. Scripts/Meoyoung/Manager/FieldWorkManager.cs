@@ -8,7 +8,7 @@ using UnityEngine.UI;
 [System.Serializable]
 public class FieldWorkInfo
 {
-    public int level;
+    public int level = 4;
     public float[] coolTimeList;
     // 생성자에서 배열 크기 초기화
     public FieldWorkInfo()
