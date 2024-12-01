@@ -89,6 +89,7 @@ public class PresentManager : MonoBehaviour
 
     public void ShowPresentUI()
     {
+        SoundManager.instance.PlaySFX(SFX.Ambience.TEXT);
         presentUI.SetActive(true);
     }
     #endregion

@@ -12,6 +12,7 @@ public class PurePresentGiveState : MonoBehaviour, IControllerState
             pc = controller;
 
         // 이미 수집하지 않은 선물중 랜덤한 선물 획득하는 로직 구현
+        SoundManager.instance.PlaySFX(SFX.PureSound.GIVEGIFT);
         pc.pureAnimationSet.purePresentGive.SetActive(true);
     }
 

@@ -121,10 +121,13 @@ public class SoundManager : MonoBehaviour
         AudioSource player = sfxQueue.Dequeue();
 
         if (typeof(T) == typeof(SFX.PureSound))
-        {
             player.clip = sfx.pureSoundClips[Convert.ToInt32(_sfx)];
-        }
-
+        else if(typeof(T) == typeof(SFX.Ambience))
+            player.clip = sfx.ambienceSoundClips[Convert.ToInt32(_sfx)];
+        else if(typeof(T) == typeof(SFX.Flower))
+            player.clip = sfx.flowerSoundClips[Convert.ToInt32(_sfx)];
+        else if (typeof(T) == typeof(SFX.DEW))
+            player.clip = sfx.dewSoundClips[Convert.ToInt32(_sfx)];
         player.Play();
         StartCoroutine(ReturnToQueueAfterPlay(player));
     }

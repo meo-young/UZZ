@@ -128,6 +128,7 @@ public class FlowerManager : MonoBehaviour
     #region ShowEvent
     void ShowBigFlowerEvent()
     {
+        SoundManager.instance.PlaySFX(SFX.Flower.DUST);
         SetActiveFalseDefaultFlower();
         bigFlower[flowerData[flowerInfo.level].step - 1].SetActive(true);
         bigDust.SetActive(true);
@@ -135,6 +136,7 @@ public class FlowerManager : MonoBehaviour
 
     void ShowMiniFlowerEvent()
     {
+        SoundManager.instance.PlaySFX(SFX.Flower.DUST);
         SetActiveFalseDefaultFlower();
         miniFlower[flowerData[flowerInfo.level].step - 1].SetActive(true);
         miniDust.SetActive(true);
@@ -201,6 +203,7 @@ public class FlowerManager : MonoBehaviour
     {
         if (flowerInfo.isStepUp)
             return;
+        SoundManager.instance.PlaySFX(SFX.Flower.GROW);
 
         flowerInfo.exp += exp;
         if (flowerData[flowerInfo.level].requiredExp <= flowerInfo.exp)
@@ -215,6 +218,7 @@ public class FlowerManager : MonoBehaviour
             else
             {
                 Instantiate(MainManager.instance.vfxManager.flowerLevelUpVFX);
+                SoundManager.instance.PlaySFX(SFX.Flower.LEVELUP);
                 flowerInfo.level++;
                 flowerInfo.exp = 0;
             }
@@ -238,6 +242,7 @@ public class FlowerManager : MonoBehaviour
 
     void ShowStepUpEffect()
     {
+        SoundManager.instance.PlaySFX(SFX.Flower.GLOW);
         flowerInfo.isStepUp = true;
         Instantiate(VFXManager.instance.flowerStepUpWaitVFX, stepUpEffectPos.position, Quaternion.identity);
     }
@@ -245,6 +250,7 @@ public class FlowerManager : MonoBehaviour
     public void FlowerStepUp()
     {
         Instantiate(MainManager.instance.vfxManager.flowerStepUpVFX);
+        SoundManager.instance.PlaySFX(SFX.Flower.STEPUP);
         defaultFlower[flowerData[flowerInfo.level].step - 1].SetActive(false);
         flowerInfo.level++;
         flowerInfo.exp = 0;
@@ -271,6 +277,7 @@ public class FlowerManager : MonoBehaviour
         if (items == null)
             return;
 
+        SoundManager.instance.PlaySFX(SFX.DEW.DROP);
         for (int i = 0; i < items.Count; i++)
             items[i].Move(acquireEffectTargetPos.position);
 

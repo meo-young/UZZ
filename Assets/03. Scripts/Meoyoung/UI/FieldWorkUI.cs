@@ -51,6 +51,7 @@ public class FieldWorkUI : MonoBehaviour
 
     public void DoFieldWork()
     {
+        SoundManager.instance.PlaySFX(SFX.Ambience.TOUCH);
 
         if (!pureController.CheckPureAvailable())
             return;

@@ -76,9 +76,12 @@ public class PureStat : MonoBehaviour
     }
     public void GetLikeability(int _likeability)
     {
+        SoundManager.instance.PlaySFX(SFX.Ambience.LIKE);
+
         pureInfo.likeability += _likeability;
         if (pureInfo.likeability > likeabilityInfo[pureInfo.level].requiredExp)
         {
+            SoundManager.instance.PlaySFX(SFX.Ambience.LEVELUP);
             PureInteractionText.instance.UpdatePureInteractionDialogue();
             pureInfo.level++;
             pc.isLevelUp = true;
