@@ -42,6 +42,7 @@ public class PureInteractionText : MonoBehaviour
 
     public void ShowRandomInteractionText()
     {
+        SoundManager.instance.PlaySFX(SFX.Ambience.TEXT);
         dialoguePanel.SetActive(true);
 
         Vector3 textPosition = transform.position + new Vector3(0, 7f, 0);

@@ -80,6 +80,7 @@ public class AutoText : MonoBehaviour
 
     public void ShowIdleRandomText(Transform _targetTrans, int type)
     {
+        SoundManager.instance.PlaySFX(SFX.Ambience.TEXT);
         dialoguePanel.SetActive(true);
 
         Vector3 textPosition = _targetTrans.position + dialoguePos;

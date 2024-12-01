@@ -13,6 +13,7 @@ public class PurePresentReadyState : MonoBehaviour, IControllerState
         if(pc == null)
             pc = controller;
 
+        SoundManager.instance.PlaySFX(SFX.PureSound.READYGIFT);
         readyFlag = true;
         pc.pureAnimationSet.purePresentReady.SetActive(true);
     }
@@ -27,15 +28,4 @@ public class PurePresentReadyState : MonoBehaviour, IControllerState
         readyFlag = false;
         pc.pureAnimationSet.purePresentReady.SetActive(false);
     }
-
-    /*void OnMouseDown()
-    {
-        if (!readyFlag)
-        {
-            Debug.Log("ready 상태 아님");
-            return;
-        }
-
-        pc.ChangeState(pc._presentGiveState);
-    }*/
 }

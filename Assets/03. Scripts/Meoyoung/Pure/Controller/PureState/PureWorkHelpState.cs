@@ -11,6 +11,7 @@ public class PureWorkHelpState : MonoBehaviour, IControllerState
         if (pc == null)
             pc = controller;
 
+        SoundManager.instance.PlaySFX(SFX.Ambience.TROUBLE);
         fws = pc.fieldWorkState;
         pc.pureAnimationSet.ControlFieldWorkHelpAnimation(fws.state);
     }

@@ -41,12 +41,15 @@ public class MainTouch : MonoBehaviour
                     switch (firstTouchedObject.tag)
                     {
                         case "Pure_PresentGive":
+                            SoundManager.instance.PlaySFX(SFX.PureSound.TOUCH);
                             pc.presentManager.ShowPresentUI();
                             break;
                         case "Pure_PresentReady":
+                            SoundManager.instance.PlaySFX(SFX.PureSound.TOUCH);
                             pc.ChangeState(pc._presentGiveState);
                             break;
                         case "Pure_HelpWork":
+                            SoundManager.instance.PlaySFX(SFX.Ambience.SOLVE);
                             pc.ChangeState(pc._workState);
                             break;
                         case "Pure_Idle":
@@ -62,6 +65,7 @@ public class MainTouch : MonoBehaviour
                             pc.ChangeState(pc._interactionState);
                             break;
                         case "Flower":
+                            SoundManager.instance.PlaySFX(SFX.Flower.TOUCH);
                             flowerTouched = true;
                             flowerAnim = firstTouchedObject.GetComponent<Animator>();
                             break;

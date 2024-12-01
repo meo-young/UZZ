@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -44,7 +45,7 @@ public class DiaryUI : MonoBehaviour
     [SerializeField] GameObject prevBtn;
     [SerializeField] GameObject nextBtn;
     [SerializeField] Text descriptionText;
-    [SerializeField] Text titleText;
+    [SerializeField] TMP_Text titleText;
     [SerializeField] Image storyPreviewImage;
     [SerializeField] GameObject subAppreciateBtn;
 
