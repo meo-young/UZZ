@@ -1,0 +1,53 @@
+S_1118.png
+	size: 832, 184
+	filter: Linear, Linear
+	pma: true
+0_B_Leaf
+	bounds: 0, 85, 123, 72
+0_F_Leaf
+	bounds: 593, 123, 118, 60
+	offsets: 0, 5, 118, 65
+0_Stem
+	bounds: 243, 155, 28, 139
+	offsets: 48, 0, 94, 182
+	rotate: 90
+1_Flower
+	bounds: 328, 0, 147, 147
+	offsets: 0, 1, 152, 148
+1_Stem
+	bounds: 0, 161, 22, 63
+	rotate: 90
+2_B_Leaf_5
+	bounds: 192, 156, 51, 27
+2_F_Leaf_6
+	bounds: 123, 80, 108, 76
+	offsets: 8, 1, 116, 77
+2_Flower
+	bounds: 231, 62, 97, 93
+	offsets: 0, 2, 97, 95
+2_Leaf_1
+	bounds: 63, 161, 40, 22
+	offsets: 0, 1, 41, 24
+2_Leaf_2
+	bounds: 382, 151, 48, 32
+	offsets: 8, 6, 58, 39
+2_Leaf_3
+	bounds: 540, 145, 53, 38
+	offsets: 2, 0, 55, 39
+2_Leaf_4
+	bounds: 711, 122, 118, 61
+	offsets: 0, 2, 118, 63
+2_Stem_1
+	bounds: 103, 157, 26, 89
+	offsets: 29, 0, 129, 89
+	rotate: 90
+2_Stem_2
+	bounds: 430, 147, 36, 110
+	rotate: 90
+
+S_1118_2.png
+	size: 840, 1036
+	filter: Linear, Linear
+	pma: true
+Pot
+	bounds: 0, 0, 838, 1034

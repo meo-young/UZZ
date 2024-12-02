@@ -1,0 +1,793 @@
+fileFormatVersion: 2
+guid: e77667536df79c3449387e9d19c69f44
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7097384338728399490
+    second: wateringcan_0
+  - first:
+      213: 8377065975143737498
+    second: wateringcan_1
+  - first:
+      213: 2399936194447646721
+    second: wateringcan_2
+  - first:
+      213: -2918619318496111021
+    second: wateringcan_3
+  - first:
+      213: 102239605238541939
+    second: wateringcan_4
+  - first:
+      213: 4675327239771103800
+    second: wateringcan_5
+  - first:
+      213: -2867392554848968761
+    second: wateringcan_6
+  - first:
+      213: 67219404921313469
+    second: wateringcan_7
+  - first:
+      213: -7168469293425783368
+    second: wateringcan_8
+  - first:
+      213: -8734810214286382197
+    second: wateringcan_9
+  - first:
+      213: 1209498684318182784
+    second: wateringcan_10
+  - first:
+      213: -374891992909304777
+    second: wateringcan_11
+  - first:
+      213: -304858377890388131
+    second: wateringcan_12
+  - first:
+      213: -1630439524372923011
+    second: wateringcan_13
+  - first:
+      213: -7953250265021928594
+    second: wateringcan_14
+  - first:
+      213: -5560862094146237342
+    second: wateringcan_15
+  - first:
+      213: 142514283612394737
+    second: wateringcan_16
+  - first:
+      213: -2317090622905903189
+    second: wateringcan_17
+  - first:
+      213: -9106915339115837641
+    second: wateringcan_18
+  - first:
+      213: 2823848831962455439
+    second: wateringcan_19
+  - first:
+      213: -5758476910698962036
+    second: wateringcan_20
+  - first:
+      213: -7897967861363631646
+    second: wateringcan_21
+  - first:
+      213: 523104215136493978
+    second: wateringcan_22
+  - first:
+      213: -5981674732991541790
+    second: wateringcan_23
+  - first:
+      213: -2608368556859417294
+    second: wateringcan_24
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 0
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 0
+  spriteTessellationDetail: -1
+  textureType: 0
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: wateringcan_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 275
+        height: 356
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 282b358d379fe7260800000000000000
+      internalID: 7097384338728399490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wateringcan_1
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 263
+        width: 71
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a98247cee11514470800000000000000
+      internalID: 8377065975143737498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wateringcan_2
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 260
+        width: 40
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 100a7a1e0494e4120800000000000000
+      internalID: 2399936194447646721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wateringcan_3
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 293
+        width: 64
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 356527e713bfe77d0800000000000000
+      internalID: -2918619318496111021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wateringcan_4
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 354
+        width: 31
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37e2838116a3b6100800000000000000
+      internalID: 102239605238541939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wateringcan_5
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 225
+        width: 118
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 832a3478a5912e040800000000000000
+      internalID: 4675327239771103800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wateringcan_6
+      rect:
+        serializedVersion: 2
+        x: 676
+        y: 209
+        width: 80
+        height: 159
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cf90a8d9a9f438d0800000000000000
+      internalID: -2867392554848968761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wateringcan_7
+      rect:
+        serializedVersion: 2
+        x: 756
+        y: 335
+        width: 12
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db8195051bfcee000800000000000000
+      internalID: 67219404921313469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wateringcan_8
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 314
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bd8f06682b748c90800000000000000
+      internalID: -7168469293425783368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wateringcan_9
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 266
+        width: 59
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8ba10d9368b7c680800000000000000
+      internalID: -8734810214286382197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wateringcan_10
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 262
+        width: 46
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08d661b25a009c010800000000000000
+      internalID: 1209498684318182784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wateringcan_11
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 262
+        width: 40
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73ca08df7bd1ccaf0800000000000000
+      internalID: -374891992909304777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wateringcan_12
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 284
+        width: 14
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d57aa07abece4cbf0800000000000000
+      internalID: -304858377890388131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wateringcan_13
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 2
+        width: 168
+        height: 261
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7dbef914e38f59e0800000000000000
+      internalID: -1630439524372923011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wateringcan_14
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 225
+        width: 12
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6b2697a50160a190800000000000000
+      internalID: -7953250265021928594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wateringcan_15
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 229
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26c8a795369d3d2b0800000000000000
+      internalID: -5560862094146237342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wateringcan_16
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 234
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f4d2226cff4af100800000000000000
+      internalID: 142514283612394737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wateringcan_17
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 225
+        width: 15
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba71e4dda5a08dfd0800000000000000
+      internalID: -2317090622905903189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wateringcan_18
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 228
+        width: 9
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 737c174efbcbd9180800000000000000
+      internalID: -9106915339115837641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wateringcan_19
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 227
+        width: 16
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8d16802d83503720800000000000000
+      internalID: 2823848831962455439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wateringcan_20
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 0
+        width: 227
+        height: 225
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c83ef7a62c7c510b0800000000000000
+      internalID: -5758476910698962036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wateringcan_21
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 46
+        width: 126
+        height: 175
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e918f74318c46290800000000000000
+      internalID: -7897967861363631646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wateringcan_22
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 46
+        width: 83
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9168bb1380724700800000000000000
+      internalID: 523104215136493978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wateringcan_23
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 16
+        width: 72
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ed0c1ac582dcfca0800000000000000
+      internalID: -5981674732991541790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: wateringcan_24
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 5
+        width: 59
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23d98150e963dcbd0800000000000000
+      internalID: -2608368556859417294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      wateringcan_0: 7097384338728399490
+      wateringcan_1: 8377065975143737498
+      wateringcan_10: 1209498684318182784
+      wateringcan_11: -374891992909304777
+      wateringcan_12: -304858377890388131
+      wateringcan_13: -1630439524372923011
+      wateringcan_14: -7953250265021928594
+      wateringcan_15: -5560862094146237342
+      wateringcan_16: 142514283612394737
+      wateringcan_17: -2317090622905903189
+      wateringcan_18: -9106915339115837641
+      wateringcan_19: 2823848831962455439
+      wateringcan_2: 2399936194447646721
+      wateringcan_20: -5758476910698962036
+      wateringcan_21: -7897967861363631646
+      wateringcan_22: 523104215136493978
+      wateringcan_23: -5981674732991541790
+      wateringcan_24: -2608368556859417294
+      wateringcan_3: -2918619318496111021
+      wateringcan_4: 102239605238541939
+      wateringcan_5: 4675327239771103800
+      wateringcan_6: -2867392554848968761
+      wateringcan_7: 67219404921313469
+      wateringcan_8: -7168469293425783368
+      wateringcan_9: -8734810214286382197
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
