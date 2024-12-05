@@ -6,14 +6,21 @@ public class TutorialTouchManager : MonoBehaviour
     [SerializeField] TutorialManager tutoManager;
     [SerializeField] TutoFlowerManager flowerManager;
 
+    [Header("# Tutorial CG Image")]
+    [SerializeField] GameObject tutoCG0;
+    [SerializeField] GameObject tutoCG1;
+    [SerializeField] GameObject tutoCG2;
+
     private GameObject firstTouchedObject;
     private GameObject moveTouchedObject;
     private bool flowerTouched;
     private Animator flowerAnim;
+    private bool imageTouched;
 
     private void Start()
     {
         flowerTouched = false;
+        imageTouched = false;
     }
 
     void Update()
@@ -51,6 +58,24 @@ public class TutorialTouchManager : MonoBehaviour
                             {
                                 flowerTouched = true;
                                 flowerAnim = firstTouchedObject.GetComponent<Animator>();
+                            }
+                            break;
+                        case "CG0":
+                            if (imageTouched)
+                            {
+                                tutoCG0.SetActive(false);
+                                tutoCG1.SetActive(true);
+                            }
+                            imageTouched = true;
+                            break;
+                        case "CG1":
+                            if (!tutoCG2.activeSelf)
+                                tutoCG2.SetActive(true);
+                            else
+                            {
+                                tutoCG1.SetActive(false);
+                                tutoCG2.SetActive(false);
+                                tutoManager.OnNextDialogueHandler();
                             }
                             break;
                     }

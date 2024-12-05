@@ -31,6 +31,8 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] Text choiceText2;
     [SerializeField] GameObject choiceObject1;
     [SerializeField] GameObject choiceObject2;
+    [Header("# Image Tuto")]
+    [SerializeField] GameObject tutoCG0;
     [Header("# Watering Tuto")]
     [SerializeField] GameObject wateringVFX;
     [SerializeField] GameObject wateringTutoObject;
@@ -94,6 +96,9 @@ public class TutorialManager : MonoBehaviour
             case "Lock":
                 switch (dialogueInfo[counter].text)
                 {
+                    case "Image":
+                        tutoCG0.SetActive(true);
+                        break;
                     case "Watering":
                         if (!tutorialHighlight.activeSelf)
                             tutorialHighlight.SetActive(true);
