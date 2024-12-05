@@ -21,6 +21,8 @@ TagManager:
   - PresentPanel
   - FlowerStepUp
   - Fish
+  - CG0
+  - CG1
   layers:
   - Default
   - TransparentFX
