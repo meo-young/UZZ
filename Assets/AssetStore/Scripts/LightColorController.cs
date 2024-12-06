@@ -31,46 +31,13 @@ public class LightColorController : MonoBehaviour
 
     private void OnEnable()
     {
-        time = 0;
         GetSetters();
         UpdateSetters();
     }
 
     private void OnDisable()
     {
-        time = 0;
         UpdateSetters();
-    }
-
-    private void Update()
-    {
-        
-        if (currentTime != time)
-            UpdateSetters();
-        if (time > 1)
-        {
-            time = 0;
-
-        }
-        //하단 추가코드
-        if (timePlus)
-        {
-            time += Time.deltaTime * 0.0041f / 15f;
-        }
-        else if (!timePlus)
-        {
-            time -= Time.deltaTime * 0.0041f / 15f;
-        }
-
-        if (time < 0)
-        {
-            timePlus = true;
-        }
-
-
-
-
-
     }
 
     public void UpdateSetters()
