@@ -1578,7 +1578,7 @@
     "m_ObjectId": "193b31506c2e40bd947c6cf28930ed04",
     "m_Title": "Alpha",
     "m_Position": {
-        "x": 863.000244140625,
+        "x": 863.0,
         "y": 153.0
     }
 }
@@ -1680,8 +1680,8 @@
     "m_ObjectId": "1c106eb4a4024ca8affb8960eaf99195",
     "m_Title": "Dissolve Sharpness",
     "m_Position": {
-        "x": -1002.0001220703125,
-        "y": 486.9999694824219
+        "x": -1002.0,
+        "y": 487.0
     }
 }
 
@@ -5040,7 +5040,7 @@
     "m_Title": "Soft Particle Factor",
     "m_Position": {
         "x": 78.0,
-        "y": 1196.0001220703125
+        "y": 1196.0
     }
 }
 
@@ -5954,7 +5954,7 @@
     "m_ObjectId": "e61369a94fb14adbb6de7e11c9d50bc1",
     "m_Title": "Main Texture",
     "m_Position": {
-        "x": -2004.0001220703125,
+        "x": -2004.0,
         "y": -329.0
     }
 }

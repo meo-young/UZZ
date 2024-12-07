@@ -1,0 +1,48 @@
+S_1201_2.png
+	size: 888, 300
+	filter: Linear, Linear
+	pma: true
+Body
+	bounds: 0, 27, 273, 340
+	offsets: 0, 5, 287, 347
+	rotate: 90
+Eye_W
+	bounds: 705, 42, 168, 57
+Eyebrow_2
+	bounds: 0, 5, 147, 22
+Eyes
+	bounds: 723, 3, 137, 39
+Huk
+	bounds: 580, 0, 143, 28
+L_Arm
+	bounds: 340, 12, 87, 154
+	rotate: 90
+L_Ear
+	bounds: 792, 217, 81, 83
+	offsets: 0, 2, 83, 85
+L_Leg
+	bounds: 589, 28, 116, 91
+L_Tur
+	bounds: 860, 5, 23, 37
+	offsets: 1, 0, 25, 37
+Mouse
+	bounds: 792, 195, 56, 22
+R_Arm
+	bounds: 589, 119, 116, 181
+R_Ear
+	bounds: 494, 3, 86, 96
+	offsets: 2, 0, 88, 96
+R_Leg
+	bounds: 705, 180, 120, 87
+	rotate: 90
+R_Tur
+	bounds: 848, 195, 22, 39
+	offsets: 1, 0, 23, 39
+	rotate: 90
+Sleep_Eye
+	bounds: 705, 99, 172, 25
+Smile_Face
+	bounds: 705, 124, 173, 56
+Tail
+	bounds: 340, 99, 201, 249
+	rotate: 90
