@@ -5,6 +5,9 @@ public class Sprout : MonoBehaviour
 {
     [SerializeField] float nextDialogueTime;
     [SerializeField] TutorialManager tutoManager;
+    [SerializeField] GameObject flowerObject;
+    [SerializeField] GameObject flower2;
+    [SerializeField] TutorialCamera cam;
 
     private bool eventFlag = false;
     private float counter;
@@ -23,6 +26,11 @@ public class Sprout : MonoBehaviour
         if(counter > nextDialogueTime)
         {
             eventFlag = true;
+            this.gameObject.SetActive(false);
+            if(flower2.activeSelf)
+                flower2.SetActive(false);
+            flowerObject.SetActive(true);
+            cam.InitCamera();
             tutoManager.OnNextDialogueHandler();
         }
     }

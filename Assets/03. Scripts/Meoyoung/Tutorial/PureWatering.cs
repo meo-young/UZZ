@@ -4,10 +4,15 @@ public class PureWatering : MonoBehaviour
 {
     [SerializeField] float fieldWorkTime;
 
+    [Header("# Camera")]
+    [SerializeField] TutorialCamera cam;
+
     [Header("# Object")]
     [SerializeField] GameObject pure;
     [SerializeField] GameObject sprout;
     [SerializeField] GameObject flower;
+    [SerializeField] GameObject tutoFlower1;
+    [SerializeField] GameObject tutoFlower2;
 
     [Header("# UI")]
     [SerializeField] GameObject workPanel3;
@@ -36,12 +41,16 @@ public class PureWatering : MonoBehaviour
                 switch(activationCounter)
                 {
                     case 0:
+                        cam.SetCameraPosition();
                         if (!pure.activeSelf)
                             pure.SetActive(true);
                         if (!sprout.activeSelf)
                             sprout.SetActive(true);
                         break;
                     case 1:
+                        cam.SetCameraPosition();
+                        tutoFlower1.SetActive(false);
+                        tutoFlower2.SetActive(true);
                         if (!pure.activeSelf)
                             pure.SetActive(true);
                         if (sprout.activeSelf)
