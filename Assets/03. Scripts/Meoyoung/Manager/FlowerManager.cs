@@ -90,7 +90,7 @@ public class FlowerManager : MonoBehaviour
 
         SetActiveFalseAllFlower();
         InitFlowerUI();
-        defaultFlower[flowerData[flowerInfo.level].step - 1].SetActive(true);
+        defaultFlower[flowerInfo.level].SetActive(true);
         if (flowerInfo.isStepUp) // 단계업중인지 확인
             ShowStepUpEffect();
     }
