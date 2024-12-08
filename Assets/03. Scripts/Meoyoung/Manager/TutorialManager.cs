@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using Spine.Unity;
+using System.IO;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,6 +18,7 @@ public class TutorialManager : MonoBehaviour
 
     [Header("# Pure Info")]
     [SerializeField] GameObject[] pureAnim;
+    [SerializeField] SkeletonAnimation skeleton;
 
     [Header("# Dialogue Info")]
     [SerializeField] TextAsset tutorialDatatable;
@@ -104,6 +106,7 @@ public class TutorialManager : MonoBehaviour
                 break;
             case "Idle":
                 pureAnim[3].SetActive(true);
+                skeleton.AnimationState.SetAnimation(0, dialogueInfo[counter].animType, true);
                 break;
         }
     }
