@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using Spine.Unity;
+using System.IO;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,13 +13,12 @@ public class TutorialManager : MonoBehaviour
         public string text;
         public string touchType;
         public string choice1, choice2;
+        public string anim, animType;
     }
 
-    [Header("# Hightlight Transform List")]
-    [SerializeField] GameObject hightlight;
-    [Space(5)]
-    [SerializeField] Transform pure;
-    [SerializeField] RectTransform wateringUI;
+    [Header("# Pure Info")]
+    [SerializeField] GameObject[] pureAnim;
+    [SerializeField] SkeletonAnimation skeleton;
 
     [Header("# Dialogue Info")]
     [SerializeField] TextAsset tutorialDatatable;
@@ -86,6 +86,41 @@ public class TutorialManager : MonoBehaviour
     {
         DeactiveDialoguePanel();
         DeactiveChoicePanel();
+        CheckDialogueType();
+        CheckAnimationType();
+    }
+
+    void CheckAnimationType()
+    {
+        DeactiveAllPureAnim();
+        switch (dialogueInfo[counter].anim)
+        {
+            case "Sleep0":
+                pureAnim[0].SetActive(true);
+                break;
+            case "Sleep1":
+                pureAnim[1].SetActive(true);
+                break;
+            case "Sleep2":
+                pureAnim[2].SetActive(true);
+                break;
+            case "Idle":
+                pureAnim[3].SetActive(true);
+                skeleton.AnimationState.SetAnimation(0, dialogueInfo[counter].animType, true);
+                break;
+        }
+    }
+
+    void DeactiveAllPureAnim()
+    {
+        for(int i=0; i<pureAnim.Length; i++)
+        {
+            pureAnim[i].SetActive(false);
+        }
+    }
+
+    void CheckDialogueType()
+    {
         switch (dialogueInfo[counter].type)
         {
             case "null":
@@ -218,6 +253,9 @@ public class TutorialManager : MonoBehaviour
             dialogueInfo[int.Parse(value[0])].touchType = value[3];
             dialogueInfo[int.Parse(value[0])].choice1 = value[4];
             dialogueInfo[int.Parse(value[0])].choice2 = value[5];
+            dialogueInfo[int.Parse(value[0])].anim = value[6];
+            dialogueInfo[int.Parse(value[0])].animType = value[7];
+
         }
     }
 }
