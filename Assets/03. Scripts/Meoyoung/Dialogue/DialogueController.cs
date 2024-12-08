@@ -14,6 +14,7 @@ public class DialogueController : MonoBehaviour
     [Header("# Dialogue UI Info")]
     [SerializeField] GameObject blackImage;
     [SerializeField] List<Sprite> backgroundImgs;
+    [SerializeField] GameObject[] backgroundImages;
     [SerializeField] GameObject firstChoicePanel;
     [SerializeField] GameObject secondChoicePanel;
     [SerializeField] Text firstChoiceText;
@@ -110,7 +111,17 @@ public class DialogueController : MonoBehaviour
 
     void ChangeBackgroundImage()
     {
-        backgroundImage.sprite = backgroundImgs[dialogues[currentIndex].backgroundIndex];
+        //backgroundImage.sprite = backgroundImgs[dialogues[currentIndex].backgroundIndex];
+        InitBackgroundImage();
+        backgroundImages[dialogues[currentIndex].backgroundIndex].SetActive(true);
+    }
+
+    void InitBackgroundImage()
+    {
+        for(int i=0; i<backgroundImages.Length; i++)
+        {
+            backgroundImages[i].SetActive(false);
+        }
     }
 
     void SetTransition()
