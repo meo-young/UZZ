@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/01. Scenes/Meoyoung/Main.unity
     guid: a87c4a33d20ec874dae64686b10ec4b0
   - enabled: 1
-    path: Assets/01. Scenes/Meoyoung/Story.unity
+    path: Assets/01. Scenes/Meoyoung/Story_1.unity
     guid: 1ce9ee0725e2b0340a33327298e8eeef
   - enabled: 1
     path: Assets/01. Scenes/Meoyoung/Shop.unity

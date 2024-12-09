@@ -1009,6 +1009,7 @@
     "m_OutputNode": {
         "m_Id": ""
     },
+    "m_SubDatas": [],
     "m_ActiveTargets": [
         {
             "m_Id": "54f23a3fa9da4323a8cb07ddc4a93942"
@@ -1577,7 +1578,7 @@
     "m_ObjectId": "193b31506c2e40bd947c6cf28930ed04",
     "m_Title": "Alpha",
     "m_Position": {
-        "x": 852.0,
+        "x": 863.0,
         "y": 153.0
     }
 }
@@ -1679,8 +1680,8 @@
     "m_ObjectId": "1c106eb4a4024ca8affb8960eaf99195",
     "m_Title": "Dissolve Sharpness",
     "m_Position": {
-        "x": -983.0,
-        "y": 505.0
+        "x": -1002.0,
+        "y": 487.0
     }
 }
 
@@ -1839,8 +1840,8 @@
     "m_ObjectId": "2084770f998047f7af8b2d7b18e4b887",
     "m_Title": "Emmsive Power",
     "m_Position": {
-        "x": 54.909202575683597,
-        "y": -347.8977966308594
+        "x": 55.0,
+        "y": -348.0
     }
 }
 
@@ -1995,8 +1996,8 @@
     "m_ObjectId": "2dc6208ea22045318ed4b5e8b4fd24ac",
     "m_Title": "Secondary Color",
     "m_Position": {
-        "x": -853.9998779296875,
-        "y": -362.00006103515627
+        "x": -854.0,
+        "y": -362.0
     }
 }
 
@@ -2195,10 +2196,10 @@
         "w": 1.0
     },
     "m_DefaultValue": {
-        "x": 0.0,
-        "y": 0.0,
-        "z": 0.0,
-        "w": 0.0
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0,
+        "w": 1.0
     },
     "m_Labels": []
 }
@@ -2800,6 +2801,9 @@
     "m_AlphaClip": false,
     "m_CastShadows": true,
     "m_ReceiveShadows": true,
+    "m_DisableTint": false,
+    "m_AdditionalMotionVectorMode": 0,
+    "m_AlembicMotionVectors": false,
     "m_SupportsLODCrossFade": false,
     "m_CustomEditorGUI": "",
     "m_SupportVFX": false
@@ -2811,8 +2815,8 @@
     "m_ObjectId": "561d7f61eadd4b7ca278a4e1c2e726c1",
     "m_Title": "Disolve",
     "m_Position": {
-        "x": -2138.0,
-        "y": 1049.0001220703125
+        "x": -2392.0,
+        "y": 1048.0
     }
 }
 
@@ -3706,7 +3710,7 @@
     "m_Title": "Main Color",
     "m_Position": {
         "x": -1364.0,
-        "y": -847.0000610351563
+        "y": -847.0
     }
 }
 
@@ -3847,7 +3851,7 @@
     "m_StageCapability": 3,
     "m_BareResource": false,
     "m_Texture": {
-        "m_SerializedTexture": "{\"texture\":{\"instanceID\":0}}",
+        "m_SerializedTexture": "",
         "m_Guid": ""
     },
     "m_DefaultType": 0
@@ -4769,7 +4773,7 @@
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
     "m_Value": {
-        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"a3c3243ea136686469c79ff212a2d9f3\",\"type\":3}}",
+        "m_SerializedTexture": "{\"texture\":{\"fileID\":2800000,\"guid\":\"4a84ed01ad26c984591c15b6cca20697\",\"type\":3}}",
         "m_Guid": ""
     },
     "isMainTexture": false,
@@ -5035,8 +5039,8 @@
     "m_ObjectId": "b7cc1af5d422436987f9629dfe09eae6",
     "m_Title": "Soft Particle Factor",
     "m_Position": {
-        "x": 77.9999771118164,
-        "y": 1191.0
+        "x": 78.0,
+        "y": 1196.0
     }
 }
 
@@ -5442,10 +5446,10 @@
         "w": 1.0
     },
     "m_DefaultValue": {
-        "x": 0.0,
-        "y": 0.0,
-        "z": 0.0,
-        "w": 0.0
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0,
+        "w": 1.0
     },
     "m_Labels": []
 }
@@ -5950,8 +5954,8 @@
     "m_ObjectId": "e61369a94fb14adbb6de7e11c9d50bc1",
     "m_Title": "Main Texture",
     "m_Position": {
-        "x": -2004.0001220703125,
-        "y": -328.9999694824219
+        "x": -2004.0,
+        "y": -329.0
     }
 }
 
