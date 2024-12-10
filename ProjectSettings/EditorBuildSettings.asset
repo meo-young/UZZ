@@ -8,16 +8,28 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 1
+  - enabled: 0
     path: Assets/01. Scenes/Meoyoung/Title 4.unity
     guid: 19e9e4bdc8ed8d848abf179c0c19bfc7
-  - enabled: 1
+  - enabled: 0
     path: Assets/01. Scenes/Meoyoung/Main.unity
     guid: a87c4a33d20ec874dae64686b10ec4b0
   - enabled: 1
+    path: Assets/01. Scenes/Meoyoung/Title_Main.unity
+    guid: d80c8b05fc260eb40a75306259d4ebb0
+  - enabled: 1
+    path: Assets/01. Scenes/Meoyoung/Tutorial story.unity
+    guid: 2f3ca3f07d070964a88a2a226a50701a
+  - enabled: 1
+    path: Assets/01. Scenes/Meoyoung/Tutorial_Main.unity
+    guid: 0596554db2ce3fe4e9d65fa3338cdb7a
+  - enabled: 1
+    path: Assets/01. Scenes/Meoyoung/Main_Fix.unity
+    guid: c90a012b0a93e534eb8e6b2c6b7d49b0
+  - enabled: 1
     path: Assets/01. Scenes/Meoyoung/Story_1.unity
     guid: 1ce9ee0725e2b0340a33327298e8eeef
-  - enabled: 1
+  - enabled: 0
     path: Assets/01. Scenes/Meoyoung/Shop.unity
     guid: d4612fa6c00337e408473190a97e9e78
   m_configObjects:

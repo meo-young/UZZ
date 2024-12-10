@@ -1,5 +1,5 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -7,13 +7,15 @@ using static DialogueManager;
 
 public class DialogueController : MonoBehaviour
 {
-    [SerializeField] int currentIndex;
     [Header("# Fade Speed")]
-    [SerializeField] float fadeSpeed = 3f;
+    [SerializeField] float fadeSpeed = 2f;
+
+    [Header("# Next Scene")]
+    [SerializeField] string nextSceneName = "Main";
 
     [Header("# Dialogue UI Info")]
-    [SerializeField] GameObject blackImage;
-    [SerializeField] List<Sprite> backgroundImgs;
+    [SerializeField] Image blackImage;
+    [SerializeField] SpriteRenderer[] popUpImages;
     [SerializeField] GameObject[] backgroundImages;
     [SerializeField] GameObject firstChoicePanel;
     [SerializeField] GameObject secondChoicePanel;
@@ -21,10 +23,11 @@ public class DialogueController : MonoBehaviour
     [SerializeField] Text secondChoiceText;
     [SerializeField] Text dialogueText;
     [SerializeField] Text nameText;
-    [SerializeField] Image backgroundImage;
+    [SerializeField] Button dialoguePanelBtn;
+    [SerializeField] GameObject nextBtn;
 
     private DialogueInfo[] dialogues => DialogueManager.instance.dialogueInfos;
-
+    private int currentIndex;
     private void Awake()
     {
         OffChoicePanel();
@@ -34,13 +37,14 @@ public class DialogueController : MonoBehaviour
     private void Start()
     {
         currentIndex = 0;
-        ChangeDialogueText();
+        ChangeDialogue();
     }
 
+    #region Choice Function
     public void OnFirstChoiceHandler()
     {
         currentIndex = dialogues[currentIndex].nextIndex1;
-        ChangeDialogueText();
+        ChangeDialogue();
     }
 
     public void OnSecondChoiceHandler()
@@ -50,24 +54,13 @@ public class DialogueController : MonoBehaviour
         if (dialogues[currentIndex].nextIndex2 == 0)
         {
             currentIndex = dialogues[currentIndex].nextIndex1;
-            ChangeDialogueText();
+            ChangeDialogue();
         }
         else
         {
             currentIndex = dialogues[currentIndex].nextIndex2;
-            ChangeDialogueText();
+            ChangeDialogue();
         }
-    }
-
-    public void OnNextBtnHandler()
-    {
-        if (dialogues[currentIndex].type == Type.Choice)
-            return;
-        CheckLastDialogue();
-        SetTransition();
-
-        currentIndex++;
-        ChangeDialogueText();
     }
     void OnChoicePanel()
     {
@@ -90,12 +83,42 @@ public class DialogueController : MonoBehaviour
         if (secondChoicePanel.activeSelf)
             secondChoicePanel.SetActive(false);
     }
-
-    void ChangeDialogueText()
+    #endregion
+    public void OnNextBtnHandler()
     {
-        ChangeBackgroundImage();
+        currentIndex++;
+        ChangeDialogue();
+    }
 
-        if (dialogues[currentIndex].type == Type.Choice)
+    void CheckDialogueType()
+    {
+        switch (dialogues[currentIndex].type)
+        {
+            case DialogueManager.Type.Choice:
+                nextBtn.SetActive(false);
+                dialoguePanelBtn.enabled = false;
+                break;
+            case DialogueManager.Type.Skip:
+                nextBtn.SetActive(false);
+                dialoguePanelBtn.enabled = false;
+                SetTransition();
+                return;
+            case DialogueManager.Type.Dialog:
+                nextBtn.SetActive(true);
+                dialoguePanelBtn.enabled = true;
+                break;
+        }
+    }
+
+    void ChangeDialogue()
+    {
+        CheckSound();
+        ChangeBackgroundImage();
+        CheckDialogueType();
+        CheckLastDialogue();
+        SetName();
+
+        if (dialogues[currentIndex].type == DialogueManager.Type.Choice)
         {
             firstChoiceText.text = dialogues[currentIndex].dialogue1;
             secondChoiceText.text = dialogues[currentIndex].dialogue2;
@@ -109,9 +132,13 @@ public class DialogueController : MonoBehaviour
         }
     }
 
+    void SetName()
+    {
+        nameText.text = dialogues[currentIndex].name;
+    }
+
     void ChangeBackgroundImage()
     {
-        //backgroundImage.sprite = backgroundImgs[dialogues[currentIndex].backgroundIndex];
         InitBackgroundImage();
         backgroundImages[dialogues[currentIndex].backgroundIndex].SetActive(true);
     }
@@ -128,26 +155,46 @@ public class DialogueController : MonoBehaviour
     {
         switch (dialogues[currentIndex].transition)
         {
-            case 0:
-                StartCoroutine(FadeIn(fadeSpeed));
+            case 0: // FadeIn_B
+                StartCoroutine(FadeIn(blackImage, fadeSpeed, OnNextBtnHandler));
                 break;
-            case 1:
-                StartCoroutine(FadeOut(fadeSpeed));
+            case 1: // FadeOut_B
+                StartCoroutine(FadeOut(blackImage, fadeSpeed, OnNextBtnHandler));
+                break;
+            case 4: // Dissolve
+                backgroundImages[dialogues[currentIndex - 1].backgroundIndex].SetActive(true);
+                StartCoroutine(FadeOut(backgroundImages[dialogues[currentIndex].backgroundIndex].GetComponent<SpriteRenderer>(), fadeSpeed, OnNextBtnHandler));
+                break;
+            case 5: // Popup
+                StartCoroutine(FadeOut(popUpImages[dialogues[currentIndex].backgroundIndex], fadeSpeed, OnNextBtnHandler));
+                break;
+            case 6: // PopOut
+                StartCoroutine(FadeIn(popUpImages[dialogues[currentIndex].backgroundIndex], fadeSpeed, OnNextBtnHandler));
                 break;
         }
     }
 
     void CheckLastDialogue()
     {
-        if (dialogues[currentIndex].nextIndex1 == -1)
+        if (currentIndex == 0)
+            return;
+
+        if (dialogues[currentIndex-1].nextIndex1 == -1)
         {
-            SceneManager.LoadScene("Main");
+            SceneManager.LoadScene(nextSceneName);
         }
     }
 
-    IEnumerator FadeOut(float _speed)
+    void CheckSound()
     {
-        Color color = blackImage.GetComponent<Image>().color;
+        StorySound.instance.PlaySE(dialogues[currentIndex].se);
+        StorySound.instance.PlaySFX(dialogues[currentIndex].ambience);
+    }
+
+    #region Fade
+    IEnumerator FadeOut(Image _img, float _speed, Action callback)
+    {
+        Color color = _img.color;
         color.a = 0f;
 
         float elapsedTime = 0f;
@@ -156,17 +203,19 @@ public class DialogueController : MonoBehaviour
         {
             elapsedTime += Time.deltaTime;
             color.a = Mathf.Lerp(0f, 1f, elapsedTime / _speed);
-            blackImage.GetComponent<Image>().color = color;
+            _img.color = color;
             yield return null;
         }
 
         color.a = 1f;
-        blackImage.GetComponent<Image>().color = color;
+        _img.color = color;
+
+        callback();
     }
 
-    IEnumerator FadeIn(float _speed)
+    IEnumerator FadeIn(Image _img, float _speed, Action callback)
     {
-        Color color = blackImage.GetComponent<Image>().color;
+        Color color = _img.color;
         color.a = 1f;
 
         float elapsedTime = 0f;
@@ -174,11 +223,55 @@ public class DialogueController : MonoBehaviour
         {
             elapsedTime += Time.deltaTime;
             color.a = Mathf.Lerp(1f, 0f, elapsedTime / _speed);
-            blackImage.GetComponent<Image>().color = color;
+            _img.color = color;
             yield return null;
         }
 
         color.a = 0f;
-        blackImage.GetComponent<Image>().color = color;
+        _img.color = color;
+
+        callback();
     }
+
+    IEnumerator FadeOut(SpriteRenderer _img, float _speed, Action callback)
+    {
+        Color color = _img.color;
+        color.a = 0f;
+
+        float elapsedTime = 0f;
+
+        while (elapsedTime < _speed)
+        {
+            elapsedTime += Time.deltaTime;
+            color.a = Mathf.Lerp(0f, 1f, elapsedTime / _speed);
+            _img.color = color;
+            yield return null;
+        }
+
+        color.a = 1f;
+        _img.color = color;
+
+        callback();
+    }
+
+    IEnumerator FadeIn(SpriteRenderer _img, float _speed, Action callback)
+    {
+        Color color = _img.color;
+        color.a = 1f;
+
+        float elapsedTime = 0f;
+        while (elapsedTime < _speed)
+        {
+            elapsedTime += Time.deltaTime;
+            color.a = Mathf.Lerp(1f, 0f, elapsedTime / _speed);
+            _img.color = color;
+            yield return null;
+        }
+
+        color.a = 0f;
+        _img.color = color;
+
+        callback();
+    }
+    #endregion
 }

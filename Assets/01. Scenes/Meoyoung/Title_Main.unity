@@ -152,7 +152,7 @@ MonoBehaviour:
   m_LightType: 4
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
-  m_Color: {r: 0.047068916, g: 0.124290705, b: 0.30224472, a: 1}
+  m_Color: {r: 0.047071587, g: 0.12429623, b: 0.30225712, a: 1}
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
@@ -939,7 +939,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 0.995861}
+      maxColor: {r: 1, g: 1, b: 1, a: 0.9957177}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -6248,7 +6248,7 @@ MonoBehaviour:
   tutoChecker: {fileID: 290565176}
   tutoDataManager: {fileID: 804851364}
   sceneName: Main_Fix
-  tutorialName: Tutorial_Main
+  tutorialName: Tutorial story
 --- !u!1 &1498136774
 GameObject:
   m_ObjectHideFlags: 0
