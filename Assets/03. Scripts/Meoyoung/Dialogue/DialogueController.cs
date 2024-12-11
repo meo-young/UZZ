@@ -112,7 +112,12 @@ public class DialogueController : MonoBehaviour
 
     void ChangeDialogue()
     {
-        CheckLastDialogue();
+        if (currentIndex > 0 && dialogues[currentIndex - 1].nextIndex1 == -1)
+        {
+            PlayerPrefs.SetInt("Story", 1);
+            SceneManager.LoadScene(nextSceneName);
+            return;
+        }
         CheckSound();
         ChangeBackgroundImage();
         CheckDialogueType();
@@ -145,7 +150,7 @@ public class DialogueController : MonoBehaviour
 
     void InitBackgroundImage()
     {
-        for(int i=0; i<backgroundImages.Length; i++)
+        for (int i = 0; i < backgroundImages.Length; i++)
         {
             backgroundImages[i].SetActive(false);
         }
@@ -166,10 +171,10 @@ public class DialogueController : MonoBehaviour
                 StartCoroutine(FadeOut(backgroundImages[dialogues[currentIndex].backgroundIndex].GetComponent<SpriteRenderer>(), fadeSpeed, OnNextBtnHandler));
                 break;
             case 5: // Popup
-                StartCoroutine(FadeOut(popUpImages[dialogues[currentIndex].backgroundIndex], fadeSpeed, OnNextBtnHandler));
+                StartCoroutine(FadeOut(popUpImages[dialogues[currentIndex].popup], fadeSpeed, OnNextBtnHandler));
                 break;
             case 6: // PopOut
-                StartCoroutine(FadeIn(popUpImages[dialogues[currentIndex].backgroundIndex], fadeSpeed, OnNextBtnHandler));
+                StartCoroutine(FadeIn(popUpImages[dialogues[currentIndex].popup], fadeSpeed, OnNextBtnHandler));
                 break;
         }
     }
@@ -179,7 +184,7 @@ public class DialogueController : MonoBehaviour
         if (currentIndex == 0)
             return;
 
-        if (dialogues[currentIndex-1].nextIndex1 == -1)
+        if (dialogues[currentIndex - 1].nextIndex1 == -1)
         {
             PlayerPrefs.SetInt("Story", 1);
             SceneManager.LoadScene(nextSceneName);
@@ -188,7 +193,7 @@ public class DialogueController : MonoBehaviour
     }
 
     void CheckSound()
-    {
+    {  
         StorySound.instance.PlaySE(dialogues[currentIndex].se);
         StorySound.instance.PlaySFX(dialogues[currentIndex].ambience);
     }

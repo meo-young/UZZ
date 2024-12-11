@@ -3609,7 +3609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 973bac2fed484fd4d8baf7b8dd38a136, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueDataTable: {fileID: 4900000, guid: dedc02282823d8e4dadc892fe9d4d231, type: 3}
+  dialogueDataTable: {fileID: 4900000, guid: 5fefe60ca8146dc438c4d5e424cfd517, type: 3}
 --- !u!114 &2061544127
 MonoBehaviour:
   m_ObjectHideFlags: 0
