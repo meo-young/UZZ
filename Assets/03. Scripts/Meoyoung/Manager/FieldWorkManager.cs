@@ -1,23 +1,33 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class FieldWorkManager : MonoBehaviour
 {
     public static FieldWorkManager instance;
 
+    [Serializable]
+    public class _2dArray
+    {
+        public Sprite[] fieldWorkNumber = new Sprite[5];
+    }
+
     [Header("# FieldWork UI")]
     [SerializeField] FieldWorkUI[] fieldWorkUIArray;
-    [SerializeField] List<int> fieldWorkCooltime;
-
-    [Header("# FieldWork Info")]
     [SerializeField] TMP_Text[] fieldWorkHelpText;
     [SerializeField] TMP_Text[] fieldWorkHelpSuccessText;
+    [SerializeField] Image[] fieldWorkIcon;
+
+    [Header("# FieldWork Info")]
+    [SerializeField] _2dArray[] icons;
+    [SerializeField] List<int> fieldWorkCooltime;
     public FieldWorkInfo fieldWorkInfo;
     public FieldWork[] fieldWorkArray;
-    [HideInInspector] public FieldWork noneWork;
+    public FieldWork noneWork;
     private FieldWork[][] fieldWorkData => LoadFieldWorkData.instance.fieldWorkData;
 
     [Header("# FieldWork Stat")]
@@ -48,7 +58,7 @@ public class FieldWorkManager : MonoBehaviour
     // 도움작업 확률 체크
     public bool CheckHelpProbability()
     {
-        int randomNum = Random.Range(0, 100);
+        int randomNum = UnityEngine.Random.Range(0, 100);
         if (randomNum < helpProbability)
             return true;
 
@@ -58,7 +68,7 @@ public class FieldWorkManager : MonoBehaviour
     // 자동작업 확률 체크
     public bool CheckAutoWorkProbability()
     {
-        int randNum = Random.Range(0, 100);
+        int randNum = UnityEngine.Random.Range(0, 100);
 
         if (randNum < autoWorkProbability)
         {
@@ -73,7 +83,7 @@ public class FieldWorkManager : MonoBehaviour
     {
         while (true)
         {
-            int randNum = Random.Range(0, 5);
+            int randNum = UnityEngine.Random.Range(0, 5);
             if (fieldWorkArray[randNum].available)
             {
                 fieldWorkUIArray[randNum].DoFieldWork();
@@ -97,22 +107,21 @@ public class FieldWorkManager : MonoBehaviour
             int step = fieldWorkInfo.level[i] / 10;
             int level = fieldWorkInfo.level[i] % 10;
 
-            fieldWorkUIArray[i].gameObject.SetActive(true);
-            fieldWorkArray[i].step = step;
-            fieldWorkArray[i].level = level;
-            fieldWorkArray[i].type = (FieldWorkType)i;
-            fieldWorkArray[i].result = (ResultType)(i % 2);
-            fieldWorkArray[i].growPoint = fieldWorkData[i][fieldWorkInfo.level[i] - 1].growPoint;
-            fieldWorkArray[i].dewPoint = fieldWorkData[i][fieldWorkInfo.level[i] - 1].dewPoint;
-            fieldWorkArray[i].price = fieldWorkData[i][fieldWorkInfo.level[i] - 1].price;
-            fieldWorkArray[i].helpText = fieldWorkData[i][fieldWorkInfo.level[i] - 1].helpText;
-            fieldWorkArray[i].helpSuccessText = fieldWorkData[i][fieldWorkInfo.level[i] - 1].helpSuccessText;
-            fieldWorkArray[i].available = true;
-            fieldWorkArray[i].coolTime = fieldWorkCooltime[i];
-
-
-            fieldWorkHelpText[i].text = fieldWorkData[i][fieldWorkInfo.level[i] - 1].helpText;
-            fieldWorkHelpSuccessText[i].text = fieldWorkData[i][fieldWorkInfo.level[i] - 1].helpSuccessText;
+            fieldWorkUIArray[i].gameObject.SetActive(true);                                                     // 구매한 작업의 UI 활성화
+            fieldWorkArray[i].step = step;                                                                      // Step
+            fieldWorkArray[i].level = level;                                                                    // Level
+            fieldWorkArray[i].type = (FieldWorkType)i;                                                          // Watering, Scissor ... 구분
+            fieldWorkArray[i].growPoint = fieldWorkData[i][fieldWorkInfo.level[i] - 1].growPoint;               // 획득 성장치
+            fieldWorkArray[i].dewPoint = fieldWorkData[i][fieldWorkInfo.level[i] - 1].dewPoint;                 // 획득 이슬
+            fieldWorkArray[i].price = fieldWorkData[i][fieldWorkInfo.level[i] - 1].price;                       // 작업 구매 가격
+            fieldWorkArray[i].helpText = fieldWorkData[i][fieldWorkInfo.level[i] - 1].helpText;                 // 작업 도움 텍스트
+            fieldWorkArray[i].helpSuccessText = fieldWorkData[i][fieldWorkInfo.level[i] - 1].helpSuccessText;   // 작업 도움 성공 텍스트
+            fieldWorkArray[i].available = true;                                                                 // 현재 실행가능한 작업인지
+            fieldWorkArray[i].coolTime = fieldWorkCooltime[i];                                                  // 쿨타임
+            fieldWorkArray[i].icon = fieldWorkData[i][fieldWorkInfo.level[i] - 1].icon;                         // 작업 아이콘
+            fieldWorkHelpText[i].text = fieldWorkData[i][fieldWorkInfo.level[i] - 1].helpText;                  // 작업도움텍스트 UI 변경
+            fieldWorkHelpSuccessText[i].text = fieldWorkData[i][fieldWorkInfo.level[i] - 1].helpSuccessText;    // 작업도움성공텍스트 UI 변경
+            fieldWorkIcon[i].sprite = icons[i].fieldWorkNumber[fieldWorkArray[i].icon];                         // 작업아이콘 할당
         }
     }
 }

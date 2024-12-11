@@ -89,7 +89,7 @@ public class FlowerManager : MonoBehaviour
         items = new List<ItemAcquireFx>();
         SetActiveFalseAllFlower();
         InitFlowerUI();
-        defaultFlower[flowerInfo.level].SetActive(true);
+        defaultFlower[flowerData[flowerInfo.level].step - 1].SetActive(true);
         if (flowerInfo.isStepUp) // 단계업중인지 확인
             ShowStepUpEffect();
     }
@@ -159,7 +159,8 @@ public class FlowerManager : MonoBehaviour
     }
     void SetActiveFalseDefaultFlower()
     {
-        defaultFlower[flowerData[flowerInfo.level].step - 1].SetActive(false);
+        for (int i = 0; i < defaultFlower.Count; i++)
+            defaultFlower[i].SetActive(false);
     }
 
     void BackToDefaultFlower()
@@ -250,7 +251,7 @@ public class FlowerManager : MonoBehaviour
     {
         Instantiate(MainManager.instance.vfxManager.flowerStepUpVFX);
         SoundManager.instance.PlaySFX(SFX.Flower.STEPUP);
-        defaultFlower[flowerData[flowerInfo.level].step - 1].SetActive(false);
+        SetActiveFalseDefaultFlower();
         flowerInfo.level++;
         flowerInfo.exp = 0;
         defaultFlower[flowerData[flowerInfo.level].step - 1].SetActive(true);

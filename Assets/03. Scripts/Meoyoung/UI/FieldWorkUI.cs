@@ -59,9 +59,13 @@ public class FieldWorkUI : MonoBehaviour
         if (MainManager.instance.flowerManager.isFlowerEvent)
             return;
 
+        if (MainManager.instance.flowerManager.flowerInfo.isStepUp)
+            return;
+
         if (fieldWorkManager.fieldWorkInfo.coolTimeList[(int)workType] > 0)
             return;
 
+        Debug.Log(pureController.fieldWorkState.type);
         if (pureController.fieldWorkState.type != FieldWorkType.None)
             return;
 

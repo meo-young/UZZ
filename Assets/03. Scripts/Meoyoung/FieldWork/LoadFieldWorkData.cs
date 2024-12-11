@@ -86,16 +86,10 @@ public enum FieldWorkType
     None = 5
 }
 
-public enum ResultType
-{
-    Growth = 0,
-    Dew = 1
-}
 [System.Serializable]
 public class FieldWork
 {
     public FieldWorkType type;
-    public ResultType result;
     public int step, level;
     public int coolTime;
     public string helpText, helpSuccessText;
