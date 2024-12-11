@@ -112,10 +112,10 @@ public class DialogueController : MonoBehaviour
 
     void ChangeDialogue()
     {
+        CheckLastDialogue();
         CheckSound();
         ChangeBackgroundImage();
         CheckDialogueType();
-        CheckLastDialogue();
         SetName();
 
         if (dialogues[currentIndex].type == DialogueManager.Type.Choice)
@@ -181,7 +181,9 @@ public class DialogueController : MonoBehaviour
 
         if (dialogues[currentIndex-1].nextIndex1 == -1)
         {
+            PlayerPrefs.SetInt("Story", 1);
             SceneManager.LoadScene(nextSceneName);
+            return;
         }
     }
 

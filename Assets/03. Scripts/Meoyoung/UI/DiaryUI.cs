@@ -169,7 +169,8 @@ public class DiaryUI : MonoBehaviour
             diaryInfo.level++;
         }
 
-        SceneManager.LoadScene("Story");
+        PlayerPrefs.SetInt("Plus", 30);
+        SceneManager.LoadScene("Story_1");
     }
 
     void CheckIndex()                       // Current Index를 현재 Level로 초기화

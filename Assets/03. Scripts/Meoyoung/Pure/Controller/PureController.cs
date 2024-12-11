@@ -41,6 +41,16 @@ public class PureController : MonoBehaviour
     {
         if(instance == null)
             instance = this;
+
+        pureStat = MainManager.instance.pureStat;
+        pureAnimationSet = MainManager.instance.pureAnimationSet;
+        fieldWorkManager = MainManager.instance.fieldWorkManager;
+        speechBubbleSet = MainManager.instance.speechBubbleSet;
+        vfxManager = MainManager.instance.vfxManager;
+        presentManager = MainManager.instance.presentManager;
+        flowerManager = MainManager.instance.flowerManager;
+        interactionText = MainManager.instance.pureInteractionText;
+        autoText = MainManager.instance.autoText;
     }
 
     private void Start()
@@ -54,17 +64,6 @@ public class PureController : MonoBehaviour
         _presentGiveState = gameObject.AddComponent<PurePresentGiveState>();
         _workState = gameObject.AddComponent<PureWorkState>();
         _workHelpState = gameObject.AddComponent<PureWorkHelpState>();
-        #endregion
-        #region Init Script
-        pureStat = MainManager.instance.pureStat;
-        pureAnimationSet = MainManager.instance.pureAnimationSet;
-        fieldWorkManager = MainManager.instance.fieldWorkManager;
-        speechBubbleSet = MainManager.instance.speechBubbleSet;
-        vfxManager = MainManager.instance.vfxManager;
-        presentManager = MainManager.instance.presentManager;
-        flowerManager = MainManager.instance.flowerManager;
-        interactionText = MainManager.instance.pureInteractionText;
-        autoText = MainManager.instance.autoText;
         #endregion
         Initialize();
 
