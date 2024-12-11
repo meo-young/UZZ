@@ -13,7 +13,7 @@ public class PureWorkState : MonoBehaviour, IControllerState
             pc = controller;
 
         fws = pc.fieldWorkState;
-        pc.pureAnimationSet.ControlFieldWorkAnimation(fws.state);
+        pc.pureAnimationSet.ControlFieldWorkAnimation(fws.type);
     }
 
     public void OnStateUpdate()
@@ -25,7 +25,7 @@ public class PureWorkState : MonoBehaviour, IControllerState
 
         if (!pc.pureStat.pureInfo.autoText && !pc.pureStat.pureInfo.interactionText)
         {
-            pc.autoText.ShowFieldWorkText(pc.fieldWorkPos[(int)fws.state], (int)fws.state);
+            pc.autoText.ShowFieldWorkText(pc.fieldWorkPos[(int)fws.type], (int)fws.type);
             pc.pureStat.SetTrueAutoText();
             return;
         }
@@ -44,6 +44,6 @@ public class PureWorkState : MonoBehaviour, IControllerState
 
     public void OnStateExit()
     {
-        pc.pureAnimationSet.ControlFieldWorkAnimation(fws.state);
+        pc.pureAnimationSet.ControlFieldWorkAnimation(fws.type);
     }
 }

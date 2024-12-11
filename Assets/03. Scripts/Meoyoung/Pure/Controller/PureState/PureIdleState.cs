@@ -66,20 +66,14 @@ public class PureIdleState : MonoBehaviour, IControllerState
 
     void GetWorkPoint()
     {
-        if (pc.fieldWorkState.state == FieldWorkState.None) // 작업을 한 상태가 아닌 경우 return
+        if (pc.fieldWorkState.type == FieldWorkType.None) // 작업을 한 상태가 아닌 경우 return
             return;
 
-        switch (pc.fieldWorkState.type)
-        {
-            case FieldWorkType.Growth:
-                Instantiate(pc.vfxManager.growthVFX);
-                pc.flowerManager.GetFlowerExp((int)pc.fieldWorkState.point);
-                break;
-            case FieldWorkType.Dew:
-                Instantiate(pc.vfxManager.dewVFX);
-                MainManager.instance.gameInfo.dew += pc.fieldWorkState.point;
-                break;
-        }
+        Instantiate(pc.vfxManager.growthVFX);
+        pc.flowerManager.GetFlowerExp((int)pc.fieldWorkState.growPoint);
+
+        Instantiate(pc.vfxManager.dewVFX);
+        MainManager.instance.gameInfo.dew += pc.fieldWorkState.growPoint;
 
         pc.Initialize();
         MainManager.instance.gameInfo.cycleFlag = false;

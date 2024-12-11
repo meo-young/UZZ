@@ -1,38 +1,34 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-[System.Serializable]
-public class FieldWorkInfo
-{
-    public int level = 4;
-    public float[] coolTimeList;
-    // 생성자에서 배열 크기 초기화
-    public FieldWorkInfo()
-    {
-        coolTimeList = new float[5]; // 배열 크기를 5로 초기화
-    }
-}
 
 public class FieldWorkManager : MonoBehaviour
 {
     public static FieldWorkManager instance;
 
-    [Header("# FieldWork UI")]
-    public FieldWorkUI[] fieldWorkUIArray;
-    [SerializeField] List<int> fieldWorkCooltime;
+    [Serializable]
+    public class _2dArray
+    {
+        public Sprite[] fieldWorkNumber = new Sprite[5];
+    }
 
-    [Header("# FieldWork Info")]
-    [SerializeField] TextAsset fieldWorkDataTable;
-    FieldWork[][] fieldWorkData; // CSV 파일에서 가져온 데이터
+    [Header("# FieldWork UI")]
+    [SerializeField] FieldWorkUI[] fieldWorkUIArray;
     [SerializeField] TMP_Text[] fieldWorkHelpText;
     [SerializeField] TMP_Text[] fieldWorkHelpSuccessText;
+    [SerializeField] Image[] fieldWorkIcon;
+
+    [Header("# FieldWork Info")]
+    [SerializeField] _2dArray[] icons;
+    [SerializeField] List<int> fieldWorkCooltime;
     public FieldWorkInfo fieldWorkInfo;
     public FieldWork[] fieldWorkArray;
     public FieldWork noneWork;
+    private FieldWork[][] fieldWorkData => LoadFieldWorkData.instance.fieldWorkData;
 
     [Header("# FieldWork Stat")]
     public int likeability;
@@ -55,7 +51,6 @@ public class FieldWorkManager : MonoBehaviour
 
     private void Start()
     {
-        UpdateFieldWorkData();
         InitFieldWorkData();
     }
 
@@ -63,7 +58,7 @@ public class FieldWorkManager : MonoBehaviour
     // 도움작업 확률 체크
     public bool CheckHelpProbability()
     {
-        int randomNum = Random.Range(0, 100);
+        int randomNum = UnityEngine.Random.Range(0, 100);
         if (randomNum < helpProbability)
             return true;
 
@@ -73,7 +68,7 @@ public class FieldWorkManager : MonoBehaviour
     // 자동작업 확률 체크
     public bool CheckAutoWorkProbability()
     {
-        int randNum = Random.Range(0, 100);
+        int randNum = UnityEngine.Random.Range(0, 100);
 
         if (randNum < autoWorkProbability)
         {
@@ -88,7 +83,7 @@ public class FieldWorkManager : MonoBehaviour
     {
         while (true)
         {
-            int randNum = Random.Range(0, 5);
+            int randNum = UnityEngine.Random.Range(0, 5);
             if (fieldWorkArray[randNum].available)
             {
                 fieldWorkUIArray[randNum].DoFieldWork();
@@ -97,134 +92,36 @@ public class FieldWorkManager : MonoBehaviour
         }
     }
 
-    void NewFieldWorkDataArray()
-    {
-        fieldWorkData = new FieldWork[5][];
-        for (int i = 0; i < 5; i++)
-        {
-            fieldWorkData[i] = new FieldWork[10]; // 각 배열에 10개의 요소 할당
-            for (int j = 0; j < 10; j++)
-            {
-                fieldWorkData[i][j] = new FieldWork(); // 각 요소에 FieldWork 인스턴스 생성
-            }
-        }
-
-    }
-
-    public void UpdateFieldWorkData()
-    {
-        NewFieldWorkDataArray();
-
-        StringReader reader = new StringReader(fieldWorkDataTable.text);
-        bool head = false;
-        while (reader.Peek() != -1)
-        {
-            string line = reader.ReadLine();
-            if (!head)
-            {
-                head = true;
-                continue;
-            }
-            string[] values = line.Split('\t');
-
-            switch (values[0])
-            {
-                case "Watering":
-                    AddFieldWorkData(0, values);
-                    break;
-                case "Spade":
-                    AddFieldWorkData(1, values);
-                    break;
-                case "Fertilizer":
-                    AddFieldWorkData(2, values);
-                    break;
-                case "Scissor":
-                    AddFieldWorkData(3, values);
-                    break;
-                case "Nutritional":
-                    AddFieldWorkData(4, values);
-                    break;
-            }
-        }
-    }
-
-    void AddFieldWorkData(int _index, string[] _values)
-    {
-        fieldWorkData[_index][int.Parse(_values[4]) - 1].helpText = _values[1];
-        fieldWorkData[_index][int.Parse(_values[4]) - 1].helpSuccessText = _values[2];
-        if (_values[5] == "")
-            fieldWorkData[_index][int.Parse(_values[4]) - 1].point = float.Parse(_values[6]);
-        else
-            fieldWorkData[_index][int.Parse(_values[4]) - 1].point = float.Parse(_values[5]);
-        fieldWorkData[_index][int.Parse(_values[4]) - 1].price = int.Parse(_values[7]);
-    }
-
     void InitFieldWorkData()
     {
-        for(int i =0; i<fieldWorkInfo.coolTimeList.Length; i++)
-            fieldWorkInfo.coolTimeList[i] -= DataManager.instance.GetIntervalDateTime();
-        if (fieldWorkInfo.level == 0)
-            return;
-
-        int index = fieldWorkInfo.level / 10;
-        int remainIndex = fieldWorkInfo.level % 10;
-        for (int i = 0; i < index+1; i++)
+        for(int i =0; i<fieldWorkInfo.level.Length; i++)
         {
-            if (i == 5)
+            // 구매하지 않은 작업이면 Return
+            if (fieldWorkInfo.level[i] == 0)
                 return;
+            
+            // 쿨타임데이터 로드
+            fieldWorkInfo.coolTimeList[i] -= DataManager.instance.GetIntervalDateTime();
 
-            if(i == index)
-                fieldWorkArray[i].level = remainIndex;
-            else
-                fieldWorkArray[i].level = 10;
+            // 작업의 단계와 레벨을 구분하기위한 로직
+            int step = fieldWorkInfo.level[i] / 10;
+            int level = fieldWorkInfo.level[i] % 10;
 
-            if (fieldWorkArray[i].level == 0)
-                return;
-
-            fieldWorkUIArray[i].gameObject.SetActive(true);
-            fieldWorkArray[i].state = (FieldWorkState)i;
-            fieldWorkArray[i].type = (FieldWorkType)(i % 2);
-            fieldWorkArray[i].point = fieldWorkData[i][fieldWorkArray[i].level - 1].point;
-            fieldWorkArray[i].price = fieldWorkData[i][fieldWorkArray[i].level - 1].price;
-            fieldWorkArray[i].helpText = fieldWorkData[i][fieldWorkArray[i].level - 1].helpText;
-            fieldWorkArray[i].helpSuccessText = fieldWorkData[i][fieldWorkArray[i].level - 1].helpSuccessText;
-            fieldWorkArray[i].available = true;
-            fieldWorkArray[i].coolTime = fieldWorkCooltime[i];
-
-            fieldWorkHelpText[i].text = fieldWorkData[i][fieldWorkArray[i].level - 1].helpText;
-            fieldWorkHelpSuccessText[i].text = fieldWorkData[i][fieldWorkArray[i].level - 1].helpSuccessText;
+            fieldWorkUIArray[i].gameObject.SetActive(true);                                                     // 구매한 작업의 UI 활성화
+            fieldWorkArray[i].step = step;                                                                      // Step
+            fieldWorkArray[i].level = level;                                                                    // Level
+            fieldWorkArray[i].type = (FieldWorkType)i;                                                          // Watering, Scissor ... 구분
+            fieldWorkArray[i].growPoint = fieldWorkData[i][fieldWorkInfo.level[i] - 1].growPoint;               // 획득 성장치
+            fieldWorkArray[i].dewPoint = fieldWorkData[i][fieldWorkInfo.level[i] - 1].dewPoint;                 // 획득 이슬
+            fieldWorkArray[i].price = fieldWorkData[i][fieldWorkInfo.level[i] - 1].price;                       // 작업 구매 가격
+            fieldWorkArray[i].helpText = fieldWorkData[i][fieldWorkInfo.level[i] - 1].helpText;                 // 작업 도움 텍스트
+            fieldWorkArray[i].helpSuccessText = fieldWorkData[i][fieldWorkInfo.level[i] - 1].helpSuccessText;   // 작업 도움 성공 텍스트
+            fieldWorkArray[i].available = true;                                                                 // 현재 실행가능한 작업인지
+            fieldWorkArray[i].coolTime = fieldWorkCooltime[i];                                                  // 쿨타임
+            fieldWorkArray[i].icon = fieldWorkData[i][fieldWorkInfo.level[i] - 1].icon;                         // 작업 아이콘
+            fieldWorkHelpText[i].text = fieldWorkData[i][fieldWorkInfo.level[i] - 1].helpText;                  // 작업도움텍스트 UI 변경
+            fieldWorkHelpSuccessText[i].text = fieldWorkData[i][fieldWorkInfo.level[i] - 1].helpSuccessText;    // 작업도움성공텍스트 UI 변경
+            fieldWorkIcon[i].sprite = icons[i].fieldWorkNumber[fieldWorkArray[i].icon];                         // 작업아이콘 할당
         }
     }
 }
-
-#region Enum, Class
-[System.Serializable]
-public enum FieldWorkState
-{
-    Watering = 0,
-    Spade = 1,
-    Fertilizer = 2,
-    Scissor = 3,
-    Nutritional = 4,
-    None = 5
-}
-
-public enum FieldWorkType
-{
-    Growth = 0,
-    Dew = 1
-}
-[System.Serializable]
-public class FieldWork
-{
-    public FieldWorkState state;
-    public FieldWorkType type;
-    public int level = 0;
-    public string helpText;
-    public string helpSuccessText;
-    public int price;
-    public int coolTime;
-    public float point;
-    public bool available = false;
-}
-#endregion
