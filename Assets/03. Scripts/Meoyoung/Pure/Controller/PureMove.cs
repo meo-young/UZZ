@@ -11,6 +11,7 @@ public class PureMove : MonoBehaviour
 
     [SerializeField] PureController pc;
     [SerializeField] BoxCollider objectCollider;
+    [SerializeField] GameObject pureWalking;
 
     void Update()
     {
@@ -24,6 +25,7 @@ public class PureMove : MonoBehaviour
         if (Vector2.Distance(transform.position, targetPosition) < 0.1f)
         {
             SetRandomPosition();
+            FlipPure();
         }
     }
 
@@ -45,5 +47,13 @@ public class PureMove : MonoBehaviour
 
         // 목표 위치 설정
         targetPosition = new Vector2(randomX, randomY);
+    }
+
+    void FlipPure()
+    {
+        if (transform.position.x - targetPosition.x > 0)
+            pureWalking.transform.rotation = Quaternion.Euler(0,-180,0);
+        else
+            pureWalking.transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 }
