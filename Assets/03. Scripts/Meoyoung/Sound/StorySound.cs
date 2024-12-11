@@ -51,6 +51,9 @@ public class StorySound : MonoBehaviour
     #endregion
     public void PlayBGM(int _index)
     {
+        if (bgmClips.Length == 0)
+            return;
+
         if (_index < 0)
             return;
 
@@ -60,6 +63,9 @@ public class StorySound : MonoBehaviour
 
     public void PlaySFX(int _index)
     {
+        if (sfxClips.Length == 0)
+            return;
+
         if (_index < 0)
             return;
 
@@ -69,6 +75,9 @@ public class StorySound : MonoBehaviour
 
     public void PlaySE(int _index)
     {
+        if (seClips.Length == 0)
+            return;
+
         if (_index < 0)
             return;
 

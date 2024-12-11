@@ -73,9 +73,17 @@ public class PureStat : MonoBehaviour
     private void Start()
     {
         UpdateLikeabilityInfo();
+
+        if (PlayerPrefs.GetInt("Story") == 1)
+        {
+            GetLikeability(PlayerPrefs.GetInt("Plus"));
+            PlayerPrefs.SetInt("Plus", 0);
+            PlayerPrefs.SetInt("Story", 0);
+        }
     }
     public void GetLikeability(int _likeability)
     {
+        Debug.Log("Get");
         SoundManager.instance.PlaySFX(SFX.Ambience.LIKE);
 
         pureInfo.likeability += _likeability;

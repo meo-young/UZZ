@@ -36,6 +36,7 @@ public class DialogueManager : MonoBehaviour
         public int nextIndex2;
         public int backgroundIndex;
         public int transition;
+        public int popup;
         public int ambience;
         public int se;
     }
@@ -95,15 +96,21 @@ public class DialogueManager : MonoBehaviour
             else
                 dialogueInfos[int.Parse(values[1])].transition = -1;
 
-            // Ambience
+            // Popup
             if (!string.IsNullOrEmpty(values[10]))
-                dialogueInfos[int.Parse(values[1])].ambience = int.Parse(values[10]);
+                dialogueInfos[int.Parse(values[1])].popup = int.Parse(values[10]);
+            else
+                dialogueInfos[int.Parse(values[1])].popup = -1;
+
+            // Ambience
+            if (!string.IsNullOrEmpty(values[11]))
+                dialogueInfos[int.Parse(values[1])].ambience = int.Parse(values[11]);
             else
                 dialogueInfos[int.Parse(values[1])].ambience = -1;
 
             // SE
-            if (!string.IsNullOrEmpty(values[11]))
-                dialogueInfos[int.Parse(values[1])].se = int.Parse(values[11]);
+            if (!string.IsNullOrEmpty(values[12]))
+                dialogueInfos[int.Parse(values[1])].se = int.Parse(values[12]);
             else
                 dialogueInfos[int.Parse(values[1])].se = -1;
         }

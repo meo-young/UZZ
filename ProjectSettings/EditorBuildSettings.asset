@@ -30,6 +30,9 @@ EditorBuildSettings:
     path: Assets/01. Scenes/Meoyoung/Story_1.unity
     guid: 1ce9ee0725e2b0340a33327298e8eeef
   - enabled: 0
+    path: Assets/01. Scenes/Meoyoung/GG.unity
+    guid: aa30143e7e3de2e41bf5a00d3324de4c
+  - enabled: 0
     path: Assets/01. Scenes/Meoyoung/Shop.unity
     guid: d4612fa6c00337e408473190a97e9e78
   m_configObjects:
