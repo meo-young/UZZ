@@ -1,0 +1,1105 @@
+fileFormatVersion: 2
+guid: 0e6d07d03a3570244bceedd702f5bfa1
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7284340405926921482
+    second: tonic_0
+  - first:
+      213: 6258772421235849420
+    second: tonic_1
+  - first:
+      213: -6658201045509490001
+    second: tonic_2
+  - first:
+      213: 3639122166461340749
+    second: tonic_3
+  - first:
+      213: -1888677635204550706
+    second: tonic_4
+  - first:
+      213: -2670018229819406320
+    second: tonic_5
+  - first:
+      213: -7104781012376079611
+    second: tonic_6
+  - first:
+      213: 2321953665454431355
+    second: tonic_7
+  - first:
+      213: 941593243090763378
+    second: tonic_8
+  - first:
+      213: -6117638756618109331
+    second: tonic_9
+  - first:
+      213: 3556121211213641909
+    second: tonic_10
+  - first:
+      213: 2904083927096715265
+    second: tonic_11
+  - first:
+      213: -3280554920314044577
+    second: tonic_12
+  - first:
+      213: -4014222940094399177
+    second: tonic_13
+  - first:
+      213: -7483116912393051622
+    second: tonic_14
+  - first:
+      213: -6068874578868702489
+    second: tonic_15
+  - first:
+      213: -3437372570657320898
+    second: tonic_16
+  - first:
+      213: 3950101270770385748
+    second: tonic_17
+  - first:
+      213: 5301434508694578339
+    second: tonic_18
+  - first:
+      213: -7413840060336891018
+    second: tonic_19
+  - first:
+      213: -1067431194459260233
+    second: tonic_20
+  - first:
+      213: 2529268001466799096
+    second: tonic_21
+  - first:
+      213: 6330323835048155273
+    second: tonic_22
+  - first:
+      213: -8743590790732404665
+    second: tonic_23
+  - first:
+      213: -721465824038491369
+    second: tonic_24
+  - first:
+      213: 1662670830331456383
+    second: tonic_25
+  - first:
+      213: 8431305979715547426
+    second: tonic_26
+  - first:
+      213: -8357727845057974910
+    second: tonic_27
+  - first:
+      213: -1867512899502078199
+    second: tonic_28
+  - first:
+      213: -1584989292781665860
+    second: tonic_29
+  - first:
+      213: 3422699081011268708
+    second: tonic_30
+  - first:
+      213: 4361107668401847413
+    second: tonic_31
+  - first:
+      213: -3461324107486687415
+    second: tonic_32
+  - first:
+      213: 7123826780592294818
+    second: tonic_33
+  - first:
+      213: 3238425597922267446
+    second: tonic_34
+  - first:
+      213: 1605705612485527563
+    second: tonic_35
+  - first:
+      213: -4457270086396814150
+    second: tonic_36
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: tonic_0
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 620
+        width: 92
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fa73b1bef2d8ea90800000000000000
+      internalID: -7284340405926921482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tonic_1
+      rect:
+        serializedVersion: 2
+        x: 668
+        y: 694
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc836c15b50abd650800000000000000
+      internalID: 6258772421235849420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tonic_2
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 512
+        width: 252
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: faab54ffc615993a0800000000000000
+      internalID: -6658201045509490001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tonic_3
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 660
+        width: 17
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4c9d2a5452c08230800000000000000
+      internalID: 3639122166461340749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tonic_4
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 624
+        width: 53
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecf686a82b11ac5e0800000000000000
+      internalID: -1888677635204550706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tonic_5
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 598
+        width: 94
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0180ccbf09032fad0800000000000000
+      internalID: -2670018229819406320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tonic_6
+      rect:
+        serializedVersion: 2
+        x: 679
+        y: 652
+        width: 40
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 503326edf4fb66d90800000000000000
+      internalID: -7104781012376079611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tonic_7
+      rect:
+        serializedVersion: 2
+        x: 722
+        y: 649
+        width: 41
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7cd3567e8c393020800000000000000
+      internalID: 2321953665454431355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tonic_8
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 602
+        width: 55
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27e3559d016311d00800000000000000
+      internalID: 941593243090763378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tonic_9
+      rect:
+        serializedVersion: 2
+        x: 674
+        y: 620
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6e7d97a6f7c91ba0800000000000000
+      internalID: -6117638756618109331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tonic_10
+      rect:
+        serializedVersion: 2
+        x: 719
+        y: 630
+        width: 26
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b8fe948661e95130800000000000000
+      internalID: 3556121211213641909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tonic_11
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 603
+        width: 27
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1086588f1f06d4820800000000000000
+      internalID: 2904083927096715265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tonic_12
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 588
+        width: 38
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5f758c5ea02972d0800000000000000
+      internalID: -3280554920314044577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tonic_13
+      rect:
+        serializedVersion: 2
+        x: 685
+        y: 593
+        width: 34
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73df276118d9a48c0800000000000000
+      internalID: -4014222940094399177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tonic_14
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 592
+        width: 41
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a122810c0d0a62890800000000000000
+      internalID: -7483116912393051622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tonic_15
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 562
+        width: 19
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e2f12c89b607cba0800000000000000
+      internalID: -6068874578868702489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tonic_16
+      rect:
+        serializedVersion: 2
+        x: 507
+        y: 505
+        width: 111
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e309c45ebdffb40d0800000000000000
+      internalID: -3437372570657320898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tonic_17
+      rect:
+        serializedVersion: 2
+        x: 661
+        y: 571
+        width: 26
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 453861f5d2491d630800000000000000
+      internalID: 3950101270770385748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tonic_18
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 553
+        width: 19
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a4ecb2f89a729940800000000000000
+      internalID: 5301434508694578339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tonic_19
+      rect:
+        serializedVersion: 2
+        x: 618
+        y: 472
+        width: 92
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67b1f0ecebfbc1990800000000000000
+      internalID: -7413840060336891018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tonic_20
+      rect:
+        serializedVersion: 2
+        x: 723
+        y: 548
+        width: 29
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bab510fbf8bf21f0800000000000000
+      internalID: -1067431194459260233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tonic_21
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 519
+        width: 11
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f3d031c8d3c91320800000000000000
+      internalID: 2529268001466799096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tonic_22
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 529
+        width: 21
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 988db3d0df3d9d750800000000000000
+      internalID: 6330323835048155273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tonic_23
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 472
+        width: 64
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 748a409508688a680800000000000000
+      internalID: -8743590790732404665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tonic_24
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 506
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71be990d7a6dcf5f0800000000000000
+      internalID: -721465824038491369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tonic_25
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 517
+        width: 19
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7b6f4c9f4ef21710800000000000000
+      internalID: 1662670830331456383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tonic_26
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 359
+        width: 300
+        height: 150
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22172991e14020570800000000000000
+      internalID: 8431305979715547426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tonic_27
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 358
+        width: 212
+        height: 146
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28dade95ec2630c80800000000000000
+      internalID: -8357727845057974910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tonic_28
+      rect:
+        serializedVersion: 2
+        x: 516
+        y: 358
+        width: 92
+        height: 147
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90708b399e24516e0800000000000000
+      internalID: -1867512899502078199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tonic_29
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 374
+        width: 122
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb183f6c2acf00ae0800000000000000
+      internalID: -1584989292781665860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tonic_30
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 193
+        width: 104
+        height: 185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46c8bb01eaedf7f20800000000000000
+      internalID: 3422699081011268708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tonic_31
+      rect:
+        serializedVersion: 2
+        x: 728
+        y: 376
+        width: 41
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57cf25a7154c58c30800000000000000
+      internalID: 4361107668401847413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tonic_32
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 0
+        width: 267
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94f82c82018e6ffc0800000000000000
+      internalID: -3461324107486687415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tonic_33
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 0
+        width: 267
+        height: 358
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ab4e9a96baecd260800000000000000
+      internalID: 7123826780592294818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tonic_34
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 0
+        width: 113
+        height: 345
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63150b36ce231fc20800000000000000
+      internalID: 3238425597922267446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tonic_35
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 124
+        width: 75
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b080d064fbc984610800000000000000
+      internalID: 1605705612485527563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tonic_36
+      rect:
+        serializedVersion: 2
+        x: 659
+        y: 9
+        width: 72
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abcd758d8789422c0800000000000000
+      internalID: -4457270086396814150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      tonic_0: -7284340405926921482
+      tonic_1: 6258772421235849420
+      tonic_10: 3556121211213641909
+      tonic_11: 2904083927096715265
+      tonic_12: -3280554920314044577
+      tonic_13: -4014222940094399177
+      tonic_14: -7483116912393051622
+      tonic_15: -6068874578868702489
+      tonic_16: -3437372570657320898
+      tonic_17: 3950101270770385748
+      tonic_18: 5301434508694578339
+      tonic_19: -7413840060336891018
+      tonic_2: -6658201045509490001
+      tonic_20: -1067431194459260233
+      tonic_21: 2529268001466799096
+      tonic_22: 6330323835048155273
+      tonic_23: -8743590790732404665
+      tonic_24: -721465824038491369
+      tonic_25: 1662670830331456383
+      tonic_26: 8431305979715547426
+      tonic_27: -8357727845057974910
+      tonic_28: -1867512899502078199
+      tonic_29: -1584989292781665860
+      tonic_3: 3639122166461340749
+      tonic_30: 3422699081011268708
+      tonic_31: 4361107668401847413
+      tonic_32: -3461324107486687415
+      tonic_33: 7123826780592294818
+      tonic_34: 3238425597922267446
+      tonic_35: 1605705612485527563
+      tonic_36: -4457270086396814150
+      tonic_4: -1888677635204550706
+      tonic_5: -2670018229819406320
+      tonic_6: -7104781012376079611
+      tonic_7: 2321953665454431355
+      tonic_8: 941593243090763378
+      tonic_9: -6117638756618109331
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

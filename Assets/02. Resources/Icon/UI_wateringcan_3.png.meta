@@ -210,7 +210,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      UI_wateringcan_3_0: 2099902060399211362
+      UI_wateringcan_3_1: -4936264914877226116
+      UI_wateringcan_3_2: 2433662806592268292
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

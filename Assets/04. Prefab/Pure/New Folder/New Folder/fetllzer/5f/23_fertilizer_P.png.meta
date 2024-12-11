@@ -1,0 +1,819 @@
+fileFormatVersion: 2
+guid: dcdddab33f01be648afa2384ef53f66d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2066485454131512347
+    second: 23_fertilizer_P_0
+  - first:
+      213: 3599071162295802494
+    second: 23_fertilizer_P_1
+  - first:
+      213: -5708153599696641383
+    second: 23_fertilizer_P_2
+  - first:
+      213: -307291414542508280
+    second: 23_fertilizer_P_3
+  - first:
+      213: 300616236949119510
+    second: 23_fertilizer_P_4
+  - first:
+      213: -1671884151722858016
+    second: 23_fertilizer_P_5
+  - first:
+      213: 974557998110472013
+    second: 23_fertilizer_P_6
+  - first:
+      213: 3571677374259808447
+    second: 23_fertilizer_P_7
+  - first:
+      213: 5284201480449404880
+    second: 23_fertilizer_P_8
+  - first:
+      213: 4582130080616078642
+    second: 23_fertilizer_P_9
+  - first:
+      213: 3726758481679475815
+    second: 23_fertilizer_P_10
+  - first:
+      213: 4973229619123439588
+    second: 23_fertilizer_P_11
+  - first:
+      213: -8718668637972079835
+    second: 23_fertilizer_P_12
+  - first:
+      213: -4647871585858837784
+    second: 23_fertilizer_P_13
+  - first:
+      213: 3318122443614654204
+    second: 23_fertilizer_P_14
+  - first:
+      213: 7184875004788546344
+    second: 23_fertilizer_P_15
+  - first:
+      213: -5247320909185394629
+    second: 23_fertilizer_P_16
+  - first:
+      213: 135387330090732911
+    second: 23_fertilizer_P_17
+  - first:
+      213: -4050449239156058178
+    second: 23_fertilizer_P_18
+  - first:
+      213: -2253316369329206964
+    second: 23_fertilizer_P_19
+  - first:
+      213: -6180354304609153199
+    second: 23_fertilizer_P_20
+  - first:
+      213: -6006243214046927240
+    second: 23_fertilizer_P_21
+  - first:
+      213: -9141644875394200182
+    second: 23_fertilizer_P_22
+  - first:
+      213: 8822818548525891216
+    second: 23_fertilizer_P_23
+  - first:
+      213: -5112127860325233409
+    second: 23_fertilizer_P_24
+  - first:
+      213: 3769458099027664226
+    second: 23_fertilizer_P_25
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 23_fertilizer_P_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 275
+        height: 356
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1445036291adac10800000000000000
+      internalID: 2066485454131512347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_fertilizer_P_1
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 263
+        width: 71
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7a5ef5472872f130800000000000000
+      internalID: 3599071162295802494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_fertilizer_P_2
+      rect:
+        serializedVersion: 2
+        x: 342
+        y: 260
+        width: 40
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 992e6be4b8098c0b0800000000000000
+      internalID: -5708153599696641383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_fertilizer_P_3
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 293
+        width: 64
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80f9aa926184cbbf0800000000000000
+      internalID: -307291414542508280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_fertilizer_P_4
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 354
+        width: 31
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6122111ffd00c2400800000000000000
+      internalID: 300616236949119510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_fertilizer_P_5
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 225
+        width: 118
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e924f6d8364cc8e0800000000000000
+      internalID: -1671884151722858016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_fertilizer_P_6
+      rect:
+        serializedVersion: 2
+        x: 676
+        y: 209
+        width: 80
+        height: 159
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d47f36af553568d00800000000000000
+      internalID: 974557998110472013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_fertilizer_P_7
+      rect:
+        serializedVersion: 2
+        x: 756
+        y: 335
+        width: 12
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb84e09f5a5219130800000000000000
+      internalID: 3571677374259808447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_fertilizer_P_8
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 314
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0dfa7c3ef31455940800000000000000
+      internalID: 5284201480449404880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_fertilizer_P_9
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 266
+        width: 59
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23dd0c9f70ff69f30800000000000000
+      internalID: 4582130080616078642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_fertilizer_P_10
+      rect:
+        serializedVersion: 2
+        x: 809
+        y: 262
+        width: 46
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 764ed28081b18b330800000000000000
+      internalID: 3726758481679475815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_fertilizer_P_11
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 262
+        width: 40
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e7cd424df5740540800000000000000
+      internalID: 4973229619123439588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_fertilizer_P_12
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 284
+        width: 14
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52bd5573111110780800000000000000
+      internalID: -8718668637972079835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_fertilizer_P_13
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 2
+        width: 168
+        height: 261
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e2a04b0b617f7fb0800000000000000
+      internalID: -4647871585858837784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_fertilizer_P_14
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 225
+        width: 12
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfe07e448c65c0e20800000000000000
+      internalID: 3318122443614654204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_fertilizer_P_15
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 229
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82b1100ffbdc5b360800000000000000
+      internalID: 7184875004788546344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_fertilizer_P_16
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 234
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3856814f65cd27b0800000000000000
+      internalID: -5247320909185394629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_fertilizer_P_17
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 225
+        width: 15
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6d85253f0ef0e100800000000000000
+      internalID: 135387330090732911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_fertilizer_P_18
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 228
+        width: 9
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb71a5f80e9e9c7c0800000000000000
+      internalID: -4050449239156058178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_fertilizer_P_19
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 227
+        width: 16
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c494f8f53bc9ab0e0800000000000000
+      internalID: -2253316369329206964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_fertilizer_P_20
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 77
+        width: 9
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15f07bf3188fa3aa0800000000000000
+      internalID: -6180354304609153199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_fertilizer_P_21
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 43
+        width: 181
+        height: 163
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 876e1288e9985aca0800000000000000
+      internalID: -6006243214046927240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_fertilizer_P_22
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 46
+        width: 126
+        height: 175
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8dcb5b9b6a522180800000000000000
+      internalID: -9141644875394200182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_fertilizer_P_23
+      rect:
+        serializedVersion: 2
+        x: 774
+        y: 46
+        width: 83
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09efc9e79b2f07a70800000000000000
+      internalID: 8822818548525891216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_fertilizer_P_24
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 0
+        width: 59
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffccfe6dbc21e09b0800000000000000
+      internalID: -5112127860325233409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 23_fertilizer_P_25
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 16
+        width: 72
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26d534c6b2ecf4430800000000000000
+      internalID: 3769458099027664226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      23_fertilizer_P_0: 2066485454131512347
+      23_fertilizer_P_1: 3599071162295802494
+      23_fertilizer_P_10: 3726758481679475815
+      23_fertilizer_P_11: 4973229619123439588
+      23_fertilizer_P_12: -8718668637972079835
+      23_fertilizer_P_13: -4647871585858837784
+      23_fertilizer_P_14: 3318122443614654204
+      23_fertilizer_P_15: 7184875004788546344
+      23_fertilizer_P_16: -5247320909185394629
+      23_fertilizer_P_17: 135387330090732911
+      23_fertilizer_P_18: -4050449239156058178
+      23_fertilizer_P_19: -2253316369329206964
+      23_fertilizer_P_2: -5708153599696641383
+      23_fertilizer_P_20: -6180354304609153199
+      23_fertilizer_P_21: -6006243214046927240
+      23_fertilizer_P_22: -9141644875394200182
+      23_fertilizer_P_23: 8822818548525891216
+      23_fertilizer_P_24: -5112127860325233409
+      23_fertilizer_P_25: 3769458099027664226
+      23_fertilizer_P_3: -307291414542508280
+      23_fertilizer_P_4: 300616236949119510
+      23_fertilizer_P_5: -1671884151722858016
+      23_fertilizer_P_6: 974557998110472013
+      23_fertilizer_P_7: 3571677374259808447
+      23_fertilizer_P_8: 5284201480449404880
+      23_fertilizer_P_9: 4582130080616078642
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

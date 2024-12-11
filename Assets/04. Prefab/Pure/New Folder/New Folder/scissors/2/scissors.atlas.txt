@@ -1,0 +1,57 @@
+scissors.png
+	size: 764, 432
+	filter: Linear, Linear
+	pma: true
+24_scissors_P_L1
+	bounds: 540, 354, 78, 218
+	rotate: 90
+24_scissors_P_R1
+	bounds: 0, 32, 86, 217
+	rotate: 90
+B_Eyebrow
+	bounds: 0, 0, 161, 32
+B_Mouse
+	bounds: 161, 3, 56, 29
+D_L
+	bounds: 217, 15, 94, 103
+D_R
+	bounds: 708, 251, 103, 55
+	rotate: 90
+scissors_1
+	bounds: 540, 229, 168, 125
+scissors_10
+	bounds: 724, 164, 58, 29
+	rotate: 90
+scissors_11
+	bounds: 276, 126, 171, 130
+	offsets: 0, 0, 171, 134
+scissors_12
+	bounds: 526, 100, 138, 129
+	offsets: 0, 0, 199, 129
+scissors_13
+	bounds: 526, 6, 94, 98
+	offsets: 0, 2, 94, 100
+	rotate: 90
+scissors_14
+	bounds: 624, 1, 91, 89
+	offsets: 0, 0, 92, 89
+scissors_15
+	bounds: 0, 118, 276, 314
+	offsets: 8, 0, 284, 332
+scissors_16
+	bounds: 276, 256, 264, 176
+	offsets: 1, 0, 266, 176
+scissors_3
+	bounds: 311, 28, 98, 117
+	rotate: 90
+scissors_6
+	bounds: 664, 90, 139, 60
+	rotate: 90
+scissors_7
+	bounds: 447, 88, 168, 79
+	rotate: 90
+scissors_8
+	bounds: 724, 222, 29, 40
+	rotate: 90
+scissors_9
+	bounds: 724, 128, 27, 36

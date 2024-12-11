@@ -1,0 +1,67 @@
+tonic.png
+	size: 780, 708
+	filter: Linear, Linear
+	pma: true
+F_Body
+	bounds: 0, 350, 269, 358
+	offsets: 7, 0, 276, 358
+F_EyeBrow
+	bounds: 253, 16, 180, 52
+	offsets: 49, 152, 276, 358
+	rotate: 90
+F_Face1
+	bounds: 650, 515, 193, 118
+	offsets: 41, 119, 276, 358
+	rotate: 90
+F_Face2
+	bounds: 305, 25, 177, 98
+	offsets: 59, 127, 276, 358
+F_Hose
+	bounds: 0, 196, 304, 154
+F_L_Ear
+	bounds: 618, 148, 92, 88
+F_L_Eye
+	bounds: 727, 289, 44, 45
+	offsets: 72, 168, 276, 358
+F_R_Eye
+	bounds: 719, 14, 47, 46
+	offsets: 172, 146, 276, 358
+F_Tur
+	bounds: 305, 123, 202, 81
+	offsets: 37, 138, 276, 358
+F_WaterBoy_Face
+	bounds: 618, 88, 100, 60
+tonic_1
+	bounds: 0, 28, 253, 168
+	offsets: 24, 0, 277, 168
+tonic_11
+	bounds: 719, 60, 100, 60
+	rotate: 90
+tonic_12
+	bounds: 668, 1, 87, 51
+	rotate: 90
+tonic_13
+	bounds: 650, 334, 181, 102
+	rotate: 90
+tonic_14
+	bounds: 304, 204, 212, 146
+tonic_2
+	bounds: 516, 203, 89, 147
+tonic_3
+	bounds: 605, 236, 122, 98
+tonic_4
+	bounds: 507, 109, 111, 94
+tonic_5
+	bounds: 482, 21, 88, 94
+	offsets: 1, 0, 89, 94
+	rotate: 90
+tonic_6
+	bounds: 576, 0, 92, 88
+tonic_7
+	bounds: 269, 350, 268, 358
+	offsets: 8, 0, 276, 358
+tonic_8
+	bounds: 710, 160, 64, 76
+tonic_9
+	bounds: 537, 363, 345, 113
+	rotate: 90

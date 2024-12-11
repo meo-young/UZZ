@@ -1,0 +1,44 @@
+wateringcan.png
+	size: 868, 360
+	filter: Linear, Linear
+	pma: true
+21_wateringcan_P_2
+	bounds: 438, 135, 222, 205
+	offsets: 0, 0, 223, 205
+	rotate: 90
+wateringcan_1
+	bounds: 643, 170, 187, 46
+	rotate: 90
+wateringcan_10
+	bounds: 274, 5, 85, 89
+wateringcan_11
+	bounds: 643, 101, 104, 69
+	offsets: 0, 3, 104, 72
+wateringcan_12
+	bounds: 0, 1, 274, 356
+	offsets: 0, 0, 276, 356
+wateringcan_14
+	bounds: 274, 94, 164, 263
+wateringcan_15
+	bounds: 518, 0, 179, 99
+	offsets: 0, 31, 212, 130
+wateringcan_2
+	bounds: 697, 2, 148, 99
+wateringcan_3
+	bounds: 587, 108, 27, 44
+	rotate: 90
+wateringcan_4
+	bounds: 541, 108, 27, 46
+	rotate: 90
+wateringcan_5
+	bounds: 697, 245, 112, 163
+	rotate: 90
+wateringcan_7
+	bounds: 359, 14, 80, 159
+	rotate: 90
+wateringcan_8
+	bounds: 438, 99, 103, 36
+	offsets: 0, 0, 107, 36
+wateringcan_9
+	bounds: 747, 113, 132, 118
+	rotate: 90

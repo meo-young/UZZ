@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      UI_tonic_5_0: 527673715652749620
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
