@@ -71,7 +71,7 @@ public class PureAnimationSet : MonoBehaviour
     }
 
     #region FieldWork Animation
-    public void ControlFieldWorkAnimation(FieldWorkState state)
+    public void ControlFieldWorkAnimation(FieldWorkType state)
     {
         if ((int)state == 5)
             return;
@@ -79,7 +79,7 @@ public class PureAnimationSet : MonoBehaviour
         pureFieldWork[(int)state].SetActive(!pureFieldWork[(int)state].activeSelf);
     }
 
-    public void ControlFieldWorkHelpAnimation(FieldWorkState state)
+    public void ControlFieldWorkHelpAnimation(FieldWorkType state)
     {
         if ((int)state == 5)
             return;
@@ -89,7 +89,7 @@ public class PureAnimationSet : MonoBehaviour
 
     }
 
-    public void ShowFieldWorkHelpSuccessText(FieldWorkState state)
+    public void ShowFieldWorkHelpSuccessText(FieldWorkType state)
     {
         if ((int)state == 5)
             return;

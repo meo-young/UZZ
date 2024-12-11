@@ -118,7 +118,7 @@ public class PureController : MonoBehaviour
 
     public Transform ReturnWorkPurePosition()
     {
-        return pureAnimationSet.pureHelpFieldWork[(int)fieldWorkState.state].transform;
+        return pureAnimationSet.pureHelpFieldWork[(int)fieldWorkState.type].transform;
     }
 
 }

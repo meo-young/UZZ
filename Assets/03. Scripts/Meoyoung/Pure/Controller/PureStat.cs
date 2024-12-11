@@ -98,7 +98,7 @@ public class PureStat : MonoBehaviour
         float likeabilityValue = (float)pureInfo.likeability / likeabilityInfo[pureInfo.level].requiredExp;
 
         Transform targetPos;
-        if (pc.fieldWorkState.state != FieldWorkState.None)
+        if (pc.fieldWorkState.type != FieldWorkType.None)
         {
             targetPos = pc.ReturnWorkPurePosition();
         }

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class FieldWorkUI : MonoBehaviour
 {
-    [SerializeField] FieldWorkState workType;
+    [SerializeField] FieldWorkType workType;
     [SerializeField] Image coolTime;
 
     private float fieldWorkCoolTime;
@@ -62,7 +62,7 @@ public class FieldWorkUI : MonoBehaviour
         if (fieldWorkManager.fieldWorkInfo.coolTimeList[(int)workType] > 0)
             return;
 
-        if (pureController.fieldWorkState.state != FieldWorkState.None)
+        if (pureController.fieldWorkState.type != FieldWorkType.None)
             return;
 
         fieldWorkManager.fieldWorkInfo.coolTimeList[(int)workType] = fieldWorkManager.fieldWorkArray[(int)workType].coolTime;

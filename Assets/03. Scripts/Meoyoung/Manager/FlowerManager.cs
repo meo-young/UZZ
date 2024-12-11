@@ -79,15 +79,14 @@ public class FlowerManager : MonoBehaviour
     {
         if (instance == null)
             instance = this;
-        InitAcquireVariable();
-        isFlowerEvent = false;
-        items = new List<ItemAcquireFx>();
+        UpdateFlowerDataTable();
     }
 
     private void Start()
     {
-        UpdateFlowerDataTable();
-
+        InitAcquireVariable();
+        isFlowerEvent = false;
+        items = new List<ItemAcquireFx>();
         SetActiveFalseAllFlower();
         InitFlowerUI();
         defaultFlower[flowerInfo.level].SetActive(true);
