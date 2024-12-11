@@ -94,6 +94,7 @@ public class PureAnimationSet : MonoBehaviour
         if ((int)state == 5)
             return;
 
+        VFXManager.instance.successVFX[(int)state].SetActive(true);
         bubbleSet.fieldWorkHelpSuccessBubble[(int)state].SetActive(!bubbleSet.fieldWorkHelpSuccessBubble[(int)state].activeSelf);
     }
     #endregion

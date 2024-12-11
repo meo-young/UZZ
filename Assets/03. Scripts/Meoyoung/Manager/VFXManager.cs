@@ -9,6 +9,7 @@ public class VFXManager : MonoBehaviour
     [Header("# Work VFX")]
     public GameObject growthVFX;
     public GameObject dewVFX;
+    public GameObject[] successVFX;
 
     [Header("# Likeability VFX")]
     public GameObject likeabilityVFX;
