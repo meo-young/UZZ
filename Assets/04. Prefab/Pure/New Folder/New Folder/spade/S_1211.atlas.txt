@@ -1,0 +1,16 @@
+S_1211.png
+	size: 264, 336
+	filter: Linear, Linear
+	pma: true
+Body
+	bounds: 0, 239, 217, 95
+	offsets: 61, 51, 278, 146
+L_Leg
+	bounds: 0, 10, 125, 132
+	rotate: 90
+R_Leg
+	bounds: 132, 0, 135, 131
+	rotate: 90
+Tail
+	bounds: 0, 135, 104, 213
+	rotate: 90
