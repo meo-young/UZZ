@@ -9,6 +9,7 @@ public class PureController : MonoBehaviour
     [Header("# State Position Info")]
     public Transform basePos;
     public Transform[] fieldWorkPos;
+    public Transform[] fieldWorkTextPos;
 
 
     [HideInInspector] public IControllerState preparationState;
@@ -117,7 +118,12 @@ public class PureController : MonoBehaviour
 
     public Transform ReturnWorkPurePosition()
     {
-        return pureAnimationSet.pureHelpFieldWork[(int)fieldWorkState.type].transform;
+        return fieldWorkPos[(int)fieldWorkState.type].transform;
+    }
+
+    public Transform GetWorkTextPosition()
+    {
+        return fieldWorkTextPos[(int)fieldWorkState.type].transform;
     }
 
 }

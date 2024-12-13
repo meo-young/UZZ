@@ -1,10 +1,17 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PureAnimationSet : MonoBehaviour
 {
     public static PureAnimationSet instance;
+
+    [Serializable]
+    public class FieldWorkIndex
+    {
+        public GameObject[] animIndex = new GameObject[5];
+    }
 
     [Header("# Pure Animation")]
     [Header("# Available")]
@@ -22,10 +29,12 @@ public class PureAnimationSet : MonoBehaviour
     public GameObject purePresentGive;
     [Space(10)]
     [Header("# Field Work")]
-    public GameObject[] pureFieldWork;
-    public GameObject[] pureHelpFieldWork;
+    public FieldWorkIndex[] pureFieldWorkIndex;
+    public FieldWorkIndex[] pureHelpFieldWorkIndex;
+
 
     private SpeechBubbleSet bubbleSet;
+    private FieldWork[] fieldWorkArray => FieldWorkManager.instance.fieldWorkArray;
 
     private void Awake()
     {
@@ -76,17 +85,20 @@ public class PureAnimationSet : MonoBehaviour
         if ((int)state == 5)
             return;
 
-        pureFieldWork[(int)state].SetActive(!pureFieldWork[(int)state].activeSelf);
+        // 해당 작업의 Step에 지정된 애니메이션을 활성화, 비활성화
+        pureFieldWorkIndex[(int)state].animIndex[fieldWorkArray[(int)state].step]
+            .SetActive(!pureFieldWorkIndex[(int)state].animIndex[fieldWorkArray[(int)state].step].activeSelf);
     }
 
     public void ControlFieldWorkHelpAnimation(FieldWorkType state)
     {
         if ((int)state == 5)
             return;
+        // 해당 작업의 Step에 지정된 애니메이션을 활성화, 비활성화
+        pureHelpFieldWorkIndex[(int)state].animIndex[fieldWorkArray[(int)state].step]
+            .SetActive(!pureHelpFieldWorkIndex[(int)state].animIndex[fieldWorkArray[(int)state].step].activeSelf);
 
-        pureHelpFieldWork[(int)state].SetActive(!pureHelpFieldWork[(int)state].activeSelf);
         bubbleSet.fieldWorkHelpBubble[(int)state].SetActive(!bubbleSet.fieldWorkHelpBubble[(int)state].activeSelf);
-
     }
 
     public void ShowFieldWorkHelpSuccessText(FieldWorkType state)
