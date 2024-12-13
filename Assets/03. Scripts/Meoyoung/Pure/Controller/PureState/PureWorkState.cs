@@ -25,7 +25,7 @@ public class PureWorkState : MonoBehaviour, IControllerState
 
         if (!pc.pureStat.pureInfo.autoText && !pc.pureStat.pureInfo.interactionText)
         {
-            pc.autoText.ShowFieldWorkText(pc.fieldWorkPos[(int)fws.type], (int)fws.type);
+            pc.autoText.ShowFieldWorkText(pc.fieldWorkTextPos[(int)fws.type], (int)fws.type);
             pc.pureStat.SetTrueAutoText();
             return;
         }
