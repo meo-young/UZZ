@@ -8,6 +8,7 @@ public class Sprout : MonoBehaviour
     [SerializeField] GameObject flowerObject;
     [SerializeField] GameObject flower2;
     [SerializeField] TutorialCamera cam;
+    [SerializeField] GameObject uiCanvas;
 
     private bool eventFlag = false;
     private float counter;
@@ -26,6 +27,7 @@ public class Sprout : MonoBehaviour
         if(counter > nextDialogueTime)
         {
             eventFlag = true;
+            uiCanvas.SetActive(true);
             this.gameObject.SetActive(false);
             if(flower2.activeSelf)
                 flower2.SetActive(false);

@@ -5,6 +5,7 @@ public class TutorialTouchManager : MonoBehaviour
     [SerializeField] GameObject defaultTouchVFX;
     [SerializeField] TutorialManager tutoManager;
     [SerializeField] TutoFlowerManager flowerManager;
+    [SerializeField] GameObject flowerVFX;
 
     [Header("# Tutorial CG Image")]
     [SerializeField] GameObject tutoCG0;
@@ -16,9 +17,11 @@ public class TutorialTouchManager : MonoBehaviour
     private bool flowerTouched;
     private Animator flowerAnim;
     private bool imageTouched;
+    private float flowerCounter;
 
     private void Start()
     {
+        flowerCounter = 0f;
         flowerTouched = false;
         imageTouched = false;
     }
@@ -56,8 +59,11 @@ public class TutorialTouchManager : MonoBehaviour
                         case "Flower":
                             if (tutoManager.GetTextType() == "Flower2")
                             {
-                                flowerTouched = true;
-                                flowerAnim = firstTouchedObject.GetComponent<Animator>();
+                                if(flowerVFX.activeSelf)
+                                {
+                                    flowerTouched = true;
+                                    flowerAnim = firstTouchedObject.GetComponent<Animator>();
+                                }
                             }
                             break;
                         case "CG0":
@@ -100,9 +106,13 @@ public class TutorialTouchManager : MonoBehaviour
                                     InitFlowerTouch();
                                     break;
                                 }
+                                else
+                                {
+                                    if (flowerAnim != null)
+                                        flowerAnim.timeSclae = 5f;
 
-                                if (flowerAnim != null)
-                                    flowerAnim.timeSclae = 5f;
+                                    flowerCounter += Time.deltaTime;
+                                }
                             }
                             break;
                         default:
@@ -133,7 +143,11 @@ public class TutorialTouchManager : MonoBehaviour
                 flowerAnim.timeSclae = 1f;
                 flowerAnim = null;
             }
-            flowerManager.MoveToTargetPos();
+
+            if(flowerCounter > 1)
+                flowerManager.MoveToTargetPos();
+
+            flowerCounter = 0f;
         }
     }
 }
