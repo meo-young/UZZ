@@ -24,6 +24,7 @@ public class VFXManager : MonoBehaviour
     [Header("# Touch VFX")]
     public GameObject defaultTouchVFX;
     public GameObject daisyTouchVFX;
+    public GameObject flowerEventTouchVFX;
 
     private void Awake()
     {
