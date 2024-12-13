@@ -26,6 +26,10 @@ public class VFXManager : MonoBehaviour
     public GameObject daisyTouchVFX;
     public GameObject flowerEventTouchVFX;
 
+    [Header("# Dust VFX")]
+    public GameObject miniDustVFX;
+    public GameObject bigDustVFX;
+
     private void Awake()
     {
         if(instance == null)
