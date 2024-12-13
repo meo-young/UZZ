@@ -5,12 +5,14 @@ using UnityEngine;
 public class MainTouch : MonoBehaviour
 {
     private FlowerManager flowerManager;
-    private bool flowerTouched;
     private Animator flowerAnim;
     private int dustTouchCounter;
     private PureController pc;
     private GameObject firstTouchedObject;
     private GameObject moveTouchedObject;
+
+    private bool flowerTouched;
+    private bool bBigDustTouched;
 
 
     private void Start()
@@ -18,6 +20,7 @@ public class MainTouch : MonoBehaviour
         flowerManager = MainManager.instance.flowerManager;
         pc = MainManager.instance.pureController;
         flowerTouched = false;
+        bBigDustTouched = false;
         dustTouchCounter = 0;
     }
     private void Update()
@@ -68,6 +71,7 @@ public class MainTouch : MonoBehaviour
                             flowerAnim = firstTouchedObject.GetComponent<Animator>();
                             break;
                         case "Big_Dust":
+                            bBigDustTouched = true;
                             dustTouchCounter++;
                             if (dustTouchCounter == 5)
                             {
@@ -83,7 +87,13 @@ public class MainTouch : MonoBehaviour
                     }
                 }
 
-                Instantiate(VFXManager.instance.defaultTouchVFX, effectPos, Quaternion.identity);
+                if (bBigDustTouched)
+                {
+                    Instantiate(VFXManager.instance.flowerEventTouchVFX, effectPos, Quaternion.identity);
+                    bBigDustTouched = false;
+                }
+                else
+                    Instantiate(VFXManager.instance.defaultTouchVFX, effectPos, Quaternion.identity);
 
             }
             #endregion
