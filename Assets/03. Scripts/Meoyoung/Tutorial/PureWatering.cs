@@ -15,9 +15,10 @@ public class PureWatering : MonoBehaviour
     [SerializeField] GameObject tutoFlower2;
 
     [Header("# UI")]
+    [SerializeField] GameObject uiCanvas;
     [SerializeField] GameObject workPanel3;
-    private float fieldWorkCounter;
 
+    private float fieldWorkCounter;
     private int activationCounter;
 
     private void Start()
@@ -38,7 +39,8 @@ public class PureWatering : MonoBehaviour
             fieldWorkCounter = 0;
             if (this.gameObject.activeSelf)
             {
-                switch(activationCounter)
+                uiCanvas.SetActive(false);
+                switch (activationCounter)
                 {
                     case 0:
                         cam.SetCameraPosition();
