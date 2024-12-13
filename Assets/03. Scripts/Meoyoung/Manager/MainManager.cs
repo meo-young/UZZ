@@ -32,6 +32,7 @@ public class MainManager : MonoBehaviour
     public DewUI dewUI;
 
     [Header("# Pure")]
+    public GameObject pure;
     public PureStat pureStat;
     public PureAnimationSet pureAnimationSet;
     public PureController pureController;

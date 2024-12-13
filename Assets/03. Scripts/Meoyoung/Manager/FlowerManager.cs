@@ -39,7 +39,6 @@ public class FlowerManager : MonoBehaviour
     [SerializeField] Sprite[] flowerImage;
     [HideInInspector] public FlowerData[] flowerData;
 
-
     [Header("# Flower UI")]
     [SerializeField] FlowerUI flowerUI;
     [SerializeField] FlowerProfileUI flowerProfileUI;
@@ -48,9 +47,9 @@ public class FlowerManager : MonoBehaviour
     [Range(0, 100)][SerializeField] int flowerEventProbability;
     [Range(0, 100)][SerializeField] int bigProbability;
     [Space(10)]
-    public int bigLikeability; // 빅이벤트 호감도 보상
-    public int bigGrowth; // 빅이벤트 성장치 보상
-    public int miniGrowth; // 미니이벤트 성장치 보상
+    [SerializeField] int bigLikeability; // 빅이벤트 호감도 보상
+    [SerializeField] int bigGrowth; // 빅이벤트 성장치 보상
+    [SerializeField] int miniGrowth; // 미니이벤트 성장치 보상
     public float miniEventFinishTime; // 미니이벤트 이벤트 소요 시간
     [Space(10)]
     public float maxShakeTime;
@@ -73,7 +72,6 @@ public class FlowerManager : MonoBehaviour
     [SerializeField] List<GameObject> bigFlower;
     [SerializeField] List<GameObject> miniFlower;
     [HideInInspector] public bool isFlowerEvent;
-
 
     private void Awake()
     {
@@ -131,6 +129,7 @@ public class FlowerManager : MonoBehaviour
         SetActiveFalseDefaultFlower();
         bigFlower[flowerData[flowerInfo.level].step - 1].SetActive(true);
         bigDust.SetActive(true);
+        MainManager.instance.pure.SetActive(false);
     }
 
     void ShowMiniFlowerEvent()
@@ -139,6 +138,7 @@ public class FlowerManager : MonoBehaviour
         SetActiveFalseDefaultFlower();
         miniFlower[flowerData[flowerInfo.level].step - 1].SetActive(true);
         miniDust.SetActive(true);
+        MainManager.instance.pure.SetActive(false);
     }
     #endregion
 
