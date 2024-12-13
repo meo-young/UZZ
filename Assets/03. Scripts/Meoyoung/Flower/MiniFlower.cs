@@ -17,6 +17,9 @@ public class MiniFlower : MonoBehaviour
     {
         miniEventCounter += Time.deltaTime;
         if (miniEventCounter > flowerManager.miniEventFinishTime)
+        {
             flowerManager.GetMiniEventReward();
+            MainManager.instance.pure.SetActive(true);
+        }
     }
 }

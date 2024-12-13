@@ -8,9 +8,7 @@ public class MainTouch : MonoBehaviour
     private bool flowerTouched;
     private Animator flowerAnim;
     private int dustTouchCounter;
-
     private PureController pc;
-
     private GameObject firstTouchedObject;
     private GameObject moveTouchedObject;
 
@@ -75,6 +73,7 @@ public class MainTouch : MonoBehaviour
                             {
                                 flowerManager.GetBigEventReward();
                                 dustTouchCounter = 0;
+                                MainManager.instance.pure.SetActive(true);
                             }
                             break;
                         case "FlowerStepUp":
