@@ -39,6 +39,9 @@ public class FieldWorkManager : MonoBehaviour
     public float autoWorkCheckTime;
     [Range(0, 100)] public int autoWorkProbability;
 
+    [Header("# WorkShop UI")]
+    [SerializeField] WorkShopUI workShopUI;
+
     private void Awake()
     {
         if(instance == null)
@@ -92,14 +95,20 @@ public class FieldWorkManager : MonoBehaviour
         }
     }
 
+    public void FieldWorkLevelUp(int _index)
+    {
+        fieldWorkInfo.level[_index]++;
+        InitFieldWorkData();
+    }
+
     void InitFieldWorkData()
     {
+        // WorkShopUI에게 넘겨주기 위한 임시변수
+        Sprite[] fieldWorkIcons = new Sprite[5];
+        int[] prices = new int[5];
+
         for(int i =0; i<fieldWorkInfo.level.Length; i++)
         {
-            // 구매하지 않은 작업이면 Return
-            if (fieldWorkInfo.level[i] == 0)
-                return;
-            
             // 쿨타임데이터 로드
             fieldWorkInfo.coolTimeList[i] -= DataManager.instance.GetIntervalDateTime();
 
@@ -107,9 +116,18 @@ public class FieldWorkManager : MonoBehaviour
             int step = fieldWorkInfo.level[i] / 10;
             int level = fieldWorkInfo.level[i] % 10;
 
-            fieldWorkUIArray[i].gameObject.SetActive(true);                                                     // 구매한 작업의 UI 활성화
+            Debug.Log(fieldWorkInfo.level[i]);
+            prices[i] = fieldWorkData[i][fieldWorkInfo.level[i]].price;
+            if (fieldWorkInfo.level[i] != 0)
+                fieldWorkArray[i].icon = fieldWorkData[i][fieldWorkInfo.level[i] - 1].icon;                         // 작업 아이콘
+            fieldWorkIcons[i] = icons[i].fieldWorkNumber[fieldWorkArray[i].icon];
+
+            // 구매하지 않은 작업이면 Return
+            if (fieldWorkInfo.level[i] == 0)
+                continue;
+
             fieldWorkArray[i].step = step;                                                                      // Step
-            fieldWorkArray[i].level = level;                                                                    // Level
+            fieldWorkArray[i].level = fieldWorkData[i][fieldWorkInfo.level[i] - 1].level;                       // Level
             fieldWorkArray[i].type = (FieldWorkType)i;                                                          // Watering, Scissor ... 구분
             fieldWorkArray[i].growPoint = fieldWorkData[i][fieldWorkInfo.level[i] - 1].growPoint;               // 획득 성장치
             fieldWorkArray[i].dewPoint = fieldWorkData[i][fieldWorkInfo.level[i] - 1].dewPoint;                 // 획득 이슬
@@ -117,11 +135,14 @@ public class FieldWorkManager : MonoBehaviour
             fieldWorkArray[i].helpText = fieldWorkData[i][fieldWorkInfo.level[i] - 1].helpText;                 // 작업 도움 텍스트
             fieldWorkArray[i].helpSuccessText = fieldWorkData[i][fieldWorkInfo.level[i] - 1].helpSuccessText;   // 작업 도움 성공 텍스트
             fieldWorkArray[i].available = true;                                                                 // 현재 실행가능한 작업인지
+            fieldWorkIcon[i].sprite = icons[i].fieldWorkNumber[fieldWorkArray[i].icon];                         // 작업아이콘 할당
             fieldWorkArray[i].coolTime = fieldWorkCooltime[i];                                                  // 쿨타임
-            fieldWorkArray[i].icon = fieldWorkData[i][fieldWorkInfo.level[i] - 1].icon;                         // 작업 아이콘
             fieldWorkHelpText[i].text = fieldWorkData[i][fieldWorkInfo.level[i] - 1].helpText;                  // 작업도움텍스트 UI 변경
             fieldWorkHelpSuccessText[i].text = fieldWorkData[i][fieldWorkInfo.level[i] - 1].helpSuccessText;    // 작업도움성공텍스트 UI 변경
-            fieldWorkIcon[i].sprite = icons[i].fieldWorkNumber[fieldWorkArray[i].icon];                         // 작업아이콘 할당
+            fieldWorkUIArray[i].gameObject.SetActive(true);                                                     // 구매한 작업의 UI 활성화
         }
+
+        // 상점 작업 아이콘들 데이터 최신화
+        workShopUI.ShowEquipmentItems(fieldWorkArray, fieldWorkIcons, prices);
     }
 }
