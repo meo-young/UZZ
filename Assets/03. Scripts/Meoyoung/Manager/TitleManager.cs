@@ -16,6 +16,7 @@ public class TitleManager : MonoBehaviour
 
     private void Awake()
     {
+        Application.targetFrameRate = 60;
         sceneChanged = false;
     }
     private void Update()

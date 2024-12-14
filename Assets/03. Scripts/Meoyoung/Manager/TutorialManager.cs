@@ -57,6 +57,7 @@ public class TutorialManager : MonoBehaviour
 
     private void Awake()
     {
+        Application.targetFrameRate = 60;
         UpdateTutorialDataTable();
         DeactiveDialoguePanel();
     }

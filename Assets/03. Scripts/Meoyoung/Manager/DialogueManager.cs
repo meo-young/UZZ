@@ -50,6 +50,7 @@ public class DialogueManager : MonoBehaviour
         if (instance == null)
             instance = this;
 
+        Application.targetFrameRate = 60;
         dialogueInfos = new DialogueInfo[100];
         UpdateDialogueData();
     }
