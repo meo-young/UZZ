@@ -29,6 +29,13 @@ public class WorkShopUI : MonoBehaviour
     [SerializeField] GameObject[] lockImages;
     [SerializeField] Transform[] buttonPos;
 
+
+    [Header("# Dew Contents")]
+    [SerializeField] GameObject[] dewImages;
+    [SerializeField] TMP_Text dewLevel;
+    [SerializeField] TMP_Text dewPrice;
+    [SerializeField] GameObject dewBtn;
+
     private void Awake()
     {
         if(this.gameObject.activeSelf)
@@ -44,6 +51,7 @@ public class WorkShopUI : MonoBehaviour
         workShopCanvas.SetActive(!workShopCanvas.activeSelf);
     }
 
+    #region Equipment
     public void OnEquipmentBtnHandler()
     {
         equipFront.SetActive(true);
@@ -54,17 +62,7 @@ public class WorkShopUI : MonoBehaviour
         dewPanel.SetActive(false);
     }
 
-    public void OnDewBtnHandler()
-    {
-        equipFront.SetActive(false);
-        equipBehind.SetActive(true);
-        equipPanel.SetActive(false);
-        dewFront.SetActive(true);
-        dewBehind.SetActive(false);
-        dewPanel.SetActive(true);
-    }
-
-    public void OnPurchaseBtnHandler(int _index)
+    public void OnEquipmentPurchaseBtnHandler(int _index)
     {
         MainManager.instance.fieldWorkManager.FieldWorkLevelUp(_index);
     }
@@ -98,4 +96,38 @@ public class WorkShopUI : MonoBehaviour
     {
         return buttonPos[_index];
     }
+
+    #endregion
+
+    #region Dew
+    public void OnDewBtnHandler()
+    {
+        equipFront.SetActive(false);
+        equipBehind.SetActive(true);
+        equipPanel.SetActive(false);
+        dewFront.SetActive(true);
+        dewBehind.SetActive(false);
+        dewPanel.SetActive(true);
+    }
+
+    public void UpdateDewInfo(int _index, int _level, int _price)
+    {
+        for(int i=0; i<dewImages.Length; i++)
+            dewImages[i].SetActive(false);
+
+        dewImages[_index].SetActive(true);
+        dewLevel.text = _level.ToString();
+        dewPrice.text = _price.ToString();
+    }
+
+    public void UnableDewBtn()
+    {
+        dewBtn.SetActive(false);
+    }
+
+    public void OnDewPurchaseBtnHandler()
+    {
+        AutoGrowManager.instance.AutoGrowLevelUp();
+    }
+    #endregion
 }

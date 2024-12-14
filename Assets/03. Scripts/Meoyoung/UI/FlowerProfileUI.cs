@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class FlowerProfileUI : MonoBehaviour
 {
     [Header("# Flower Base Info")]
-    [SerializeField] Text flowerName;
+    [SerializeField] TMP_Text flowerName;
     [SerializeField] Text flowerType;
 
     [Header("# Flower Change Info")]
@@ -26,7 +27,7 @@ public class FlowerProfileUI : MonoBehaviour
 
     private int playTime => (int)Mathf.Floor(MainManager.instance.gameInfo.playTime / 3600);
     private int dew => (int)MainManager.instance.gameInfo.dew;
-    private int growth => FlowerManager.instance.flowerInfo.exp + FlowerManager.instance.flowerData[FlowerManager.instance.flowerInfo.level].totalExp;
+    private float growth => FlowerManager.instance.flowerInfo.exp + FlowerManager.instance.flowerData[FlowerManager.instance.flowerInfo.level].totalExp;
     private int dayCount => MainManager.instance.gameInfo.totalDayCounter;
     private void Awake()
     {
@@ -50,7 +51,7 @@ public class FlowerProfileUI : MonoBehaviour
     public void InitFlowerSlider(float currentGrowth, float requiredExp)
     {
         flowerCurrentGrowthSlider.value = currentGrowth;
-        requiredExpForNextLevel.text = "다음 레벨까지 앞으로 " + requiredExp.ToString();
+        requiredExpForNextLevel.text = "다음 레벨까지 앞으로 " + requiredExp.ToString("F2");
     }
 
     void InitTotalTime(int hour)
@@ -68,9 +69,9 @@ public class FlowerProfileUI : MonoBehaviour
         totalDews.text = dew.ToString();    
     }
 
-    void InitTotalGrowth(int growth)
+    public void InitTotalGrowth()
     {
-        totalGrowth.text = growth.ToString();
+        totalGrowth.text = growth.ToString("F2");
     }
 
     public void SetActiveFunction()
@@ -79,7 +80,7 @@ public class FlowerProfileUI : MonoBehaviour
         {
             InitTotalTime(playTime);
             InitTotalDew(dew);
-            InitTotalGrowth(growth);
+            InitTotalGrowth();
             InitTotalDays(dayCount);
             this.gameObject.SetActive(true);
         }

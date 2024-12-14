@@ -48,6 +48,7 @@ public class MainManager : MonoBehaviour
 
     [Header("# Flower")]
     public FlowerManager flowerManager;
+    public FlowerUI flowerUI;
 
     [Header("# VFX")]
     public VFXManager vfxManager;

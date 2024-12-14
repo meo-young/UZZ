@@ -119,7 +119,7 @@ public class FieldWorkManager : MonoBehaviour
         for(int i =0; i<fieldWorkInfo.level.Length; i++)
         {
             // 쿨타임데이터 로드
-            fieldWorkInfo.coolTimeList[i] -= DataManager.instance.GetIntervalDateTime();
+            fieldWorkInfo.coolTimeList[i] -= Utility.instance.GetIntervalDateTime();
 
             // 작업의 단계와 레벨을 구분하기위한 로직
             int step = fieldWorkInfo.level[i] / 10;
