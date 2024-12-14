@@ -5,15 +5,6 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 0
-    path: Assets/01. Scenes/Meoyoung/Title 4.unity
-    guid: 19e9e4bdc8ed8d848abf179c0c19bfc7
-  - enabled: 0
-    path: Assets/01. Scenes/Meoyoung/Main.unity
-    guid: a87c4a33d20ec874dae64686b10ec4b0
   - enabled: 1
     path: Assets/01. Scenes/Meoyoung/Title_Main.unity
     guid: d80c8b05fc260eb40a75306259d4ebb0
@@ -29,12 +20,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/01. Scenes/Meoyoung/Story_1.unity
     guid: 1ce9ee0725e2b0340a33327298e8eeef
-  - enabled: 0
-    path: Assets/01. Scenes/Meoyoung/GG.unity
-    guid: aa30143e7e3de2e41bf5a00d3324de4c
-  - enabled: 0
-    path: Assets/01. Scenes/Meoyoung/Shop.unity
-    guid: d4612fa6c00337e408473190a97e9e78
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
