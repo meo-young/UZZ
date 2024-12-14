@@ -13,6 +13,7 @@ public class GameData
     public PureInfo pureInfo = new();
     public FieldWorkInfo fieldWorkInfo = new();
     public DiaryInfo diaryInfo = new();
+    public AutoGrowInfo autoGrowInfo = new();
 }
 
 public class DataManager : MonoBehaviour
@@ -54,8 +55,8 @@ public class DataManager : MonoBehaviour
         MainManager.instance.gameInfo.playTime = gameData.gameInfo.playTime;
         MainManager.instance.gameInfo.likeabilityFlag = gameData.gameInfo.likeabilityFlag;
         MainManager.instance.gameInfo.lastConnectTime = gameData.gameInfo.lastConnectTime;
-        MainManager.instance.gameInfo.inGameTime = gameData.gameInfo.inGameTime + GetIntervalDateTime() * MainManager.instance.timeMultifiler;
-        MainManager.instance.gameInfo.likeabilityTimer = gameData.gameInfo.likeabilityTimer + GetIntervalDateTime();
+        MainManager.instance.gameInfo.inGameTime = gameData.gameInfo.inGameTime + Utility.instance.GetIntervalDateTime() * MainManager.instance.timeMultifiler;
+        MainManager.instance.gameInfo.likeabilityTimer = gameData.gameInfo.likeabilityTimer + Utility.instance.GetIntervalDateTime();
         MainManager.instance.gameInfo.dew = gameData.gameInfo.dew;
         MainManager.instance.gameInfo.totalDayCounter = gameData.gameInfo.totalDayCounter;
         MainManager.instance.gameInfo.cycleFlag = gameData.gameInfo.cycleFlag;
@@ -64,7 +65,7 @@ public class DataManager : MonoBehaviour
         FlowerManager.instance.flowerInfo.exp = gameData.flowerInfo.exp;
         FlowerManager.instance.flowerInfo.isStepUp = gameData.flowerInfo.isStepUp;
         FlowerManager.instance.flowerInfo.totalGetDew = gameData.flowerInfo.totalGetDew;
-        FlowerManager.instance.flowerInfo.dewCounter = gameData.flowerInfo.dewCounter + GetIntervalDateTime();
+        FlowerManager.instance.flowerInfo.dewCounter = gameData.flowerInfo.dewCounter + Utility.instance.GetIntervalDateTime();
 
         FieldWorkManager.instance.fieldWorkInfo = gameData.fieldWorkInfo;
 
@@ -74,24 +75,8 @@ public class DataManager : MonoBehaviour
         PureStat.instance.pureInfo.likeability = gameData.pureInfo.likeability;
 
         DiaryUI.instance.diaryInfo = gameData.diaryInfo;
-    }
 
-    public float GetIntervalDateTime()
-    {
-        if (MainManager.instance.gameInfo.lastConnectTime == "" || MainManager.instance.gameInfo.lastConnectTime == "0")
-            return 0;
-
-        DateTime lastAccessTime = DateTime.Parse(MainManager.instance.gameInfo.lastConnectTime);
-        DateTime currentAccessTime = DateTime.Now;
-
-        TimeSpan timeDifference = currentAccessTime - lastAccessTime;
-        float secondsDifference = (float)timeDifference.TotalSeconds;
-
-        /*Debug.Log($"마지막 접속 시간: {lastAccessTime}");
-        Debug.Log($"현재 접속 시간: {currentAccessTime}");
-        Debug.Log($"두 시간의 초 차이: {secondsDifference}초");*/
-
-        return secondsDifference;
+        AutoGrowManager.instance.autoGrowInfo = gameData.autoGrowInfo;
     }
 
 
@@ -110,6 +95,8 @@ public class DataManager : MonoBehaviour
         gameData.pureInfo = PureStat.instance.pureInfo;
 
         gameData.diaryInfo = DiaryUI.instance.diaryInfo;
+
+        gameData.autoGrowInfo = AutoGrowManager.instance.autoGrowInfo;
 
         string json = JsonUtility.ToJson(gameData, true);
         File.WriteAllText(dataPath, json);

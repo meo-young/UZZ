@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class FlowerInfo
 {
     public int level;
-    public int exp;
+    public float exp;
     public int totalGetDew;
     public bool isStepUp;
     public float dewCounter;
@@ -29,7 +29,7 @@ public class FlowerManager : MonoBehaviour
         public float maxGrowth;
         public int producedDew;
         public int maxDew;
-        public int totalExp;
+        public float totalExp;
     }
 
     [Header("# Flower Info")]
@@ -199,11 +199,13 @@ public class FlowerManager : MonoBehaviour
 
     #region Flower Exp
 
-    public void GetFlowerExp(int exp)
+    public void GetFlowerExp(float exp, int _soundFlag = 0)
     {
         if (flowerInfo.isStepUp)
             return;
-        SoundManager.instance.PlaySFX(SFX.Flower.GROW);
+
+        if(_soundFlag == 0)
+            SoundManager.instance.PlaySFX(SFX.Flower.GROW);
 
         UpdateFlowerSlider(exp);
         flowerInfo.exp += exp;
@@ -241,7 +243,7 @@ public class FlowerManager : MonoBehaviour
 
         // 다음 레벨의 꽃 이미지
         Sprite nextFlowerImage;
-        if (flowerImage.Length < flowerData[flowerInfo.level + 1].step)
+        if (flowerImage.Length <= flowerData[flowerInfo.level + 1].step)
             nextFlowerImage = flowerImage[flowerData[flowerInfo.level].step];
         else
             nextFlowerImage = flowerImage[flowerData[flowerInfo.level + 1].step];
@@ -260,6 +262,7 @@ public class FlowerManager : MonoBehaviour
 
         flowerProfileUI.InitFlowerInfo(currentFlowerImage, currentFlowerStep, currentFlowerLevel);
         flowerProfileUI.InitFlowerSlider(currentGrowthRatio, requiredExp);
+        flowerProfileUI.InitTotalGrowth();
     }
 
     void ShowStepUpEffect()
@@ -371,7 +374,7 @@ public class FlowerManager : MonoBehaviour
 
             flowerData[int.Parse(values[0]) - 1].step = int.Parse(values[1]);
             flowerData[int.Parse(values[0]) - 1].requiredExp = int.Parse(values[3]);
-            flowerData[int.Parse(values[0]) - 1].totalExp = int.Parse(values[4]);
+            flowerData[int.Parse(values[0]) - 1].totalExp = float.Parse(values[4]);
             flowerData[int.Parse(values[0]) - 1].prodcuedGrowth = float.Parse(values[5]);
             flowerData[int.Parse(values[0]) - 1].maxGrowth = float.Parse(values[6]);
             flowerData[int.Parse(values[0]) - 1].producedDew = int.Parse(values[7]);

@@ -29,8 +29,6 @@ public class Utility : MonoBehaviour
         {
             start += elapsedValue * Time.deltaTime;
 
-            Debug.Log(start);
-
             if (start > target)
                 break;
 
@@ -44,5 +42,19 @@ public class Utility : MonoBehaviour
             _slider.value = target;
 
         CallBack();
+    }
+
+    public float GetIntervalDateTime()
+    {
+        if (MainManager.instance.gameInfo.lastConnectTime == "" || MainManager.instance.gameInfo.lastConnectTime == "0")
+            return 0;
+
+        DateTime lastAccessTime = DateTime.Parse(MainManager.instance.gameInfo.lastConnectTime);
+        DateTime currentAccessTime = DateTime.Now;
+
+        TimeSpan timeDifference = currentAccessTime - lastAccessTime;
+        float secondsDifference = (float)timeDifference.TotalSeconds;
+
+        return secondsDifference;
     }
 }
