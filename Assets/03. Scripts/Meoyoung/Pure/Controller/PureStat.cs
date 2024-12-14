@@ -83,10 +83,10 @@ public class PureStat : MonoBehaviour
 
         ShowLikeabilityUI(_acquiredLike);
         pureInfo.likeability += _acquiredLike;
-        if (pureInfo.likeability > likeabilityInfo[pureInfo.level].requiredExp)
+        if (pureInfo.likeability >= likeabilityInfo[pureInfo.level].requiredExp)
         {
-            PureInteractionText.instance.UpdatePureInteractionDialogue();
             pureInfo.level++;
+            PureInteractionText.instance.UpdatePureInteractionDialogue();
             MainManager.instance.pureController.isLevelUp = true;
             pureInfo.likeability = 0;
         }

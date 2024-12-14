@@ -57,6 +57,7 @@ public class FlowerManager : MonoBehaviour
     public Transform acquireEffectSpawnPos;
     public Transform acquireEffectTargetPos;
     public Transform stepUpEffectPos;
+    public Transform levelUpEffectPos;
     public ItemAcquireFx itemPrefab;
     private List<ItemAcquireFx> items;
     private float counter;
@@ -220,7 +221,7 @@ public class FlowerManager : MonoBehaviour
             }
             else
             {
-                Instantiate(MainManager.instance.vfxManager.flowerLevelUpVFX);
+                Instantiate(MainManager.instance.vfxManager.flowerLevelUpVFX, levelUpEffectPos.position, Quaternion.identity);
                 SoundManager.instance.PlaySFX(SFX.Flower.LEVELUP);
                 flowerInfo.level++;
                 flowerInfo.exp = 0;
@@ -274,7 +275,7 @@ public class FlowerManager : MonoBehaviour
 
     public void FlowerStepUp()
     {
-        Instantiate(MainManager.instance.vfxManager.flowerStepUpVFX);
+        Instantiate(MainManager.instance.vfxManager.flowerStepUpVFX, stepUpEffectPos.position, Quaternion.identity);
         SoundManager.instance.PlaySFX(SFX.Flower.STEPUP);
         SetActiveFalseDefaultFlower();
         flowerInfo.level++;
