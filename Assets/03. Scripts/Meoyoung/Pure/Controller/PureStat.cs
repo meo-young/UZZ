@@ -40,7 +40,7 @@ public class PureStat : MonoBehaviour
     public TextAsset likeabilityDataTable;
     public PureInfo pureInfo;
     [Tooltip("레벨에 필요한 호감도 리스트")]
-    public LikeabilityInfo[] likeabilityInfo;
+    [HideInInspector] public LikeabilityInfo[] likeabilityInfo;
     [Tooltip("호감도 GUI")]
     public GameObject likeabilityUI;
     [Tooltip("UI를 띄울 때 기준으로 할 타겟")]
@@ -57,17 +57,12 @@ public class PureStat : MonoBehaviour
     [Header("# etc.")]
     [Tooltip("작업 소요 시간")]
     public float workRequiredTime;
-    [Tooltip("레벨업 이펙트를 위한 VFX Manager")]
-    [SerializeField] VFXManager vfxManager;
-    [SerializeField] PureController pc;
+
 
     private void Awake()
     {
         if (instance == null)
             instance = this;
-
-        if (likeabilityUI.activeSelf)
-            likeabilityUI.SetActive(false);
     }
 
     private void Start()
@@ -81,52 +76,39 @@ public class PureStat : MonoBehaviour
             PlayerPrefs.SetInt("Story", 0);
         }
     }
-    public void GetLikeability(int _likeability)
+    public void GetLikeability(int _acquiredLike)
     {
-        Debug.Log("Get");
         SoundManager.instance.PlaySFX(SFX.Ambience.LIKE);
 
-        pureInfo.likeability += _likeability;
+
+        ShowLikeabilityUI(_acquiredLike);
+        pureInfo.likeability += _acquiredLike;
         if (pureInfo.likeability > likeabilityInfo[pureInfo.level].requiredExp)
         {
-            SoundManager.instance.PlaySFX(SFX.Ambience.LEVELUP);
             PureInteractionText.instance.UpdatePureInteractionDialogue();
             pureInfo.level++;
-            pc.isLevelUp = true;
+            MainManager.instance.pureController.isLevelUp = true;
             pureInfo.likeability = 0;
-            Instantiate(vfxManager.levelUpVFX, target.position, Quaternion.identity);
         }
-        ShowLikeabilityUI();
     }
 
-    void ShowLikeabilityUI()
+    void ShowLikeabilityUI(int _acquiredLike)
     {
-        likeabilityUI.SetActive(true);
+        // 푸르가 작업중이면 작업에 따른 위치를 반환
+        Transform targetPos;
+        if (MainManager.instance.pureController.fieldWorkState.type != FieldWorkType.None)
+            targetPos = MainManager.instance.pureController.ReturnWorkPurePosition();
+        else
+            targetPos = target;
+
 
         float likeabilityValue = (float)pureInfo.likeability / likeabilityInfo[pureInfo.level].requiredExp;
+        float targetLikeValue = ((float)pureInfo.likeability + _acquiredLike) / likeabilityInfo[pureInfo.level].requiredExp;
+        if(targetLikeValue > 1)
+            targetLikeValue = 1;
 
-        Transform targetPos;
-        if (pc.fieldWorkState.type != FieldWorkType.None)
-        {
-            targetPos = pc.ReturnWorkPurePosition();
-        }
-        else
-        {
-            targetPos = target;
-        }
-        Vector3 likeabilityPanelPos = targetPos.position + likeabilityPos;
-        likeabilityUI.transform.position = likeabilityPanelPos;
-        likeabilityUI.GetComponent<LikeabilityUI>().ReflectionValue(likeabilityValue, pureInfo.level);
-
-        Invoke(nameof(SetActiveFalseUI), 3);
-    }
-
-    void SetActiveFalseUI()
-    {
-        if (likeabilityUI.activeSelf)
-            likeabilityUI.SetActive(false);
-
-        pc.isLevelUp = false;
+        likeabilityUI.transform.position = targetPos.position + likeabilityPos;
+        likeabilityUI.GetComponent<LikeabilityUI>().ReflectionValue(likeabilityValue, targetLikeValue, pureInfo.level, targetPos);
     }
 
     public void SetTrueInteractionText()

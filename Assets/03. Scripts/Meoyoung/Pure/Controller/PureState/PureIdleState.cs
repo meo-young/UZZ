@@ -73,7 +73,7 @@ public class PureIdleState : MonoBehaviour, IControllerState
         pc.flowerManager.GetFlowerExp((int)pc.fieldWorkState.growPoint);
 
         Instantiate(pc.vfxManager.dewVFX);
-        MainManager.instance.gameInfo.dew += pc.fieldWorkState.growPoint;
+        MainManager.instance.dewUI.Count(pc.fieldWorkState.growPoint);
 
         pc.Initialize();
         MainManager.instance.gameInfo.cycleFlag = false;

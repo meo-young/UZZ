@@ -97,7 +97,16 @@ public class FieldWorkManager : MonoBehaviour
 
     public void FieldWorkLevelUp(int _index)
     {
+        // 현재 재화가 도구 가격보다 적다면 Return
+        if (MainManager.instance.gameInfo.dew < fieldWorkData[_index][fieldWorkInfo.level[_index]].price)
+            return;
+
+        // 레벨 증가후 이펙트 출력
+        MainManager.instance.dewUI.Count(-fieldWorkData[_index][fieldWorkInfo.level[_index]].price);
         fieldWorkInfo.level[_index]++;
+        Instantiate(VFXManager.instance.fieldWorkLevelUpVFX, workShopUI.GetFieldWorkButtonPos(_index).position, Quaternion.identity);
+
+        // 레벨업을 했으니 다시 FieldWorkData 최신화
         InitFieldWorkData();
     }
 
@@ -116,7 +125,6 @@ public class FieldWorkManager : MonoBehaviour
             int step = fieldWorkInfo.level[i] / 10;
             int level = fieldWorkInfo.level[i] % 10;
 
-            Debug.Log(fieldWorkInfo.level[i]);
             prices[i] = fieldWorkData[i][fieldWorkInfo.level[i]].price;
             if (fieldWorkInfo.level[i] != 0)
                 fieldWorkArray[i].icon = fieldWorkData[i][fieldWorkInfo.level[i] - 1].icon;                         // 작업 아이콘

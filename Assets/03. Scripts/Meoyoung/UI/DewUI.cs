@@ -15,19 +15,49 @@ public class DewUI : MonoBehaviour
         dewCount.text = MainManager.instance.gameInfo.dew.ToString();
     }
 
-    public IEnumerator Count(float target, float current)
+    public void Count(float _point)
     {
-        yield return new WaitForSeconds(1f);
+        StartCoroutine(CountCoroutine(_point));
+        MainManager.instance.gameInfo.dew += _point;
+    }
+
+
+    private IEnumerator CountCoroutine(float _point)
+    {
+        float current = MainManager.instance.gameInfo.dew;
+        float target = MainManager.instance.gameInfo.dew + _point;
+
         float duration = 0.5f; // 카운팅에 걸리는 시간 설정. 
-        float offset = (target - current) / duration;
 
-        while (current < target)
+        float offset;
+        if (target > current)
         {
-            current += offset * Time.deltaTime;
-            dewCount.text = ((int)current).ToString();
-            yield return null;
-        }
+            yield return new WaitForSeconds(1f);
 
+            offset = (target - current) / duration;
+            while (current < target)
+            {
+                current += offset * Time.deltaTime;
+                if (current > target)
+                    break;
+
+                dewCount.text = ((int)current).ToString();
+                yield return null;
+            }
+        }
+        else
+        {
+            offset = (current - target) / duration;
+            while (current > target)
+            {
+                current -= offset * Time.deltaTime;
+                if (current < target)
+                    break;
+
+                dewCount.text = ((int)current).ToString();
+                yield return null;
+            }
+        }
         current = target;
         dewCount.text = ((int)current).ToString();
     }
