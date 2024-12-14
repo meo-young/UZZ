@@ -1,4 +1,5 @@
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -26,6 +27,13 @@ public class WorkShopUI : MonoBehaviour
     [SerializeField] TMP_Text[] points;
     [SerializeField] TMP_Text[] btn_Prices;
     [SerializeField] GameObject[] lockImages;
+    [SerializeField] Transform[] buttonPos;
+
+    private void Awake()
+    {
+        if(this.gameObject.activeSelf)
+            this.gameObject.SetActive(false);
+    }
 
     private void OnEnable()
     {
@@ -83,5 +91,11 @@ public class WorkShopUI : MonoBehaviour
             btnLevels[i].text = "Lv" + (_fieldWork[i].level+1).ToString();
             btn_Prices[i].text = _prices[i].ToString();
         }
+    }
+
+
+    public Transform GetFieldWorkButtonPos(int _index)
+    {
+        return buttonPos[_index];
     }
 }

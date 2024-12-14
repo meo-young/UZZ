@@ -36,7 +36,7 @@ public class FlowerManager : MonoBehaviour
     [SerializeField] TextAsset flowerDataTable;
     public FlowerInfo flowerInfo;
     [SerializeField] float dewMinInterval;
-    [SerializeField] Sprite[] flowerImage;
+    public Sprite[] flowerImage;
     [HideInInspector] public FlowerData[] flowerData;
 
     [Header("# Flower UI")]
@@ -205,6 +205,7 @@ public class FlowerManager : MonoBehaviour
             return;
         SoundManager.instance.PlaySFX(SFX.Flower.GROW);
 
+        UpdateFlowerSlider(exp);
         flowerInfo.exp += exp;
         if (flowerData[flowerInfo.level].requiredExp <= flowerInfo.exp)
         {
@@ -227,6 +228,28 @@ public class FlowerManager : MonoBehaviour
         InitFlowerUI();
     }
 
+    void UpdateFlowerSlider(float _acquiredExp)
+    {
+        // 현재, 목표 경험치 비율 계산
+        float currentExp = (float)flowerInfo.exp / flowerData[flowerInfo.level].requiredExp;
+        float targetExp = (float)(flowerInfo.exp + _acquiredExp) / flowerData[flowerInfo.level].requiredExp;
+        if (targetExp > 1)
+            targetExp = 1;
+
+        // 현재 레벨
+        int currentFlowerLevel = flowerInfo.level + 1;
+
+        // 다음 레벨의 꽃 이미지
+        Sprite nextFlowerImage;
+        if (flowerImage.Length < flowerData[flowerInfo.level + 1].step)
+            nextFlowerImage = flowerImage[flowerData[flowerInfo.level].step];
+        else
+            nextFlowerImage = flowerImage[flowerData[flowerInfo.level + 1].step];
+
+        // 꽃 UI 최신화
+        flowerUI.UpdateFlowerUi(currentExp, targetExp, currentFlowerLevel, nextFlowerImage);
+    }
+
     void InitFlowerUI()
     {
         Sprite currentFlowerImage = flowerImage[flowerData[flowerInfo.level].step];
@@ -235,7 +258,6 @@ public class FlowerManager : MonoBehaviour
         int currentFlowerLevel = flowerInfo.level + 1;
         int currentFlowerStep = flowerData[flowerInfo.level].step;
 
-        flowerUI.InitFlowerUI(currentGrowthRatio, currentFlowerLevel, currentFlowerImage);
         flowerProfileUI.InitFlowerInfo(currentFlowerImage, currentFlowerStep, currentFlowerLevel);
         flowerProfileUI.InitFlowerSlider(currentGrowthRatio, requiredExp);
     }
@@ -317,8 +339,7 @@ public class FlowerManager : MonoBehaviour
     void GetDew()
     {
         float dew = flowerInfo.totalGetDew * (intervalCounter - acquireInterval) / maxShakeTime;
-        StartCoroutine(MainManager.instance.dewUI.Count(MainManager.instance.gameInfo.dew + dew, MainManager.instance.gameInfo.dew));
-        MainManager.instance.gameInfo.dew += dew;
+        MainManager.instance.dewUI.Count(dew);
         flowerInfo.dewCounter = 0;
     }
 
