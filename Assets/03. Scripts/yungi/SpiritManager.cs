@@ -6,7 +6,7 @@ public class SpiritManager : MonoBehaviour
 {
     [SerializeField] private DialogSystem dialogSystem;
     [SerializeField] public int id;
-    [SerializeField] private string name;
+    [SerializeField] private string name2;
 
     private bool isFirstConversation; //시간대가 바뀐 후의 첫 대화인가?
     [SerializeField] private int time;

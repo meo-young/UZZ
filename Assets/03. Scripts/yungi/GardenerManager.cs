@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class GardenerManager : MonoBehaviour
 {
-    [SerializeField] private string name;       //이름
+    [SerializeField] private string name2;       //이름
     [SerializeField] private int id;            //고유 번호
     
     [SerializeField] private int age;           //나이
@@ -136,7 +136,7 @@ public class GardenerManager : MonoBehaviour
 
     public void displayCharacterUI()
     {
-        characterUIManager.set_CharacterInfo(name, age, 18, 300, 500, 3, 55, 100, 2, 85, 100, 1, 40, 100);
+        characterUIManager.set_CharacterInfo(name2, age, 18, 300, 500, 3, 55, 100, 2, 85, 100, 1, 40, 100);
         characterUIManager.on_CharacterInfo();
     }
 
