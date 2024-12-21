@@ -60,7 +60,7 @@ public class FlowerManager : MonoBehaviour
     public Transform levelUpEffectPos;
     public ItemAcquireFx itemPrefab;
     private List<ItemAcquireFx> items;
-    private float counter;
+    [HideInInspector] public float counter;
     private float intervalCounter;
     private bool finishShakeEvent;
     [Space(10)]
@@ -72,7 +72,9 @@ public class FlowerManager : MonoBehaviour
     [SerializeField] List<GameObject> defaultFlower;
     [SerializeField] List<GameObject> bigFlower;
     [SerializeField] List<GameObject> miniFlower;
+    [SerializeField] GameObject flowerReadyVFX;
     [HideInInspector] public bool isFlowerEvent;
+    bool bCanAcquire = false;
 
     private void Awake()
     {
@@ -317,7 +319,11 @@ public class FlowerManager : MonoBehaviour
             return false;
 
         if (finishShakeEvent) // 최대 흔들기 시간이 지난 경우 터치를 인식하지 않음
+        {
+            MoveToTargetPos();
             return false;
+        }
+
 
         counter += Time.deltaTime;
 
@@ -325,12 +331,19 @@ public class FlowerManager : MonoBehaviour
         {
             intervalCounter += acquireInterval;
             ShowAcquireEffect();
+            bCanAcquire = true;
         }
 
         if (counter > maxShakeTime)
+        {
             finishShakeEvent = true;
+            bCanAcquire = true;
+        }
 
-        return true;
+        if (bCanAcquire)
+            return true;
+
+        return false;
     }
 
     void InitAcquireVariable()
@@ -338,6 +351,7 @@ public class FlowerManager : MonoBehaviour
         finishShakeEvent = false;
         intervalCounter = acquireInterval;
         counter = 0;
+        bCanAcquire = false;
     }
 
     void GetDew()
@@ -352,6 +366,12 @@ public class FlowerManager : MonoBehaviour
         flowerInfo.dewCounter += Time.deltaTime;
 
         flowerInfo.totalGetDew = (int)(Mathf.Floor(flowerInfo.dewCounter / dewMinInterval) * flowerData[flowerInfo.level].producedDew);
+
+        if (flowerInfo.totalGetDew > 0)
+            flowerReadyVFX.SetActive(true);
+        else
+            flowerReadyVFX.SetActive(false);
+
         if (flowerInfo.totalGetDew >= flowerData[flowerInfo.level].maxDew)
             flowerInfo.totalGetDew = flowerData[flowerInfo.level].maxDew;
     }
