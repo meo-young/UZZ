@@ -12,6 +12,7 @@ public class MainTouch : MonoBehaviour
     private GameObject moveTouchedObject;
 
     private bool flowerTouched;
+    private bool bCanFlowerAcquired;
     private bool bBigDustTouched;
 
 
@@ -20,6 +21,7 @@ public class MainTouch : MonoBehaviour
         flowerManager = MainManager.instance.flowerManager;
         pc = MainManager.instance.pureController;
         flowerTouched = false;
+        bCanFlowerAcquired = false;
         bBigDustTouched = false;
         dustTouchCounter = 0;
     }
@@ -110,11 +112,12 @@ public class MainTouch : MonoBehaviour
                         case "Flower":
                             if (flowerTouched)
                             {
-                                if (!flowerManager.AcquireDewEffect())
+                                bCanFlowerAcquired = flowerManager.AcquireDewEffect();
+                                /*if (!bCanFlowerAcquired)
                                 {
                                     InitFlowerTouch();
                                     break;
-                                }
+                                }*/
 
                                 if (flowerAnim != null)
                                     flowerAnim.timeSclae = 5f;
@@ -146,12 +149,18 @@ public class MainTouch : MonoBehaviour
         if (!flowerTouched)
             return;
 
-        flowerTouched = false;
+        flowerManager.counter = 0;
+
+        if (!bCanFlowerAcquired)
+            return;
+
         if(flowerAnim != null)
         {
             flowerAnim.timeSclae = 1f;
             flowerAnim = null;
         }
         flowerManager.MoveToTargetPos();
+        bCanFlowerAcquired = false;
+        flowerTouched = false;
     }
 }

@@ -21,6 +21,7 @@ public class VFXManager : MonoBehaviour
     public GameObject flowerStepUpVFX;
     public GameObject flowerStepUpWaitVFX;
     public GameObject flowerLevelUpVFX;
+    public GameObject flowerAcquireReadyVFX;
 
     [Header("# Touch VFX")]
     public GameObject defaultTouchVFX;
