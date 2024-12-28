@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Security.Cryptography;
+using UnityEditor.Overlays;
 using UnityEngine;
 
 [System.Serializable]
@@ -20,15 +22,15 @@ public class DataManager : MonoBehaviour
 {
     public static DataManager instance;
 
-    string dataPath;
+    string filePathPC = Path.Combine(Application.dataPath + "/05. Database/", "database.json");
 
     private void Awake()
     {
         if (instance == null)
             instance = this;
 
-        dataPath = Path.Combine(Application.dataPath + "/05. Database/", "database.json");
     }
+
 
     private void Start()
     {
@@ -39,15 +41,32 @@ public class DataManager : MonoBehaviour
     public void JsonLoad()
     {
         GameData gameData = new GameData();
-        if (!File.Exists(dataPath))
+        if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
         {
-            Debug.Log("파일이 존재하지 않음");
-            JsonSave();
-            return;
-        }
+            string filePathMobile = Application.persistentDataPath + "/database.json";
 
-        string loadJson = File.ReadAllText(dataPath);
-        gameData = JsonUtility.FromJson<GameData>(loadJson);
+            WWW www = new WWW(filePathMobile);
+            while (!www.isDone) { }
+            string dataAsJson = www.text;
+
+            if (dataAsJson != "")
+            {
+                gameData = JsonUtility.FromJson<GameData>(dataAsJson);
+            }
+        }
+        else
+        {
+            if (!File.Exists(filePathPC))
+            {
+                Debug.Log("파일이 존재하지 않음");
+                JsonSave();
+                return;
+            }
+
+            string loadJson = File.ReadAllText(filePathPC);
+            gameData = JsonUtility.FromJson<GameData>(loadJson);
+        }
+        
 
         if (gameData == null)
             return;
@@ -80,6 +99,7 @@ public class DataManager : MonoBehaviour
     }
 
 
+
     public void JsonSave()
     {
         GameData gameData = new GameData();
@@ -98,7 +118,18 @@ public class DataManager : MonoBehaviour
 
         gameData.autoGrowInfo = AutoGrowManager.instance.autoGrowInfo;
 
-        string json = JsonUtility.ToJson(gameData, true);
-        File.WriteAllText(dataPath, json);
+
+        if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
+        {
+            string filePathMobile = Application.persistentDataPath + "/database.json";
+
+            string dataAsJson = JsonUtility.ToJson(gameData);
+            File.WriteAllText(filePathMobile, dataAsJson);
+        }
+        else
+        {
+            string json = JsonUtility.ToJson(gameData, true);
+            File.WriteAllText(filePathPC, json);
+        }
     }
 }
