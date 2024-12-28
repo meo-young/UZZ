@@ -10,8 +10,7 @@ public class TutorialGameData
 public class TutorialDataManager : MonoBehaviour
 {
     public static TutorialDataManager instance;
-    string dataPath;
-
+    string filePathPC = Path.Combine(Application.dataPath + "/05. Database/", "tutorialDatabase.json");
 
     private void Awake()
     {
@@ -25,7 +24,6 @@ public class TutorialDataManager : MonoBehaviour
             Destroy(this.gameObject);
         }
 
-        dataPath = Path.Combine(Application.dataPath + "/05. Database/", "tutorialDatabase.json");
     }
 
     private void Start()
@@ -36,15 +34,31 @@ public class TutorialDataManager : MonoBehaviour
     public void JsonLoad()
     {
         TutorialGameData gameData = new TutorialGameData();
-        if (!File.Exists(dataPath))
+        if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
         {
-            Debug.Log("파일이 존재하지 않음");
-            JsonSave();
-            return;
-        }
+            string filePathMobile = Application.persistentDataPath + "/tutorialDatabase.json";
+            WWW www = new WWW(filePathMobile);
+            while (!www.isDone) { }
+            string dataAsJson = www.text;
 
-        string loadJson = File.ReadAllText(dataPath);
-        gameData = JsonUtility.FromJson<TutorialGameData>(loadJson);
+            if (dataAsJson != "")
+            {
+                Debug.Log(dataAsJson);
+                gameData = JsonUtility.FromJson<TutorialGameData>(dataAsJson);
+            }
+        }
+        else
+        {
+            if (!File.Exists(filePathPC))
+            {
+                Debug.Log("파일이 존재하지 않음");
+                JsonSave();
+                return;
+            }
+
+            string loadJson = File.ReadAllText(filePathPC);
+            gameData = JsonUtility.FromJson<TutorialGameData>(loadJson);
+        }
 
         if (gameData == null)
             return;
@@ -59,7 +73,16 @@ public class TutorialDataManager : MonoBehaviour
 
         gameData.flag = TutorialChecker.instance.flag;
 
-        string json = JsonUtility.ToJson(gameData, true);
-        File.WriteAllText(dataPath, json);
+        if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
+        {
+            string filePathMobile = Application.persistentDataPath + "/tutorialDatabase.json";
+            string dataAsJson = JsonUtility.ToJson(gameData);
+            File.WriteAllText(filePathMobile, dataAsJson);
+        }
+        else
+        {
+            string json = JsonUtility.ToJson(gameData, true);
+            File.WriteAllText(filePathPC, json);
+        }
     }
 }
