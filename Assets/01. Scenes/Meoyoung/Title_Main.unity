@@ -287,6 +287,71 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!1 &259771819
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 259771821}
+  - component: {fileID: 259771820}
+  m_Layer: 0
+  m_Name: VFX Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &259771820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 259771819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 092a2c14ff81efd419de04f52d9e2c44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  growthVFX: {fileID: 7922019658989002819, guid: 25441558db86ed6498526e35aef86fd5, type: 3}
+  dewVFX: {fileID: 7922019658989002819, guid: 25441558db86ed6498526e35aef86fd5, type: 3}
+  successVFX:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  fieldWorkLevelUpVFX: {fileID: 2837677757484517056, guid: 6ba754c376c5b284fb4598b9baa79e26, type: 3}
+  likeabilityVFX: {fileID: 7265446052543952392, guid: 0c06a0f9bcdaf004ab6e8a65af315bdd, type: 3}
+  levelUpVFX: {fileID: 7265446052543952392, guid: 0c06a0f9bcdaf004ab6e8a65af315bdd, type: 3}
+  flowerGrowthVFX: {fileID: 7922019658989002819, guid: d01ed5c07794f5f4dab887ee278390d1, type: 3}
+  flowerStepUpVFX: {fileID: 8688575798911085209, guid: 50ec6f5ea357bc7438ccef15e750d7ea, type: 3}
+  flowerStepUpWaitVFX: {fileID: 1152410834392115559, guid: 822fb2c492777c44ea633117fdfd1919, type: 3}
+  flowerLevelUpVFX: {fileID: 1941663726311195573, guid: 7f227d96ab27c0e4da9ad2e0efa1d55d, type: 3}
+  flowerAcquireReadyVFX: {fileID: 4874153363313689851, guid: 504df5b3decfa0b418f7daf0f6e0a426, type: 3}
+  defaultTouchVFX: {fileID: 887596171926854777, guid: e35c2c24b75c7c344a10dac482094ca7, type: 3}
+  daisyTouchVFX: {fileID: 9005693788703422373, guid: c5a5d41a115f1b54fbd087f66bfcb141, type: 3}
+  flowerEventTouchVFX: {fileID: 2664239123983877315, guid: 2a0530771a8d43f46be2617c7df41657, type: 3}
+  miniDustVFX: {fileID: 5976447302077285302, guid: 8cc5c562f621ff84a9827efd81e7a8ea, type: 3}
+  bigDustVFX: {fileID: 5132221591996123472, guid: 476701f9da915024e96170d149af6969, type: 3}
+--- !u!4 &259771821
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 259771819}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -449.19092, y: 81.17297, z: 0.14602315}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &290565174
 GameObject:
   m_ObjectHideFlags: 0
@@ -5543,6 +5608,135 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 511572703}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &564471341
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 564471343}
+  - component: {fileID: 564471342}
+  m_Layer: 0
+  m_Name: project 4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &564471342
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 564471341}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: dcb4c5785b6e82447a0bab2eb8be7900, type: 3}
+  m_Resource: {fileID: 8300000, guid: dcb4c5785b6e82447a0bab2eb8be7900, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.432
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &564471343
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 564471341}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -11829,3 +12023,5 @@ SceneRoots:
   - {fileID: 678185037}
   - {fileID: 1612785614}
   - {fileID: 1795770748}
+  - {fileID: 564471343}
+  - {fileID: 259771821}
