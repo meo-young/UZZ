@@ -43,21 +43,25 @@ public class DataManager : MonoBehaviour
         {
             string filePathMobile = Path.Combine(Application.persistentDataPath, "database.json");
 
-            WWW www = new WWW(filePathMobile);
-            while (!www.isDone) { }
-            string dataAsJson = www.text;
-
-            if (dataAsJson != "")
-            {
-                gameData = JsonUtility.FromJson<GameData>(dataAsJson);
-            }
-
             if (!File.Exists(filePathMobile))
             {
                 Debug.Log("파일이 존재하지 않음");
                 JsonSave();
                 return;
             }
+
+            string json = File.ReadAllText(filePathMobile);
+            gameData = JsonUtility.FromJson<GameData>(json);
+
+            /*            WWW www = new WWW(filePathMobile);
+                        while (!www.isDone) { }
+                        string dataAsJson = www.text;
+
+                        if (dataAsJson != "")
+                        {
+                            gameData = JsonUtility.FromJson<GameData>(dataAsJson);
+                        }*/
+
         }
         else
         {
