@@ -36,7 +36,7 @@ public class TutorialDataManager : MonoBehaviour
         TutorialGameData gameData = new TutorialGameData();
         if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
         {
-            string filePathMobile = Application.persistentDataPath + "/tutorialDatabase.json";
+            string filePathMobile = Path.Combine(Application.persistentDataPath, "tutorialDatabase.json");
             WWW www = new WWW(filePathMobile);
             while (!www.isDone) { }
             string dataAsJson = www.text;
@@ -45,6 +45,13 @@ public class TutorialDataManager : MonoBehaviour
             {
                 Debug.Log(dataAsJson);
                 gameData = JsonUtility.FromJson<TutorialGameData>(dataAsJson);
+            }
+
+            if(!File.Exists(filePathMobile))
+            {
+                Debug.Log("파일이 존재하지 않음");
+                JsonSave();
+                return;
             }
         }
         else
@@ -75,7 +82,7 @@ public class TutorialDataManager : MonoBehaviour
 
         if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
         {
-            string filePathMobile = Application.persistentDataPath + "/tutorialDatabase.json";
+            string filePathMobile = Path.Combine(Application.persistentDataPath, "tutorialDatabase.json");
             string dataAsJson = JsonUtility.ToJson(gameData);
             File.WriteAllText(filePathMobile, dataAsJson);
         }

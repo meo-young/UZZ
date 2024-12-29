@@ -41,7 +41,7 @@ public class DataManager : MonoBehaviour
         GameData gameData = new GameData();
         if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
         {
-            string filePathMobile = Application.persistentDataPath + "/database.json";
+            string filePathMobile = Path.Combine(Application.persistentDataPath, "database.json");
 
             WWW www = new WWW(filePathMobile);
             while (!www.isDone) { }
@@ -50,6 +50,13 @@ public class DataManager : MonoBehaviour
             if (dataAsJson != "")
             {
                 gameData = JsonUtility.FromJson<GameData>(dataAsJson);
+            }
+
+            if (!File.Exists(filePathMobile))
+            {
+                Debug.Log("파일이 존재하지 않음");
+                JsonSave();
+                return;
             }
         }
         else
@@ -119,7 +126,7 @@ public class DataManager : MonoBehaviour
 
         if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
         {
-            string filePathMobile = Application.persistentDataPath + "/database.json";
+            string filePathMobile = Path.Combine(Application.persistentDataPath, "database.json");
 
             string dataAsJson = JsonUtility.ToJson(gameData);
             File.WriteAllText(filePathMobile, dataAsJson);
