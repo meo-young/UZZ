@@ -20,13 +20,26 @@ public class DataManager : MonoBehaviour
 {
     public static DataManager instance;
 
-    string filePathPC = Path.Combine(Application.dataPath + "/05. Database/", "database.json");
+    string filePath;
 
     private void Awake()
     {
         if (instance == null)
             instance = this;
 
+#if UNITY_EDITOR
+        filePath = Path.Combine(Application.dataPath + "/05. Database/", "database.json");
+        Debug.Log("Platform : PC");
+
+#elif UNITY_ANDROID
+        filePath = Path.Combine(Application.persistentDataPath, "database.json");
+        Debug.Log("Platform : Android");
+
+#elif UNITY_IOS
+        filePath = Path.Combine(Application.persistentDataPath, "database.json");
+        Debug.Log("Platform : IOS");
+
+#endif
     }
 
 
@@ -38,44 +51,53 @@ public class DataManager : MonoBehaviour
 
     public void JsonLoad()
     {
+        if (!File.Exists(filePath))
+        {
+            Debug.Log("파일이 존재하지 않음");
+            JsonSave();
+            return;
+        }
+
+        string dataAsJson;
+
+#if UNITY_EDITOR || UNITY_IOS
+        dataAsJson = File.ReadAllText(filePath);
+
+#elif UNITY_ANDROID
+        WWW reader = new WWW(filePath);
+        while(!reader.isDone){
+        }
+        dataAsJson = reader.text;
+
+#endif
+
         GameData gameData = new GameData();
-        if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
-        {
-            string filePathMobile = Path.Combine(Application.persistentDataPath, "database.json");
+        gameData = JsonUtility.FromJson<GameData>(dataAsJson);
 
-            if (!File.Exists(filePathMobile))
-            {
-                Debug.Log("파일이 존재하지 않음");
-                JsonSave();
-                return;
-            }
+        /* if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
+         {
 
-            string json = File.ReadAllText(filePathMobile);
-            gameData = JsonUtility.FromJson<GameData>(json);
 
-            /*            WWW www = new WWW(filePathMobile);
-                        while (!www.isDone) { }
-                        string dataAsJson = www.text;
+             string json = File.ReadAllText(filePath);
+             gameData = JsonUtility.FromJson<GameData>(json);
 
-                        if (dataAsJson != "")
-                        {
-                            gameData = JsonUtility.FromJson<GameData>(dataAsJson);
-                        }*/
+             *//*            WWW www = new WWW(filePathMobile);
+                         while (!www.isDone) { }
+                         string dataAsJson = www.text;
 
-        }
-        else
-        {
-            if (!File.Exists(filePathPC))
-            {
-                Debug.Log("파일이 존재하지 않음");
-                JsonSave();
-                return;
-            }
+                         if (dataAsJson != "")
+                         {
+                             gameData = JsonUtility.FromJson<GameData>(dataAsJson);
+                         }*//*
 
-            string loadJson = File.ReadAllText(filePathPC);
-            gameData = JsonUtility.FromJson<GameData>(loadJson);
-        }
-        
+         }
+         else
+         {
+
+             string loadJson = File.ReadAllText(filePath);
+             gameData = JsonUtility.FromJson<GameData>(loadJson);
+         }*/
+
 
         if (gameData == null)
             return;
@@ -130,15 +152,13 @@ public class DataManager : MonoBehaviour
 
         if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
         {
-            string filePathMobile = Path.Combine(Application.persistentDataPath, "database.json");
-
             string dataAsJson = JsonUtility.ToJson(gameData);
-            File.WriteAllText(filePathMobile, dataAsJson);
+            File.WriteAllText(filePath, dataAsJson);
         }
         else
         {
             string json = JsonUtility.ToJson(gameData, true);
-            File.WriteAllText(filePathPC, json);
+            File.WriteAllText(filePath, json);
         }
     }
 }
