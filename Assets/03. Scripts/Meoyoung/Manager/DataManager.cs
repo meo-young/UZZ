@@ -74,30 +74,6 @@ public class DataManager : MonoBehaviour
         GameData gameData = new GameData();
         gameData = JsonUtility.FromJson<GameData>(dataAsJson);
 
-        /* if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
-         {
-
-
-             string json = File.ReadAllText(filePath);
-             gameData = JsonUtility.FromJson<GameData>(json);
-
-             *//*            WWW www = new WWW(filePathMobile);
-                         while (!www.isDone) { }
-                         string dataAsJson = www.text;
-
-                         if (dataAsJson != "")
-                         {
-                             gameData = JsonUtility.FromJson<GameData>(dataAsJson);
-                         }*//*
-
-         }
-         else
-         {
-
-             string loadJson = File.ReadAllText(filePath);
-             gameData = JsonUtility.FromJson<GameData>(loadJson);
-         }*/
-
 
         if (gameData == null)
             return;
@@ -124,7 +100,7 @@ public class DataManager : MonoBehaviour
         PureStat.instance.pureInfo.level = gameData.pureInfo.level;
         PureStat.instance.pureInfo.likeability = gameData.pureInfo.likeability;
 
-        DiaryUI.instance.diaryInfo = gameData.diaryInfo;
+        DiaryManager.instance.diaryInfo = gameData.diaryInfo;
 
         AutoGrowManager.instance.autoGrowInfo = gameData.autoGrowInfo;
     }
@@ -145,7 +121,7 @@ public class DataManager : MonoBehaviour
 
         gameData.pureInfo = PureStat.instance.pureInfo;
 
-        gameData.diaryInfo = DiaryUI.instance.diaryInfo;
+        gameData.diaryInfo = DiaryManager.instance.diaryInfo;
 
         gameData.autoGrowInfo = AutoGrowManager.instance.autoGrowInfo;
 
