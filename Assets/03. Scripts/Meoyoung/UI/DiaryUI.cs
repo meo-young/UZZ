@@ -14,13 +14,6 @@ public class DiaryInfo
 public class DiaryUI : MonoBehaviour
 {
     public static DiaryUI instance;
-    public struct StoryData            // 스토리 데이터테이블
-    {
-        public string title;                // 스토리 제목
-        public int imageIndex;              // 스토리 미리보기 이미지
-        public string description;          // 스토리 설명 텍스트
-        public int requiredDew;             // 스토리 필요재화
-    }
 
     public struct CharacterData        // 캐릭터 데이터테이블
     {
@@ -33,8 +26,6 @@ public class DiaryUI : MonoBehaviour
 
     [Header("# Diary Info")]
     public DiaryInfo diaryInfo;
-    [SerializeField] StoryData[] storyData;
-    [SerializeField] TextAsset storyDataTable;
     [SerializeField] Sprite[] storyImages;
 
     [Header("# Diary UI")]
@@ -69,6 +60,9 @@ public class DiaryUI : MonoBehaviour
     [SerializeField] GameObject outlinePanel;
 
     private int currentIndex;
+    private LoadDiaryDatatable loadDiary;
+    private StoryData[] storyData => loadDiary.storyData;
+
     private float Dew => MainManager.instance.gameInfo.dew;
     private void Awake()
     {
@@ -78,7 +72,7 @@ public class DiaryUI : MonoBehaviour
         if(diaryUI.activeSelf)
             diaryUI.SetActive(false);
 
-        UpdateDiaryDataTable();
+        loadDiary = GetComponent<LoadDiaryDatatable>();
     }
     #region DiaryFunction
     public void OnDiaryBtnHandler()         // Diary 활성화 기능
@@ -161,6 +155,7 @@ public class DiaryUI : MonoBehaviour
         apprecitaionPanel.SetActive(false);
     }
 
+    // 감상하기 버튼
     public void OnMainAppreciationBtnHandler()
     {
         if (diaryInfo.level == currentIndex)
@@ -168,8 +163,7 @@ public class DiaryUI : MonoBehaviour
             MainManager.instance.gameInfo.dew -= storyData[currentIndex].requiredDew;
             diaryInfo.level++;
         }
-
-        PlayerPrefs.SetInt("Plus", 30);
+        PlayerPrefs.SetInt("Plus", storyData[currentIndex].result);
         SceneManager.LoadScene("Story_1");
     }
 
@@ -219,26 +213,4 @@ public class DiaryUI : MonoBehaviour
 
     #endregion
 
-    #region DataTable
-    void UpdateDiaryDataTable()             // DiaryDataTable 초기화
-    {
-        storyData = new StoryData[100]; 
-        StringReader reader = new StringReader(storyDataTable.text);
-        bool head = false;
-        while (reader.Peek() != -1)
-        {
-            string line = reader.ReadLine();
-            if (!head)
-            {
-                head = true;
-                continue;
-            }
-            string[] values = line.Split('\t');
-            storyData[int.Parse(values[0])].title = values[1];
-            storyData[int.Parse(values[0])].imageIndex = int.Parse(values[2]);
-            storyData[int.Parse(values[0])].description = values[3];
-            storyData[int.Parse(values[0])].requiredDew = int.Parse(values[4]);
-        }
-    }
-    #endregion
 }

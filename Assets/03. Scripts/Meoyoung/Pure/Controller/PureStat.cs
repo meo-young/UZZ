@@ -71,6 +71,8 @@ public class PureStat : MonoBehaviour
 
         if (PlayerPrefs.GetInt("Story") == 1)
         {
+
+            Debug.Log(PlayerPrefs.GetInt("Plus"));
             GetLikeability(PlayerPrefs.GetInt("Plus"));
             PlayerPrefs.SetInt("Plus", 0);
             PlayerPrefs.SetInt("Story", 0);
@@ -80,7 +82,7 @@ public class PureStat : MonoBehaviour
     {
         SoundManager.instance.PlaySFX(SFX.Ambience.LIKE);
 
-
+        Debug.Log(_acquiredLike + " 호감도 획득");
         ShowLikeabilityUI(_acquiredLike);
         pureInfo.likeability += _acquiredLike;
         if (pureInfo.likeability >= likeabilityInfo[pureInfo.level].requiredExp)
