@@ -1,5 +1,4 @@
-﻿using NUnit.Framework;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
@@ -7,11 +6,13 @@ using UnityEngine;
 public class LoadPresentDatatable : MonoBehaviour
 {
     [SerializeField] TextAsset presentDatatable;
+    [SerializeField] Sprite[] presentImages;
+
     [HideInInspector] public List<PresentData> presentDatas;
 
     private void Awake()
     {
-        presentDatas = new List<PresentData> ();
+        presentDatas = new List<PresentData>();
 
         UpdatePresentDatatable();
     }
@@ -39,6 +40,11 @@ public class LoadPresentDatatable : MonoBehaviour
             PresentData presentData = new PresentData(imageIndex, presentName, flavorText, presentText);
             presentDatas.Add(presentData);
         }
+    }
+
+    public Sprite GetPresentSprite(int index)
+    {
+        return presentImages[presentDatas[index].GetImageIndex()];
     }
 
     private enum PresentType

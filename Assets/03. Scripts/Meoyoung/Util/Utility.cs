@@ -57,4 +57,11 @@ public class Utility : MonoBehaviour
 
         return secondsDifference;
     }
+
+    public int GetRandomNumber(int index)
+    {
+        int randNum = UnityEngine.Random.Range(0, index);
+
+        return randNum;
+    }
 }
