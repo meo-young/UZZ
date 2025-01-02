@@ -95,7 +95,8 @@ public class DataManager : MonoBehaviour
 
         FieldWorkManager.instance.fieldWorkInfo = gameData.fieldWorkInfo;
 
-        PresentManager.instance.presentInfo.presentTimer = gameData.presentInfo.presentTimer;
+        PresentManager.instance.presentInfo = gameData.presentInfo;
+
 
         PureStat.instance.pureInfo.level = gameData.pureInfo.level;
         PureStat.instance.pureInfo.likeability = gameData.pureInfo.likeability;

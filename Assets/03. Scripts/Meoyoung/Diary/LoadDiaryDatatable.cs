@@ -36,8 +36,6 @@ public class LoadDiaryDatatable : MonoBehaviour
 
             StoryData storyData = new StoryData(storyTitle, storyImageIndex, storyDescription, storyRequiredDew, storyResult);
             storyDatas.Add(storyData);
-
-            Debug.Log(storyDatas.Count);
         }
     }
     public class StoryData            // 스토리 데이터테이블

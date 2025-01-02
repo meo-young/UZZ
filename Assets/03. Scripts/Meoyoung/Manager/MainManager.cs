@@ -42,6 +42,7 @@ public class MainManager : MonoBehaviour
 
     [Header("# Present")]
     public PresentManager presentManager;
+    public PresentUI presentUI;
 
     [Header("# FieldWork")]
     public FieldWorkManager fieldWorkManager;
@@ -83,6 +84,8 @@ public class MainManager : MonoBehaviour
             flowerManager = FindFirstObjectByType<FlowerManager>();
         if(pureInteractionText == null)
             pureInteractionText = FindFirstObjectByType<PureInteractionText>();
+
+        presentUI = FindFirstObjectByType<PresentUI>();
 
         #endregion
     }

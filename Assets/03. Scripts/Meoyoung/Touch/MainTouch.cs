@@ -6,6 +6,7 @@ public class MainTouch : MonoBehaviour
 {
     private FlowerManager flowerManager;
     private Animator flowerAnim;
+    private PresentManager presentManager;
     private int dustTouchCounter;
     private PureController pc;
     private GameObject firstTouchedObject;
@@ -20,6 +21,7 @@ public class MainTouch : MonoBehaviour
     {
         flowerManager = MainManager.instance.flowerManager;
         pc = MainManager.instance.pureController;
+        presentManager = MainManager.instance.presentManager;
         flowerTouched = false;
         bCanFlowerAcquired = false;
         bBigDustTouched = false;
@@ -45,7 +47,7 @@ public class MainTouch : MonoBehaviour
                     {
                         case "Pure_PresentGive":
                             SoundManager.instance.PlaySFX(SFX.PureSound.TOUCH);
-                            pc.presentManager.ShowPresentUI();
+                            presentManager.SetPresentImage();
                             break;
                         case "Pure_PresentReady":
                             SoundManager.instance.PlaySFX(SFX.PureSound.TOUCH);
