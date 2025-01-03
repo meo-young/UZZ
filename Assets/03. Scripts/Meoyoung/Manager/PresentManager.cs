@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,7 +7,7 @@ public class PresentInfo
 {
     public bool presentFlag;
     public float presentTimer;
-    public List<string> items;
+    public List<int> items;
 }
 
 
@@ -20,14 +19,16 @@ public class PresentManager : MonoBehaviour
     [SerializeField] float presentInterval = 120f;
     public float presentAfterAnimationSeconds = 5;
 
-    [HideInInspector] public PresentInfo presentInfo;
+    public PresentInfo presentInfo;
 
     private PureController pc;
     private LoadPresentDatatable loadPresent;
+    private PresentContents presentContents;
     private Sprite beforehandSprite;
     private string beforehandName;
+    private int beforehandIndex;
     private PresentUI presentUI;
-    private List<string> notMyItems;
+    private List<int> notMyItems;
 
 
     private void Awake()
@@ -35,8 +36,9 @@ public class PresentManager : MonoBehaviour
         if (instance == null)
             instance = this;
 
-        notMyItems = new List<string>();
+        notMyItems = new List<int>();
         loadPresent = FindFirstObjectByType<LoadPresentDatatable>();
+        presentContents = FindFirstObjectByType<PresentContents>();
     }
 
     private void Start()
@@ -63,11 +65,9 @@ public class PresentManager : MonoBehaviour
 
     void CheckMyItems()
     {
-        Debug.Log(presentInfo.items.Count);
-        Debug.Log(loadPresent.presentDatas.Count);
         for (int i = 0; i < loadPresent.presentDatas.Count; i++)
         {
-            notMyItems.Add(loadPresent.presentDatas[i].GetName());
+            notMyItems.Add(loadPresent.presentDatas[i].GetImageIndex());
         }
 
         for (int i = 0; i < presentInfo.items.Count; i++)
@@ -90,6 +90,7 @@ public class PresentManager : MonoBehaviour
             int randNum = Utility.instance.GetRandomNumber(notMyItems.Count);
             beforehandSprite = loadPresent.GetPresentSprite(randNum);
             beforehandName = loadPresent.presentDatas[randNum].GetName();
+            beforehandIndex = loadPresent.presentDatas[randNum].GetImageIndex();
             pc.ChangeState(pc._presentReadyState);
         }
         else
@@ -114,7 +115,8 @@ public class PresentManager : MonoBehaviour
     public void SetPresentImage()
     {
         presentUI.ShowPresentUI(beforehandSprite, beforehandName);
-        presentInfo.items.Add(beforehandName);
-        notMyItems.Remove(beforehandName);
+        presentInfo.items.Add(beforehandIndex);
+        notMyItems.Remove(beforehandIndex);
+        presentContents.UpdateImages();
     }
 }
