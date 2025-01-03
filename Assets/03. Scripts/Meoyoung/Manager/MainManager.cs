@@ -26,37 +26,39 @@ public class MainManager : MonoBehaviour
     public GameInfo gameInfo;
     [SerializeField] float oneDaySeconds;
     public float timeMultifiler;
-    [SerializeField] LightColorController lightController;
 
     [Header("# Goods")]
-    public DewUI dewUI;
+    [HideInInspector] public DewUI dewUI;
 
     [Header("# Pure")]
-    public GameObject pure;
-    public PureStat pureStat;
-    public PureAnimationSet pureAnimationSet;
-    public PureController pureController;
-    public PureInteractionText pureInteractionText;
-    public SpeechBubbleSet speechBubbleSet;
-    public AutoText autoText;
+    [HideInInspector] public GameObject pure;
+    [HideInInspector] public PureStat pureStat;
+    [HideInInspector] public PureAnimationSet pureAnimationSet;
+    [HideInInspector] public PureController pureController;
+    [HideInInspector] public PureInteractionText pureInteractionText;
+    [HideInInspector] public SpeechBubbleSet speechBubbleSet;
+    [HideInInspector] public AutoText autoText;
 
     [Header("# Present")]
-    public PresentManager presentManager;
-    public PresentUI presentUI;
+    [HideInInspector] public PresentManager presentManager;
+    [HideInInspector] public PresentUI presentUI;
 
     [Header("# FieldWork")]
-    public FieldWorkManager fieldWorkManager;
+    [HideInInspector] public FieldWorkManager fieldWorkManager;
 
     [Header("# Flower")]
-    public FlowerManager flowerManager;
-    public FlowerUI flowerUI;
+    [HideInInspector] public FlowerManager flowerManager;
+    [HideInInspector] public FlowerUI flowerUI;
 
     [Header("# VFX")]
-    public VFXManager vfxManager;
+    [HideInInspector] public VFXManager vfxManager;
 
     [Header("# Likeability")]
     public int interactionLikeability;
     public float likeabilityIntervalTime;
+
+
+    private LightColorController lightController;
 
     private void Awake()
     {
@@ -66,26 +68,27 @@ public class MainManager : MonoBehaviour
             instance = this;
 
         #region init
-        if (presentManager == null)
-            presentManager = FindFirstObjectByType<PresentManager>();
-        if(fieldWorkManager == null)
-            fieldWorkManager = FindFirstObjectByType<FieldWorkManager>();
-        if(pureStat == null)
-            pureStat = FindFirstObjectByType<PureStat>();
-        if(pureAnimationSet == null)
-            pureAnimationSet = FindFirstObjectByType<PureAnimationSet>();
-        if(pureController == null)
-            pureController = FindFirstObjectByType<PureController>();
-        if(vfxManager == null)
-            vfxManager = FindFirstObjectByType<VFXManager>();
-        if(speechBubbleSet == null)
-            speechBubbleSet = FindFirstObjectByType<SpeechBubbleSet>();
-        if(flowerManager == null)
-            flowerManager = FindFirstObjectByType<FlowerManager>();
-        if(pureInteractionText == null)
-            pureInteractionText = FindFirstObjectByType<PureInteractionText>();
+        pure = GameObject.FindWithTag("Player");
+        pureStat = FindFirstObjectByType<PureStat>();
+        pureAnimationSet = FindFirstObjectByType<PureAnimationSet>();
+        pureController = FindFirstObjectByType<PureController>();
+        speechBubbleSet = FindFirstObjectByType<SpeechBubbleSet>();
+        pureInteractionText = FindFirstObjectByType<PureInteractionText>();
+        autoText = FindFirstObjectByType<AutoText>();
 
+        presentManager = FindFirstObjectByType<PresentManager>();
         presentUI = FindFirstObjectByType<PresentUI>();
+
+        fieldWorkManager = FindFirstObjectByType<FieldWorkManager>();
+
+        vfxManager = FindFirstObjectByType<VFXManager>();
+
+        flowerManager = FindFirstObjectByType<FlowerManager>();
+        flowerUI = FindFirstObjectByType<FlowerUI>();
+
+        lightController = FindFirstObjectByType<LightColorController>();
+
+        dewUI = FindFirstObjectByType<DewUI>();
 
         #endregion
     }

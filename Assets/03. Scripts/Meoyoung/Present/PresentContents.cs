@@ -1,16 +1,49 @@
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PresentContents : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private List<Image> lockImages;
+    private List<Image> activeImages;
+    private void Awake()
     {
-        
+        Image[] images = GetComponentsInChildren<Image>();
+        lockImages = new List<Image>();
+        activeImages = new List<Image>();
+
+        for (int i = 0; i < images.Length; i++)
+        {
+            if (i % 3 == 1)
+                lockImages.Add(images[i]);
+
+            if (i % 3 == 2)
+                activeImages.Add(images[i]);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        InitImages();
+        UpdateImages();
+   }
+
+    void InitImages()
+    {
+        for (int i = 0; i < activeImages.Count; i++)
+        {
+            activeImages[i].enabled = false;
+            lockImages[i].enabled = true;
+        }
+    }
+
+    public void UpdateImages()
+    {
+        List<int> indexs = PresentManager.instance.presentInfo.items;
+        for(int i=0; i < indexs.Count; i++)
+        {
+            activeImages[indexs[i]].enabled = true;
+            lockImages[indexs[i]].enabled = false;
+        }
     }
 }

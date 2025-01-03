@@ -46,25 +46,25 @@ public class StoryPanel : MonoBehaviour
     // 스토리 다음 버튼 비활성화
     public void OffNextBtn()
     {
-        nextBtn.gameObject.SetActive(false);
+        nextBtn.enabled = false;
     }
 
     // 스토리 다음 버튼 활성화
     public void OnNextBtn()
     {
-        nextBtn.gameObject.SetActive(true);
+        nextBtn.enabled = true;
     }
 
     // 스토리 이전 버튼 비활성화
     public void OffPrevBtn()
     {
-        prevBtn.gameObject.SetActive(false);
+        prevBtn.enabled = false;
     }
 
     // 스토리 이전 버튼 활성화
     public void OnPrevBtn()
     {
-        prevBtn.gameObject.SetActive(true);
+        prevBtn.enabled = true;
     }
 
     // Diary 내용 초기화
