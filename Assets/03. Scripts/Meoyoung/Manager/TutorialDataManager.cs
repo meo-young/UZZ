@@ -10,7 +10,8 @@ public class TutorialGameData
 public class TutorialDataManager : MonoBehaviour
 {
     public static TutorialDataManager instance;
-    string filePath;
+    string filePath;  // WWW용 경로 (file:// 포함)
+    string rawPath;   // System.IO 용 경로 (file:// 제외)
 
     private void Awake()
     {
@@ -24,19 +25,16 @@ public class TutorialDataManager : MonoBehaviour
             Destroy(this.gameObject);
         }
 
-        #if UNITY_EDITOR
-        filePath = Path.Combine(Application.dataPath + "/05. Database/", "database.json");
+#if UNITY_EDITOR
+        rawPath = Path.Combine(Application.dataPath + "/05. Database/", "tutodatabase.json");
+        filePath = rawPath;
         Debug.Log("Platform : PC");
 
-        #elif UNITY_ANDROID
-        filePath = Path.Combine(Application.persistentDataPath, "database.json");
-        Debug.Log("Platform : Android");
-
-        #elif UNITY_IOS
-        filePath = Path.Combine(Application.persistentDataPath, "database.json");
-        Debug.Log("Platform : IOS");
-
-        #endif
+#elif UNITY_ANDROID || UNITY_IOS
+        rawPath = Path.Combine(Application.persistentDataPath, "tutodatabase.json");
+        filePath = "file://" + rawPath;
+        Debug.Log("Platform : " + (Application.platform == RuntimePlatform.Android ? "Android" : "iOS"));
+#endif
 
     }
 
@@ -47,90 +45,66 @@ public class TutorialDataManager : MonoBehaviour
 
     public void JsonLoad()
     {
-        if (!File.Exists(filePath))
+        // 파일 존재 여부 확인 (rawPath 사용)
+        if (!File.Exists(rawPath))
         {
-            Debug.Log("파일이 존재하지 않음");
+            Debug.Log("튜토리얼 데이터 파일이 존재하지 않음");
             JsonSave();
             return;
         }
 
         string dataAsJson;
 
-        #if UNITY_EDITOR || UNITY_IOS
-        dataAsJson = File.ReadAllText(filePath);
+#if UNITY_EDITOR || UNITY_IOS
+        // 파일 읽기 (System.IO)
+        dataAsJson = File.ReadAllText(rawPath);
 
-        #elif UNITY_ANDROID
-        WWW reader = new WWW(filePath);
-        while(!reader.isDone){
+#elif UNITY_ANDROID
+        // 파일 읽기 (WWW)
+        WWW reader = new WWW(filePath);  // file:// 포함 경로 사용
+        while (!reader.isDone)
+        {
+            // 대기
+        }
+        if (!string.IsNullOrEmpty(reader.error))
+        {
+            Debug.LogError("파일 읽기 오류: " + reader.error);
+            return;
         }
         dataAsJson = reader.text;
 
-        #endif
+#endif
 
-        TutorialGameData gameData = new TutorialGameData();
-        gameData = JsonUtility.FromJson<TutorialGameData>(dataAsJson);
-
-        /*if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
-        {
-            string filePathMobile = Path.Combine(Application.persistentDataPath, "tutorialDatabase.json");
-
-            if (!File.Exists(filePathMobile))
-            {
-                Debug.Log("파일이 존재하지 않음");
-                JsonSave();
-                return;
-            }
-
-            string json = File.ReadAllText(filePathMobile);
-            gameData = JsonUtility.FromJson<TutorialGameData>(json);   
-            
-            *//*WWW www = new WWW(filePathMobile);
-            while (!www.isDone) { }
-            string dataAsJson = www.text;
-
-            if (dataAsJson != "")
-            {
-                Debug.Log(dataAsJson);
-                gameData = JsonUtility.FromJson<TutorialGameData>(dataAsJson);
-            }*//*
-
-
-        }
-        else
-        {
-            if (!File.Exists(filePathPC))
-            {
-                Debug.Log("파일이 존재하지 않음");
-                JsonSave();
-                return;
-            }
-
-            string loadJson = File.ReadAllText(filePathPC);
-            gameData = JsonUtility.FromJson<TutorialGameData>(loadJson);
-        }*/
+        // JSON 파싱
+        TutorialGameData gameData = JsonUtility.FromJson<TutorialGameData>(dataAsJson);
 
         if (gameData == null)
+        {
+            Debug.LogError("GameData가 Null입니다.");
             return;
+        }
 
+        // 데이터 로드
         TutorialChecker.instance.flag = gameData.flag;
+        Debug.Log("GameData 로드 성공: " + gameData.flag);
     }
 
 
     public void JsonSave()
     {
-        TutorialGameData gameData = new TutorialGameData();
-
-        gameData.flag = TutorialChecker.instance.flag;
-
-        if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
+        TutorialGameData gameData = new TutorialGameData
         {
-            string dataAsJson = JsonUtility.ToJson(gameData);
-            File.WriteAllText(filePath, dataAsJson);
-        }
-        else
-        {
-            string json = JsonUtility.ToJson(gameData, true);
-            File.WriteAllText(filePath, json);
-        }
+            flag = TutorialChecker.instance.flag
+        };
+
+        Debug.Log("GameData Flag 저장: " + TutorialChecker.instance.flag);
+
+#if UNITY_EDITOR || UNITY_IOS || UNITY_ANDROID
+        // 파일 쓰기 (rawPath 사용)
+        string json = JsonUtility.ToJson(gameData, true);
+        File.WriteAllText(rawPath, json);
+        Debug.Log("파일 저장 경로: " + rawPath);
+
+#endif
     }
 }
