@@ -55,7 +55,7 @@ public class AutoGrowManager : MonoBehaviour
         MainManager.instance.flowerManager.GetFlowerExp(loadAutoGrow.autoGrowData[autoGrowInfo.level].growthProduced * _multiflier, -1);
     }
 
-    void GetOfflineGrowth(float _multiflier)
+    public void GetOfflineGrowth(float _multiflier)
     {
         MainManager.instance.flowerManager.GetFlowerExp(loadAutoGrow.autoGrowData[autoGrowInfo.level].outGrowthProduced * _multiflier, -1);
     }
