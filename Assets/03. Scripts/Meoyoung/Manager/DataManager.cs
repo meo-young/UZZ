@@ -20,7 +20,8 @@ public class DataManager : MonoBehaviour
 {
     public static DataManager instance;
 
-    string filePath;
+    string filePath;  // WWW용 경로 (file:// 포함)
+    string rawPath;   // System.IO 용 경로 (file:// 제외)
 
     private void Awake()
     {
@@ -28,17 +29,14 @@ public class DataManager : MonoBehaviour
             instance = this;
 
 #if UNITY_EDITOR
-        filePath = Path.Combine(Application.dataPath + "/05. Database/", "database.json");
+        rawPath = Path.Combine(Application.dataPath + "/05. Database/", "database.json");
+        filePath = rawPath;
         Debug.Log("Platform : PC");
 
-#elif UNITY_ANDROID
-        filePath = Path.Combine(Application.persistentDataPath, "database.json");
-        Debug.Log("Platform : Android");
-
-#elif UNITY_IOS
-        filePath = Path.Combine(Application.persistentDataPath, "database.json");
-        Debug.Log("Platform : IOS");
-
+#elif UNITY_ANDROID || UNITY_IOS
+        rawPath = Path.Combine(Application.persistentDataPath, "database.json");
+        filePath = "file://" + rawPath;
+        Debug.Log("Platform : " + (Application.platform == RuntimePlatform.Android ? "Android" : "iOS"));
 #endif
     }
 
@@ -51,9 +49,10 @@ public class DataManager : MonoBehaviour
 
     public void JsonLoad()
     {
-        if (!File.Exists(filePath))
+        // 파일 존재 여부 확인 (rawPath 사용)
+        if (!File.Exists(rawPath))
         {
-            Debug.Log("파일이 존재하지 않음");
+            Debug.Log("데이터매니저 파일이 존재하지 않음");
             JsonSave();
             return;
         }
@@ -61,11 +60,20 @@ public class DataManager : MonoBehaviour
         string dataAsJson;
 
 #if UNITY_EDITOR || UNITY_IOS
-        dataAsJson = File.ReadAllText(filePath);
+        // 파일 읽기 (System.IO)
+        dataAsJson = File.ReadAllText(rawPath);
 
 #elif UNITY_ANDROID
-        WWW reader = new WWW(filePath);
-        while(!reader.isDone){
+        // 파일 읽기 (WWW)
+        WWW reader = new WWW(filePath);  // file:// 포함 경로 사용
+        while (!reader.isDone)
+        {
+            // 대기
+        }
+        if (!string.IsNullOrEmpty(reader.error))
+        {
+            Debug.LogError("파일 읽기 오류: " + reader.error);
+            return;
         }
         dataAsJson = reader.text;
 
@@ -126,16 +134,12 @@ public class DataManager : MonoBehaviour
 
         gameData.autoGrowInfo = AutoGrowManager.instance.autoGrowInfo;
 
+#if UNITY_EDITOR || UNITY_IOS || UNITY_ANDROID
+        // 파일 쓰기 (rawPath 사용)
+        string json = JsonUtility.ToJson(gameData, true);
+        File.WriteAllText(rawPath, json);
+        Debug.Log("파일 저장 경로: " + rawPath);
 
-        if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
-        {
-            string dataAsJson = JsonUtility.ToJson(gameData);
-            File.WriteAllText(filePath, dataAsJson);
-        }
-        else
-        {
-            string json = JsonUtility.ToJson(gameData, true);
-            File.WriteAllText(filePath, json);
-        }
+#endif
     }
 }

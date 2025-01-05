@@ -33,7 +33,11 @@ public class TitleManager : MonoBehaviour
     void ChangeSceneToMain()
     {
         sceneChanged = true;
-        if(tutoChecker.flag)
+
+        //SceneManager.LoadScene(sceneName);
+
+
+        if (tutoChecker.flag)
         {
             Destroy(tutoChecker.gameObject);
             Destroy(tutoDataManager.gameObject);

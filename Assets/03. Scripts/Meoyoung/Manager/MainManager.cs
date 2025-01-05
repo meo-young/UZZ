@@ -154,10 +154,29 @@ public class MainManager : MonoBehaviour
         return false;
     }
 
+    private void OnApplicationPause(bool pause)
+    {
+        if (pause)
+        {
+            Debug.Log("앱이 백그라운드로 전환됨");
+            SaveGameData();
+        }
+    }
+
     private void OnApplicationQuit()
     {
-        gameInfo.lastConnectTime = DateTime.Now.ToString();
-        DataManager.instance.JsonSave();
+        Debug.Log("앱 종료");
+        SaveGameData();
+    }
+
+    private void SaveGameData()
+    {
+        if (gameInfo != null)
+        {
+            gameInfo.lastConnectTime = DateTime.Now.ToString();
+            DataManager.instance.JsonSave();
+            Debug.Log("데이터 저장 완료");
+        }
     }
 }
 
