@@ -4,18 +4,6 @@ public class SFX : MonoBehaviour
 {
     public static SFX instance;
 
-    private void Awake()
-    {
-        if(instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(this.gameObject);
-        }
-        else
-        {
-            Destroy(this.gameObject);
-        }
-    }
     [Header("# SFX Clips")]
     public AudioClip[] pureSoundClips;
     public AudioClip[] ambienceSoundClips;

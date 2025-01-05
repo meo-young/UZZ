@@ -13,14 +13,8 @@ public class SoundManager : MonoBehaviour
         bgm = GetComponent<BGM>();
         sfx = GetComponent<SFX>();
         if (instance == null)
-        {
             instance = this;
-            DontDestroyOnLoad(this.gameObject);
-        }
-        else
-        {
-            Destroy(this.gameObject);
-        }
+
 
         Init();
     }
