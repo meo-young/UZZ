@@ -34,16 +34,16 @@ public class TitleManager : MonoBehaviour
     {
         sceneChanged = true;
 
-        //SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene(sceneName);
 
 
-        if (tutoChecker.flag)
+        /*if (tutoChecker.flag)
         {
             Destroy(tutoChecker.gameObject);
             Destroy(tutoDataManager.gameObject);
             SceneManager.LoadScene(sceneName);
         }
         else 
-            SceneManager.LoadScene(tutorialName);
+            SceneManager.LoadScene(tutorialName);*/
     }
 }

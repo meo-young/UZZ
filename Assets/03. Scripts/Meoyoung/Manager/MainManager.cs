@@ -159,22 +159,34 @@ public class MainManager : MonoBehaviour
         if (pause)
         {
             Debug.Log("앱이 백그라운드로 전환됨");
-            SaveGameData();
+            // 비동기적으로 게임 데이터 저장
+            SaveGameDataAsync();
+        }
+    }
+
+    private async void OnApplicationFocus(bool hasFocus)
+    {
+        if (hasFocus)
+        {
+            await DataManager.instance.JsonLoadAsync();
+            AutoGrowManager.instance.GetOfflineGrowth(Utility.instance.GetIntervalDateTime());
+            Debug.Log("어플 포커스");
         }
     }
 
     private void OnApplicationQuit()
     {
         Debug.Log("앱 종료");
-        SaveGameData();
+        // 비동기적으로 게임 데이터 저장
+        SaveGameDataAsync();
     }
 
-    private void SaveGameData()
+    private async void SaveGameDataAsync()
     {
         if (gameInfo != null)
         {
             gameInfo.lastConnectTime = DateTime.Now.ToString();
-            DataManager.instance.JsonSave();
+            await DataManager.instance.JsonSaveAsync();  // 비동기 저장 메서드 호출
             Debug.Log("데이터 저장 완료");
         }
     }

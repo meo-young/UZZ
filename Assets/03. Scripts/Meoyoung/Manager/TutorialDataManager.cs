@@ -10,8 +10,7 @@ public class TutorialGameData
 public class TutorialDataManager : MonoBehaviour
 {
     public static TutorialDataManager instance;
-    string filePath;  // WWW용 경로 (file:// 포함)
-    string rawPath;   // System.IO 용 경로 (file:// 제외)
+    string filePath;   // System.IO 용 경로 (file:// 제외)
 
     private void Awake()
     {
@@ -26,13 +25,11 @@ public class TutorialDataManager : MonoBehaviour
         }
 
 #if UNITY_EDITOR
-        rawPath = Path.Combine(Application.dataPath + "/05. Database/", "tutodatabase.json");
-        filePath = rawPath;
+        filePath = Path.Combine(Application.dataPath + "/05. Database/", "tutodatabase.json");
         Debug.Log("Platform : PC");
 
 #elif UNITY_ANDROID || UNITY_IOS
-        rawPath = Path.Combine(Application.persistentDataPath, "tutodatabase.json");
-        filePath = "file://" + rawPath;
+        filePath = Path.Combine(Application.persistentDataPath, "tutodatabase.json");
         Debug.Log("Platform : " + (Application.platform == RuntimePlatform.Android ? "Android" : "iOS"));
 #endif
 
@@ -45,8 +42,7 @@ public class TutorialDataManager : MonoBehaviour
 
     public void JsonLoad()
     {
-        // 파일 존재 여부 확인 (rawPath 사용)
-        if (!File.Exists(rawPath))
+        if (!File.Exists(filePath))
         {
             Debug.Log("튜토리얼 데이터 파일이 존재하지 않음");
             JsonSave();
@@ -55,25 +51,8 @@ public class TutorialDataManager : MonoBehaviour
 
         string dataAsJson;
 
-#if UNITY_EDITOR || UNITY_IOS
         // 파일 읽기 (System.IO)
-        dataAsJson = File.ReadAllText(rawPath);
-
-#elif UNITY_ANDROID
-        // 파일 읽기 (WWW)
-        WWW reader = new WWW(filePath);  // file:// 포함 경로 사용
-        while (!reader.isDone)
-        {
-            // 대기
-        }
-        if (!string.IsNullOrEmpty(reader.error))
-        {
-            Debug.LogError("파일 읽기 오류: " + reader.error);
-            return;
-        }
-        dataAsJson = reader.text;
-
-#endif
+        dataAsJson = File.ReadAllText(filePath);
 
         // JSON 파싱
         TutorialGameData gameData = JsonUtility.FromJson<TutorialGameData>(dataAsJson);
@@ -97,14 +76,7 @@ public class TutorialDataManager : MonoBehaviour
             flag = TutorialChecker.instance.flag
         };
 
-        Debug.Log("GameData Flag 저장: " + TutorialChecker.instance.flag);
-
-#if UNITY_EDITOR || UNITY_IOS || UNITY_ANDROID
-        // 파일 쓰기 (rawPath 사용)
         string json = JsonUtility.ToJson(gameData, true);
-        File.WriteAllText(rawPath, json);
-        Debug.Log("파일 저장 경로: " + rawPath);
-
-#endif
+        File.WriteAllText(filePath, json);
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading.Tasks;
 using UnityEngine;
 
 [System.Serializable]
@@ -19,9 +20,9 @@ public class GameData
 public class DataManager : MonoBehaviour
 {
     public static DataManager instance;
+    //public UnityEngine.UI.Slider progressBar;  // 진행 상황을 표시할 Slider
 
-    string filePath;  // WWW용 경로 (file:// 포함)
-    string rawPath;   // System.IO 용 경로 (file:// 제외)
+    string filePath;   // System.IO 용 경로 (file:// 제외)
 
     private void Awake()
     {
@@ -29,59 +30,56 @@ public class DataManager : MonoBehaviour
             instance = this;
 
 #if UNITY_EDITOR
-        rawPath = Path.Combine(Application.dataPath + "/05. Database/", "database.json");
-        filePath = rawPath;
+        filePath = Path.Combine(Application.dataPath + "/05. Database/", "database.json");
         Debug.Log("Platform : PC");
 
 #elif UNITY_ANDROID || UNITY_IOS
-        rawPath = Path.Combine(Application.persistentDataPath, "database.json");
-        filePath = "file://" + rawPath;
+        filePath = Path.Combine(Application.persistentDataPath, "database.json");
         Debug.Log("Platform : " + (Application.platform == RuntimePlatform.Android ? "Android" : "iOS"));
 #endif
     }
 
-
-    private void Start()
+    private async void Start()
     {
-        JsonLoad();
+        await JsonLoadAsync();  // 비동기적으로 로드
     }
 
-
-    public void JsonLoad()
+    // 비동기적으로 데이터를 불러오는 함수
+    public async Task JsonLoadAsync()
     {
-        // 파일 존재 여부 확인 (rawPath 사용)
-        if (!File.Exists(rawPath))
+        // 파일 존재 여부 확인
+        if (!File.Exists(filePath))
         {
             Debug.Log("데이터매니저 파일이 존재하지 않음");
-            JsonSave();
+            await JsonSaveAsync();  // 파일이 없으면 저장
             return;
         }
 
-        string dataAsJson;
+        long totalBytes = new FileInfo(filePath).Length;  // 파일 크기 (바이트 단위)
+        long bytesRead = 0;  // 읽은 바이트 수
 
-#if UNITY_EDITOR || UNITY_IOS
-        // 파일 읽기 (System.IO)
-        dataAsJson = File.ReadAllText(rawPath);
+        string dataAsJson = "";  // 파일 내용을 담을 변수
 
-#elif UNITY_ANDROID
-        // 파일 읽기 (WWW)
-        WWW reader = new WWW(filePath);  // file:// 포함 경로 사용
-        while (!reader.isDone)
+        // 비동기적으로 파일을 읽으면서 진행 상황 표시
+        using (StreamReader reader = new StreamReader(filePath))
         {
-            // 대기
+            char[] buffer = new char[1024];  // 읽을 버퍼
+            int bytesReadInChunk;  // 한 번에 읽은 데이터 크기
+
+            while ((bytesReadInChunk = await reader.ReadAsync(buffer, 0, buffer.Length)) > 0)
+            {
+                // 읽은 데이터를 추가
+                dataAsJson += new string(buffer, 0, bytesReadInChunk);
+                bytesRead += bytesReadInChunk;
+
+                // 진행 상황 계산
+                float progress = (float)bytesRead / totalBytes;
+                Debug.Log(progress*100 + "%");
+            }
         }
-        if (!string.IsNullOrEmpty(reader.error))
-        {
-            Debug.LogError("파일 읽기 오류: " + reader.error);
-            return;
-        }
-        dataAsJson = reader.text;
 
-#endif
-
-        GameData gameData = new GameData();
-        gameData = JsonUtility.FromJson<GameData>(dataAsJson);
-
+        // 파일 데이터를 JSON으로 변환
+        GameData gameData = JsonUtility.FromJson<GameData>(dataAsJson);
 
         if (gameData == null)
             return;
@@ -105,7 +103,6 @@ public class DataManager : MonoBehaviour
 
         PresentManager.instance.presentInfo = gameData.presentInfo;
 
-
         PureStat.instance.pureInfo.level = gameData.pureInfo.level;
         PureStat.instance.pureInfo.likeability = gameData.pureInfo.likeability;
 
@@ -114,32 +111,24 @@ public class DataManager : MonoBehaviour
         AutoGrowManager.instance.autoGrowInfo = gameData.autoGrowInfo;
     }
 
-
-
-    public void JsonSave()
+    // 비동기적으로 데이터를 저장하는 함수
+    public async Task JsonSaveAsync()
     {
         GameData gameData = new GameData();
 
         gameData.gameInfo = MainManager.instance.gameInfo;
-
         gameData.flowerInfo = FlowerManager.instance.flowerInfo;
-
         gameData.fieldWorkInfo = FieldWorkManager.instance.fieldWorkInfo;
-
         gameData.presentInfo = PresentManager.instance.presentInfo;
-
         gameData.pureInfo = PureStat.instance.pureInfo;
-
         gameData.diaryInfo = DiaryManager.instance.diaryInfo;
-
         gameData.autoGrowInfo = AutoGrowManager.instance.autoGrowInfo;
 
-#if UNITY_EDITOR || UNITY_IOS || UNITY_ANDROID
-        // 파일 쓰기 (rawPath 사용)
         string json = JsonUtility.ToJson(gameData, true);
-        File.WriteAllText(rawPath, json);
-        Debug.Log("파일 저장 경로: " + rawPath);
 
-#endif
+        // 비동기적으로 파일에 저장
+        await Task.Run(() => File.WriteAllText(filePath, json));
+
+        Debug.Log("파일 저장 경로: " + filePath);
     }
 }
