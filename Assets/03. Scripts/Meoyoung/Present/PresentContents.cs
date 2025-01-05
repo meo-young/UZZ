@@ -8,6 +8,7 @@ public class PresentContents : MonoBehaviour
     private List<Image> activeImages;
     private void Awake()
     {
+
         Image[] images = GetComponentsInChildren<Image>();
         lockImages = new List<Image>();
         activeImages = new List<Image>();
