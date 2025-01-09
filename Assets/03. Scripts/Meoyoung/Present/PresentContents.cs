@@ -15,10 +15,10 @@ public class PresentContents : MonoBehaviour
 
         for (int i = 0; i < images.Length; i++)
         {
-            if (i % 3 == 1)
+            if (i % 3 == 2)
                 lockImages.Add(images[i]);
 
-            if (i % 3 == 2)
+            if (i % 3 == 1)
                 activeImages.Add(images[i]);
         }
     }
