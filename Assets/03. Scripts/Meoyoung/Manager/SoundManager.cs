@@ -122,6 +122,8 @@ public class SoundManager : MonoBehaviour
             player.clip = sfx.flowerSoundClips[Convert.ToInt32(_sfx)];
         else if (typeof(T) == typeof(SFX.DEW))
             player.clip = sfx.dewSoundClips[Convert.ToInt32(_sfx)];
+        else if(typeof(T) == typeof(SFX.Diary))
+            player.clip = sfx.diarySoundClips[Convert.ToInt32(_sfx)];
         player.Play();
         StartCoroutine(ReturnToQueueAfterPlay(player));
     }

@@ -1,24 +1,41 @@
-﻿using NUnit.Framework;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class DrawUI : MonoBehaviour
 {
-    [Header("# Draw UI Info")]
-    [SerializeField] DrawManager drawManager;
-
     [Header("# Nurung UI Info")]
     [SerializeField] NurungUI nurungUI;
     [SerializeField] GameObject itemPrefab;
+
+    [Header("터치 방지 패널")]
+    [SerializeField] GameObject noTouchPanel;
+     
+
+    private DrawManager drawManager;
+
+    private void Awake()
+    {
+        drawManager = FindFirstObjectByType<DrawManager>();
+        
+        if(noTouchPanel.activeSelf)
+            noTouchPanel.SetActive(false);
+    }
+
     public void OnDrawBtnHandler()                              // 뽑기 버튼 클릭
     {
         if(!this.gameObject.activeSelf)
             this.gameObject.SetActive(true);
+
+        noTouchPanel.SetActive(true);
     }
     public void OnPrevBtnHandler()                              // 이전 버튼 클릭
     {
-        if(this.gameObject.activeSelf)
+        SoundManager.instance.PlaySFX(SFX.Diary.BUTTON);
+
+        if (this.gameObject.activeSelf)
             this.gameObject.SetActive(false);
+
+        noTouchPanel.SetActive(false);
     }
 
     public void OnContentBtnHandler(int _index)                 // 테마 클릭 후 뽑기 탭으로 넘어감

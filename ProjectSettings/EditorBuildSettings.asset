@@ -21,5 +21,6 @@ EditorBuildSettings:
     path: Assets/01. Scenes/Meoyoung/Story_1.unity
     guid: 1ce9ee0725e2b0340a33327298e8eeef
   m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: dab03fec7ee43cf4e85a1a40a954fca3, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
