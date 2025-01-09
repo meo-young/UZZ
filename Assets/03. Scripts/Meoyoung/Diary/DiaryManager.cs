@@ -28,6 +28,11 @@ public class DiaryManager : MonoBehaviour
     private Vector3 storyBtnCurPos;
     private Vector3 characterBtnCurPos;
 
+    private Text storyBtnText;
+    private Text storyBtnFocusText;
+    private Text characterBtnText;
+    private Text characterBtnFocusText;
+
     private int currentIndex;
     private string title => loadDiary.storyDatas[currentIndex].GetTitle();
     private int imageIndex => loadDiary.storyDatas[currentIndex].GetImageIndex();
@@ -49,6 +54,13 @@ public class DiaryManager : MonoBehaviour
         characterBtnRect = characterBtn.GetComponent<RectTransform>();
         storyBtnCurPos = storyBtnRect.anchoredPosition;
         characterBtnCurPos = characterBtnRect.anchoredPosition;
+        Text[] storyTexts = storyBtn.gameObject.GetComponentsInChildren<Text>();
+        Text[] characterTexts = characterBtn.gameObject.GetComponentsInChildren<Text>();
+
+        storyBtnText = storyTexts[0];
+        storyBtnFocusText = storyTexts[1];
+        characterBtnText = characterTexts[0];
+        characterBtnFocusText = characterTexts[1];
 
         if (this.gameObject.activeSelf)
             this.gameObject.SetActive(false);
@@ -71,11 +83,7 @@ public class DiaryManager : MonoBehaviour
     {
         this.gameObject.SetActive(!this.gameObject.activeSelf);
 
-        if (characterPanel.gameObject.activeSelf)
-            characterPanel.gameObject.SetActive(false);
-
-        if (!storyPanel.gameObject.activeSelf)
-            storyPanel.gameObject.SetActive(true);
+        OnStoryBtnHandler();
     }
 
     // Current Index를 현재 Level로 초기화
@@ -118,6 +126,12 @@ public class DiaryManager : MonoBehaviour
         if (!storyPanel.gameObject.activeSelf)
             storyPanel.gameObject.SetActive(true);
 
+        storyBtnText.enabled = false;
+        storyBtnFocusText.enabled = true;
+
+        characterBtnFocusText.enabled = false;
+        characterBtnText.enabled = true;
+
         storyBtnRect.anchoredPosition = new Vector3(storyBtnCurPos.x, storyBtnCurPos.y + 30, storyBtnCurPos.z);
         characterBtnRect.anchoredPosition = characterBtnCurPos;
     }
@@ -130,6 +144,12 @@ public class DiaryManager : MonoBehaviour
 
         if (storyPanel.gameObject.activeSelf)
             storyPanel.gameObject.SetActive(false);
+
+        storyBtnText.enabled = true;
+        storyBtnFocusText.enabled = false;
+
+        characterBtnFocusText.enabled = true;
+        characterBtnText.enabled = false;
 
         storyBtnRect.anchoredPosition = storyBtnCurPos;
         characterBtnRect.anchoredPosition = new Vector3(characterBtnCurPos.x, characterBtnCurPos.y + 30, characterBtnCurPos.z);
