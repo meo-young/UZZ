@@ -23,7 +23,6 @@ public class MainManager : MonoBehaviour
 
     [Header("# Game State")]
     public float cycleTime;
-    public GameInfo gameInfo;
     [SerializeField] float oneDaySeconds;
     public float timeMultifiler;
 
@@ -56,6 +55,10 @@ public class MainManager : MonoBehaviour
     [Header("# Likeability")]
     public int interactionLikeability;
     public float likeabilityIntervalTime;
+
+    [Header("# Database GameInfo")]
+    public GameInfo gameInfo;
+
 
 
     private LightColorController lightController;
