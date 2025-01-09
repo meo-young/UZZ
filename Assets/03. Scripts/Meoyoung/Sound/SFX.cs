@@ -9,6 +9,7 @@ public class SFX : MonoBehaviour
     public AudioClip[] ambienceSoundClips;
     public AudioClip[] flowerSoundClips;
     public AudioClip[] dewSoundClips;
+    public AudioClip[] diarySoundClips;
 
     [System.Serializable]
     public enum PureSound       // 푸르와 관련된 효과음 모음
@@ -68,5 +69,11 @@ public class SFX : MonoBehaviour
     public enum DEW
     {
         DROP = 0            // 이슬 획득
+    }
+
+    public enum Diary
+    {
+        TAP = 0,
+        BUTTON = 1
     }
 }

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class DiaryInfo
@@ -14,10 +15,18 @@ public class DiaryManager : MonoBehaviour
     public DiaryInfo diaryInfo;
     [SerializeField] Sprite[] storyImages;
 
+    [Header("# Button")]
+    [SerializeField] GameObject storyBtn;
+    [SerializeField] GameObject characterBtn;
+
     private LoadDiaryDatatable loadDiary;
-    private LoadPresentDatatable loadPresent;
     private StoryPanel storyPanel;
     private CharacterPanel characterPanel;
+
+    private RectTransform storyBtnRect;
+    private RectTransform characterBtnRect;
+    private Vector3 storyBtnCurPos;
+    private Vector3 characterBtnCurPos;
 
     private int currentIndex;
     private string title => loadDiary.storyDatas[currentIndex].GetTitle();
@@ -35,9 +44,11 @@ public class DiaryManager : MonoBehaviour
 
         storyPanel = FindFirstObjectByType<StoryPanel>();
         characterPanel = FindFirstObjectByType<CharacterPanel>();
-
         loadDiary = GetComponent<LoadDiaryDatatable>();
-        loadPresent = GetComponent<LoadPresentDatatable>();
+        storyBtnRect = storyBtn.GetComponent<RectTransform>();
+        characterBtnRect = characterBtn.GetComponent<RectTransform>();
+        storyBtnCurPos = storyBtnRect.anchoredPosition;
+        characterBtnCurPos = characterBtnRect.anchoredPosition;
 
         if (this.gameObject.activeSelf)
             this.gameObject.SetActive(false);
@@ -60,11 +71,11 @@ public class DiaryManager : MonoBehaviour
     {
         this.gameObject.SetActive(!this.gameObject.activeSelf);
 
-        if (!storyPanel.gameObject.activeSelf)
-            storyPanel.gameObject.SetActive(true);
-
         if (characterPanel.gameObject.activeSelf)
             characterPanel.gameObject.SetActive(false);
+
+        if (!storyPanel.gameObject.activeSelf)
+            storyPanel.gameObject.SetActive(true);
     }
 
     // Current Index를 현재 Level로 초기화
@@ -106,6 +117,9 @@ public class DiaryManager : MonoBehaviour
 
         if (!storyPanel.gameObject.activeSelf)
             storyPanel.gameObject.SetActive(true);
+
+        storyBtnRect.anchoredPosition = new Vector3(storyBtnCurPos.x, storyBtnCurPos.y + 30, storyBtnCurPos.z);
+        characterBtnRect.anchoredPosition = characterBtnCurPos;
     }
 
     // 캐릭터 패널 버튼 핸들러
@@ -116,6 +130,9 @@ public class DiaryManager : MonoBehaviour
 
         if (storyPanel.gameObject.activeSelf)
             storyPanel.gameObject.SetActive(false);
+
+        storyBtnRect.anchoredPosition = storyBtnCurPos;
+        characterBtnRect.anchoredPosition = new Vector3(characterBtnCurPos.x, characterBtnCurPos.y + 30, characterBtnCurPos.z);
     }
 
     // 다음 버튼 누르면 다음 스토리로 이동
