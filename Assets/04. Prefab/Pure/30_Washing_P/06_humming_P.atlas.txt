@@ -1,0 +1,51 @@
+06_humming_P.png
+	size: 504, 472
+	filter: Linear, Linear
+	pma: true
+ob_10
+	bounds: 0, 202, 171, 113
+	offsets: 16, 6, 187, 119
+ob_11
+	bounds: 363, 303, 131, 110
+ob_12
+	bounds: 198, 312, 101, 165
+	rotate: 90
+ob_13
+	bounds: 141, 443, 27, 40
+	rotate: 90
+ob_14
+	bounds: 95, 446, 24, 46
+	rotate: 90
+ob_15
+	bounds: 28, 448, 67, 22
+	offsets: 3, 14, 71, 37
+ob_16
+	bounds: 181, 415, 71, 55
+ob_17
+	bounds: 252, 413, 190, 57
+ob_18
+	bounds: 0, 359, 92, 89
+	offsets: 38, 0, 130, 89
+ob_19
+	bounds: 92, 315, 106, 100
+	offsets: 0, 0, 106, 110
+ob_20
+	bounds: 0, 454, 16, 28
+	rotate: 90
+ob_21
+	bounds: 0, 10, 262, 187
+	offsets: 33, 0, 295, 231
+ob_23
+	bounds: 262, 0, 197, 240
+	rotate: 90
+ob_9
+	bounds: 171, 197, 115, 190
+	rotate: 90
+
+06_humming_P_2.png
+	size: 260, 208
+	filter: Linear, Linear
+	pma: true
+ob_22
+	bounds: 0, 0, 257, 208
+	offsets: 0, 0, 257, 408
