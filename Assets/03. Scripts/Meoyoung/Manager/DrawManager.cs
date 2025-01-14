@@ -12,7 +12,9 @@ public class DrawManager : MonoBehaviour
 
     public struct Furniture
     {
+        public string theme;                // 테마 이름
         public string name;                 // 가구 이름
+        public int index;                   // 가구 번호
         public string flavorText;           // 가구의 FlavorText
         public int rank;                    // 가구 등급
         public int layer;                   // 가구 레이어   
@@ -49,6 +51,8 @@ public class DrawManager : MonoBehaviour
             string[] value = line.Split('\t');
 
             drawdatas[int.Parse(value[0])].title = value[1];
+            drawdatas[int.Parse(value[0])].furnitures[int.Parse(value[2])].theme = value[1];
+            drawdatas[int.Parse(value[0])].furnitures[int.Parse(value[2])].index = int.Parse(value[2]);
             drawdatas[int.Parse(value[0])].furnitures[int.Parse(value[2])].name = value[3];
             drawdatas[int.Parse(value[0])].furnitures[int.Parse(value[2])].flavorText = value[4];
             drawdatas[int.Parse(value[0])].furnitures[int.Parse(value[2])].rank = int.Parse(value[5]);
