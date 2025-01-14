@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Furniture
+  m_EditorClassIdentifier: 
+  m_GroupName: Furniture
+  m_GUID: 865a97e2809405c4a93eaec44f503d41
+  m_SerializeEntries:
+  - m_GUID: 287fcfcc3aaa6464aa78b8834464a327
+    m_Address: potion_shelf2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 424fa62360778474f82508b50d4b89e3
+    m_Address: potion_window
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4d8dcedc4ef38fe4e9185c06c5c50831
+    m_Address: potion_shelf
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 73316127f42ca924780f628e47ff0895
+    m_Address: potion_floor
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 75a707bb730aec74e870a713e2195c12
+    m_Address: potion_chair01
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 86e6c1e6da26e6d4baa6e4997190c50e
+    m_Address: potion_vine
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 88185d061c04d6e4aa05ffa6744fb8e7
+    m_Address: potion_pack
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 94b1d8c2fe295034fbd26e290012d3a6
+    m_Address: potion_book
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d417c1ec3550947468b717d91a01d24f
+    m_Address: potion_roof
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d679d618a3afe9540b14688bef588388
+    m_Address: potion_chair02
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ddf09609293ba1049b95f8788e5449f1
+    m_Address: potion_desk
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e3f8537031c15174f83bd8a14d107e82
+    m_Address: potion_window2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e81422f1c1e64e049a82794101827ba8
+    m_Address: potion_wall
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: cf3717de0e9a4af428626d2255ce0c93, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: e1b91f7483b012a4f9645c80d32c22b0, type: 2}
+    - {fileID: 11400000, guid: cc8228e3d425b8945abe3e9140679530, type: 2}

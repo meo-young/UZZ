@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;  // LINQ 사용을 위해 추가
 
 public class DrawUI : MonoBehaviour
 {
@@ -55,6 +56,10 @@ public class DrawUI : MonoBehaviour
         DrawManager.Furniture[] furniture = new DrawManager.Furniture[drawManager.drawdatas[_index].length];
         for(int i=0; i<furniture.Length; i++)
             furniture[i] = drawManager.drawdatas[_index].furnitures[i];
-        return furniture;
+        
+        // rank로 먼저 정렬하고, rank가 같으면 index로 정렬
+        return furniture.OrderBy(f => f.rank)
+                       .ThenBy(f => f.index)
+                       .ToArray();
     }
 }

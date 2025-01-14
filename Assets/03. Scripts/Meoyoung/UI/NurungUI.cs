@@ -2,6 +2,8 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 public class NurungUI : MonoBehaviour
 {
@@ -15,7 +17,9 @@ public class NurungUI : MonoBehaviour
     [SerializeField] ScrollRect scrollRect;
     [Space(10)]
     [SerializeField] GameObject oneDrawUI;
+    [SerializeField] TMP_Text oneDrawText;
     [SerializeField] GameObject fiveDrawUI;
+    [SerializeField] TMP_Text fiveDrawText;
     [SerializeField] GameObject makeFurnitureUI;
 
     [Header("# Furniture Result UI")]
@@ -23,9 +27,11 @@ public class NurungUI : MonoBehaviour
     [SerializeField] Text furnitureNameText;
     [SerializeField] Text furnitureFlavorText;
     [SerializeField] Image furnitureImage;
+    [SerializeField] GameObject furnitureItemPrefab;
 
     private DrawManager.Furniture[] furnitures;
     private DrawManager.Furniture selectedFurniture;
+
     public void OnDisable()
     {
         for(int i=0; i<contentPanel.childCount; i++)
@@ -48,16 +54,26 @@ public class NurungUI : MonoBehaviour
             this.gameObject.SetActive(true);
     }
 
-    public void InitFurnitueList(DrawManager.Furniture[] _furnitures)      // 아이템 리스트 초기화
+    public void InitFurnitueList(DrawManager.Furniture[] _furnitures)
     {
         furnitures = _furnitures;
-        Debug.Log(furnitures[0].name);
-        Debug.Log(furnitures.Length);
-/*        for (int i=0; i<_furnitures.Length; i++)
+        
+        // 기존 컨텐츠 삭제
+        for (int i = 0; i < contentPanel.childCount; i++)
         {
-            _furnitures[i].transform.SetParent(contentPanel, false);
-            _furnitures[i].transform.localScale = Vector3.one;
-        }*/
+            Destroy(contentPanel.GetChild(i).gameObject);
+        }
+        
+        // 새로운 가구 아이템들 생성
+        foreach (var furniture in furnitures)
+        {
+            GameObject item = Instantiate(furnitureItemPrefab, contentPanel);
+            
+            // 가구 정보 설정
+            var image = item.GetComponentInChildren<Image>();
+            
+            AddressableManager.instance.LoadSprite(furniture.image, image);
+        }
     }
 
 
@@ -70,13 +86,16 @@ public class NurungUI : MonoBehaviour
             this.gameObject.SetActive(false);
     }
 
-    public void OnSubOneDrawBtnHandler()                               // 1회 뽑기
+    public void OnSubOneDrawBtnHandler()                               // 1회 뽑기창 활성화
     {
         if(!oneDrawUI.activeSelf)
             oneDrawUI.SetActive(true);
+
+        oneDrawText.text = furnitures[0].theme + "\n1회 뽑기를 진행할까 ?";
+        SoundManager.instance.PlaySFX(SFX.Diary.BUTTON);
     }
 
-    public void OnSubOneDrawCloseBtnHandler()                          // 1회 뽑기 닫기
+    public void OnSubOneDrawCloseBtnHandler()                          // 1회 뽑기창 닫기
     {
         if(oneDrawUI.activeSelf)
             oneDrawUI.SetActive(false);
@@ -114,19 +133,25 @@ public class NurungUI : MonoBehaviour
         return new DrawManager.Furniture();
     }
 
-    public void OnSubFiveDrawBtnHandler()                              // 5회 뽑기
+    // 5회 뽑기
+    public void OnSubFiveDrawBtnHandler()                              
     {
         if(!fiveDrawUI.activeSelf)
             fiveDrawUI.SetActive(true);
+
+        fiveDrawText.text = furnitures[0].theme + "\n5회 뽑기를 진행할까 ?";
+        SoundManager.instance.PlaySFX(SFX.Diary.BUTTON);
     }
 
-    public void OnSubFiveDrawCloseBtnHandler()                         // 5회 뽑기 닫기
+    // 5회 뽑기 닫기
+    public void OnSubFiveDrawCloseBtnHandler()                         
     {
         if(fiveDrawUI.activeSelf)
             fiveDrawUI.SetActive(false);
     }
 
-    public void OnMainFiveDrawBtnHandler()                              // 5회 뽑기 시작
+    // 5회 뽑기 시작
+    public void OnMainFiveDrawBtnHandler()                              
     {
         // 돈 감소하는 로직 구현 필요
         StartCoroutine(ShowMakeFurnitureUI());
@@ -135,19 +160,22 @@ public class NurungUI : MonoBehaviour
             fiveDrawUI.SetActive(false);
     }
 
-    IEnumerator ShowMakeFurnitureUI()
+    // 누렁이 망치질 시작   
+    IEnumerator ShowMakeFurnitureUI()                                   
     {
         if(!makeFurnitureUI.activeSelf)
             makeFurnitureUI.SetActive(true);
 
-        yield return new WaitForSeconds(5.0f);
+        yield return new WaitForSeconds(3.0f);
         ShowSubResultUI();
     }
 
+    // 뽑기 결과창
     void ShowSubResultUI()
     {
         furnitureNameText.text = selectedFurniture.name;
         furnitureFlavorText.text = selectedFurniture.flavorText;
+        AddressableManager.instance.LoadSprite(selectedFurniture.image, furnitureImage);
 
         if (!resultUI.activeSelf)
             resultUI.SetActive(true);
