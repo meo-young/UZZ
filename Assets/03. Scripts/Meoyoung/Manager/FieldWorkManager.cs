@@ -4,7 +4,7 @@ using System.IO;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-
+using static Constant;
 
 public class FieldWorkManager : MonoBehaviour
 {
@@ -24,32 +24,21 @@ public class FieldWorkManager : MonoBehaviour
 
     [Header("# FieldWork Info")]
     [SerializeField] _2dArray[] icons;
-    [SerializeField] List<int> fieldWorkCooltime;
     public FieldWorkInfo fieldWorkInfo;
     public FieldWork[] fieldWorkArray;
     public FieldWork noneWork;
+
     private FieldWork[][] fieldWorkData => LoadFieldWorkData.instance.fieldWorkData;
+    private WorkShopUI workShopUI;
+    private int[] fieldWorkCooltime;
 
-    [Header("# FieldWork Stat")]
-    public int likeability;
-    [Space(10)]
-    public float helpProbabilityCheckTime;
-    [Range(0, 100)] public int helpProbability;
-    [Space(10)]
-    public float autoWorkCheckTime;
-    [Range(0, 100)] public int autoWorkProbability;
-
-    [Header("# WorkShop UI")]
-    [SerializeField] WorkShopUI workShopUI;
 
     private void Awake()
     {
-        if(instance == null)
+        if (instance == null)
             instance = this;
 
-        fieldWorkArray = new FieldWork[5];
-        for (int i = 0; i < fieldWorkArray.Length; i++)
-            fieldWorkArray[i] = new FieldWork();
+        workShopUI = FindFirstObjectByType<WorkShopUI>();
     }
 
     private void Start()
@@ -61,38 +50,34 @@ public class FieldWorkManager : MonoBehaviour
     // 도움작업 확률 체크
     public bool CheckHelpProbability()
     {
-        int randomNum = UnityEngine.Random.Range(0, 100);
-        if (randomNum < helpProbability)
-            return true;
-
-        return false;
+        return UnityEngine.Random.Range(0, 100) < FIELDWORK_HELP_PROBABILITY;
     }
 
     // 자동작업 확률 체크
     public bool CheckAutoWorkProbability()
     {
-        int randNum = UnityEngine.Random.Range(0, 100);
-
-        if (randNum < autoWorkProbability)
-        {
-            return true;
-        }
-
-        return false;
+        return UnityEngine.Random.Range(0, 100) < FIELDWORK_AUTO_PROBABILITY;
     }
 
     // 자동작업시 가능한 일 부여
     public FieldWork CheckAvailableFieldWork()
     {
-        while (true)
+        int maxAttempts = 100; // 최대 시도 횟수 설정
+        int attempts = 0;
+
+        while (attempts < maxAttempts)
         {
-            int randNum = UnityEngine.Random.Range(0, 5);
+            int randNum = UnityEngine.Random.Range(0, fieldWorkArray.Length);
             if (fieldWorkArray[randNum].available)
             {
                 fieldWorkUIArray[randNum].DoFieldWork();
                 return fieldWorkArray[randNum];
             }
+            attempts++;
         }
+
+        Debug.LogWarning("사용 가능한 작업을 찾지 못했습니다.");
+        return noneWork; // 기본 작업 반환
     }
 
     public void FieldWorkLevelUp(int _index)
@@ -112,11 +97,22 @@ public class FieldWorkManager : MonoBehaviour
 
     void InitFieldWorkData()
     {
+        fieldWorkArray = new FieldWork[5];
+        fieldWorkCooltime = new int[5];
+        for (int i = 0; i < fieldWorkArray.Length; i++)
+            fieldWorkArray[i] = new FieldWork();
+
+        fieldWorkCooltime[0] = FIELDWORK_WATERING_COOLTIME;
+        fieldWorkCooltime[1] = FIELDWORK_SPADE_COOLTIME;
+        fieldWorkCooltime[2] = FIELDWORK_FERTILIZER_COOLTIME;
+        fieldWorkCooltime[3] = FIELDWORK_SCISSOR_COOLTIME;
+        fieldWorkCooltime[4] = FIELDWORK_NUTRITIONAL_COOLTIME;
+
         // WorkShopUI에게 넘겨주기 위한 임시변수
         Sprite[] fieldWorkIcons = new Sprite[5];
         int[] prices = new int[5];
 
-        for(int i =0; i<fieldWorkInfo.level.Length; i++)
+        for (int i = 0; i < fieldWorkInfo.level.Length; i++)
         {
             // 쿨타임데이터 로드
             fieldWorkInfo.coolTimeList[i] -= Utility.instance.GetIntervalDateTime();

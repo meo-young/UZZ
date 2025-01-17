@@ -45,6 +45,12 @@ public class DiaryManager : MonoBehaviour
         if (instance == null)
             instance = this;
 
+        if(!this.gameObject.activeSelf)
+        {
+            this.gameObject.SetActive(true);
+            this.transform.localScale = Vector3.zero;
+        }
+
         currentIndex = 0;
 
         storyPanel = FindFirstObjectByType<StoryPanel>();
@@ -61,9 +67,6 @@ public class DiaryManager : MonoBehaviour
         storyBtnFocusText = storyTexts[1];
         characterBtnText = characterTexts[0];
         characterBtnFocusText = characterTexts[1];
-
-        if (this.gameObject.activeSelf)
-            this.gameObject.SetActive(false);
     }
 
     private void OnEnable()

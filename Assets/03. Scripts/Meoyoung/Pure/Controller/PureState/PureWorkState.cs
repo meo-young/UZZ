@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Constant;
 
 public class PureWorkState : MonoBehaviour, IControllerState
 {
@@ -33,7 +34,7 @@ public class PureWorkState : MonoBehaviour, IControllerState
         if (pc.helpEventCheckFlag)
             return;
 
-        if (pc.workTimer < pc.fieldWorkManager.helpProbabilityCheckTime) // 작업도움확률체크 시간이 된 경우 확률체크
+        if (pc.workTimer < FIELDWORK_HELP_PROBABILITY) // 작업도움확률체크 시간이 된 경우 확률체크
             return;
 
         if (pc.fieldWorkManager.CheckHelpProbability())

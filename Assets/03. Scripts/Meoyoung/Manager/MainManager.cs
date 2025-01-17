@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using static Constant;
 
 [System.Serializable]
 public class GameInfo
@@ -20,11 +21,6 @@ public class GameInfo
 public class MainManager : MonoBehaviour
 {
     public static MainManager instance;
-
-    [Header("# Game State")]
-    public float cycleTime;
-    [SerializeField] float oneDaySeconds;
-    public float timeMultifiler;
 
     [Header("# Goods")]
     [HideInInspector] public DewUI dewUI;
@@ -52,9 +48,7 @@ public class MainManager : MonoBehaviour
     [Header("# VFX")]
     [HideInInspector] public VFXManager vfxManager;
 
-    [Header("# Likeability")]
-    public int interactionLikeability;
-    public float likeabilityIntervalTime;
+
 
     [Header("# Database GameInfo")]
     public GameInfo gameInfo;
@@ -110,7 +104,7 @@ public class MainManager : MonoBehaviour
             return;
 
         gameInfo.likeabilityTimer += Time.deltaTime;
-        if (gameInfo.likeabilityTimer > likeabilityIntervalTime)
+        if (gameInfo.likeabilityTimer > INTERACTION_LIKEABILITY_COOLTIME)
         {
             gameInfo.likeabilityFlag = false;
             gameInfo.likeabilityTimer = 0;
@@ -124,10 +118,10 @@ public class MainManager : MonoBehaviour
 
     void UpdateInGameTime()
     {
-        gameInfo.inGameTime += Time.unscaledDeltaTime * timeMultifiler;
+        gameInfo.inGameTime += Time.unscaledDeltaTime * INGAME_TIME_MULTIFLIER;
 
-        if (gameInfo.inGameTime >= oneDaySeconds)
-            gameInfo.inGameTime %= oneDaySeconds;
+        if (gameInfo.inGameTime >= INGAME_ONEDAYSECONDS)
+            gameInfo.inGameTime %= INGAME_ONEDAYSECONDS;
 
         if (gameInfo.inGameTime >= 3600 * 6 && gameInfo.inGameTime < 3600 * 11)
             gameInfo.timeType = TimeType.Morning;
@@ -138,7 +132,7 @@ public class MainManager : MonoBehaviour
         else
             gameInfo.timeType = TimeType.Evening;
 
-        lightController.time = gameInfo.inGameTime / oneDaySeconds;
+        lightController.time = gameInfo.inGameTime / INGAME_ONEDAYSECONDS;
 
     }
 

@@ -38,8 +38,7 @@ public class WorkShopUI : MonoBehaviour
 
     private void Awake()
     {
-        if(this.gameObject.activeSelf)
-            this.gameObject.SetActive(false);
+        this.gameObject.transform.localScale = Vector3.zero;
     }
 
     private void OnEnable()
@@ -71,20 +70,20 @@ public class WorkShopUI : MonoBehaviour
     {
         for(int i=0; i<icons.Length; i++)
         {
-            // ·¹º§ÀÌ 0ÀÌ¸é Àá±è
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 0ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½
             if (_fieldWork[i].level == 0 && _fieldWork[i-1].level < 10)
             {
                 lockImages[i].SetActive(true);
                 continue;
             }
 
-            // ·¹º§ÀÌ 1ÀÌ»óÀÌ¸é Àá±èÇØÁ¦
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1ï¿½Ì»ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             lockImages[i].SetActive(false);
 
-            // ·¹º§¿¡ µû¸¥ µ¥ÀÌÅÍ ÇÒ´ç
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ò´ï¿½
             icons[i].sprite = _icons[i];
             levels[i].text = "Lv" + _fieldWork[i].level.ToString();
-            steps[i].text = (_fieldWork[i].step + 1).ToString() + "´Ü°è";
+            steps[i].text = (_fieldWork[i].step + 1).ToString() + "ï¿½Ü°ï¿½";
             points[i].text = _fieldWork[i].dewPoint.ToString();
             btnLevels[i].text = "Lv" + (_fieldWork[i].level+1).ToString();
             btn_Prices[i].text = _prices[i].ToString();

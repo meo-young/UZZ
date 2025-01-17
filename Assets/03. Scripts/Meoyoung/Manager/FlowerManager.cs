@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
+using static Constant;
 
 [System.Serializable]
 public class FlowerInfo
@@ -19,41 +20,32 @@ public class FlowerManager : MonoBehaviour
     public static FlowerManager instance;
 
     [System.Serializable]
-    public struct FlowerData // 인덱스는 flowerLevel로 체크
+    public class FlowerData // 인덱스는 flowerLevel로 체크
     {
-        public int level;
-        public int step;
-        public Sprite image;
-        public int requiredExp;
-        public float prodcuedGrowth;
-        public float maxGrowth;
-        public int producedDew;
-        public int maxDew;
-        public float totalExp;
+        public int      level;
+        public int      step;
+        public string   image;
+        public int      requiredExp;
+        public float    totalExp;
+        public float    prodcuedGrowth;
+        public float    maxGrowth;
+        public int      producedDew;
+        public int      maxDew;
     }
 
     [Header("# Flower Info")]
     [SerializeField] TextAsset flowerDataTable;
     public FlowerInfo flowerInfo;
-    [SerializeField] float dewMinInterval;
     public Sprite[] flowerImage;
-    [HideInInspector] public FlowerData[] flowerData;
+    [HideInInspector] public List<FlowerData> flowerData;
 
     [Header("# Flower UI")]
     [SerializeField] FlowerUI flowerUI;
     [SerializeField] FlowerProfileUI flowerProfileUI;
 
     [Header("# FlowerManager Stat")]
-    [Range(0, 100)][SerializeField] int flowerEventProbability;
-    [Range(0, 100)][SerializeField] int bigProbability;
     [Space(10)]
-    [SerializeField] int bigLikeability; // 빅이벤트 호감도 보상
-    [SerializeField] int bigGrowth; // 빅이벤트 성장치 보상
-    [SerializeField] int miniGrowth; // 미니이벤트 성장치 보상
-    public float miniEventFinishTime; // 미니이벤트 이벤트 소요 시간
     [Space(10)]
-    public float maxShakeTime;
-    public float acquireInterval;
     public Transform acquireEffectSpawnPos;
     public Transform acquireEffectTargetPos;
     public Transform stepUpEffectPos;
@@ -80,7 +72,8 @@ public class FlowerManager : MonoBehaviour
     {
         if (instance == null)
             instance = this;
-        UpdateFlowerDataTable();
+
+        flowerData = LoadTextAssetData.instance.LoadData<FlowerData>(flowerDataTable);
     }
 
     private void Start()
@@ -90,6 +83,17 @@ public class FlowerManager : MonoBehaviour
         items = new List<ItemAcquireFx>();
         SetActiveFalseAllFlower();
         InitFlowerUI();
+        Debug.Log(flowerData[2].step);
+                Debug.Log(flowerData[50].step);
+                Debug.Log(flowerData[50].level);
+                Debug.Log(flowerData[50].image);
+
+                Debug.Log(flowerData[2].level);
+        Debug.Log(flowerData[2].producedDew);
+        Debug.Log(flowerData[2].maxDew);
+        Debug.Log(flowerData[2].maxGrowth);
+
+        Debug.Log(flowerData.Count + " flower info :" + flowerInfo.level + "step : " + (flowerData[flowerInfo.level].step - 1));
         defaultFlower[flowerData[flowerInfo.level].step - 1].SetActive(true);
         if (flowerInfo.isStepUp) // 단계업중인지 확인
             ShowStepUpEffect();
@@ -105,7 +109,8 @@ public class FlowerManager : MonoBehaviour
     public bool CheckFlowerEventProbability()
     {
         int randNum = Random.Range(0, 100);
-        if (randNum < flowerEventProbability)
+        if (randNum < FLOWER_EVENT_PROBABILITY
+)
         {
             isFlowerEvent = true;
             CheckBigEventProbability();
@@ -118,7 +123,7 @@ public class FlowerManager : MonoBehaviour
     void CheckBigEventProbability()
     {
         int randNum = Random.Range(0, 100);
-        if (randNum < bigProbability)
+        if (randNum < FLOWER_BIGEVENT_PROBABILITY)
             ShowBigFlowerEvent();
         else
             ShowMiniFlowerEvent();
@@ -187,16 +192,16 @@ public class FlowerManager : MonoBehaviour
     public void GetBigEventReward()
     {
         isFlowerEvent = false;
-        MainManager.instance.pureStat.GetLikeability(bigLikeability);
+        MainManager.instance.pureStat.GetLikeability(BIGEVENT_LIKEABILITY);
         BackToDefaultFlower();
-        GetFlowerExp(bigGrowth);
+        GetFlowerExp(BIGEVENT_GROWTH);
     }
 
     public void GetMiniEventReward()
     {
         isFlowerEvent = false;
         BackToDefaultFlower();
-        GetFlowerExp(miniGrowth);
+        GetFlowerExp(MINIEVENT_GROWTH);
     }
     #endregion
 
@@ -329,12 +334,12 @@ public class FlowerManager : MonoBehaviour
 
         if (counter - intervalCounter > 0)
         {
-            intervalCounter += acquireInterval;
+            intervalCounter += FLOWER_DEW_ACQUIRE_INTERVAL;
             ShowAcquireEffect();
             bCanAcquire = true;
         }
 
-        if (counter > maxShakeTime)
+        if (counter > FLOWER_MAX_SHAKE_TIME)
         {
             finishShakeEvent = true;
             bCanAcquire = true;
@@ -349,14 +354,14 @@ public class FlowerManager : MonoBehaviour
     void InitAcquireVariable()
     {
         finishShakeEvent = false;
-        intervalCounter = acquireInterval;
+        intervalCounter = FLOWER_DEW_ACQUIRE_INTERVAL;
         counter = 0;
         bCanAcquire = false;
     }
 
     void GetDew()
     {
-        float dew = flowerInfo.totalGetDew * (intervalCounter - acquireInterval) / maxShakeTime;
+        float dew = flowerInfo.totalGetDew * (intervalCounter - FLOWER_DEW_ACQUIRE_INTERVAL) / FLOWER_MAX_SHAKE_TIME;
         MainManager.instance.dewUI.Count(dew);
         flowerInfo.dewCounter = 0;
     }
@@ -365,7 +370,7 @@ public class FlowerManager : MonoBehaviour
     {
         flowerInfo.dewCounter += Time.deltaTime;
 
-        flowerInfo.totalGetDew = (int)(Mathf.Floor(flowerInfo.dewCounter / dewMinInterval) * flowerData[flowerInfo.level].producedDew);
+        flowerInfo.totalGetDew = (int)(Mathf.Floor(flowerInfo.dewCounter / DEW_MIN_INTERVAL) * flowerData[flowerInfo.level].producedDew);
 
         if (flowerInfo.totalGetDew > 0)
             flowerReadyVFX.SetActive(true);
@@ -377,30 +382,4 @@ public class FlowerManager : MonoBehaviour
     }
     #endregion
 
-    #region Flower DataTable
-    public void UpdateFlowerDataTable()
-    {
-        flowerData = new FlowerData[100];
-        StringReader reader = new StringReader(flowerDataTable.text);
-        bool head = false;
-        while (reader.Peek() != -1)
-        {
-            string line = reader.ReadLine();
-            if (!head)
-            {
-                head = true;
-                continue;
-            }
-            string[] values = line.Split('\t');
-
-            flowerData[int.Parse(values[0]) - 1].step = int.Parse(values[1]);
-            flowerData[int.Parse(values[0]) - 1].requiredExp = int.Parse(values[3]);
-            flowerData[int.Parse(values[0]) - 1].totalExp = float.Parse(values[4]);
-            flowerData[int.Parse(values[0]) - 1].prodcuedGrowth = float.Parse(values[5]);
-            flowerData[int.Parse(values[0]) - 1].maxGrowth = float.Parse(values[6]);
-            flowerData[int.Parse(values[0]) - 1].producedDew = int.Parse(values[7]);
-            flowerData[int.Parse(values[0]) - 1].maxDew = int.Parse(values[8]);
-        }
-    }
-    #endregion
 }
