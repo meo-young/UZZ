@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Constant;
 
 public class PureInteractionState : MonoBehaviour, IControllerState
 {
@@ -19,7 +20,7 @@ public class PureInteractionState : MonoBehaviour, IControllerState
         baseAnimationTimer = 0;
         if (!MainManager.instance.gameInfo.likeabilityFlag)
         {
-            pc.pureStat.GetLikeability(MainManager.instance.interactionLikeability);
+            pc.pureStat.GetLikeability(INTERACTION_LIKEABILITY);
             MainManager.instance.gameInfo.likeabilityFlag = true;
             Instantiate(pc.vfxManager.likeabilityVFX, this.transform.position, Quaternion.identity);
         }

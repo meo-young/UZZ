@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Constant;
 
 public class MiniFlower : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class MiniFlower : MonoBehaviour
     private void Update()
     {
         miniEventCounter += Time.deltaTime;
-        if (miniEventCounter > flowerManager.miniEventFinishTime)
+        if (miniEventCounter > MINIEVENT_FINISH_TIME)
         {
             flowerManager.GetMiniEventReward();
             MainManager.instance.pure.SetActive(true);

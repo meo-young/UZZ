@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using static Constant;
+
+
 
 [System.Serializable]
 public class PresentInfo
@@ -14,10 +17,6 @@ public class PresentInfo
 public class PresentManager : MonoBehaviour
 {
     public static PresentManager instance;
-
-    [SerializeField] int presentProbabilty = 5;
-    [SerializeField] float presentInterval = 120f;
-    public float presentAfterAnimationSeconds = 5;
 
     public PresentInfo presentInfo;
 
@@ -46,7 +45,7 @@ public class PresentManager : MonoBehaviour
         pc = MainManager.instance.pureController;
         presentUI = MainManager.instance.presentUI;
 
-        if (presentInfo.presentTimer < presentInterval)
+        if (presentInfo.presentTimer < PRESENT_INTERVAL)
             pc.ChangeState(pc._walkState);
 
         CheckMyItems();
@@ -57,9 +56,9 @@ public class PresentManager : MonoBehaviour
         // 선물확률에 걸리면 푸르는 선물 준비상태로 전이
 
         if (!presentInfo.presentFlag && presentInfo.presentTimer == 0)
-            CheckProbabilty(presentProbabilty);
+            CheckProbabilty(PRESENT_PROBABILITY);
         else
-            CheckPresentReactiveTime(presentInterval);
+            CheckPresentReactiveTime(PRESENT_INTERVAL);
     }
 
 

@@ -12,6 +12,7 @@ public class FlowerUI : MonoBehaviour
     private float exp => FlowerManager.instance.flowerInfo.exp;
     private void Start()
     {
+        Debug.Log("FlowerUI");
         flowerLevel.text = (level+1).ToString();
         flowerImage.sprite = FlowerManager.instance.flowerImage[FlowerManager.instance.flowerData[level].step];
         flowerGrowthSlider.value = exp / FlowerManager.instance.flowerData[level].requiredExp;

@@ -60,7 +60,7 @@ Material:
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _FogColor: {r: 0.2588236, g: 0.6790779, b: 0.8784314, a: 0}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
-    - _TintColor: {r: 0.20979854, g: 0.1055534, b: 0.2018418, a: 0.9308935}
+    - _TintColor: {r: 1, g: 0.98464495, b: 0.96673584, a: 0.84313726}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &4720876083469629106

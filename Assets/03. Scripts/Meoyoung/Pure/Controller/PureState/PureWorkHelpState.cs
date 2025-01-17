@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Constant;
 
 public class PureWorkHelpState : MonoBehaviour, IControllerState
 {
@@ -25,7 +26,7 @@ public class PureWorkHelpState : MonoBehaviour, IControllerState
     public void OnStateExit()
     {
         pc.pureAnimationSet.ControlFieldWorkHelpAnimation(fws.type);
-        pc.pureStat.GetLikeability(pc.fieldWorkManager.likeability);
+        pc.pureStat.GetLikeability(FIELDWORK_LIKEABILITY);
         pc.pureAnimationSet.ShowFieldWorkHelpSuccessText(fws.type);
     }
 }

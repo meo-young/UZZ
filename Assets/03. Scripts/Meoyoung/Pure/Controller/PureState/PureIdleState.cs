@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using static Constant;
 
 public class PureIdleState : MonoBehaviour, IControllerState
 {
@@ -27,7 +28,7 @@ public class PureIdleState : MonoBehaviour, IControllerState
         #endregion
         #region Cycle Check
         pc.cycleCheckTimer += Time.deltaTime;
-        if (!pc.flowerEventCheckFlag && pc.cycleCheckTimer > MainManager.instance.cycleTime)
+        if (!pc.flowerEventCheckFlag && pc.cycleCheckTimer > INGAME_CYCLE_TIME)
         {
             pc.Initialize();
             pc.ChangeState(pc._walkState);
@@ -38,7 +39,7 @@ public class PureIdleState : MonoBehaviour, IControllerState
         if (pc.autoWorkCheckFlag)
             return;
 
-        if (pc.cycleCheckTimer < pc.fieldWorkManager.autoWorkCheckTime)
+        if (pc.cycleCheckTimer < FIELDWORK_AUTO_CHECK_TIME)
             return;
 
         // 자동작업에 실패한 경우 꽃 이벤트 확인

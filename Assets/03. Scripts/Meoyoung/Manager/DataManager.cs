@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using UnityEngine;
+using static Constant;
 
 [System.Serializable]
 public class GameData
@@ -87,7 +88,7 @@ public class DataManager : MonoBehaviour
         MainManager.instance.gameInfo.playTime = gameData.gameInfo.playTime;
         MainManager.instance.gameInfo.likeabilityFlag = gameData.gameInfo.likeabilityFlag;
         MainManager.instance.gameInfo.lastConnectTime = gameData.gameInfo.lastConnectTime;
-        MainManager.instance.gameInfo.inGameTime = gameData.gameInfo.inGameTime + Utility.instance.GetIntervalDateTime() * MainManager.instance.timeMultifiler;
+        MainManager.instance.gameInfo.inGameTime = gameData.gameInfo.inGameTime + Utility.instance.GetIntervalDateTime() * INGAME_TIME_MULTIFLIER;
         MainManager.instance.gameInfo.likeabilityTimer = gameData.gameInfo.likeabilityTimer + Utility.instance.GetIntervalDateTime();
         MainManager.instance.gameInfo.dew = gameData.gameInfo.dew;
         MainManager.instance.gameInfo.totalDayCounter = gameData.gameInfo.totalDayCounter;
