@@ -4,25 +4,16 @@ using UnityEngine;
 using AYellowpaper.SerializedCollections;
 using static Constant;
 
-[System.Serializable]
-public class DrawInfo
-{
-    public SerializedDictionary<string, int> myFurnitures;
-
-    public DrawInfo()
-    {
-        myFurnitures = new SerializedDictionary<string, int>();
-    }
-}
 
 public class DrawManager : MonoBehaviour
 {
     public static DrawManager instance;
 
-    [Header("# Draw Info")]
+    [Header("# 데이터테이블")]
     [SerializeField] TextAsset drawDataTable;
-    public DrawData[] drawdatas = new DrawData[DRAW_THEME_COUNT];
 
+
+    public DrawData[] drawdatas = new DrawData[DRAW_THEME_COUNT];
     public DrawInfo drawInfo = new();
 
     private void Awake()
@@ -71,5 +62,16 @@ public class Furniture
     public float probability;           // 가구가 뜰 확률
     public int power;                   // 가구 팔았을 때 받는 가루
     public int requiredPower;           // 가구 조합시 필요한 가루
+}
+
+[System.Serializable]
+public class DrawInfo
+{
+    public SerializedDictionary<string, int> myFurnitures;
+
+    public DrawInfo()
+    {
+        myFurnitures = new SerializedDictionary<string, int>();
+    }
 }
 #endregion
