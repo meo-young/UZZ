@@ -47,7 +47,10 @@ public class WorkShopUI : MonoBehaviour
     }
     public void OnWorkShopCanvasHandler()
     {
-        workShopCanvas.SetActive(!workShopCanvas.activeSelf);
+        if(transform.localScale == Vector3.zero)
+            transform.localScale = Vector3.one;
+        else
+            transform.localScale = Vector3.zero;
     }
 
     #region Equipment

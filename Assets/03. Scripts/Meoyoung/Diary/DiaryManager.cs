@@ -45,11 +45,7 @@ public class DiaryManager : MonoBehaviour
         if (instance == null)
             instance = this;
 
-        if(!this.gameObject.activeSelf)
-        {
-            this.gameObject.SetActive(true);
-            this.transform.localScale = Vector3.zero;
-        }
+        transform.localScale = Vector3.zero;
 
         currentIndex = 0;
 
@@ -84,7 +80,7 @@ public class DiaryManager : MonoBehaviour
     // 메인화면의 Diary 버튼 핸들러
     public void OnDiaryBtnHandler()         
     {
-        this.gameObject.SetActive(!this.gameObject.activeSelf);
+        transform.localScale = Vector3.one;
 
         OnStoryBtnHandler();
     }

@@ -23,6 +23,7 @@ TagManager:
   - Fish
   - CG0
   - CG1
+  - NurungPanel
   layers:
   - Default
   - TransparentFX
