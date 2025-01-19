@@ -1,11 +1,18 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using AYellowpaper.SerializedCollections;
 using static Constant;
 
+[System.Serializable]
 public class DrawInfo
 {
-    public Dictionary<Furniture, int> myFurnitures;
+    public SerializedDictionary<string, int> myFurnitures;
+
+    public DrawInfo()
+    {
+        myFurnitures = new SerializedDictionary<string, int>();
+    }
 }
 
 public class DrawManager : MonoBehaviour
@@ -15,6 +22,8 @@ public class DrawManager : MonoBehaviour
     [Header("# Draw Info")]
     [SerializeField] TextAsset drawDataTable;
     public DrawData[] drawdatas = new DrawData[DRAW_THEME_COUNT];
+
+    public DrawInfo drawInfo = new();
 
     private void Awake()
     {
@@ -27,6 +36,14 @@ public class DrawManager : MonoBehaviour
         drawdatas[0] = new DrawData();
         drawdatas[0].title = DRAW_THEME1_NAME;
         drawdatas[0].furnitures = LoadTextAssetData.instance.LoadData<Furniture>(drawDataTable);
+    }
+
+    public void AddFurniture(string _furniture)
+    {
+        if(drawInfo.myFurnitures.ContainsKey(_furniture))
+            drawInfo.myFurnitures[_furniture]++;
+        else
+            drawInfo.myFurnitures[_furniture] = 1;
     }
 }
 

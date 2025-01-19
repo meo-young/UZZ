@@ -145,7 +145,10 @@ public class NurungUI : MonoBehaviour
         {
             cumulativeWeight += furnitures[i].probability;
             if (randomNum < cumulativeWeight)
+            {
+                DrawManager.instance.AddFurniture(furnitures[i].name);
                 return furnitures[i];
+            }
         }
 
         return new Furniture();
