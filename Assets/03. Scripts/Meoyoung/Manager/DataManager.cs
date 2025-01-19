@@ -16,6 +16,7 @@ public class GameData
     public FieldWorkInfo fieldWorkInfo = new();
     public DiaryInfo diaryInfo = new();
     public AutoGrowInfo autoGrowInfo = new();
+    public DrawInfo drawInfo = new();
 }
 
 public class DataManager : MonoBehaviour
@@ -110,6 +111,8 @@ public class DataManager : MonoBehaviour
         DiaryManager.instance.diaryInfo = gameData.diaryInfo;
 
         AutoGrowManager.instance.autoGrowInfo = gameData.autoGrowInfo;
+
+        DrawManager.instance.drawInfo = gameData.drawInfo;
     }
 
     // 비동기적으로 데이터를 저장하는 함수
@@ -124,6 +127,7 @@ public class DataManager : MonoBehaviour
         gameData.pureInfo = PureStat.instance.pureInfo;
         gameData.diaryInfo = DiaryManager.instance.diaryInfo;
         gameData.autoGrowInfo = AutoGrowManager.instance.autoGrowInfo;
+        gameData.drawInfo = DrawManager.instance.drawInfo;
 
         string json = JsonUtility.ToJson(gameData, true);
 

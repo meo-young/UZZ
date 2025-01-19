@@ -2,8 +2,8 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.AddressableAssets;
-using UnityEngine.ResourceManagement.AsyncOperations;
+using static Constant;
+
 
 public class NurungUI : MonoBehaviour
 {
@@ -11,15 +11,20 @@ public class NurungUI : MonoBehaviour
     [SerializeField] GameObject drawPanel;
 
     [Header("# Nurung UI Info")]
-    [SerializeField] TMP_Text titleText;
+    [SerializeField] TMP_Text TitleText;
     [SerializeField] TMP_Text dewText;
+    [SerializeField] TMP_Text oneDrawText;
+    [SerializeField] TMP_Text fiveDrawText;
+    [SerializeField] TMP_Text oneDrawDewCostText;
+    [SerializeField] TMP_Text oneDrawGlassCostText;
+    [SerializeField] TMP_Text fiveDrawDewCostText;
+    [SerializeField] TMP_Text fiveDrawGlassCostText;
+    [Space(10)]
     [SerializeField] Transform contentPanel;
     [SerializeField] ScrollRect scrollRect;
     [Space(10)]
     [SerializeField] GameObject oneDrawUI;
-    [SerializeField] TMP_Text oneDrawText;
     [SerializeField] GameObject fiveDrawUI;
-    [SerializeField] TMP_Text fiveDrawText;
     [SerializeField] GameObject makeFurnitureUI;
 
     [Header("# Furniture Result UI")]
@@ -29,8 +34,19 @@ public class NurungUI : MonoBehaviour
     [SerializeField] Image furnitureImage;
     [SerializeField] GameObject furnitureItemPrefab;
 
-    private DrawManager.Furniture[] furnitures;
-    private DrawManager.Furniture selectedFurniture;
+    private Furniture[] furnitures;
+    private Furniture selectedFurniture;
+    private int drawThemeIndex;
+
+
+
+    private void Awake() {
+        oneDrawDewCostText.text = DRAW_ONE_DEW_COST.ToString();
+        oneDrawGlassCostText.text = DRAW_ONE_GLASS_COST.ToString();
+        fiveDrawDewCostText.text = DRAW_FIVE_DEW_COST.ToString();
+        fiveDrawGlassCostText.text = DRAW_FIVE_GLASS_COST.ToString();
+    }
+
 
     public void OnDisable()
     {
@@ -44,17 +60,19 @@ public class NurungUI : MonoBehaviour
 
     public void InitTextInfo(string _title, string _dew)            // 타이틀, 가루 텍스트 초기화
     {
-        titleText.text = _title;
+        TitleText.text = _title;
         dewText.text = "가루 " + _dew;
     }
 
-    public void OnNurungBtnHandler()                                // Nurung UI 켜는 버튼
+    public void OnNurungBtnHandler(int index)                                // Nurung UI 켜는 버튼
     {
         if(!this.gameObject.activeSelf) 
             this.gameObject.SetActive(true);
+
+        drawThemeIndex = index;
     }
 
-    public void InitFurnitueList(DrawManager.Furniture[] _furnitures)
+    public void InitFurnitueList(Furniture[] _furnitures)
     {
         furnitures = _furnitures;
         
@@ -91,7 +109,7 @@ public class NurungUI : MonoBehaviour
         if(!oneDrawUI.activeSelf)
             oneDrawUI.SetActive(true);
 
-        oneDrawText.text = furnitures[0].theme + "\n1회 뽑기를 진행할까 ?";
+        oneDrawText.text = DrawManager.instance.drawdatas[drawThemeIndex].title + "\n1회 뽑기를 진행할까 ?";
         SoundManager.instance.PlaySFX(SFX.Diary.BUTTON);
     }
 
@@ -111,7 +129,7 @@ public class NurungUI : MonoBehaviour
             oneDrawUI.SetActive(false);
     }
 
-    DrawManager.Furniture OneDraw()
+    Furniture OneDraw()
     {
         float totalProbability = 0f;
         for(int i=0; i<furnitures.Length; i++)
@@ -127,10 +145,13 @@ public class NurungUI : MonoBehaviour
         {
             cumulativeWeight += furnitures[i].probability;
             if (randomNum < cumulativeWeight)
+            {
+                DrawManager.instance.AddFurniture(furnitures[i].name);
                 return furnitures[i];
+            }
         }
 
-        return new DrawManager.Furniture();
+        return new Furniture();
     }
 
     // 5회 뽑기
@@ -139,7 +160,7 @@ public class NurungUI : MonoBehaviour
         if(!fiveDrawUI.activeSelf)
             fiveDrawUI.SetActive(true);
 
-        fiveDrawText.text = furnitures[0].theme + "\n5회 뽑기를 진행할까 ?";
+        fiveDrawText.text = DrawManager.instance.drawdatas[drawThemeIndex].title + "\n5회 뽑기를 진행할까 ?";
         SoundManager.instance.PlaySFX(SFX.Diary.BUTTON);
     }
 

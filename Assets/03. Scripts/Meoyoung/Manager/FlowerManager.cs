@@ -83,17 +83,6 @@ public class FlowerManager : MonoBehaviour
         items = new List<ItemAcquireFx>();
         SetActiveFalseAllFlower();
         InitFlowerUI();
-        Debug.Log(flowerData[2].step);
-                Debug.Log(flowerData[50].step);
-                Debug.Log(flowerData[50].level);
-                Debug.Log(flowerData[50].image);
-
-                Debug.Log(flowerData[2].level);
-        Debug.Log(flowerData[2].producedDew);
-        Debug.Log(flowerData[2].maxDew);
-        Debug.Log(flowerData[2].maxGrowth);
-
-        Debug.Log(flowerData.Count + " flower info :" + flowerInfo.level + "step : " + (flowerData[flowerInfo.level].step - 1));
         defaultFlower[flowerData[flowerInfo.level].step - 1].SetActive(true);
         if (flowerInfo.isStepUp) // 단계업중인지 확인
             ShowStepUpEffect();

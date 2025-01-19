@@ -37,6 +37,14 @@ public static class Constant
     public const float  INGAME_CYCLE_TIME = 75;                 // 게임 한사이클 시간
     public const float  INGAME_ONEDAYSECONDS = 86400;           // 인게임 총 시간
     public const float  INGAME_TIME_MULTIFLIER = 4;             // 시간 배속
+
+    [Header("# 뽑기 관련 수치")]
+    public const int    DRAW_THEME_COUNT = 1;                   // 뽑기 테마 개수
+    public const string DRAW_THEME1_NAME = "푸르의 공방";        // 테마 1번 이름
+    public const int    DRAW_ONE_DEW_COST = 5;                  // 1회 뽑기 이슬 비용
+    public const int    DRAW_ONE_GLASS_COST = 5;                // 1회 뽑기 유리구슬 비용
+    public const int    DRAW_FIVE_DEW_COST = 15;                // 5회 뽑기 이슬 비용
+    public const int    DRAW_FIVE_GLASS_COST = 15;              // 5회 뽑기 유리구슬 비용
     
     
 }
