@@ -32,7 +32,7 @@ public class PureInteractionState : MonoBehaviour, IControllerState
     public void OnStateUpdate()
     {
         baseAnimationTimer += Time.deltaTime;
-        if (baseAnimationTimer > pc.pureStat.baseAnimationPlayTime)
+        if (baseAnimationTimer > PURE_ANIMATION_TIME)
             pc.ChangeState(pc.preparationState);
     }
 

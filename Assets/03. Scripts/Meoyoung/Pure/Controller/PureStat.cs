@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using static Constant;
 
 
 [System.Serializable]
@@ -29,8 +30,6 @@ public class PureStat : MonoBehaviour
 
 
     [Header("# Stat")]
-    [Tooltip("랜덤하게 걷는 시간")]
-    public float walkRandomTime;
     [Tooltip("걷는 속도")]
     public float walkSpeed;
 
@@ -46,17 +45,6 @@ public class PureStat : MonoBehaviour
     [Tooltip("UI를 띄울 때 기준으로 할 타겟")]
     public Transform target;
     public Vector3 likeabilityPos;
-
-    [Space(10)]
-
-    [Header("# Animation Timer")]
-    public float baseAnimationPlayTime;
-
-    [Space(10)]
-
-    [Header("# etc.")]
-    [Tooltip("작업 소요 시간")]
-    public float workRequiredTime;
 
 
     private void Awake()
@@ -116,7 +104,7 @@ public class PureStat : MonoBehaviour
     public void SetTrueInteractionText()
     {
         pureInfo.interactionText = true;
-        Invoke(nameof(SetFalseInteractionText), 10);
+        Invoke(nameof(SetFalseInteractionText), PURE_AUTO_TEXT_TIME);
     }
 
     void SetFalseInteractionText()
@@ -127,7 +115,7 @@ public class PureStat : MonoBehaviour
     public void SetTrueAutoText()
     {
         pureInfo.autoText = true;
-        Invoke(nameof(SetFalseAutoText), 10);
+        Invoke(nameof(SetFalseAutoText), PURE_AUTO_TEXT_TIME);
     }
 
     void SetFalseAutoText()

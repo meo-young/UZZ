@@ -21,7 +21,7 @@ public class PureWorkState : MonoBehaviour, IControllerState
     {
         pc.workTimer += Time.deltaTime;
 
-        if (pc.workTimer > pc.pureStat.workRequiredTime) // 푸르의 작업시간이 지나면 Idle 상태로 전이
+        if (pc.workTimer > FIELDWORK_REQUIRED_TIME) // 푸르의 작업시간이 지나면 Idle 상태로 전이
             pc.ChangeState(pc._idleState);
 
         if (!pc.pureStat.pureInfo.autoText && !pc.pureStat.pureInfo.interactionText)
