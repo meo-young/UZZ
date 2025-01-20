@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Constant;
 
 public class PureBaseState : MonoBehaviour, IControllerState
 {
@@ -22,7 +23,7 @@ public class PureBaseState : MonoBehaviour, IControllerState
     public void OnStateUpdate()
     {
         baseAnimationTimer += Time.deltaTime;
-        if (baseAnimationTimer > pc.pureStat.baseAnimationPlayTime)
+        if (baseAnimationTimer > PURE_ANIMATION_TIME)
             pc.ChangeState(pc._idleState);
 
         if(!pc.pureStat.pureInfo.autoText && !pc.pureStat.pureInfo.interactionText)
