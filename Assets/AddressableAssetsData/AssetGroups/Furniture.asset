@@ -30,6 +30,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2d65dd8039316004f907f595eb706cf7
+    m_Address: Star_5
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 424fa62360778474f82508b50d4b89e3
     m_Address: potion_window
     m_ReadOnly: 0
@@ -70,6 +75,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 876547437d0e6824fb0e65ee5e74297e
+    m_Address: Star_3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 88185d061c04d6e4aa05ffa6744fb8e7
     m_Address: potion_pack
     m_ReadOnly: 0
@@ -92,6 +102,16 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: aa023bc784caa744f9482a8b7648d8b6
     m_Address: potion_window2_icon
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: be442d8090d62dc4bafc8684ccb99619
+    m_Address: Star_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c03fac15bc5bde448bcd927b9cf57b8b
+    m_Address: Star_2
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -142,6 +162,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: f1a190955a4162c4aa96e4512133f05e
     m_Address: potion_shelf2_icon
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fb1130ddbf3606a4e9d54d9e8d749f4d
+    m_Address: Star_4
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

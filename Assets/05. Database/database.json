@@ -1,21 +1,21 @@
 {
     "gameInfo": {
         "totalDayCounter": 0,
-        "playTime": 644.8163452148438,
-        "inGameTime": 58753.2421875,
-        "timeType": 2,
-        "likeabilityTimer": 773856.5625,
+        "playTime": 812.03564453125,
+        "inGameTime": 72019.6875,
+        "timeType": 3,
+        "likeabilityTimer": 777005.75,
         "likeabilityFlag": false,
-        "lastConnectTime": "2025-01-23 오후 3:38:46",
+        "lastConnectTime": "2025-01-23 오후 4:35:49",
         "dew": 40.0,
         "cycleFlag": true
     },
     "flowerInfo": {
         "level": 6,
-        "exp": 19.812341690063478,
+        "exp": 59.544612884521487,
         "totalGetDew": 1920,
         "isStepUp": false,
-        "dewCounter": 1224331.125
+        "dewCounter": 1227482.0
     },
     "presentInfo": {
         "presentFlag": false,
@@ -55,6 +55,50 @@
             "_serializedList": [
                 {
                     "Key": "향긋한 허브 보따리",
+                    "Value": 3
+                },
+                {
+                    "Key": "풀내음이 나는 덩쿨",
+                    "Value": 2
+                },
+                {
+                    "Key": "깔끔한 폭신 의자",
+                    "Value": 5
+                },
+                {
+                    "Key": "푸르의 포션공방 벽",
+                    "Value": 8
+                },
+                {
+                    "Key": "이상한 연금술 선반",
+                    "Value": 5
+                },
+                {
+                    "Key": "아담한 밥그릇 화분",
+                    "Value": 5
+                },
+                {
+                    "Key": "따뜻한 정령 화원의 창문",
+                    "Value": 3
+                },
+                {
+                    "Key": "단단한 원목 지붕",
+                    "Value": 3
+                },
+                {
+                    "Key": "올망졸망 토끼 화분",
+                    "Value": 2
+                },
+                {
+                    "Key": "푸르의 포션공방 바닥",
+                    "Value": 11
+                },
+                {
+                    "Key": "따뜻한 정령세계 풍경",
+                    "Value": 1
+                },
+                {
+                    "Key": "복잡한 포션학 책",
                     "Value": 1
                 }
             ]
