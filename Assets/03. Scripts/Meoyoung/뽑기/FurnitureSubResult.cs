@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using TMPro;
 public class FurnitureSubResult : MonoBehaviour
 {
+    private Button skipBtn;
     private Image furnitureImage;
     private Image starImage;
     private TMP_Text furnitureNameText;
@@ -10,27 +11,55 @@ public class FurnitureSubResult : MonoBehaviour
 
     // 5회 뽑기 데이터를 저장할 배열
     private Furniture[] furnitures;
+    private Furniture currentFurniture;
     private int currentFurnitureIndex;
+
+    private FurnitureMainResult furnitureMainResult;
 
     private void Awake() {
         Image[] images = GetComponentsInChildren<Image>();
         TMP_Text[] texts = GetComponentsInChildren<TMP_Text>();
 
+        skipBtn = GetComponentsInChildren<Button>()[1];
         furnitureImage = images[1];
         starImage = images[2];
         furnitureNameText = texts[0];
         furnitureFlavorText = texts[1];
 
-        furnitures = null;
-        currentFurnitureIndex = 0;
+        furnitureMainResult = FindFirstObjectByType<FurnitureMainResult>();
     }
 
     private void Start() {
-        transform.localScale = Vector3.zero;
+        Init();
+    }
+    
+
+    public void SetOneFurniture(Furniture _furniture)
+    {
+        // 스킵 버튼 비활성화
+        skipBtn.gameObject.SetActive(false);
+
+        // 가구 데이터 설정
+        currentFurniture = _furniture;
+
+        // 가구 정보 설정
+        SetFurniture(currentFurniture);
+    }
+
+    public void SetFurnitures(Furniture[] _furnitures)
+    {
+        // 스킵 버튼 활성화
+        skipBtn.gameObject.SetActive(true);
+
+        // 5회 뽑기 데이터 설정
+        furnitures = _furnitures;
+
+        // 맨 첫 가구를 보여줌
+        SetFurniture(furnitures[currentFurnitureIndex++]);
     }
 
 
-    public void SetFurniture(Furniture _furniture)
+    void SetFurniture(Furniture _furniture)
     {
         // 가구 아이콘 설정
         AddressableManager.instance.LoadSprite(_furniture.icon, furnitureImage);
@@ -45,21 +74,13 @@ public class FurnitureSubResult : MonoBehaviour
         AddressableManager.instance.LoadSprite("Star_" + _furniture.rank, starImage);
     }
 
-    public void SetFurnitures(Furniture[] _furnitures)
-    {
-        // 5회 뽑기 데이터 설정
-        furnitures = _furnitures;
-
-        // 맨 첫 가구를 보여줌
-        SetFurniture(furnitures[currentFurnitureIndex++]);
-    }
-
     public void OnNextFurnitureBtnHandler()
     {
         // 1회 뽑기라면 바로 스킵
         if(furnitures == null)
         {
-            Skip();
+            Init();
+            furnitureMainResult.ShowOneDrawResult(currentFurniture);
             return;
         }
 
@@ -77,11 +98,14 @@ public class FurnitureSubResult : MonoBehaviour
 
     void Skip()
     {
-        // 창 최소화
-        transform.localScale = Vector3.zero;
+        furnitureMainResult.ShowFiveDrawResult(furnitures);
+        Init();
+    }
 
-        // 가구 데이터 초기화
+    void Init()
+    {
         furnitures = null;
         currentFurnitureIndex = 0;
+        transform.localScale = Vector3.zero;
     }
 }

@@ -126,7 +126,7 @@ public class NurungUI : MonoBehaviour
     {
         // 돈 감소하는 로직 구현 필요
         selectedFurnitures[0] = OneDraw();
-        furnitureSubResult.SetFurniture(selectedFurnitures[0]);
+        furnitureSubResult.SetOneFurniture(selectedFurnitures[0]);
         StartCoroutine(ShowMakeFurnitureUI());
 
         if (oneDrawUI.activeSelf)
