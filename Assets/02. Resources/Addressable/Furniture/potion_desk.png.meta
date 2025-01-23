@@ -3,20 +3,59 @@ guid: ddf09609293ba1049b95f8788e5449f1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4329407632164072968
-    second: Default_0
+      213: -5954514634886481326
+    second: potion_desk_0
   - first:
-      213: -687686590730729439
-    second: Default_1
+      213: 8389293956343301996
+    second: potion_desk_1
   - first:
-      213: -2486526224704631793
-    second: Default_2
+      213: -8831204753020320633
+    second: potion_desk_2
   - first:
-      213: 8266815305156663548
-    second: Default_3
+      213: -9015769129194293206
+    second: potion_desk_3
   - first:
-      213: -1492594608601113626
-    second: Default_4
+      213: 2917024286145956931
+    second: potion_desk_4
+  - first:
+      213: -362548464712708305
+    second: potion_desk_5
+  - first:
+      213: 8019653180948809499
+    second: potion_desk_6
+  - first:
+      213: 8981504716474646156
+    second: potion_desk_7
+  - first:
+      213: -9146504584367082052
+    second: potion_desk_8
+  - first:
+      213: -692979584461556863
+    second: potion_desk_9
+  - first:
+      213: -8147078467928102547
+    second: potion_desk_10
+  - first:
+      213: 2771459355697857400
+    second: potion_desk_11
+  - first:
+      213: -5058879677888695714
+    second: potion_desk_12
+  - first:
+      213: 734276717100278362
+    second: potion_desk_13
+  - first:
+      213: -2424279432938104839
+    second: potion_desk_14
+  - first:
+      213: 2719071849931738975
+    second: potion_desk_15
+  - first:
+      213: 843246841438226173
+    second: potion_desk_16
+  - first:
+      213: -3384353318934037237
+    second: potion_desk_17
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -138,13 +177,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Default_0
+      name: potion_desk_0
       rect:
         serializedVersion: 2
-        x: 750
-        y: 957
-        width: 17
-        height: 13
+        x: 287
+        y: 333
+        width: 1473
+        height: 1383
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,20 +192,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 80e2103ad45251c30800000000000000
-      internalID: 4329407632164072968
+      spriteID: 25af9b9ec705d5da0800000000000000
+      internalID: -5954514634886481326
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default_1
+      name: potion_desk_1
       rect:
         serializedVersion: 2
-        x: 573
-        y: 65
-        width: 438
-        height: 873
+        x: 1565
+        y: 333
+        width: 6
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -175,20 +214,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 12802b270b8d476f0800000000000000
-      internalID: -687686590730729439
+      spriteID: c678c28a762cc6470800000000000000
+      internalID: 8389293956343301996
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default_2
+      name: potion_desk_2
       rect:
         serializedVersion: 2
-        x: 818
-        y: 937
-        width: 21
-        height: 10
+        x: 1583
+        y: 333
+        width: 6
+        height: 7
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -197,19 +236,63 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f0c89c3a2951e7dd0800000000000000
-      internalID: -2486526224704631793
+      spriteID: 7848b7d1112417580800000000000000
+      internalID: -8831204753020320633
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default_3
+      name: potion_desk_3
       rect:
         serializedVersion: 2
-        x: 784
-        y: 175
-        width: 11
+        x: 1592
+        y: 333
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a28f07d9ebd81e280800000000000000
+      internalID: -9015769129194293206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: potion_desk_4
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 333
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34ccae8122a5b7820800000000000000
+      internalID: 2917024286145956931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: potion_desk_5
+      rect:
+        serializedVersion: 2
+        x: 1618
+        y: 333
+        width: 6
         height: 9
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -219,19 +302,85 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cf810a778b0a9b270800000000000000
-      internalID: 8266815305156663548
+      spriteID: f2f8fea9718f7faf0800000000000000
+      internalID: -362548464712708305
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default_4
+      name: potion_desk_6
       rect:
         serializedVersion: 2
-        x: 819
-        y: 181
-        width: 12
+        x: 1626
+        y: 333
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b17094004188b4f60800000000000000
+      internalID: 8019653180948809499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: potion_desk_7
+      rect:
+        serializedVersion: 2
+        x: 1634
+        y: 333
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8e77fd14f6b4ac70800000000000000
+      internalID: 8981504716474646156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: potion_desk_8
+      rect:
+        serializedVersion: 2
+        x: 1645
+        y: 333
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb571507a86111180800000000000000
+      internalID: -9146504584367082052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: potion_desk_9
+      rect:
+        serializedVersion: 2
+        x: 1653
+        y: 333
+        width: 7
         height: 8
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -241,8 +390,184 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6ebdaa09c1d394be0800000000000000
-      internalID: -1492594608601113626
+      spriteID: 183329f4dba0266f0800000000000000
+      internalID: -692979584461556863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: potion_desk_10
+      rect:
+        serializedVersion: 2
+        x: 1662
+        y: 333
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6969e96c43cfee80800000000000000
+      internalID: -8147078467928102547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: potion_desk_11
+      rect:
+        serializedVersion: 2
+        x: 1668
+        y: 333
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 873cdc5a993367620800000000000000
+      internalID: 2771459355697857400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: potion_desk_12
+      rect:
+        serializedVersion: 2
+        x: 1676
+        y: 333
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e52700e6cbf3bc9b0800000000000000
+      internalID: -5058879677888695714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: potion_desk_13
+      rect:
+        serializedVersion: 2
+        x: 1688
+        y: 333
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a522a99a8cca03a00800000000000000
+      internalID: 734276717100278362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: potion_desk_14
+      rect:
+        serializedVersion: 2
+        x: 1696
+        y: 333
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f7507b33ba3b5ed0800000000000000
+      internalID: -2424279432938104839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: potion_desk_15
+      rect:
+        serializedVersion: 2
+        x: 1705
+        y: 333
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5f02f5f0751cb520800000000000000
+      internalID: 2719071849931738975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: potion_desk_16
+      rect:
+        serializedVersion: 2
+        x: 1713
+        y: 333
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df645e9d880d3bb00800000000000000
+      internalID: 843246841438226173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: potion_desk_17
+      rect:
+        serializedVersion: 2
+        x: 1722
+        y: 333
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0db586669c5801d0800000000000000
+      internalID: -3384353318934037237
       vertices: []
       indices: 
       edges: []
@@ -261,11 +586,24 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Default_0: 4329407632164072968
-      Default_1: -687686590730729439
-      Default_2: -2486526224704631793
-      Default_3: 8266815305156663548
-      Default_4: -1492594608601113626
+      potion_desk_0: -5954514634886481326
+      potion_desk_1: 8389293956343301996
+      potion_desk_10: -8147078467928102547
+      potion_desk_11: 2771459355697857400
+      potion_desk_12: -5058879677888695714
+      potion_desk_13: 734276717100278362
+      potion_desk_14: -2424279432938104839
+      potion_desk_15: 2719071849931738975
+      potion_desk_16: 843246841438226173
+      potion_desk_17: -3384353318934037237
+      potion_desk_2: -8831204753020320633
+      potion_desk_3: -9015769129194293206
+      potion_desk_4: 2917024286145956931
+      potion_desk_5: -362548464712708305
+      potion_desk_6: 8019653180948809499
+      potion_desk_7: 8981504716474646156
+      potion_desk_8: -9146504584367082052
+      potion_desk_9: -692979584461556863
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

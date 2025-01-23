@@ -3,23 +3,11 @@ guid: 424fa62360778474f82508b50d4b89e3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2123760392430052432
-    second: Perplexity_0
+      213: 6061721726582230139
+    second: potion_window_0
   - first:
-      213: 7499653599310280751
-    second: Perplexity_1
-  - first:
-      213: -6886989362281920144
-    second: Perplexity_2
-  - first:
-      213: -1823758494669964493
-    second: Perplexity_3
-  - first:
-      213: 2802304552519262188
-    second: Perplexity_4
-  - first:
-      213: 5642304206730447791
-    second: Perplexity_5
+      213: 226799815608570103
+    second: potion_window_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -141,13 +129,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Perplexity_0
+      name: potion_window_0
       rect:
         serializedVersion: 2
-        x: 750
-        y: 957
-        width: 17
-        height: 13
+        x: 39
+        y: 0
+        width: 893
+        height: 976
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,20 +144,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 05466d223dc197d10800000000000000
-      internalID: 2123760392430052432
+      spriteID: b7c83304bcf8f1450800000000000000
+      internalID: 6061721726582230139
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Perplexity_1
+      name: potion_window_1
       rect:
         serializedVersion: 2
-        x: 573
-        y: 142
-        width: 438
-        height: 796
+        x: 956
+        y: 10
+        width: 54
+        height: 105
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,96 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f287e55b63f141860800000000000000
-      internalID: 7499653599310280751
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Perplexity_2
-      rect:
-        serializedVersion: 2
-        x: 818
-        y: 937
-        width: 21
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 079ca41f9af7c60a0800000000000000
-      internalID: -6886989362281920144
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Perplexity_3
-      rect:
-        serializedVersion: 2
-        x: 391
-        y: 651
-        width: 149
-        height: 157
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 33b7811df45b0b6e0800000000000000
-      internalID: -1823758494669964493
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Perplexity_4
-      rect:
-        serializedVersion: 2
-        x: 784
-        y: 175
-        width: 11
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: cefde5da429c3e620800000000000000
-      internalID: 2802304552519262188
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Perplexity_5
-      rect:
-        serializedVersion: 2
-        x: 819
-        y: 181
-        width: 12
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: fab4cd428cd7d4e40800000000000000
-      internalID: 5642304206730447791
+      spriteID: 7f0197c0b31c52300800000000000000
+      internalID: 226799815608570103
       vertices: []
       indices: 
       edges: []
@@ -286,12 +186,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Perplexity_0: 2123760392430052432
-      Perplexity_1: 7499653599310280751
-      Perplexity_2: -6886989362281920144
-      Perplexity_3: -1823758494669964493
-      Perplexity_4: 2802304552519262188
-      Perplexity_5: 5642304206730447791
+      potion_window_0: 6061721726582230139
+      potion_window_1: 226799815608570103
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

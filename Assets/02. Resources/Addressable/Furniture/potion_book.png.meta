@@ -3,20 +3,11 @@ guid: 94b1d8c2fe295034fbd26e290012d3a6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4329407632164072968
-    second: Default_0
+      213: 5344551550419372193
+    second: potion_book_0
   - first:
-      213: -687686590730729439
-    second: Default_1
-  - first:
-      213: -2486526224704631793
-    second: Default_2
-  - first:
-      213: 8266815305156663548
-    second: Default_3
-  - first:
-      213: -1492594608601113626
-    second: Default_4
+      213: -8064079135078325756
+    second: potion_book_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -138,13 +129,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Default_0
+      name: potion_book_0
       rect:
         serializedVersion: 2
-        x: 750
-        y: 957
-        width: 17
-        height: 13
+        x: 142
+        y: 0
+        width: 463
+        height: 287
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,20 +144,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 80e2103ad45251c30800000000000000
-      internalID: 4329407632164072968
+      spriteID: 1a882868159ab2a40800000000000000
+      internalID: 5344551550419372193
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Default_1
+      name: potion_book_1
       rect:
         serializedVersion: 2
-        x: 573
-        y: 65
-        width: 438
-        height: 873
+        x: 419
+        y: 132
+        width: 443
+        height: 376
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -175,74 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 12802b270b8d476f0800000000000000
-      internalID: -687686590730729439
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Default_2
-      rect:
-        serializedVersion: 2
-        x: 818
-        y: 937
-        width: 21
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f0c89c3a2951e7dd0800000000000000
-      internalID: -2486526224704631793
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Default_3
-      rect:
-        serializedVersion: 2
-        x: 784
-        y: 175
-        width: 11
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: cf810a778b0a9b270800000000000000
-      internalID: 8266815305156663548
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Default_4
-      rect:
-        serializedVersion: 2
-        x: 819
-        y: 181
-        width: 12
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6ebdaa09c1d394be0800000000000000
-      internalID: -1492594608601113626
+      spriteID: 402640180c2a61090800000000000000
+      internalID: -8064079135078325756
       vertices: []
       indices: 
       edges: []
@@ -261,11 +186,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Default_0: 4329407632164072968
-      Default_1: -687686590730729439
-      Default_2: -2486526224704631793
-      Default_3: 8266815305156663548
-      Default_4: -1492594608601113626
+      potion_book_0: 5344551550419372193
+      potion_book_1: -8064079135078325756
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

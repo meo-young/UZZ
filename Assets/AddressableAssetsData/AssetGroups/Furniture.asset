@@ -15,8 +15,23 @@ MonoBehaviour:
   m_GroupName: Furniture
   m_GUID: 865a97e2809405c4a93eaec44f503d41
   m_SerializeEntries:
+  - m_GUID: 08fc8fd8a44660441ae510499cfc31a1
+    m_Address: potion_pack_icon
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 287fcfcc3aaa6464aa78b8834464a327
     m_Address: potion_shelf2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2a572425e3d03d742abed2879c30244f
+    m_Address: potion_book_icon
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2d65dd8039316004f907f595eb706cf7
+    m_Address: Star_5
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -27,6 +42,21 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4d8dcedc4ef38fe4e9185c06c5c50831
     m_Address: potion_shelf
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 58d7667e57e366f408c14566aab9bc53
+    m_Address: potion_window_icon
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5f8a790f1235ed84a9170043d28827e7
+    m_Address: potion_roof_icon
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6238c69c82329a84796aecd9cc1fcbc5
+    m_Address: potion_floor_icon
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -45,13 +75,48 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 876547437d0e6824fb0e65ee5e74297e
+    m_Address: Star_3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 88185d061c04d6e4aa05ffa6744fb8e7
     m_Address: potion_pack
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8fbe8da412d2e1f4898cdb5398453b32
+    m_Address: potion_shelf_icon
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 94b1d8c2fe295034fbd26e290012d3a6
     m_Address: potion_book
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9602f6e95a2f51d42911be7a4a6a71d1
+    m_Address: potion_vine_icon
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aa023bc784caa744f9482a8b7648d8b6
+    m_Address: potion_window2_icon
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: be442d8090d62dc4bafc8684ccb99619
+    m_Address: Star_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c03fac15bc5bde448bcd927b9cf57b8b
+    m_Address: Star_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c2bad98ba160d774f9667fc08a961be8
+    m_Address: potion_chair02_icon
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -70,6 +135,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e195a478bd3062b4dbfdafd80297538c
+    m_Address: potion_chair01_icon
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e3f8537031c15174f83bd8a14d107e82
     m_Address: potion_window2
     m_ReadOnly: 0
@@ -77,6 +147,26 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e81422f1c1e64e049a82794101827ba8
     m_Address: potion_wall
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: edef256950b8c0c4db669fe8f05bef66
+    m_Address: potion_wall_icon
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ee19d13f714374649bdf64e867b19390
+    m_Address: potion_desk_icon
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f1a190955a4162c4aa96e4512133f05e
+    m_Address: potion_shelf2_icon
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fb1130ddbf3606a4e9d54d9e8d749f4d
+    m_Address: Star_4
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

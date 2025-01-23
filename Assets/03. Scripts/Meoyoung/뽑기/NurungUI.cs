@@ -29,13 +29,11 @@ public class NurungUI : MonoBehaviour
 
     [Header("# Furniture Result UI")]
     [SerializeField] GameObject resultUI;
-    [SerializeField] Text furnitureNameText;
-    [SerializeField] Text furnitureFlavorText;
-    [SerializeField] Image furnitureImage;
     [SerializeField] GameObject furnitureItemPrefab;
 
     private Furniture[] furnitures;
-    private Furniture selectedFurniture;
+    private Furniture[] selectedFurnitures;
+    private FurnitureSubResult furnitureSubResult;
     private int drawThemeIndex;
 
 
@@ -45,6 +43,11 @@ public class NurungUI : MonoBehaviour
         oneDrawGlassCostText.text = DRAW_ONE_GLASS_COST.ToString();
         fiveDrawDewCostText.text = DRAW_FIVE_DEW_COST.ToString();
         fiveDrawGlassCostText.text = DRAW_FIVE_GLASS_COST.ToString();
+
+        furnitureSubResult = FindFirstObjectByType<FurnitureSubResult>();
+
+        // 뽑은 가구 배열 초기화
+        selectedFurnitures = new Furniture[DRAW_MAX_COUNT];
     }
 
 
@@ -90,7 +93,7 @@ public class NurungUI : MonoBehaviour
             // 가구 정보 설정
             var image = item.GetComponentInChildren<Image>();
             
-            AddressableManager.instance.LoadSprite(furniture.image, image);
+            AddressableManager.instance.LoadSprite(furniture.icon, image);
         }
     }
 
@@ -122,7 +125,8 @@ public class NurungUI : MonoBehaviour
     public void OnMainOneDrawBtnHandler()                               // 1회 뽑기 시작
     {
         // 돈 감소하는 로직 구현 필요
-        selectedFurniture = OneDraw();
+        selectedFurnitures[0] = OneDraw();
+        furnitureSubResult.SetOneFurniture(selectedFurnitures[0]);
         StartCoroutine(ShowMakeFurnitureUI());
 
         if (oneDrawUI.activeSelf)
@@ -175,6 +179,13 @@ public class NurungUI : MonoBehaviour
     public void OnMainFiveDrawBtnHandler()                              
     {
         // 돈 감소하는 로직 구현 필요
+        for(int i=0; i<DRAW_MAX_COUNT; i++)
+        {
+            selectedFurnitures[i] = OneDraw();
+        }
+        furnitureSubResult.SetFurnitures(selectedFurnitures);
+
+        // 누렁이 망치 두드리는 화면 출력
         StartCoroutine(ShowMakeFurnitureUI());
 
         if(fiveDrawUI.activeSelf)
@@ -187,19 +198,15 @@ public class NurungUI : MonoBehaviour
         if(!makeFurnitureUI.activeSelf)
             makeFurnitureUI.SetActive(true);
 
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(DRAW_HAMMER_TIME);
         ShowSubResultUI();
     }
 
     // 뽑기 결과창
     void ShowSubResultUI()
     {
-        furnitureNameText.text = selectedFurniture.name;
-        furnitureFlavorText.text = selectedFurniture.flavorText;
-        AddressableManager.instance.LoadSprite(selectedFurniture.image, furnitureImage);
-
-        if (!resultUI.activeSelf)
-            resultUI.SetActive(true);
+        // 결과창 활성화
+        resultUI.transform.localScale = Vector3.one;
 
         if (makeFurnitureUI.activeSelf)
             makeFurnitureUI.SetActive(false);
