@@ -61,6 +61,9 @@ public class FurnitureSubResult : MonoBehaviour
 
     void SetFurniture(Furniture _furniture)
     {
+        // 가구 VFX 출력
+        Instantiate(VFXManager.instance.furnitureVFX, transform.position, Quaternion.identity);
+
         // 가구 아이콘 설정
         AddressableManager.instance.LoadSprite(_furniture.icon, furnitureImage);
         

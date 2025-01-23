@@ -32,6 +32,9 @@ public class VFXManager : MonoBehaviour
     public GameObject miniDustVFX;
     public GameObject bigDustVFX;
 
+    [Header("# 뽑기 VFX")]
+    public GameObject furnitureVFX;
+
     private void Awake()
     {
         if(instance == null)
