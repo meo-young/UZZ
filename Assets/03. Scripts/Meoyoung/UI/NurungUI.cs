@@ -90,7 +90,7 @@ public class NurungUI : MonoBehaviour
             // 가구 정보 설정
             var image = item.GetComponentInChildren<Image>();
             
-            AddressableManager.instance.LoadSprite(furniture.image, image);
+            AddressableManager.instance.LoadSprite(furniture.icon, image);
         }
     }
 
@@ -187,7 +187,7 @@ public class NurungUI : MonoBehaviour
         if(!makeFurnitureUI.activeSelf)
             makeFurnitureUI.SetActive(true);
 
-        yield return new WaitForSeconds(3.0f);
+        yield return new WaitForSeconds(DRAW_HAMMER_TIME);
         ShowSubResultUI();
     }
 

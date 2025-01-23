@@ -46,6 +46,7 @@ public static class Constant
     public const int    DRAW_ONE_GLASS_COST = 5;                // 1회 뽑기 유리구슬 비용
     public const int    DRAW_FIVE_DEW_COST = 15;                // 5회 뽑기 이슬 비용
     public const int    DRAW_FIVE_GLASS_COST = 15;              // 5회 뽑기 유리구슬 비용
+    public const float  DRAW_HAMMER_TIME = 3.0f;                // 뽑기 망치질 시간
 
     [Header("# 푸르 관련 데이터테이블")]
     public const float  PURE_WALK_RANDOM_TIME = 7;              // 푸르 걷기 랜덤 시간

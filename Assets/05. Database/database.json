@@ -1,21 +1,21 @@
 {
     "gameInfo": {
         "totalDayCounter": 0,
-        "playTime": 598.1539916992188,
-        "inGameTime": 51995.8828125,
-        "timeType": 1,
-        "likeabilityTimer": 275413.96875,
+        "playTime": 644.8163452148438,
+        "inGameTime": 58753.2421875,
+        "timeType": 2,
+        "likeabilityTimer": 773856.5625,
         "likeabilityFlag": false,
-        "lastConnectTime": "2025-01-17 오후 9:10:40",
+        "lastConnectTime": "2025-01-23 오후 3:38:46",
         "dew": 40.0,
         "cycleFlag": true
     },
     "flowerInfo": {
-        "level": 5,
-        "exp": 33.8491096496582,
-        "totalGetDew": 1640,
+        "level": 6,
+        "exp": 19.812341690063478,
+        "totalGetDew": 1920,
         "isStepUp": false,
-        "dewCounter": 725887.625
+        "dewCounter": 1224331.125
     },
     "presentInfo": {
         "presentFlag": false,
@@ -49,5 +49,15 @@
     },
     "autoGrowInfo": {
         "level": 0
+    },
+    "drawInfo": {
+        "myFurnitures": {
+            "_serializedList": [
+                {
+                    "Key": "향긋한 허브 보따리",
+                    "Value": 1
+                }
+            ]
+        }
     }
 }
