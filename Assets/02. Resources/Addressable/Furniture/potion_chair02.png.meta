@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 08fc8fd8a44660441ae510499cfc31a1
+guid: d679d618a3afe9540b14688bef588388
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6453701938418979428
-    second: potion_pack_icon_0
+      213: -2621301830467160241
+    second: potion_chair02_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: potion_pack_icon_0
+      name: potion_chair02_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 43
-        width: 248
-        height: 177
+        x: 77
+        y: 219
+        width: 358
+        height: 618
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c9d694ab748df66a0800000000000000
-      internalID: -6453701938418979428
+      spriteID: f477ce99fd34f9bd0800000000000000
+      internalID: -2621301830467160241
       vertices: []
       indices: 
       edges: []
@@ -161,7 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      potion_pack_icon_0: -6453701938418979428
+      potion_chair02_0: -2621301830467160241
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

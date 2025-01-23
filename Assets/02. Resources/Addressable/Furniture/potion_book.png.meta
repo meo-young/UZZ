@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 08fc8fd8a44660441ae510499cfc31a1
+guid: 94b1d8c2fe295034fbd26e290012d3a6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6453701938418979428
-    second: potion_pack_icon_0
+      213: 5344551550419372193
+    second: potion_book_0
+  - first:
+      213: -8064079135078325756
+    second: potion_book_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -126,13 +129,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: potion_pack_icon_0
+      name: potion_book_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 43
-        width: 248
-        height: 177
+        x: 142
+        y: 0
+        width: 463
+        height: 287
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,8 +144,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c9d694ab748df66a0800000000000000
-      internalID: -6453701938418979428
+      spriteID: 1a882868159ab2a40800000000000000
+      internalID: 5344551550419372193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: potion_book_1
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 132
+        width: 443
+        height: 376
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 402640180c2a61090800000000000000
+      internalID: -8064079135078325756
       vertices: []
       indices: 
       edges: []
@@ -161,7 +186,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      potion_pack_icon_0: -6453701938418979428
+      potion_book_0: 5344551550419372193
+      potion_book_1: -8064079135078325756
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
