@@ -14,7 +14,7 @@ public class DrawManager : MonoBehaviour
 
 
     public DrawData[] drawdatas = new DrawData[DRAW_THEME_COUNT];
-    public DrawInfo drawInfo = new();
+    public DrawInfo[] drawInfo = new DrawInfo[DRAW_THEME_COUNT];
 
     private void Awake()
     {
@@ -29,12 +29,12 @@ public class DrawManager : MonoBehaviour
         drawdatas[0].furnitures = LoadTextAssetData.instance.LoadData<Furniture>(drawDataTable);
     }
 
-    public void AddFurniture(string _furniture)
+    public void AddFurniture(int _theme, string _furniture)
     {
-        if(drawInfo.myFurnitures.ContainsKey(_furniture))
-            drawInfo.myFurnitures[_furniture]++;
+        if(drawInfo[_theme].myFurnitures.ContainsKey(_furniture))
+            drawInfo[_theme].myFurnitures[_furniture]++;
         else
-            drawInfo.myFurnitures[_furniture] = 1;
+            drawInfo[_theme].myFurnitures[_furniture] = 1;
     }
 }
 

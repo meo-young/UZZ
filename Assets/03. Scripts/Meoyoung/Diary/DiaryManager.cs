@@ -85,6 +85,12 @@ public class DiaryManager : MonoBehaviour
         OnStoryBtnHandler();
     }
 
+    // 다이어리 뒤로가기 버튼
+    public void OnDiaryBackBtnHandler()
+    {
+        transform.localScale = Vector3.zero;
+    }
+
     // Current Index를 현재 Level로 초기화
     void InitializeIndex()                       
     {
