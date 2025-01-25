@@ -1,21 +1,21 @@
 {
     "gameInfo": {
         "totalDayCounter": 0,
-        "playTime": 983.71044921875,
-        "inGameTime": 82657.421875,
+        "playTime": 155.89541625976563,
+        "inGameTime": 15670.501953125,
         "timeType": 3,
-        "likeabilityTimer": 779493.3125,
+        "likeabilityTimer": 3761.734619140625,
         "likeabilityFlag": false,
-        "lastConnectTime": "2025-01-23 오후 5:22:32",
-        "dew": 40.0,
+        "lastConnectTime": "2025-01-25 오후 10:07:50",
+        "dew": 0.0,
         "cycleFlag": true
     },
     "flowerInfo": {
-        "level": 6,
-        "exp": 99.53105163574219,
-        "totalGetDew": 1920,
+        "level": 3,
+        "exp": 19.851844787597658,
+        "totalGetDew": 162,
         "isStepUp": false,
-        "dewCounter": 1229970.75
+        "dewCounter": 3900.08251953125
     },
     "presentInfo": {
         "presentFlag": false,
@@ -23,7 +23,7 @@
         "items": []
     },
     "pureInfo": {
-        "level": 3,
+        "level": 2,
         "likeability": 0,
         "autoText": true,
         "interactionText": false
@@ -37,7 +37,7 @@
             0
         ],
         "coolTimeList": [
-            -0.008898569270968438,
+            0.0,
             0.0,
             0.0,
             0.0,
@@ -50,62 +50,36 @@
     "autoGrowInfo": {
         "level": 0
     },
-    "drawInfo": {
-        "myFurnitures": {
-            "_serializedList": [
-                {
-                    "Key": "향긋한 허브 보따리",
-                    "Value": 5
-                },
-                {
-                    "Key": "풀내음이 나는 덩쿨",
-                    "Value": 4
-                },
-                {
-                    "Key": "깔끔한 폭신 의자",
-                    "Value": 11
-                },
-                {
-                    "Key": "푸르의 포션공방 벽",
-                    "Value": 14
-                },
-                {
-                    "Key": "이상한 연금술 선반",
-                    "Value": 8
-                },
-                {
-                    "Key": "아담한 밥그릇 화분",
-                    "Value": 11
-                },
-                {
-                    "Key": "따뜻한 정령 화원의 창문",
-                    "Value": 4
-                },
-                {
-                    "Key": "단단한 원목 지붕",
-                    "Value": 9
-                },
-                {
-                    "Key": "올망졸망 토끼 화분",
-                    "Value": 10
-                },
-                {
-                    "Key": "푸르의 포션공방 바닥",
-                    "Value": 14
-                },
-                {
-                    "Key": "따뜻한 정령세계 풍경",
-                    "Value": 5
-                },
-                {
-                    "Key": "복잡한 포션학 책",
-                    "Value": 2
-                },
-                {
-                    "Key": "포션 제작을 위한 원목 거치대",
-                    "Value": 2
-                }
-            ]
+    "drawInfo": [
+        {
+            "myFurnitures": {
+                "_serializedList": [
+                    {
+                        "Key": "푸르의 포션공방 벽",
+                        "Value": 1
+                    },
+                    {
+                        "Key": "단단한 원목 지붕",
+                        "Value": 1
+                    },
+                    {
+                        "Key": "깔끔한 폭신 의자",
+                        "Value": 1
+                    },
+                    {
+                        "Key": "이상한 연금술 선반",
+                        "Value": 1
+                    },
+                    {
+                        "Key": "아담한 밥그릇 화분",
+                        "Value": 2
+                    },
+                    {
+                        "Key": "푸르의 포션공방 바닥",
+                        "Value": 1
+                    }
+                ]
+            }
         }
-    }
+    ]
 }

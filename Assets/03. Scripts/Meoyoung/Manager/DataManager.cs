@@ -16,7 +16,7 @@ public class GameData
     public FieldWorkInfo fieldWorkInfo = new();
     public DiaryInfo diaryInfo = new();
     public AutoGrowInfo autoGrowInfo = new();
-    public DrawInfo drawInfo = new();
+    public DrawInfo[] drawInfo = new DrawInfo[DRAW_THEME_COUNT];
 }
 
 public class DataManager : MonoBehaviour

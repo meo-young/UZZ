@@ -100,8 +100,7 @@ public class NurungUI : MonoBehaviour
 
     public void OnPrevBtnHandler()                                  // 이전 버튼 함수
     {
-        if (!drawPanel.activeSelf)
-            drawPanel.SetActive(true);
+        drawPanel.transform.localScale = Vector3.one;
 
         if(this.gameObject.activeSelf)
             this.gameObject.SetActive(false);
@@ -150,7 +149,7 @@ public class NurungUI : MonoBehaviour
             cumulativeWeight += furnitures[i].probability;
             if (randomNum < cumulativeWeight)
             {
-                DrawManager.instance.AddFurniture(furnitures[i].name);
+                DrawManager.instance.AddFurniture(drawThemeIndex, furnitures[i].name);
                 return furnitures[i];
             }
         }
