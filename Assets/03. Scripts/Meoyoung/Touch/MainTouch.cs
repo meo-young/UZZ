@@ -16,6 +16,13 @@ public class MainTouch : MonoBehaviour
     private bool bCanFlowerAcquired;
     private bool bBigDustTouched;
 
+    // 정원사의 집
+    private GardenUI gardenUI;
+
+    private void Awake() {
+        gardenUI = FindFirstObjectByType<GardenUI>();
+    }
+
 
     private void Start()
     {
@@ -87,6 +94,9 @@ public class MainTouch : MonoBehaviour
                         case "FlowerStepUp":
                             Destroy(firstTouchedObject);
                             flowerManager.FlowerStepUp();
+                            break;
+                        case "Garden":
+                            gardenUI.OnGardenBtnHandler();
                             break;
                     }
                 }

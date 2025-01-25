@@ -100,8 +100,7 @@ public class NurungUI : MonoBehaviour
 
     public void OnPrevBtnHandler()                                  // 이전 버튼 함수
     {
-        if (!drawPanel.activeSelf)
-            drawPanel.SetActive(true);
+        drawPanel.transform.localScale = Vector3.one;
 
         if(this.gameObject.activeSelf)
             this.gameObject.SetActive(false);

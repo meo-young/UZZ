@@ -11,6 +11,13 @@ public class Variable : MonoBehaviour
 
     public T Init<T>(Transform target, string variableName, T variable) where T : Component
     {
-        return target.Find(variableName).GetComponent<T>();
+        T[] components = target.GetComponentsInChildren<T>();
+        foreach(var component in components)
+        {
+            if(component.name == variableName)
+                return component;
+        }
+        return null;
     }
 }
+

@@ -24,6 +24,11 @@ TagManager:
   - CG0
   - CG1
   - NurungPanel
+  - PlacementCanvas
+  - PlacementBoundary
+  - PlacementItemMenu
+  - PlacementBackground
+  - Garden
   layers:
   - Default
   - TransparentFX
