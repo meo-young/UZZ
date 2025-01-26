@@ -25,6 +25,7 @@ public class GardenUI : MonoBehaviour
     // 정원사의 집 UI 끄기
     public void OnGardenBackBtnHandler()
     {
+        SoundManager.instance.PlaySFX(SFX.Diary.BUTTON);
         transform.localScale = Vector3.zero;
     }
 

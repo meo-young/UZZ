@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using AYellowpaper.SerializedCollections;
 
 public class SoundManager : MonoBehaviour
 {
@@ -112,19 +113,19 @@ public class SoundManager : MonoBehaviour
             return;
         }
 
+        // SFX 클래스에서 해당 타입의 딕셔너리를 가져옴
+        string fieldName = typeof(T).Name + "Dictionary";
+        var field = typeof(SFX).GetField(fieldName);
+        var dictionary = field.GetValue(sfx) as SerializedDictionary<T, AudioClip>;
+
+        // 사운드 오브젝트풀에서 사용중이지 않은 AudioSource 1개를 꺼냄
         AudioSource player = sfxQueue.Dequeue();
 
-        if (typeof(T) == typeof(SFX.PureSound))
-            player.clip = sfx.pureSoundClips[Convert.ToInt32(_sfx)];
-        else if(typeof(T) == typeof(SFX.Ambience))
-            player.clip = sfx.ambienceSoundClips[Convert.ToInt32(_sfx)];
-        else if(typeof(T) == typeof(SFX.Flower))
-            player.clip = sfx.flowerSoundClips[Convert.ToInt32(_sfx)];
-        else if (typeof(T) == typeof(SFX.DEW))
-            player.clip = sfx.dewSoundClips[Convert.ToInt32(_sfx)];
-        else if(typeof(T) == typeof(SFX.Diary))
-            player.clip = sfx.diarySoundClips[Convert.ToInt32(_sfx)];
+        // 꺼낸 AudioSource에 사운드 할당 후 재생
+        player.clip = dictionary[_sfx];
         player.Play();
+
+        // 사운드 재생 후 오브젝트풀에 반환
         StartCoroutine(ReturnToQueueAfterPlay(player));
     }
 
