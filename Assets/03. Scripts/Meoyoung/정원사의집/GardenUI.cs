@@ -6,18 +6,24 @@ public class GardenUI : MonoBehaviour
 {
     [SerializeField] private GameObject FurniturePrefab;    // 가구 프리팹
 
-    private TMP_Text FurnitureCountText;        // 가구 수 텍스트
-    private RectTransform RightButtonPanel;     // 오른쪽 버튼 패널
-    private Image HideButton;                   // 숨기기 버튼 이미지
-    private Transform FurnitureContent;         // 가구 컨텐츠
+    private TMP_Text FurnitureCountText;                // 가구 수 텍스트
+    private RectTransform RightButtonPanel;             // 오른쪽 버튼 패널
+    private Image HideButton;                           // 숨기기 버튼 이미지
+    private Transform FurnitureContent;                 // 가구 컨텐츠
+    private Transform ThemeContent;                   // 테마 컨텐츠
+    
 
-    private Image currentImage;                 // 현재 선택된 이미지
+    private Image currentFurnitureImage;                 // 현재 선택된 이미지
+    private Image currentThemeImage;                    // 현재 선택된 테마 이미지
 
     private void Start() {
         RightButtonPanel = Variable.instance.Init<RectTransform>(transform, nameof(RightButtonPanel), RightButtonPanel);
         HideButton = Variable.instance.Init<Image>(transform, nameof(HideButton), HideButton);
         FurnitureCountText = Variable.instance.Init<TMP_Text>(transform, nameof(FurnitureCountText), FurnitureCountText);
         FurnitureContent = Variable.instance.Init<Transform>(transform, nameof(FurnitureContent), FurnitureContent);
+        ThemeContent = Variable.instance.Init<Transform>(transform, nameof(ThemeContent), ThemeContent);
+
+        UpdateThemeContent();
 
         transform.localScale = Vector3.zero;
     }
@@ -53,6 +59,45 @@ public class GardenUI : MonoBehaviour
         }
     }
 
+    void OnThemeBtnHandler(int _theme, Image _image)
+    {
+        Debug.Log("OnThemeBtnHandler : " + _theme);
+        // 이전에 선택한 이미지는 Default로
+        if(currentThemeImage != null && _image != currentThemeImage)
+            AddressableManager.instance.LoadSprite("theme_check", currentThemeImage);
+
+        // 현재 선택한 이미지는 Focus로
+        currentThemeImage = _image;
+        AddressableManager.instance.LoadSprite("check", currentThemeImage);
+
+        UpdateFurnitureContent(_theme);
+    }
+
+
+    private void UpdateThemeContent()
+    {
+        Debug.Log(ThemeContent.childCount);
+        for(int i=0; i<ThemeContent.childCount; ++i)
+        {
+            // 현재 i 값을 로컬 변수에 저장
+        int themeIndex = i;
+        
+        Transform child = ThemeContent.GetChild(i);
+        Image image = child.GetComponentInChildren<Image>();
+        Button button = child.GetComponentInChildren<Button>();
+
+        Debug.Log(button.name);
+        Debug.Log(themeIndex);
+        // themeIndex 사용
+        button.onClick.AddListener(() => OnThemeBtnHandler(themeIndex, image));
+
+        if(themeIndex == 0)
+            OnThemeBtnHandler(0, image);
+        }
+    }
+
+
+
     // 가구 컨텐츠 업데이트
     private void UpdateFurnitureContent(int _theme)
     {
@@ -70,11 +115,13 @@ public class GardenUI : MonoBehaviour
                 // 프리팹 생성
                 GameObject obj = Instantiate(FurniturePrefab, FurnitureContent);
 
-                // 해당 가구 이미지로 교체
-                Image background = obj.GetComponentsInChildren<Image>()[0];
-
+                Image [] images = obj.GetComponentsInChildren<Image>();
+                
                 // 뒷배경 이미지 가져옴
-                Image icon = obj.GetComponentsInChildren<Image>()[1];
+                Image background = images[0];
+
+                // 해당 가구 이미지로 교체
+                Image icon = images[1];
 
                 // 버튼 가져옴
                 Button btn = obj.GetComponentInChildren<Button>();
@@ -96,12 +143,12 @@ public class GardenUI : MonoBehaviour
     void OnFurnitureBtnHandler(Image _image)
     {
         // 이전에 선택한 이미지는 Default로
-        if(currentImage != null)
-            AddressableManager.instance.LoadSprite("non_check", currentImage);
+        if(currentFurnitureImage != null)
+            AddressableManager.instance.LoadSprite("non_check", currentFurnitureImage);
 
         // 현재 선택한 이미지는 Focus로
-        currentImage = _image;
-        AddressableManager.instance.LoadSprite("check", currentImage);
+        currentFurnitureImage = _image;
+        AddressableManager.instance.LoadSprite("check", currentFurnitureImage);
     }
 
 
