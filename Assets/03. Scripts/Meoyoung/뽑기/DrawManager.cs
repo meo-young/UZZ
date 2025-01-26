@@ -51,6 +51,12 @@ public class DrawManager : MonoBehaviour
         }
         return count;
     }
+
+    // 가구 이름으로 가구 정보 조회
+    public Furniture GetFurnitureData(int theme, string furnitureName)
+    {
+        return drawdatas[theme].furnitures.Find(x => x.name == furnitureName);
+    }
 }
 
 #region 뽑기 관련 클래스
