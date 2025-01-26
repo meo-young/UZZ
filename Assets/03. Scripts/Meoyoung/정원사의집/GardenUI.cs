@@ -11,17 +11,23 @@ public class GardenUI : MonoBehaviour
     private Image HideButton;                           // 숨기기 버튼 이미지
     private Transform FurnitureContent;                 // 가구 컨텐츠
     private Transform ThemeContent;                   // 테마 컨텐츠
-    
+    private Transform Placement;                       // 가구 배치 오브젝트
 
     private Image currentFurnitureImage;                 // 현재 선택된 이미지
     private Image currentThemeImage;                    // 현재 선택된 테마 이미지
 
-    private void Start() {
-        RightButtonPanel = Variable.instance.Init<RectTransform>(transform, nameof(RightButtonPanel), RightButtonPanel);
-        HideButton = Variable.instance.Init<Image>(transform, nameof(HideButton), HideButton);
-        FurnitureCountText = Variable.instance.Init<TMP_Text>(transform, nameof(FurnitureCountText), FurnitureCountText);
-        FurnitureContent = Variable.instance.Init<Transform>(transform, nameof(FurnitureContent), FurnitureContent);
-        ThemeContent = Variable.instance.Init<Transform>(transform, nameof(ThemeContent), ThemeContent);
+    private GardenPlacement currentPlacement;
+
+    private void Start()
+    {
+        RightButtonPanel =      Variable.instance.Init<RectTransform>(transform, nameof(RightButtonPanel), RightButtonPanel);
+        HideButton =            Variable.instance.Init<Image>(transform, nameof(HideButton), HideButton);
+        FurnitureCountText =    Variable.instance.Init<TMP_Text>(transform, nameof(FurnitureCountText), FurnitureCountText);
+        FurnitureContent =      Variable.instance.Init<Transform>(transform, nameof(FurnitureContent), FurnitureContent);
+        ThemeContent =          Variable.instance.Init<Transform>(transform, nameof(ThemeContent), ThemeContent);
+        Placement =             Variable.instance.Init<Transform>(transform, nameof(Placement), Placement);
+        
+        currentPlacement =      Placement.GetComponent<GardenPlacement>();
 
         UpdateThemeContent();
 
@@ -47,7 +53,7 @@ public class GardenUI : MonoBehaviour
     // 뽑기, 메인 버튼 활성화
     public void OnVisibleBtnHandler()
     {
-        if(RightButtonPanel.localScale == Vector3.zero)
+        if (RightButtonPanel.localScale == Vector3.zero)
         {
             RightButtonPanel.localScale = Vector3.one;
             AddressableManager.instance.LoadSprite("eye_1", HideButton);
@@ -59,11 +65,10 @@ public class GardenUI : MonoBehaviour
         }
     }
 
-    void OnThemeBtnHandler(int _theme, Image _image)
+    private void OnThemeBtnHandler(int _theme, Image _image)
     {
-        Debug.Log("OnThemeBtnHandler : " + _theme);
         // 이전에 선택한 이미지는 Default로
-        if(currentThemeImage != null && _image != currentThemeImage)
+        if (currentThemeImage != null && _image != currentThemeImage)
             AddressableManager.instance.LoadSprite("theme_check", currentThemeImage);
 
         // 현재 선택한 이미지는 Focus로
@@ -76,23 +81,20 @@ public class GardenUI : MonoBehaviour
 
     private void UpdateThemeContent()
     {
-        Debug.Log(ThemeContent.childCount);
-        for(int i=0; i<ThemeContent.childCount; ++i)
+        for (int i = 0; i < ThemeContent.childCount; ++i)
         {
             // 현재 i 값을 로컬 변수에 저장
-        int themeIndex = i;
-        
-        Transform child = ThemeContent.GetChild(i);
-        Image image = child.GetComponentInChildren<Image>();
-        Button button = child.GetComponentInChildren<Button>();
+            int themeIndex = i;
 
-        Debug.Log(button.name);
-        Debug.Log(themeIndex);
-        // themeIndex 사용
-        button.onClick.AddListener(() => OnThemeBtnHandler(themeIndex, image));
+            Transform child = ThemeContent.GetChild(i);
+            Image image = child.GetComponentInChildren<Image>();
+            Button button = child.GetComponentInChildren<Button>();
 
-        if(themeIndex == 0)
-            OnThemeBtnHandler(0, image);
+            // themeIndex 사용
+            button.onClick.AddListener(() => OnThemeBtnHandler(themeIndex, image));
+
+            if (themeIndex == 0)
+                OnThemeBtnHandler(0, image);
         }
     }
 
@@ -108,15 +110,15 @@ public class GardenUI : MonoBehaviour
         }
 
         // 가구 목록 생성
-        foreach(var furniture in DrawManager.instance.drawInfo[_theme].myFurnitures)
+        foreach (var furniture in DrawManager.instance.drawInfo[_theme].myFurnitures)
         {
-            for(int i=0; i<furniture.Value; ++i)
+            for (int i = 0; i < furniture.Value; ++i)
             {
                 // 프리팹 생성
                 GameObject obj = Instantiate(FurniturePrefab, FurnitureContent);
 
-                Image [] images = obj.GetComponentsInChildren<Image>();
-                
+                Image[] images = obj.GetComponentsInChildren<Image>();
+
                 // 뒷배경 이미지 가져옴
                 Image background = images[0];
 
@@ -126,12 +128,12 @@ public class GardenUI : MonoBehaviour
                 // 버튼 가져옴
                 Button btn = obj.GetComponentInChildren<Button>();
 
-                // 버튼 클릭 이벤트 추가
-                btn.onClick.AddListener(() => OnFurnitureBtnHandler(background));
-
                 // 가구 데이터 가져오기
                 Furniture furnitureData = DrawManager.instance.GetFurnitureData(0, furniture.Key);
-                
+
+                // 버튼 클릭 이벤트 추가
+                btn.onClick.AddListener(() => OnFurnitureBtnHandler(furnitureData.image));
+
                 // 아이콘 로드
                 if (furnitureData != null)
                     AddressableManager.instance.LoadSprite(furnitureData.icon, icon);
@@ -140,15 +142,22 @@ public class GardenUI : MonoBehaviour
     }
 
     // 가구 버튼 클릭 이벤트
-    void OnFurnitureBtnHandler(Image _image)
+    private void OnFurnitureBtnHandler(string _imagePath)
     {
-        // 이전에 선택한 이미지는 Default로
-        if(currentFurnitureImage != null)
-            AddressableManager.instance.LoadSprite("non_check", currentFurnitureImage);
+        // // 이전에 선택한 이미지는 Default로
+        // if (currentFurnitureImage != null)
+        //     AddressableManager.instance.LoadSprite("non_check", currentFurnitureImage);
 
-        // 현재 선택한 이미지는 Focus로
-        currentFurnitureImage = _image;
-        AddressableManager.instance.LoadSprite("check", currentFurnitureImage);
+        // // 현재 선택한 이미지는 Focus로
+        // currentFurnitureImage = _image;
+        // AddressableManager.instance.LoadSprite("check", currentFurnitureImage);
+
+        
+        // 배치할 가구 이미지 로드
+        currentPlacement.OnPlacementBtnHandler(_imagePath);
+
+        // 가구 배치 오브젝트 스케일 1로
+        Placement.localScale = Vector3.one;
     }
 
 
