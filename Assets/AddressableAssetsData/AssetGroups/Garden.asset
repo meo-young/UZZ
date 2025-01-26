@@ -20,6 +20,21 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 18b7b8e7f0abfb04a82cb6b4115fce3d
+    m_Address: Frame3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 80cf277821282a743969687569df4d18
+    m_Address: Frame4
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 891752c66eb9be046a25df00dffcbc76
+    m_Address: Frame2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a5d65f82dec3d0c4b9d3d3db20e717b2
     m_Address: non_check
     m_ReadOnly: 0
@@ -27,6 +42,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b2e238d8558a9234d8fe28d97495c791
     m_Address: eye_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c32324f5c947d8a4f8f323c9a2af222a
+    m_Address: Frame1
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
