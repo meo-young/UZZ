@@ -6,11 +6,11 @@ public class SFX : MonoBehaviour
     public static SFX instance;
 
     [Header("# SFX Clips")]
-    public SerializedDictionary<PureSound, AudioClip> PureSoundDictionary;
-    public SerializedDictionary<Ambience, AudioClip> AmbienceDictionary;
-    public SerializedDictionary<Flower, AudioClip> FlowerDictionary;
-    public SerializedDictionary<Dew, AudioClip> DewDictionary;
-    public SerializedDictionary<Diary, AudioClip> DiaryDictionary;
+    public SerializedDictionary<PureSound, AudioClip> PureSoundDictionary = new();
+    public SerializedDictionary<Ambience, AudioClip> AmbienceDictionary = new();
+    public SerializedDictionary<Flower, AudioClip> FlowerDictionary = new();
+    public SerializedDictionary<Dew, AudioClip> DewDictionary = new();
+    public SerializedDictionary<Diary, AudioClip> DiaryDictionary = new();
 
     [System.Serializable]
     public enum PureSound       // 푸르와 관련된 효과음 모음
