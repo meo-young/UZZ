@@ -12,8 +12,10 @@ public class DrawManager : MonoBehaviour
     [Header("# 데이터테이블")]
     [SerializeField] TextAsset drawDataTable;
 
-
+    // 데이터테이블로 받아오는 데이터
     public DrawData[] drawdatas = new DrawData[DRAW_THEME_COUNT];
+
+    // 사용자가 소지하고 있는 가구 데이터
     public DrawInfo[] drawInfo = new DrawInfo[DRAW_THEME_COUNT];
 
     private void Awake()
@@ -35,6 +37,19 @@ public class DrawManager : MonoBehaviour
             drawInfo[_theme].myFurnitures[_furniture]++;
         else
             drawInfo[_theme].myFurnitures[_furniture] = 1;
+    }
+
+    // 사용자가 소지한 총 가구 수 반환
+    public int GetFurnitueCount()
+    {
+        int count = 0;
+        
+        for(int i=0; i<DRAW_THEME_COUNT; ++i)
+        {
+            foreach(var furniture in drawInfo[i].myFurnitures)
+                count += furniture.Value;
+        }
+        return count;
     }
 }
 

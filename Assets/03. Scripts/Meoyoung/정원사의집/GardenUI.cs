@@ -1,17 +1,19 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+
 public class GardenUI : MonoBehaviour
 {
-    // 오른쪽 버튼 패널
-    private RectTransform RightButtonPanel;
-
-    // 숨기기 버튼 이미지
-    private Image HideButton;
+    
+    private TMP_Text FurnitureCountText;        // 가구 수 텍스트
+    private RectTransform RightButtonPanel;     // 오른쪽 버튼 패널
+    private Image HideButton;                   // 숨기기 버튼 이미지
 
 
     private void Start() {
         RightButtonPanel = Variable.instance.Init<RectTransform>(transform, nameof(RightButtonPanel), RightButtonPanel);
         HideButton = Variable.instance.Init<Image>(transform, nameof(HideButton), HideButton);
+        FurnitureCountText = Variable.instance.Init<TMP_Text>(transform, nameof(FurnitureCountText), FurnitureCountText);
 
         transform.localScale = Vector3.zero;
     }
@@ -19,6 +21,8 @@ public class GardenUI : MonoBehaviour
     // 정원사의 집 UI 켜기
     public void OnGardenBtnHandler()
     {
+        UpdateGardenData();
+
         transform.localScale = Vector3.one;
     }
 
@@ -44,4 +48,10 @@ public class GardenUI : MonoBehaviour
         }
     }
 
+
+    private void UpdateGardenData()
+    {
+        // 가구 수 업데이트
+        FurnitureCountText.text = DrawManager.instance.GetFurnitueCount().ToString() + "개";
+    }
 }
