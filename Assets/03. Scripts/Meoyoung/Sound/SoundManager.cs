@@ -107,43 +107,26 @@ public class SoundManager : MonoBehaviour
     #region SFX
     public void PlaySFX<T>(T _sfx) where T : Enum
     {
-          if (sfxQueue.Count == 0)
-    {
-        Debug.LogWarning("사용 가능한 AudioSource가 없습니다.");
-        return;
-    }
+        if (sfxQueue.Count == 0)
+        {
+            Debug.LogWarning("사용 가능한 AudioSource가 없습니다.");
+            return;
+        }
 
-    AudioSource player = sfxQueue.Dequeue();
+        // SFX 클래스에서 해당 타입의 딕셔너리를 가져옴
+        string fieldName = typeof(T).Name + "Dictionary";
+        var field = typeof(SFX).GetField(fieldName);
+        var dictionary = field.GetValue(sfx) as SerializedDictionary<T, AudioClip>;
 
-    // Reflection 사용 전에 null 체크 추가
-    string fieldName = typeof(T).Name + "Dictionary";
-    var field = typeof(SFX).GetField(fieldName);
-    
-    if (field == null)
-    {
-        Debug.LogError($"Cannot find field: {fieldName} in SFX class");
-        sfxQueue.Enqueue(player);
-        return;
-    }
+        // 사운드 오브젝트풀에서 사용중이지 않은 AudioSource 1개를 꺼냄
+        AudioSource player = sfxQueue.Dequeue();
 
-    var dictionary = field.GetValue(sfx) as SerializedDictionary<T, AudioClip>;
-    if (dictionary == null)
-    {
-        Debug.LogError($"Dictionary {fieldName} is null or cannot be cast to SerializedDictionary<{typeof(T).Name}, AudioClip>");
-        sfxQueue.Enqueue(player);
-        return;
-    }
+        // 꺼낸 AudioSource에 사운드 할당 후 재생
+        player.clip = dictionary[_sfx];
+        player.Play();
 
-    if (!dictionary.ContainsKey(_sfx))
-    {
-        Debug.LogError($"No audio clip found for key: {_sfx}");
-        sfxQueue.Enqueue(player);
-        return;
-    }
-
-    player.clip = dictionary[_sfx];
-    player.Play();
-    StartCoroutine(ReturnToQueueAfterPlay(player));
+        // 사운드 재생 후 오브젝트풀에 반환
+        StartCoroutine(ReturnToQueueAfterPlay(player));
     }
 
     private IEnumerator ReturnToQueueAfterPlay(AudioSource player)
