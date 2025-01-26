@@ -299,7 +299,7 @@ public class FlowerManager : MonoBehaviour
         if (items == null)
             return;
 
-        SoundManager.instance.PlaySFX(SFX.DEW.DROP);
+        SoundManager.instance.PlaySFX(SFX.Dew.DROP);
         for (int i = 0; i < items.Count; i++)
             items[i].Move(acquireEffectTargetPos.position);
 

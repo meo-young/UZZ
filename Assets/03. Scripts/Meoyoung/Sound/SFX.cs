@@ -1,15 +1,16 @@
 using UnityEngine;
+using AYellowpaper.SerializedCollections;
 
 public class SFX : MonoBehaviour
 {
     public static SFX instance;
 
     [Header("# SFX Clips")]
-    public AudioClip[] pureSoundClips;
-    public AudioClip[] ambienceSoundClips;
-    public AudioClip[] flowerSoundClips;
-    public AudioClip[] dewSoundClips;
-    public AudioClip[] diarySoundClips;
+    public SerializedDictionary<PureSound, AudioClip> PureSoundDictionary;
+    public SerializedDictionary<Ambience, AudioClip> AmbienceDictionary;
+    public SerializedDictionary<Flower, AudioClip> FlowerDictionary;
+    public SerializedDictionary<Dew, AudioClip> DewDictionary;
+    public SerializedDictionary<Diary, AudioClip> DiaryDictionary;
 
     [System.Serializable]
     public enum PureSound       // 푸르와 관련된 효과음 모음
@@ -66,7 +67,7 @@ public class SFX : MonoBehaviour
         DUST = 5            // 먼지 이벤트 출력
     }
 
-    public enum DEW
+    public enum Dew
     {
         DROP = 0            // 이슬 획득
     }

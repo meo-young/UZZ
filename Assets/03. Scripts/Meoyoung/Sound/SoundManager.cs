@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using AYellowpaper.SerializedCollections;
 
 public class SoundManager : MonoBehaviour
 {
@@ -106,26 +107,43 @@ public class SoundManager : MonoBehaviour
     #region SFX
     public void PlaySFX<T>(T _sfx) where T : Enum
     {
-        if (sfxQueue.Count == 0)
-        {
-            Debug.LogWarning("사용 가능한 AudioSource가 없습니다.");
-            return;
-        }
+          if (sfxQueue.Count == 0)
+    {
+        Debug.LogWarning("사용 가능한 AudioSource가 없습니다.");
+        return;
+    }
 
-        AudioSource player = sfxQueue.Dequeue();
+    AudioSource player = sfxQueue.Dequeue();
 
-        if (typeof(T) == typeof(SFX.PureSound))
-            player.clip = sfx.pureSoundClips[Convert.ToInt32(_sfx)];
-        else if(typeof(T) == typeof(SFX.Ambience))
-            player.clip = sfx.ambienceSoundClips[Convert.ToInt32(_sfx)];
-        else if(typeof(T) == typeof(SFX.Flower))
-            player.clip = sfx.flowerSoundClips[Convert.ToInt32(_sfx)];
-        else if (typeof(T) == typeof(SFX.DEW))
-            player.clip = sfx.dewSoundClips[Convert.ToInt32(_sfx)];
-        else if(typeof(T) == typeof(SFX.Diary))
-            player.clip = sfx.diarySoundClips[Convert.ToInt32(_sfx)];
-        player.Play();
-        StartCoroutine(ReturnToQueueAfterPlay(player));
+    // Reflection 사용 전에 null 체크 추가
+    string fieldName = typeof(T).Name + "Dictionary";
+    var field = typeof(SFX).GetField(fieldName);
+    
+    if (field == null)
+    {
+        Debug.LogError($"Cannot find field: {fieldName} in SFX class");
+        sfxQueue.Enqueue(player);
+        return;
+    }
+
+    var dictionary = field.GetValue(sfx) as SerializedDictionary<T, AudioClip>;
+    if (dictionary == null)
+    {
+        Debug.LogError($"Dictionary {fieldName} is null or cannot be cast to SerializedDictionary<{typeof(T).Name}, AudioClip>");
+        sfxQueue.Enqueue(player);
+        return;
+    }
+
+    if (!dictionary.ContainsKey(_sfx))
+    {
+        Debug.LogError($"No audio clip found for key: {_sfx}");
+        sfxQueue.Enqueue(player);
+        return;
+    }
+
+    player.clip = dictionary[_sfx];
+    player.Play();
+    StartCoroutine(ReturnToQueueAfterPlay(player));
     }
 
     private IEnumerator ReturnToQueueAfterPlay(AudioSource player)
