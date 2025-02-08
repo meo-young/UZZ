@@ -117,10 +117,8 @@ public class GardenPlacement : MonoBehaviour
         };
 
         // 가구 배치 정보 업데이트
-        string placementId = GardenManager.instance.GetCurrentPlacementId();
-
         var dragItem = currentFurniture.GetComponent<DragItem>();
-        dragItem.placementId = placementId;
+        dragItem.placementId = GardenManager.instance.GetCurrentPlacementId();
     }
 
     // 담기 버튼 이벤트
