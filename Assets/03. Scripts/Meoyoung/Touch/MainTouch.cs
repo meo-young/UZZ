@@ -18,6 +18,7 @@ public class MainTouch : MonoBehaviour
 
     // 정원사의 집
     private GardenUI gardenUI;
+    private GardenPlacement gardenPlacement;
     private bool isDragging = false;
     private GameObject dragTarget = null;
     private Camera mainCamera;
@@ -26,6 +27,7 @@ public class MainTouch : MonoBehaviour
     private void Awake()
     {
         gardenUI = FindFirstObjectByType<GardenUI>();
+        gardenPlacement = FindFirstObjectByType<GardenPlacement>();
         mainCamera = Camera.main;
     }
 
@@ -59,11 +61,17 @@ public class MainTouch : MonoBehaviour
                     switch (firstTouchedObject.tag)
                     {
                         case "DragItem":
-                            if(firstTouchedObject.GetComponent<DragItem>().isLocekd)
+                            var dragItem = firstTouchedObject.GetComponent<DragItem>();
+                            if(dragItem.isLocekd)
                                 break;
+
+                            gardenPlacement.SetCurrentFurniture(firstTouchedObject);
+                            gardenUI.UpdatePlacementUI();
+
                             isDragging = true;
                             dragTarget = firstTouchedObject;
                             dragOffset = dragTarget.transform.position - touchPosition;
+                            dragItem.ShowCorners();
                             break;
                         case "Pure_PresentGive":
                             SoundManager.instance.PlaySFX(SFX.PureSound.TOUCH);

@@ -122,4 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13c5ce61fad70694781dd79d79057b8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  placementId: 
+  furnitureInstanceId: 
   isLocekd: 0
+  cornerPrefab: {fileID: 3264405664743694018, guid: 53f2793ab204e374fb31db2b6aa5561b, type: 3}

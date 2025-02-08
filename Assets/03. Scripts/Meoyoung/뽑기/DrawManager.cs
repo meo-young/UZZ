@@ -1,65 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using UnityEngine;
 using AYellowpaper.SerializedCollections;
 using static Constant;
-
-
-public class DrawManager : MonoBehaviour
-{
-    public static DrawManager instance;
-
-    [Header("# 데이터테이블")]
-    [SerializeField] TextAsset drawDataTable;
-
-    // 데이터테이블로 받아오는 데이터
-    public DrawData[] drawdatas = new DrawData[DRAW_THEME_COUNT];
-
-    // 사용자가 소지하고 있는 가구 데이터
-    public DrawInfo[] drawInfo = new DrawInfo[DRAW_THEME_COUNT];
-
-    private void Awake()
-    {
-        if(instance == null)
-            instance = this;
-    }
-
-    private void Start()
-    {
-        drawdatas[0] = new DrawData();
-        drawdatas[0].title = DRAW_THEME1_NAME;
-        drawdatas[0].furnitures = LoadTextAssetData.instance.LoadData<Furniture>(drawDataTable);
-    }
-
-
-    // 사용자가 소지한 가구목록에 가구 추가
-    public void AddFurniture(int _theme, string _furniture)
-    {
-        if(drawInfo[_theme].myFurnitures.ContainsKey(_furniture))
-            drawInfo[_theme].myFurnitures[_furniture]++;
-        else
-            drawInfo[_theme].myFurnitures[_furniture] = 1;
-    }
-
-    // 사용자가 소지한 총 가구 수 반환
-    public int GetFurnitueCount()
-    {
-        int count = 0;
-        
-        for(int i=0; i<DRAW_THEME_COUNT; ++i)
-        {
-            foreach(var furniture in drawInfo[i].myFurnitures)
-                count += furniture.Value;
-        }
-        return count;
-    }
-
-    // 가구 이름으로 가구 정보 조회
-    public Furniture GetFurnitureData(int theme, string furnitureName)
-    {
-        return drawdatas[theme].furnitures.Find(x => x.name == furnitureName);
-    }
-}
 
 #region 뽑기 관련 클래스
 public class DrawData
@@ -88,13 +32,124 @@ public class Furniture
 }
 
 [System.Serializable]
+public class FurnitureInstance
+{
+    public string instanceId;  // 가구 인스턴스의 고유 ID
+    public bool isPlaced;     // 배치 여부
+
+    public FurnitureInstance(string id)
+    {
+        instanceId = id;
+        isPlaced = false;
+    }
+}
+
+[System.Serializable]
 public class DrawInfo
 {
-    public SerializedDictionary<string, int> myFurnitures;
+    public SerializedDictionary<string, List<FurnitureInstance>> furnitureInstances;
 
     public DrawInfo()
     {
-        myFurnitures = new SerializedDictionary<string, int>();
+        furnitureInstances = new SerializedDictionary<string, List<FurnitureInstance>>();
     }
 }
 #endregion
+
+public class DrawManager : MonoBehaviour
+{
+    public static DrawManager instance;
+
+    [Header("# 데이터테이블")]
+    [SerializeField] TextAsset drawDataTable;
+
+    public DrawData[] drawdatas = new DrawData[DRAW_THEME_COUNT];
+    public DrawInfo[] drawInfo = new DrawInfo[DRAW_THEME_COUNT];
+
+    private void Awake()
+    {
+        if(instance == null)
+            instance = this;
+    }
+
+    private void Start()
+    {
+        drawdatas[0] = new DrawData();
+        drawdatas[0].title = DRAW_THEME1_NAME;
+        drawdatas[0].furnitures = LoadTextAssetData.instance.LoadData<Furniture>(drawDataTable);
+    }
+
+    public void AddFurniture(int _theme, string _furniture)
+{
+    if (drawInfo[_theme].furnitureInstances == null)
+        drawInfo[_theme].furnitureInstances = new SerializedDictionary<string, List<FurnitureInstance>>();
+
+    // 각 가구 인스턴스마다 고유한 키를 생성
+    string instanceId = $"{_theme}_{_furniture}_{System.DateTime.Now.Ticks}";
+    string uniqueKey = $"{_furniture}_{instanceId}";  // 각 가구 인스턴스마다 고유한 키
+
+    // 새로운 리스트 생성
+    drawInfo[_theme].furnitureInstances[uniqueKey] = new List<FurnitureInstance>();
+    drawInfo[_theme].furnitureInstances[uniqueKey].Add(new FurnitureInstance(instanceId));
+}
+
+    public void UpdateFurniturePlacementStatus(string instanceId, bool isPlaced)
+    {
+        for (int theme = 0; theme < DRAW_THEME_COUNT; theme++)
+        {
+            foreach (var furnitureList in drawInfo[theme].furnitureInstances.Values)
+            {
+                var instance = furnitureList.Find(x => x.instanceId == instanceId);
+                if (instance != null)
+                {
+                    instance.isPlaced = isPlaced;
+                    return;
+                }
+            }
+        }
+    }
+
+    public List<FurnitureInstance> GetUnplacedInstances(int theme, string furnitureName)
+    {
+        if (!drawInfo[theme].furnitureInstances.ContainsKey(furnitureName))
+            return new List<FurnitureInstance>();
+
+        return drawInfo[theme].furnitureInstances[furnitureName]
+            .Where(x => !x.isPlaced)
+            .ToList();
+    }
+
+    public int GetFurnitueCount()
+    {
+        int count = 0;
+        for (int i = 0; i < DRAW_THEME_COUNT; ++i)
+        {
+            foreach (var furnitureList in drawInfo[i].furnitureInstances.Values)
+                count += furnitureList.Count;
+        }
+        return count;
+    }
+
+    public Furniture GetFurnitureData(int theme, string furnitureName)
+{
+    // furnitureName에서 실제 가구 이름만 추출 (예: "chair_1234567" -> "chair")
+    string actualName = furnitureName.Split('_')[0];
+    return drawdatas[theme].furnitures.Find(x => x.name == actualName);
+}
+
+    public FurnitureInstance GetFurnitureInstance(string instanceId)
+{
+    for (int theme = 0; theme < DRAW_THEME_COUNT; theme++)
+    {
+        foreach (var furnitureList in drawInfo[theme].furnitureInstances.Values)
+        {
+            var instance = furnitureList.Find(x => x.instanceId == instanceId);
+            if (instance != null)
+            {
+                return instance;
+            }
+        }
+    }
+    return null;
+}
+}
