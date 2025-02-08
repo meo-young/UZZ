@@ -7,12 +7,24 @@ public class GardenPlacement : MonoBehaviour
     [SerializeField] private GameObject furniturePrefab;
     [SerializeField] private Transform Place;
 
+    private Transform LockBtn;
+    private Transform UnlockBtn;
+
     private Transform RightButtonPanel;
     private Transform LeftButtonPanel;
     private GameObject currentFurniture;
     private Furniture currentFurnitureData;
     private int currentTheme;
     private string currentInstanceId;
+
+    private void Awake()
+    {
+        LockBtn = Variable.instance.Init<Transform>(transform, nameof(LockBtn), LockBtn);
+        UnlockBtn = Variable.instance.Init<Transform>(transform, nameof(UnlockBtn), UnlockBtn);
+
+        LockBtn.localScale = Vector3.zero;
+        UnlockBtn.localScale = Vector3.zero;
+    }
 
     private async void Start()
     {
@@ -48,15 +60,6 @@ public class GardenPlacement : MonoBehaviour
 
         BoxCollider boxCollider = furniture.GetComponent<BoxCollider>();
 
-        Addressables.LoadAssetAsync<Sprite>(_furniture.image).Completed += (operation) =>
-        {
-            spriteRenderer.sprite = operation.Result;
-            if (spriteRenderer.sprite != null)
-            {
-                boxCollider.size = spriteRenderer.sprite.bounds.size;
-            }
-        };
-
         var dragItem = furniture.GetComponent<DragItem>();
         dragItem.placementId = _placement.id;
         dragItem.furnitureInstanceId = _placement.furnitureInstanceId;
@@ -66,6 +69,18 @@ public class GardenPlacement : MonoBehaviour
 
         if (_placement.isFlipped)
             furniture.transform.Rotate(0, 180, 0);
+
+        // 스프라이트 로드 후 코너 초기화
+        Addressables.LoadAssetAsync<Sprite>(_furniture.image).Completed += (operation) =>
+        {
+            spriteRenderer.sprite = operation.Result;
+            if (spriteRenderer.sprite != null)
+            {
+                boxCollider.size = spriteRenderer.sprite.bounds.size;
+                dragItem.Select();  // 코너 초기화
+                dragItem.HideCorners();  // 초기에는 코너 숨기기
+            }
+        };
     }
 
     public void OnPlacementBtnHandler(Furniture _furniture, int _theme, string instanceId)
@@ -73,7 +88,16 @@ public class GardenPlacement : MonoBehaviour
         var instance = DrawManager.instance.GetFurnitureInstance(instanceId);
         if (instance != null && instance.isPlaced)
         {
-            Debug.Log("이미 배치된 가구입니다.");
+            for(int i=0; i<Place.childCount; i++)
+            {
+                var child = Place.GetChild(i);
+                var sameItem = child.GetComponent<DragItem>();
+                if(sameItem.furnitureInstanceId == instanceId)
+                {
+                    SetCurrentFurniture(child.gameObject);
+                    return;
+                }
+            }
             return;
         }
 
@@ -94,8 +118,11 @@ public class GardenPlacement : MonoBehaviour
         var dragItem = currentFurniture.GetComponent<DragItem>();
         dragItem.placementId = newPlacementId;
         dragItem.furnitureInstanceId = currentInstanceId;
+        dragItem.isLocekd = false;
         dragItem.furnitureData = _furniture;
         dragItem.themeIndex = _theme;
+        UpdateLockBtn();
+
 
         Addressables.LoadAssetAsync<Sprite>(_furniture.image).Completed += (operation) =>
         {
@@ -141,6 +168,8 @@ public class GardenPlacement : MonoBehaviour
             currentInstanceId = dragItem.furnitureInstanceId;
             dragItem.StartDrag();  // 드래그 시작 시 원래 위치 저장
             dragItem.Select();
+
+            UpdateLockBtn();
         }
     }
 
@@ -225,11 +254,29 @@ public class GardenPlacement : MonoBehaviour
         UpdateUI();
     }
 
+    private void UpdateLockBtn()
+    {
+        if (currentFurniture != null)
+        {
+            if (currentFurniture.GetComponent<DragItem>().isLocekd)
+            {
+                LockBtn.localScale = Vector3.zero;
+                UnlockBtn.localScale = Vector3.one;
+            }
+            else
+            {
+                LockBtn.localScale = Vector3.one;
+                UnlockBtn.localScale = Vector3.zero;
+            }
+        }
+    }
+
     public void OnLockBtnHandler()
     {
         if (currentFurniture == null) return;
         currentFurniture.GetComponent<DragItem>().isLocekd = true;
         UpdateCurrentFurniturePlacement();
+        UpdateLockBtn();
     }
 
     public void OnUnlockBtnHandler()
@@ -237,6 +284,7 @@ public class GardenPlacement : MonoBehaviour
         if (currentFurniture == null) return;
         currentFurniture.GetComponent<DragItem>().isLocekd = false;
         UpdateCurrentFurniturePlacement();
+        UpdateLockBtn();
     }
 
     public void OnFlipBtnHandler()

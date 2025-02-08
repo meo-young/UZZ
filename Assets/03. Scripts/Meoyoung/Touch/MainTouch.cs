@@ -62,8 +62,6 @@ public class MainTouch : MonoBehaviour
                     {
                         case "DragItem":
                             var dragItem = firstTouchedObject.GetComponent<DragItem>();
-                            if(dragItem.isLocekd)
-                                break;
 
                             gardenPlacement.SetCurrentFurniture(firstTouchedObject);
                             gardenUI.UpdatePlacementUI();
@@ -137,6 +135,9 @@ public class MainTouch : MonoBehaviour
             {
                 if (isDragging && dragTarget != null)
                 {
+                    if(dragTarget.GetComponent<DragItem>().isLocekd)
+                        return;
+
                     Vector3 newPosition = touchPosition + dragOffset;
                     dragTarget.transform.position = new Vector3(newPosition.x, newPosition.y, dragTarget.transform.position.z);
                     return;
