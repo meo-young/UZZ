@@ -68,7 +68,7 @@ public class DrawManager : MonoBehaviour
 
     private void Awake()
     {
-        if(instance == null)
+        if (instance == null)
             instance = this;
     }
 
@@ -80,18 +80,18 @@ public class DrawManager : MonoBehaviour
     }
 
     public void AddFurniture(int _theme, string _furniture)
-{
-    if (drawInfo[_theme].furnitureInstances == null)
-        drawInfo[_theme].furnitureInstances = new SerializedDictionary<string, List<FurnitureInstance>>();
+    {
+        if (drawInfo[_theme].furnitureInstances == null)
+            drawInfo[_theme].furnitureInstances = new SerializedDictionary<string, List<FurnitureInstance>>();
 
-    // 각 가구 인스턴스마다 고유한 키를 생성
-    string instanceId = $"{_theme}_{_furniture}_{System.DateTime.Now.Ticks}";
-    string uniqueKey = $"{_furniture}_{instanceId}";  // 각 가구 인스턴스마다 고유한 키
+        // 각 가구 인스턴스마다 고유한 키를 생성
+        string instanceId = $"{_theme}_{_furniture}_{System.Guid.NewGuid().ToString()}";
+        string uniqueKey = $"{_furniture}_{instanceId}";  // 각 가구 인스턴스마다 고유한 키
 
-    // 새로운 리스트 생성
-    drawInfo[_theme].furnitureInstances[uniqueKey] = new List<FurnitureInstance>();
-    drawInfo[_theme].furnitureInstances[uniqueKey].Add(new FurnitureInstance(instanceId));
-}
+        // 새로운 리스트 생성
+        drawInfo[_theme].furnitureInstances[uniqueKey] = new List<FurnitureInstance>();
+        drawInfo[_theme].furnitureInstances[uniqueKey].Add(new FurnitureInstance(instanceId));
+    }
 
     public void UpdateFurniturePlacementStatus(string instanceId, bool isPlaced)
     {
@@ -131,25 +131,25 @@ public class DrawManager : MonoBehaviour
     }
 
     public Furniture GetFurnitureData(int theme, string furnitureName)
-{
-    // furnitureName에서 실제 가구 이름만 추출 (예: "chair_1234567" -> "chair")
-    string actualName = furnitureName.Split('_')[0];
-    return drawdatas[theme].furnitures.Find(x => x.name == actualName);
-}
+    {
+        // furnitureName에서 실제 가구 이름만 추출 (예: "chair_1234567" -> "chair")
+        string actualName = furnitureName.Split('_')[0];
+        return drawdatas[theme].furnitures.Find(x => x.name == actualName);
+    }
 
     public FurnitureInstance GetFurnitureInstance(string instanceId)
-{
-    for (int theme = 0; theme < DRAW_THEME_COUNT; theme++)
     {
-        foreach (var furnitureList in drawInfo[theme].furnitureInstances.Values)
+        for (int theme = 0; theme < DRAW_THEME_COUNT; theme++)
         {
-            var instance = furnitureList.Find(x => x.instanceId == instanceId);
-            if (instance != null)
+            foreach (var furnitureList in drawInfo[theme].furnitureInstances.Values)
             {
-                return instance;
+                var instance = furnitureList.Find(x => x.instanceId == instanceId);
+                if (instance != null)
+                {
+                    return instance;
+                }
             }
         }
+        return null;
     }
-    return null;
-}
 }

@@ -5,7 +5,6 @@ using AYellowpaper.SerializedCollections;
 [System.Serializable]
 public class FurniturePlacementData
 {
-    public string id;                  // 배치 고유 ID
     public string furnitureInstanceId; // 가구 인스턴스 ID
     public int themeIndex;            // 가구 테마 인덱스
     public string furnitureName;       // 가구 이름
@@ -38,7 +37,6 @@ public class GardenManager : MonoBehaviour
 
         var placement = new FurniturePlacementData
         {
-            id = System.Guid.NewGuid().ToString(),
             themeIndex = themeIndex,
             furnitureName = furnitureName,
             furnitureInstanceId = instanceId,
@@ -47,18 +45,17 @@ public class GardenManager : MonoBehaviour
             isFlipped = isFlipped
         };
 
-        gardenInfo[placement.id] = placement;
-        // 여기서는 isPlaced를 업데이트하지 않음
+        gardenInfo[instanceId] = placement;
+        DrawManager.instance.UpdateFurniturePlacementStatus(instanceId, true);
     }
 
-    public void UpdateExistingPlacement(string placementId, Vector3 position, bool isLocked, bool isFlipped)
+    public void UpdateExistingPlacement(string instanceId, Vector3 position, bool isLocked, bool isFlipped)
     {
-        if (gardenInfo.TryGetValue(placementId, out var placement))
+        if (gardenInfo.TryGetValue(instanceId, out var placement))
         {
             placement.position = position;
             placement.isLocked = isLocked;
             placement.isFlipped = isFlipped;
-            // 여기서 isPlaced를 true로 설정
             DrawManager.instance.UpdateFurniturePlacementStatus(placement.furnitureInstanceId, true);
         }
     }
@@ -68,7 +65,6 @@ public class GardenManager : MonoBehaviour
     {
         var placement = new FurniturePlacementData
         {
-            id = System.Guid.NewGuid().ToString(),
             themeIndex = themeIndex,
             furnitureName = furnitureName,
             furnitureInstanceId = instanceId,
@@ -77,7 +73,7 @@ public class GardenManager : MonoBehaviour
             isFlipped = isFlipped
         };
 
-        gardenInfo[placement.id] = placement;
+        gardenInfo[instanceId] = placement;
         // 여기서만 isPlaced를 업데이트
         DrawManager.instance.UpdateFurniturePlacementStatus(instanceId, true);
     }

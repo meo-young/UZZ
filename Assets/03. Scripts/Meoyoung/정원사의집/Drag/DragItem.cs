@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class DragItem : MonoBehaviour
 {
-    public string placementId;          // 배치 고유 ID
     public string furnitureInstanceId;  // 가구 인스턴스 ID
     public bool isLocekd = false;
 

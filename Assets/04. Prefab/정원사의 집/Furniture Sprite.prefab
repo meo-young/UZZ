@@ -125,4 +125,5 @@ MonoBehaviour:
   placementId: 
   furnitureInstanceId: 
   isLocekd: 0
+  themeIndex: 0
   cornerPrefab: {fileID: 3264405664743694018, guid: 53f2793ab204e374fb31db2b6aa5561b, type: 3}

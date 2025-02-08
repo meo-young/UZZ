@@ -7,6 +7,7 @@ public class GardenUI : MonoBehaviour
 {
     [SerializeField] private GameObject FurniturePrefab;
     [SerializeField] private Transform Place;
+    [SerializeField] private Transform Placement;
 
     private TMP_Text FurnitureCountText;
     private RectTransform RightButtonPanel;
@@ -14,7 +15,6 @@ public class GardenUI : MonoBehaviour
     private Image HideButton;
     private Transform FurnitureContent;
     private Transform ThemeContent;
-    private Transform Placement;
 
     private Image currentFurnitureImage;
     private Image currentThemeImage;
@@ -29,7 +29,6 @@ public class GardenUI : MonoBehaviour
         FurnitureCountText = Variable.instance.Init<TMP_Text>(transform, nameof(FurnitureCountText), FurnitureCountText);
         FurnitureContent = Variable.instance.Init<Transform>(transform, nameof(FurnitureContent), FurnitureContent);
         ThemeContent = Variable.instance.Init<Transform>(transform, nameof(ThemeContent), ThemeContent);
-        Placement = Variable.instance.Init<Transform>(transform, nameof(Placement), Placement);
 
         currentPlacement = Placement.GetComponent<GardenPlacement>();
         UpdateThemeContent();
@@ -138,8 +137,12 @@ public class GardenUI : MonoBehaviour
         Image icon = images[1];
 
         Button btn = obj.GetComponentInChildren<Button>();
-        Furniture furnitureData = DrawManager.instance.GetFurnitureData(theme, key);
 
+        // 실제 가구 이름 추출 (인스턴스 ID 제거)
+        string actualFurnitureName = key.Split('_')[0];
+        Furniture furnitureData = DrawManager.instance.GetFurnitureData(theme, actualFurnitureName);
+
+        // isPlaced 상태에 따라 배경 이미지 설정
         if (instance.isPlaced)
         {
             AddressableManager.instance.LoadSprite("check", background);

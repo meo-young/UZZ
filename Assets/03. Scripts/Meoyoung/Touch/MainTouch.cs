@@ -23,12 +23,16 @@ public class MainTouch : MonoBehaviour
     private GameObject dragTarget = null;
     private Camera mainCamera;
     private Vector3 dragOffset;
+    private RectTransform dragBoundary;
+    private Vector3 minBound;
+    private Vector3 maxBound;
 
     private void Awake()
     {
         gardenUI = FindFirstObjectByType<GardenUI>();
         gardenPlacement = FindFirstObjectByType<GardenPlacement>();
         mainCamera = Camera.main;
+        dragBoundary = gardenPlacement.GetDragBoundary();
     }
 
 
@@ -41,6 +45,12 @@ public class MainTouch : MonoBehaviour
         bCanFlowerAcquired = false;
         bBigDustTouched = false;
         dustTouchCounter = 0;
+
+        Vector3[] corners = new Vector3[4];
+        dragBoundary.GetWorldCorners(corners);
+
+        minBound = mainCamera.WorldToViewportPoint(corners[0]);
+        maxBound = mainCamera.WorldToViewportPoint(corners[2]);
     }
     private void Update()
     {
@@ -135,13 +145,36 @@ public class MainTouch : MonoBehaviour
             {
                 if (isDragging && dragTarget != null)
                 {
-                    if(dragTarget.GetComponent<DragItem>().isLocekd)
+                    if (dragTarget.GetComponent<DragItem>().isLocekd)
                         return;
 
-                    Vector3 newPosition = touchPosition + dragOffset;
-                    dragTarget.transform.position = new Vector3(newPosition.x, newPosition.y, dragTarget.transform.position.z);
-                    return;
+                    // 터치 위치를 RectTransform의 로컬 좌표로 변환
+                    Vector2 localPoint;
+                    RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                        dragBoundary,
+                        touch.position,
+                        mainCamera,  // Screen Space - Camera 모드에서는 카메라 필요
+                        out localPoint
+                    );
+
+                    // 로컬 좌표를 dragBoundary의 크기로 제한
+                    Vector2 clampedPosition = new Vector2(
+                        Mathf.Clamp(localPoint.x, dragBoundary.rect.xMin, dragBoundary.rect.xMax),
+                        Mathf.Clamp(localPoint.y, dragBoundary.rect.yMin, dragBoundary.rect.yMax)
+                    );
+
+                    // 제한된 로컬 좌표를 월드 좌표로 변환
+                    Vector3 worldPosition;
+                    RectTransformUtility.ScreenPointToWorldPointInRectangle(
+                        dragBoundary,
+                        RectTransformUtility.WorldToScreenPoint(mainCamera, dragBoundary.TransformPoint(clampedPosition)),
+                        mainCamera,
+                        out worldPosition
+                    );
+
+                    dragTarget.transform.position = new Vector3(worldPosition.x, worldPosition.y, dragTarget.transform.position.z);
                 }
+
 
                 Physics.Raycast(touchPosition, transform.forward, out RaycastHit hit, 100f);
                 if (hit.collider != null)
@@ -169,22 +202,21 @@ public class MainTouch : MonoBehaviour
                     moveTouchedObject = null;
                     InitFlowerTouch();
                 }
-
-                #endregion
-                #region Touch End
-                if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
-                {
-                    if(isDragging)
-                    {
-                        isDragging = false;
-                        dragTarget = null;
-                        dragOffset = Vector3.zero;
-                        return;
-                    }
-                    InitFlowerTouch();
-                }
-                #endregion
             }
+            #endregion
+            #region Touch End
+            if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
+            {
+                if (isDragging)
+                {
+                    isDragging = false;
+                    dragTarget = null;
+                    dragOffset = Vector3.zero;
+                    return;
+                }
+                InitFlowerTouch();
+            }
+            #endregion
         }
 
         void InitFlowerTouch()
