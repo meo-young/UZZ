@@ -26,42 +26,9 @@ public class GardenManager : MonoBehaviour
         await DataManager.instance.JsonLoadAsync();
     }
 
+
+    // GardenInfo 정보 최신화
     public void UpdatePlacement(int themeIndex, string furnitureName, string instanceId, Vector3 position, bool isLocked, bool isFlipped)
-    {
-        var temp = DrawManager.instance.GetFurnitureInstance(instanceId);
-        if (temp != null && temp.isPlaced)
-        {
-            Debug.Log("이미 배치된 가구입니다.");
-            return;
-        }
-
-        var placement = new FurniturePlacementData
-        {
-            themeIndex = themeIndex,
-            furnitureName = furnitureName,
-            furnitureInstanceId = instanceId,
-            position = position,
-            isLocked = isLocked,
-            isFlipped = isFlipped
-        };
-
-        gardenInfo[instanceId] = placement;
-        DrawManager.instance.UpdateFurniturePlacementStatus(instanceId, true);
-    }
-
-    public void UpdateExistingPlacement(string instanceId, Vector3 position, bool isLocked, bool isFlipped)
-    {
-        if (gardenInfo.TryGetValue(instanceId, out var placement))
-        {
-            placement.position = position;
-            placement.isLocked = isLocked;
-            placement.isFlipped = isFlipped;
-            DrawManager.instance.UpdateFurniturePlacementStatus(placement.furnitureInstanceId, true);
-        }
-    }
-
-    // 새로운 메서드 추가
-    public void UpdatePlacementWithoutCheck(int themeIndex, string furnitureName, string instanceId, Vector3 position, bool isLocked, bool isFlipped)
     {
         var placement = new FurniturePlacementData
         {
@@ -79,16 +46,14 @@ public class GardenManager : MonoBehaviour
     }
 
 
-
-    public void RemovePlacement(string placementId)
+    // 현재 배치중인 가구 제거
+    public void RemovePlacement(string instanceId)
     {
-        if (gardenInfo.TryGetValue(placementId, out var placement))
-        {
-            DrawManager.instance.UpdateFurniturePlacementStatus(placement.furnitureInstanceId, false);
-            gardenInfo.Remove(placementId);
-        }
+        DrawManager.instance.UpdateFurniturePlacementStatus(instanceId, false);
+        gardenInfo.Remove(instanceId);
     }
 
+    // 배치한 모든 가구 제거
     public void RemoveAllPlacement()
     {
         foreach (var placement in gardenInfo.Values)

@@ -93,22 +93,18 @@ public class DrawManager : MonoBehaviour
         drawInfo[_theme].furnitureInstances[uniqueKey].Add(new FurnitureInstance(instanceId));
     }
 
+    // 배치 상태 업데이트
     public void UpdateFurniturePlacementStatus(string instanceId, bool isPlaced)
     {
-        for (int theme = 0; theme < DRAW_THEME_COUNT; theme++)
+        FurnitureInstance instance = GetFurnitureInstance(instanceId);
+        if (instance != null)
         {
-            foreach (var furnitureList in drawInfo[theme].furnitureInstances.Values)
-            {
-                var instance = furnitureList.Find(x => x.instanceId == instanceId);
-                if (instance != null)
-                {
-                    instance.isPlaced = isPlaced;
-                    return;
-                }
-            }
+            instance.isPlaced = isPlaced;
+            return;
         }
     }
 
+    // 배치하지 않은 가구 반환
     public List<FurnitureInstance> GetUnplacedInstances(int theme, string furnitureName)
     {
         if (!drawInfo[theme].furnitureInstances.ContainsKey(furnitureName))
@@ -119,6 +115,8 @@ public class DrawManager : MonoBehaviour
             .ToList();
     }
 
+
+    // 사용자가 보유한 총 가구 개수 반환 (중복 포함)
     public int GetFurnitueCount()
     {
         int count = 0;
@@ -130,6 +128,7 @@ public class DrawManager : MonoBehaviour
         return count;
     }
 
+    // 가구의 고유 ID 값을 제외한 이름 반환
     public Furniture GetFurnitureData(int theme, string furnitureName)
     {
         // furnitureName에서 실제 가구 이름만 추출 (예: "chair_1234567" -> "chair")
@@ -137,9 +136,10 @@ public class DrawManager : MonoBehaviour
         return drawdatas[theme].furnitures.Find(x => x.name == actualName);
     }
 
+    // 고유 ID를 통해 가구 인스턴스 반환
     public FurnitureInstance GetFurnitureInstance(string instanceId)
     {
-        for (int theme = 0; theme < DRAW_THEME_COUNT; theme++)
+        for (int theme = 0; theme < DRAW_THEME_COUNT; ++theme)
         {
             foreach (var furnitureList in drawInfo[theme].furnitureInstances.Values)
             {

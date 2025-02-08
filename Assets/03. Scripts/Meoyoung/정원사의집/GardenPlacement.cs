@@ -41,6 +41,7 @@ public class GardenPlacement : MonoBehaviour
         Place.localScale = Vector3.zero;
     }
 
+    // 배치했던 가구 복원
     private void LoadSavedPlacements()
     {
         var placements = GardenManager.instance.GetAllPlacements();
@@ -54,6 +55,7 @@ public class GardenPlacement : MonoBehaviour
         }
     }
 
+    // 배치했던 가구 복원
     private void SpawnSavedFurniture(Furniture _furniture, FurniturePlacementData _placement)
     {
         GameObject furniture = Instantiate(furniturePrefab, Place);
@@ -92,6 +94,7 @@ public class GardenPlacement : MonoBehaviour
         return dragBoundary;
     }
 
+    // 가구 배치 버튼 클릭 시 호출
     public void OnPlacementBtnHandler(Furniture _furniture, int _theme, string instanceId)
     {
         var instance = DrawManager.instance.GetFurnitureInstance(instanceId);
@@ -113,9 +116,6 @@ public class GardenPlacement : MonoBehaviour
         currentTheme = _theme;
         currentFurnitureData = _furniture;
         currentInstanceId = instanceId;
-
-        string newPlacementId = System.Guid.NewGuid().ToString();
-
         currentFurniture = Instantiate(furniturePrefab, Place);
 
         SpriteRenderer spriteRenderer = currentFurniture.GetComponent<SpriteRenderer>();
@@ -143,6 +143,7 @@ public class GardenPlacement : MonoBehaviour
         };
     }
 
+    // 현재 선택된 가구 설정
     public void SetCurrentFurniture(GameObject furniture)
     {
         if (currentFurniture != null && currentFurniture != furniture)
@@ -181,35 +182,25 @@ public class GardenPlacement : MonoBehaviour
         }
 
     }
-
+    
+    // GardenInfo 정보 업데이트
     private void UpdateFurniturePlacement(DragItem dragItem)
     {
         bool isFlipped = dragItem.transform.rotation.y == 180;
-        bool isNewPlacement = !GardenManager.instance.gardenInfo.ContainsKey(dragItem.furnitureInstanceId);
-        if (isNewPlacement)
-        {
-            GardenManager.instance.UpdatePlacementWithoutCheck(
-                currentTheme,
-                dragItem.furnitureData.name,  // 가구의 실제 이름 사용
-                dragItem.furnitureInstanceId,
-                dragItem.transform.position,
-                dragItem.isLocekd,
-                isFlipped
-            );
-        }
-        else
-        {
-            GardenManager.instance.UpdateExistingPlacement(
-                dragItem.furnitureInstanceId,
-                dragItem.transform.position,
-                dragItem.isLocekd,
-                isFlipped
-            );
-        }
+
+        GardenManager.instance.UpdatePlacement(
+            currentTheme,
+            dragItem.furnitureData.name,  // 가구의 실제 이름 사용
+            dragItem.furnitureInstanceId,
+            dragItem.transform.position,
+            dragItem.isLocekd,
+            isFlipped
+        );
 
         UpdateUI();
     }
 
+    // 가구 목록 다시 그리기
     private void UpdateUI()
     {
         gardenUI.UpdateFurnitureContent(gardenUI.GetCurrentThemeIndex());
@@ -217,7 +208,7 @@ public class GardenPlacement : MonoBehaviour
 
     public void OnPlacementCompleteBtnHandler()
     {
-        InitUI();
+        DeactivatePlacementUI();
         if (currentFurniture != null)
         {
             DragItem dragItem = currentDragItem;
@@ -226,13 +217,6 @@ public class GardenPlacement : MonoBehaviour
 
             UpdateFurniturePlacement(dragItem);
         }
-    }
-
-    private void InitUI()
-    {
-        transform.localScale = Vector3.zero;
-        RightButtonPanel.localScale = Vector3.one;
-        LeftButtonPanel.localScale = Vector3.one;
     }
 
     public void OnContainBtnHandler()
@@ -249,7 +233,7 @@ public class GardenPlacement : MonoBehaviour
 
         // 가구 오브젝트 제거
         Destroy(currentFurniture);
-        InitUI();
+        DeactivatePlacementUI();
     }
 
     public void OnAllContainBtnHandler()
@@ -258,42 +242,16 @@ public class GardenPlacement : MonoBehaviour
         {
             Destroy(Place.GetChild(i).gameObject);
         }
-        InitUI();
+        DeactivatePlacementUI();
         GardenManager.instance.RemoveAllPlacement();
         UpdateUI();
     }
 
-    private void UpdateLockBtn()
-    {
-        if (currentFurniture != null)
-        {
-            if (currentDragItem.isLocekd)
-            {
-                LockBtn.localScale = Vector3.zero;
-                UnlockBtn.localScale = Vector3.one;
-            }
-            else
-            {
-                LockBtn.localScale = Vector3.one;
-                UnlockBtn.localScale = Vector3.zero;
-            }
-        }
-    }
-
     public void OnLockBtnHandler()
     {
-        if (currentFurniture == null) return;
-        currentDragItem.isLocekd = true;
-        UpdateFurniturePlacement(currentDragItem);
+        currentDragItem.isLocekd = !currentDragItem.isLocekd;
         UpdateLockBtn();
-    }
-
-    public void OnUnlockBtnHandler()
-    {
-        if (currentFurniture == null) return;
-        currentDragItem.isLocekd = false;
         UpdateFurniturePlacement(currentDragItem);
-        UpdateLockBtn();
     }
 
     public void OnFlipBtnHandler()
@@ -303,9 +261,27 @@ public class GardenPlacement : MonoBehaviour
         UpdateFurniturePlacement(currentDragItem);
     }
 
-    private void UpdateCurrentFurniturePlacement()
+    private void UpdateLockBtn()
     {
         if (currentFurniture == null) return;
-        UpdateFurniturePlacement(currentFurniture.GetComponent<DragItem>());
+
+        if (currentDragItem.isLocekd)
+        {
+            LockBtn.localScale = Vector3.zero;
+            UnlockBtn.localScale = Vector3.one;
+        }
+        else
+        {
+            LockBtn.localScale = Vector3.one;
+            UnlockBtn.localScale = Vector3.zero;
+        }
+    }
+
+    
+    private void DeactivatePlacementUI()
+    {
+        transform.localScale = Vector3.zero;
+        RightButtonPanel.localScale = Vector3.one;
+        LeftButtonPanel.localScale = Vector3.one;
     }
 }
