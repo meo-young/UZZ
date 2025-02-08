@@ -7,17 +7,25 @@ public class GardenPlacement : MonoBehaviour
     [SerializeField] private GameObject furniturePrefab;
 
     private Transform Place;
+    private Transform RightButtonPanel;
+    private Transform LeftButtonPanel;
     private GameObject currentFurniture;
 
 
     private void Start() {
-        Place = Variable.instance.Init<Transform>(transform.parent, nameof(Place), Place);
+        Place =             Variable.instance.Init<Transform>(transform.parent, nameof(Place), Place);
+        RightButtonPanel =  Variable.instance.Init<Transform>(transform.parent, nameof(RightButtonPanel), RightButtonPanel);
+        LeftButtonPanel =   Variable.instance.Init<Transform>(transform.parent, nameof(LeftButtonPanel), LeftButtonPanel);
+
+        transform.localScale = Vector3.zero;
     }
 
     // 완료 버튼 클릭 이벤트
     public void OnPlacementCompleteBtnHandler()
     {
         transform.localScale = Vector3.zero;
+        RightButtonPanel.localScale = Vector3.one;
+        LeftButtonPanel.localScale = Vector3.one;
     }
     public void OnPlacementBtnHandler(string imagePath)
     {
@@ -25,6 +33,9 @@ public class GardenPlacement : MonoBehaviour
         currentFurniture = Instantiate(furniturePrefab, Place);
         RectTransform rectTransform = currentFurniture.GetComponent<RectTransform>();
         rectTransform.anchoredPosition = Vector2.zero;
+
+        // DragItem 컴포넌트 추가
+        currentFurniture.AddComponent<DragItem>();
 
         // 배치할 가구 이미지 가져오기
         Image furnitureImage = currentFurniture.GetComponent<Image>();
@@ -39,5 +50,25 @@ public class GardenPlacement : MonoBehaviour
             furnitureImage.SetNativeSize();
             rectTransform.sizeDelta = operation.Result.rect.size;
         };
+    }
+
+    // 담기 버튼 이벤트
+    public void OnContainBtnHandler()
+    {
+        // 배치할 가구 삭제
+        Destroy(currentFurniture);
+        OnPlacementCompleteBtnHandler();
+    }
+
+    // 모두 담기 버튼 이벤트
+    public void OnAllContainBtnHandler()
+    {
+        // 배치한 모든 가구 삭제
+        for(int i = 0; i < Place.childCount; i++)
+        {
+            Destroy(Place.GetChild(i).gameObject);
+        }
+
+        OnPlacementCompleteBtnHandler();
     }
 }

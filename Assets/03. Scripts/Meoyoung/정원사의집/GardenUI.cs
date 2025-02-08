@@ -8,6 +8,7 @@ public class GardenUI : MonoBehaviour
 
     private TMP_Text FurnitureCountText;                // 가구 수 텍스트
     private RectTransform RightButtonPanel;             // 오른쪽 버튼 패널
+    private RectTransform LeftButtonPanel;             // 왼쪽 버튼 패널
     private Image HideButton;                           // 숨기기 버튼 이미지
     private Transform FurnitureContent;                 // 가구 컨텐츠
     private Transform ThemeContent;                   // 테마 컨텐츠
@@ -21,6 +22,7 @@ public class GardenUI : MonoBehaviour
     private void Start()
     {
         RightButtonPanel =      Variable.instance.Init<RectTransform>(transform, nameof(RightButtonPanel), RightButtonPanel);
+        LeftButtonPanel =       Variable.instance.Init<RectTransform>(transform, nameof(LeftButtonPanel), LeftButtonPanel);
         HideButton =            Variable.instance.Init<Image>(transform, nameof(HideButton), HideButton);
         FurnitureCountText =    Variable.instance.Init<TMP_Text>(transform, nameof(FurnitureCountText), FurnitureCountText);
         FurnitureContent =      Variable.instance.Init<Transform>(transform, nameof(FurnitureContent), FurnitureContent);
@@ -144,20 +146,15 @@ public class GardenUI : MonoBehaviour
     // 가구 버튼 클릭 이벤트
     private void OnFurnitureBtnHandler(string _imagePath)
     {
-        // // 이전에 선택한 이미지는 Default로
-        // if (currentFurnitureImage != null)
-        //     AddressableManager.instance.LoadSprite("non_check", currentFurnitureImage);
-
-        // // 현재 선택한 이미지는 Focus로
-        // currentFurnitureImage = _image;
-        // AddressableManager.instance.LoadSprite("check", currentFurnitureImage);
-
-        
         // 배치할 가구 이미지 로드
         currentPlacement.OnPlacementBtnHandler(_imagePath);
 
         // 가구 배치 오브젝트 스케일 1로
         Placement.localScale = Vector3.one;
+
+        // 좌, 우 패널 숨기기
+        LeftButtonPanel.localScale = Vector3.zero;
+        RightButtonPanel.localScale = Vector3.zero;
     }
 
 
