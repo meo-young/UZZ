@@ -31,6 +31,8 @@ public class DrawManager : MonoBehaviour
         drawdatas[0].furnitures = LoadTextAssetData.instance.LoadData<Furniture>(drawDataTable);
     }
 
+
+    // 사용자가 소지한 가구목록에 가구 추가
     public void AddFurniture(int _theme, string _furniture)
     {
         if(drawInfo[_theme].myFurnitures.ContainsKey(_furniture))

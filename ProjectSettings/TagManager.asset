@@ -29,6 +29,7 @@ TagManager:
   - PlacementItemMenu
   - PlacementBackground
   - Garden
+  - DragItem
   layers:
   - Default
   - TransparentFX

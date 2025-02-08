@@ -19,4 +19,12 @@ public class AddressableManager : MonoBehaviour
             _image.sprite = operation.Result;
         };
     }
+
+    public void LoadSprite(string _address, SpriteRenderer _image)
+    {
+        Addressables.LoadAssetAsync<Sprite>(_address).Completed += (operation) =>
+        {
+            _image.sprite = operation.Result;
+        };
+    }
 }

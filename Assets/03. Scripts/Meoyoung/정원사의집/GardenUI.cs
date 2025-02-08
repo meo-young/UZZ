@@ -5,6 +5,7 @@ using TMPro;
 public class GardenUI : MonoBehaviour
 {
     [SerializeField] private GameObject FurniturePrefab;    // 가구 프리팹
+    [SerializeField] private Transform Place;           // 가구가 배치될 오브젝트
 
     private TMP_Text FurnitureCountText;                // 가구 수 텍스트
     private RectTransform RightButtonPanel;             // 오른쪽 버튼 패널
@@ -43,6 +44,7 @@ public class GardenUI : MonoBehaviour
         UpdateFurnitureContent(0);
 
         transform.localScale = Vector3.one;
+        Place.localScale = Vector3.one;
     }
 
     // 정원사의 집 UI 끄기
@@ -50,6 +52,7 @@ public class GardenUI : MonoBehaviour
     {
         SoundManager.instance.PlaySFX(SFX.Diary.BUTTON);
         transform.localScale = Vector3.zero;
+        Place.localScale = Vector3.zero;
     }
 
     // 뽑기, 메인 버튼 활성화
@@ -134,7 +137,7 @@ public class GardenUI : MonoBehaviour
                 Furniture furnitureData = DrawManager.instance.GetFurnitureData(0, furniture.Key);
 
                 // 버튼 클릭 이벤트 추가
-                btn.onClick.AddListener(() => OnFurnitureBtnHandler(furnitureData.image));
+                btn.onClick.AddListener(() => OnFurnitureBtnHandler(furnitureData, _theme));
 
                 // 아이콘 로드
                 if (furnitureData != null)
@@ -144,10 +147,10 @@ public class GardenUI : MonoBehaviour
     }
 
     // 가구 버튼 클릭 이벤트
-    private void OnFurnitureBtnHandler(string _imagePath)
+    private void OnFurnitureBtnHandler(Furniture _furniture, int _theme)
     {
         // 배치할 가구 이미지 로드
-        currentPlacement.OnPlacementBtnHandler(_imagePath);
+        currentPlacement.OnPlacementBtnHandler(_furniture, _theme);
 
         // 가구 배치 오브젝트 스케일 1로
         Placement.localScale = Vector3.one;

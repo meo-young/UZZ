@@ -18,9 +18,15 @@ public class MainTouch : MonoBehaviour
 
     // 정원사의 집
     private GardenUI gardenUI;
+    private bool isDragging = false;
+    private GameObject dragTarget = null;
+    private Camera mainCamera;
+    private Vector3 dragOffset;
 
-    private void Awake() {
+    private void Awake()
+    {
         gardenUI = FindFirstObjectByType<GardenUI>();
+        mainCamera = Camera.main;
     }
 
 
@@ -52,6 +58,13 @@ public class MainTouch : MonoBehaviour
 
                     switch (firstTouchedObject.tag)
                     {
+                        case "DragItem":
+                            if(firstTouchedObject.GetComponent<DragItem>().isLocekd)
+                                break;
+                            isDragging = true;
+                            dragTarget = firstTouchedObject;
+                            dragOffset = dragTarget.transform.position - touchPosition;
+                            break;
                         case "Pure_PresentGive":
                             SoundManager.instance.PlaySFX(SFX.PureSound.TOUCH);
                             presentManager.SetPresentImage();
@@ -114,6 +127,13 @@ public class MainTouch : MonoBehaviour
             #region Touch Move
             if (touch.phase == TouchPhase.Moved)
             {
+                if (isDragging && dragTarget != null)
+                {
+                    Vector3 newPosition = touchPosition + dragOffset;
+                    dragTarget.transform.position = new Vector3(newPosition.x, newPosition.y, dragTarget.transform.position.z);
+                    return;
+                }
+
                 Physics.Raycast(touchPosition, transform.forward, out RaycastHit hit, 100f);
                 if (hit.collider != null)
                 {
@@ -125,11 +145,6 @@ public class MainTouch : MonoBehaviour
                             if (flowerTouched)
                             {
                                 bCanFlowerAcquired = flowerManager.AcquireDewEffect();
-                                /*if (!bCanFlowerAcquired)
-                                {
-                                    InitFlowerTouch();
-                                    break;
-                                }*/
 
                                 if (flowerAnim != null)
                                     flowerAnim.timeSclae = 5f;
@@ -145,34 +160,42 @@ public class MainTouch : MonoBehaviour
                     moveTouchedObject = null;
                     InitFlowerTouch();
                 }
+
+                #endregion
+                #region Touch End
+                if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
+                {
+                    if(isDragging)
+                    {
+                        isDragging = false;
+                        dragTarget = null;
+                        dragOffset = Vector3.zero;
+                        return;
+                    }
+                    InitFlowerTouch();
+                }
+                #endregion
             }
-            #endregion
-            #region Touch End
-            if (touch.phase == TouchPhase.Ended || touch.phase == TouchPhase.Canceled)
-            {
-                InitFlowerTouch();
-            }
-            #endregion
         }
-    }
 
-    void InitFlowerTouch()
-    {
-        if (!flowerTouched)
-            return;
-
-        flowerManager.counter = 0;
-
-        if (!bCanFlowerAcquired)
-            return;
-
-        if(flowerAnim != null)
+        void InitFlowerTouch()
         {
-            flowerAnim.timeSclae = 1f;
-            flowerAnim = null;
+            if (!flowerTouched)
+                return;
+
+            flowerManager.counter = 0;
+
+            if (!bCanFlowerAcquired)
+                return;
+
+            if (flowerAnim != null)
+            {
+                flowerAnim.timeSclae = 1f;
+                flowerAnim = null;
+            }
+            flowerManager.MoveToTargetPos();
+            bCanFlowerAcquired = false;
+            flowerTouched = false;
         }
-        flowerManager.MoveToTargetPos();
-        bCanFlowerAcquired = false;
-        flowerTouched = false;
     }
 }
