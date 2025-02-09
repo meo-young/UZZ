@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using UnityEngine;
+using AYellowpaper.SerializedCollections;
 using static Constant;
 
 [System.Serializable]
@@ -17,6 +18,7 @@ public class GameData
     public DiaryInfo diaryInfo = new();
     public AutoGrowInfo autoGrowInfo = new();
     public DrawInfo[] drawInfo = new DrawInfo[DRAW_THEME_COUNT];
+    public SerializedDictionary<string, FurniturePlacementData> gardenInfo = new();
 }
 
 public class DataManager : MonoBehaviour
@@ -26,7 +28,7 @@ public class DataManager : MonoBehaviour
 
     string filePath;   // System.IO 용 경로 (file:// 제외)
 
-    private void Awake()
+    private async void Awake()
     {
         if (instance == null)
             instance = this;
@@ -39,11 +41,8 @@ public class DataManager : MonoBehaviour
         filePath = Path.Combine(Application.persistentDataPath, "database.json");
         Debug.Log("Platform : " + (Application.platform == RuntimePlatform.Android ? "Android" : "iOS"));
 #endif
-    }
 
-    private async void Start()
-    {
-        await JsonLoadAsync();  // 비동기적으로 로드
+        await JsonLoadAsync();
     }
 
     // 비동기적으로 데이터를 불러오는 함수
@@ -113,6 +112,8 @@ public class DataManager : MonoBehaviour
         AutoGrowManager.instance.autoGrowInfo = gameData.autoGrowInfo;
 
         DrawManager.instance.drawInfo = gameData.drawInfo;
+
+        GardenManager.instance.gardenInfo = gameData.gardenInfo;
     }
 
     // 비동기적으로 데이터를 저장하는 함수
@@ -128,6 +129,7 @@ public class DataManager : MonoBehaviour
         gameData.diaryInfo = DiaryManager.instance.diaryInfo;
         gameData.autoGrowInfo = AutoGrowManager.instance.autoGrowInfo;
         gameData.drawInfo = DrawManager.instance.drawInfo;
+        gameData.gardenInfo = GardenManager.instance.gardenInfo;
 
         string json = JsonUtility.ToJson(gameData, true);
 

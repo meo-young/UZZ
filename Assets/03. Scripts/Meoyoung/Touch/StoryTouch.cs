@@ -23,11 +23,6 @@ public class StoryTouch : MonoBehaviour
                 {
                     firstTouchedObject = hit.transform.gameObject;
                     Debug.Log(firstTouchedObject.gameObject.tag);
-
-                    switch (firstTouchedObject.tag)
-                    {
-                        
-                    }
                 }
 
                 Instantiate(defaultTouchVFX, effectPos, Quaternion.identity);
