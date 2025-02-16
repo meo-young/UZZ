@@ -18,6 +18,7 @@ public class PureBaseState : MonoBehaviour, IControllerState
         randNum = Random.Range(0, pc.pureStat.likeabilityInfo[level].defaultAnimationIndex + 1);
         pc.pureAnimationSet.ShowRandomBaseAnimation(randNum);
         baseAnimationTimer = 0;
+        Debug.Log("베이스 애니메이션 시작");
     }
 
     public void OnStateUpdate()

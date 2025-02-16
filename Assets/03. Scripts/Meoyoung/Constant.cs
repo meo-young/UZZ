@@ -53,5 +53,7 @@ public static class Constant
     public const float  PURE_WALK_RANDOM_TIME = 7;              // 푸르 걷기 랜덤 시간
     public const float  PURE_ANIMATION_TIME = 10;               // 푸르 애니메이션 시간
     public const float  PURE_AUTO_TEXT_TIME = 10;               // 푸르 자동 대사 시간
+    public const float  PURE_SHOWER_TIME = 3600 * 8;            // 푸르 씻겨주기 시간
+    public const float  PURE_SHOWER_SWIPETIME = 3;              // 푸르 씻겨주기 스와이프 시간
     
 }

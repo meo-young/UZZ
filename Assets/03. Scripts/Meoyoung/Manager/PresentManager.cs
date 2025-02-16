@@ -45,9 +45,11 @@ public class PresentManager : MonoBehaviour
         pc = MainManager.instance.pureController;
         presentUI = MainManager.instance.presentUI;
 
-        if (presentInfo.presentTimer < PRESENT_INTERVAL)
+        if (!MainManager.instance.gameInfo.showerFlag && presentInfo.presentTimer < PRESENT_INTERVAL)
+        {
+            Debug.Log("선물 확률 체크 안됨");
             pc.ChangeState(pc._walkState);
-
+        }
         CheckMyItems();
     }
     private void Update()
@@ -55,7 +57,7 @@ public class PresentManager : MonoBehaviour
         // 선물을 받은지 2분이 경과하거나, 처음 받는 상태인 경우 선물확률 체크
         // 선물확률에 걸리면 푸르는 선물 준비상태로 전이
 
-        if (!presentInfo.presentFlag && presentInfo.presentTimer == 0)
+        if (!presentInfo.presentFlag && presentInfo.presentTimer == 0 && !MainManager.instance.gameInfo.showerFlag)
             CheckProbabilty(PRESENT_PROBABILITY);
         else
             CheckPresentReactiveTime(PRESENT_INTERVAL);
@@ -93,7 +95,11 @@ public class PresentManager : MonoBehaviour
             pc.ChangeState(pc._presentReadyState);
         }
         else
+        {
+            Debug.Log("선물 확률 걸리지 않음");
             pc.ChangeState(pc._walkState);
+        }
+            
 
 
         MainManager.instance.gameInfo.cycleFlag = true;

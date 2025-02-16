@@ -36,7 +36,7 @@ public class PureController : MonoBehaviour
         get; private set;
     }
 
-    public IControllerState _idleState, _baseState, _interactionState, _walkState, _presentReadyState, _presentGiveState, _workState, _workHelpState;
+    public IControllerState _idleState, _baseState, _interactionState, _walkState, _presentReadyState, _presentGiveState, _workState, _workHelpState, _showerState;
 
     private void Awake()
     {
@@ -65,6 +65,7 @@ public class PureController : MonoBehaviour
         _presentGiveState = gameObject.AddComponent<PurePresentGiveState>();
         _workState = gameObject.AddComponent<PureWorkState>();
         _workHelpState = gameObject.AddComponent<PureWorkHelpState>();
+        _showerState = gameObject.AddComponent<PureShowerState>();
         #endregion
         Initialize();
 

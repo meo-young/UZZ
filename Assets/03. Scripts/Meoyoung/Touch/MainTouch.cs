@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Constant;
 
 public class MainTouch : MonoBehaviour
 {
@@ -26,6 +27,9 @@ public class MainTouch : MonoBehaviour
     private RectTransform dragBoundary;
     private Vector3 minBound;
     private Vector3 maxBound;
+
+    private bool isShowerSwiping = false;
+    private float showerSwipeTimer = 0f;
 
     private void Awake()
     {
@@ -70,6 +74,10 @@ public class MainTouch : MonoBehaviour
 
                     switch (firstTouchedObject.tag)
                     {
+                        case "PureShower":
+                            isShowerSwiping = true;
+                            showerSwipeTimer = 0f;
+                            break;
                         case "DragItem":
                             var dragItem = firstTouchedObject.GetComponent<DragItem>();
 
@@ -173,6 +181,7 @@ public class MainTouch : MonoBehaviour
                     );
 
                     dragTarget.transform.position = new Vector3(worldPosition.x, worldPosition.y, dragTarget.transform.position.z);
+                    return;
                 }
 
 
@@ -192,6 +201,19 @@ public class MainTouch : MonoBehaviour
                                     flowerAnim.timeSclae = 5f;
                             }
                             break;
+                        case "PureShower":
+                            if (isShowerSwiping)
+                            {
+                                showerSwipeTimer += Time.deltaTime;
+                                if (showerSwipeTimer >= PURE_SHOWER_SWIPETIME)
+                                {
+                                    isShowerSwiping = false;
+                                    showerSwipeTimer = 0f;
+                                    MainManager.instance.gameInfo.showerFlag = false;
+                                }
+                            }
+                            break;
+                            
                         default:
                             InitFlowerTouch();
                             break;
@@ -215,6 +237,8 @@ public class MainTouch : MonoBehaviour
                     return;
                 }
                 InitFlowerTouch();
+                isShowerSwiping = false;
+                showerSwipeTimer = 0f;
             }
             #endregion
         }

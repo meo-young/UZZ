@@ -14,7 +14,8 @@ public class GameInfo
     public string lastConnectTime;
     public float dew;
     public bool cycleFlag;
-
+    public bool showerFlag;
+    public float showerTimer;
 }
 
 
@@ -65,27 +66,27 @@ public class MainManager : MonoBehaviour
             instance = this;
 
         #region init
-        pure = GameObject.FindWithTag("Player");
-        pureStat = FindFirstObjectByType<PureStat>();
-        pureAnimationSet = FindFirstObjectByType<PureAnimationSet>();
-        pureController = FindFirstObjectByType<PureController>();
-        speechBubbleSet = FindFirstObjectByType<SpeechBubbleSet>();
-        pureInteractionText = FindFirstObjectByType<PureInteractionText>();
-        autoText = FindFirstObjectByType<AutoText>();
+        pure =                  GameObject.FindWithTag("Player");
+        pureStat =              FindFirstObjectByType<PureStat>();
+        pureAnimationSet =      FindFirstObjectByType<PureAnimationSet>();
+        pureController =        FindFirstObjectByType<PureController>();
+        speechBubbleSet =       FindFirstObjectByType<SpeechBubbleSet>();
+        pureInteractionText =   FindFirstObjectByType<PureInteractionText>();
+        autoText =              FindFirstObjectByType<AutoText>();
 
-        presentManager = FindFirstObjectByType<PresentManager>();
-        presentUI = FindFirstObjectByType<PresentUI>();
+        presentManager =        FindFirstObjectByType<PresentManager>();
+        presentUI =             FindFirstObjectByType<PresentUI>();
 
-        fieldWorkManager = FindFirstObjectByType<FieldWorkManager>();
+        fieldWorkManager =      FindFirstObjectByType<FieldWorkManager>();
 
-        vfxManager = FindFirstObjectByType<VFXManager>();
+        vfxManager =            FindFirstObjectByType<VFXManager>();
 
-        flowerManager = FindFirstObjectByType<FlowerManager>();
-        flowerUI = FindFirstObjectByType<FlowerUI>();
+        flowerManager =         FindFirstObjectByType<FlowerManager>();
+        flowerUI =              FindFirstObjectByType<FlowerUI>();
 
-        lightController = FindFirstObjectByType<LightColorController>();
+        lightController =       FindFirstObjectByType<LightColorController>();
 
-        dewUI = FindFirstObjectByType<DewUI>();
+        dewUI =                 FindFirstObjectByType<DewUI>();
 
         #endregion
     }
@@ -95,11 +96,17 @@ public class MainManager : MonoBehaviour
         if (GetDateDifference())
             gameInfo.totalDayCounter++;
     }
-    // 호감도 얻은지 얼마나 됐는지 시간 체크
+
     private void Update()
     {
         UpdatePlayTime();
         UpdateInGameTime();
+        UpdateLikeabilityTimer();
+        UpdateShowerTimer();
+    }
+
+    void UpdateLikeabilityTimer()
+    {
         if (!gameInfo.likeabilityFlag)
             return;
 
@@ -109,6 +116,21 @@ public class MainManager : MonoBehaviour
             gameInfo.likeabilityFlag = false;
             gameInfo.likeabilityTimer = 0;
         }
+    }
+
+    void UpdateShowerTimer()
+    {
+        if (gameInfo.showerFlag)
+            return;
+
+        gameInfo.showerTimer += Time.deltaTime;
+        if (gameInfo.showerTimer > PURE_SHOWER_TIME)
+        {
+            Debug.Log("푸르 샤워시간 됨");
+            gameInfo.showerFlag = true;
+            gameInfo.showerTimer = 0;
+        }
+
     }
 
     void UpdatePlayTime()
@@ -161,11 +183,11 @@ public class MainManager : MonoBehaviour
         }
     }
 
-    private async void OnApplicationFocus(bool hasFocus)
+    private void OnApplicationFocus(bool hasFocus)
     {
         if (hasFocus)
         {
-            await DataManager.instance.JsonLoadAsync();
+            DataManager.instance.JsonLoadAsync();
             AutoGrowManager.instance.GetOfflineGrowth(Utility.instance.GetIntervalDateTime());
             Debug.Log("어플 포커스");
         }
@@ -178,12 +200,12 @@ public class MainManager : MonoBehaviour
         SaveGameDataAsync();
     }
 
-    private async void SaveGameDataAsync()
+    private void SaveGameDataAsync()
     {
         if (gameInfo != null)
         {
             gameInfo.lastConnectTime = DateTime.Now.ToString();
-            await DataManager.instance.JsonSaveAsync();  // 비동기 저장 메서드 호출
+            DataManager.instance.JsonSaveAsync();  // 비동기 저장 메서드 호출
             Debug.Log("데이터 저장 완료");
         }
     }

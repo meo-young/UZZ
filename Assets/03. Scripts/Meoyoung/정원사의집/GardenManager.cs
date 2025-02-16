@@ -18,12 +18,10 @@ public class GardenManager : MonoBehaviour
     public static GardenManager instance;
     public SerializedDictionary<string, FurniturePlacementData> gardenInfo = new();
 
-    private async void Awake()
+    private  void Awake()
     {
         if (instance == null)
             instance = this;
-
-        await DataManager.instance.JsonLoadAsync();
     }
 
 

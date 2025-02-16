@@ -66,6 +66,8 @@ public class DrawManager : MonoBehaviour
     public DrawData[] drawdatas = new DrawData[DRAW_THEME_COUNT];
     public DrawInfo[] drawInfo = new DrawInfo[DRAW_THEME_COUNT];
 
+    public bool isDataLoaded { get; private set; } = false;
+
     private void Awake()
     {
         if (instance == null)
@@ -77,6 +79,7 @@ public class DrawManager : MonoBehaviour
         drawdatas[0] = new DrawData();
         drawdatas[0].title = DRAW_THEME1_NAME;
         drawdatas[0].furnitures = LoadTextAssetData.instance.LoadData<Furniture>(drawDataTable);
+        isDataLoaded = true;
     }
 
     public void AddFurniture(int _theme, string _furniture)

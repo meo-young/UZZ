@@ -17,6 +17,12 @@ public class PureIdleState : MonoBehaviour, IControllerState
         if (!MainManager.instance.gameInfo.cycleFlag)
             return;
 
+        if (MainManager.instance.gameInfo.showerFlag)
+        {
+            pc.ChangeState(pc._showerState);
+            return;
+        }
+
         if (!pc.pureStat.pureInfo.autoText)
         {
             pc.autoText.ShowIdleRandomText(pc.basePos, 0);
