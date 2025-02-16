@@ -36,7 +36,6 @@ public class GardenPlacement : MonoBehaviour
     private async void Start()
     {
         transform.localScale = Vector3.zero;
-        await DataManager.instance.JsonLoadAsync();
         LoadSavedPlacements();
         Place.localScale = Vector3.zero;
     }

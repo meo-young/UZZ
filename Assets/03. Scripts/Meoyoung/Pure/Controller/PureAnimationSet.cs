@@ -32,6 +32,9 @@ public class PureAnimationSet : MonoBehaviour
     public FieldWorkIndex[] pureFieldWorkIndex;
     public FieldWorkIndex[] pureHelpFieldWorkIndex;
 
+    [Header("# Shower")]
+    public GameObject pureShower;
+
 
     private SpeechBubbleSet bubbleSet;
     private FieldWork[] fieldWorkArray => FieldWorkManager.instance.fieldWorkArray;
@@ -56,6 +59,9 @@ public class PureAnimationSet : MonoBehaviour
 
         if(purePresentGive.activeSelf)
             purePresentGive.SetActive(false);
+
+        if(pureShower.activeSelf)
+            pureShower.SetActive(false);
 
         for(int i =0; i<pureBaseAnimations.Count; i++)
         {

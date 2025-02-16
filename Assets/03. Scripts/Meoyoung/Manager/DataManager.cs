@@ -28,7 +28,7 @@ public class DataManager : MonoBehaviour
 
     string filePath;   // System.IO 용 경로 (file:// 제외)
 
-    private async void Awake()
+    private void Awake()
     {
         if (instance == null)
             instance = this;
@@ -42,17 +42,17 @@ public class DataManager : MonoBehaviour
         Debug.Log("Platform : " + (Application.platform == RuntimePlatform.Android ? "Android" : "iOS"));
 #endif
 
-        await JsonLoadAsync();
+        JsonLoadAsync();
     }
 
     // 비동기적으로 데이터를 불러오는 함수
-    public async Task JsonLoadAsync()
+    public void JsonLoadAsync()
     {
         // 파일 존재 여부 확인
         if (!File.Exists(filePath))
         {
             Debug.Log("데이터매니저 파일이 존재하지 않음");
-            await JsonSaveAsync();  // 파일이 없으면 저장
+            JsonSaveAsync();  // 파일이 없으면 저장
             return;
         }
 
@@ -67,7 +67,7 @@ public class DataManager : MonoBehaviour
             char[] buffer = new char[1024];  // 읽을 버퍼
             int bytesReadInChunk;  // 한 번에 읽은 데이터 크기
 
-            while ((bytesReadInChunk = await reader.ReadAsync(buffer, 0, buffer.Length)) > 0)
+            while ((bytesReadInChunk = reader.Read(buffer, 0, buffer.Length)) > 0)
             {
                 // 읽은 데이터를 추가
                 dataAsJson += new string(buffer, 0, bytesReadInChunk);
@@ -93,6 +93,11 @@ public class DataManager : MonoBehaviour
         MainManager.instance.gameInfo.dew = gameData.gameInfo.dew;
         MainManager.instance.gameInfo.totalDayCounter = gameData.gameInfo.totalDayCounter;
         MainManager.instance.gameInfo.cycleFlag = gameData.gameInfo.cycleFlag;
+        MainManager.instance.gameInfo.showerFlag = gameData.gameInfo.showerFlag;
+        MainManager.instance.gameInfo.showerTimer = gameData.gameInfo.showerTimer + Utility.instance.GetIntervalDateTime();
+        MainManager.instance.gameInfo.mealFlag = gameData.gameInfo.mealFlag;
+        MainManager.instance.gameInfo.mealTimer = gameData.gameInfo.mealTimer + Utility.instance.GetIntervalDateTime();
+
 
         FlowerManager.instance.flowerInfo.level = gameData.flowerInfo.level;
         FlowerManager.instance.flowerInfo.exp = gameData.flowerInfo.exp;
@@ -117,7 +122,7 @@ public class DataManager : MonoBehaviour
     }
 
     // 비동기적으로 데이터를 저장하는 함수
-    public async Task JsonSaveAsync()
+    public void JsonSaveAsync()
     {
         GameData gameData = new GameData();
 
@@ -134,8 +139,8 @@ public class DataManager : MonoBehaviour
         string json = JsonUtility.ToJson(gameData, true);
 
         // 비동기적으로 파일에 저장
-        await Task.Run(() => File.WriteAllText(filePath, json));
-
+        // await Task.Run(() => File.WriteAllText(filePath, json));
+        File.WriteAllText(filePath, json);
         Debug.Log("파일 저장 경로: " + filePath);
     }
 }

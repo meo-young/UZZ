@@ -46,7 +46,7 @@ ParticleSystem:
   serializedVersion: 8
   lengthInSec: 1
   simulationSpeed: 1
-  stopAction: 0
+  stopAction: 2
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
@@ -5033,8 +5033,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -152661535
-  m_SortingLayer: 0
+  m_SortingLayerID: 1702216685
+  m_SortingLayer: 5
   m_SortingOrder: 20
   m_RenderMode: 1
   m_MeshDistribution: 0
@@ -5378,7 +5378,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7083859351502400391, guid: b562449b1ffb0374b981add8f8f83aa1, type: 3}
       propertyPath: m_SortingLayer
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7083859351502400391, guid: b562449b1ffb0374b981add8f8f83aa1, type: 3}
       propertyPath: m_SortingOrder
@@ -5386,7 +5386,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7083859351502400391, guid: b562449b1ffb0374b981add8f8f83aa1, type: 3}
       propertyPath: m_SortingLayerID
-      value: -152661535
+      value: 1702216685
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6276,7 +6276,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7083859351502400391, guid: b562449b1ffb0374b981add8f8f83aa1, type: 3}
       propertyPath: m_SortingLayer
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7083859351502400391, guid: b562449b1ffb0374b981add8f8f83aa1, type: 3}
       propertyPath: m_SortingOrder
@@ -6284,7 +6284,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7083859351502400391, guid: b562449b1ffb0374b981add8f8f83aa1, type: 3}
       propertyPath: m_SortingLayerID
-      value: -152661535
+      value: 1702216685
       objectReference: {fileID: 0}
     - target: {fileID: 7083859351502400391, guid: b562449b1ffb0374b981add8f8f83aa1, type: 3}
       propertyPath: m_Materials.Array.size
@@ -6314,7 +6314,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2966954034946761048, guid: 8c5e3c67702467f4f813eec85456a121, type: 3}
       propertyPath: m_SortingLayer
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2966954034946761048, guid: 8c5e3c67702467f4f813eec85456a121, type: 3}
       propertyPath: m_SortingOrder
@@ -6322,7 +6322,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2966954034946761048, guid: 8c5e3c67702467f4f813eec85456a121, type: 3}
       propertyPath: m_SortingLayerID
-      value: -152661535
+      value: 1702216685
       objectReference: {fileID: 0}
     - target: {fileID: 2966954034946761048, guid: 8c5e3c67702467f4f813eec85456a121, type: 3}
       propertyPath: m_Materials.Array.size

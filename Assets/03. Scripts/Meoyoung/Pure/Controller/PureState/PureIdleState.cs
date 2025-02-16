@@ -17,6 +17,12 @@ public class PureIdleState : MonoBehaviour, IControllerState
         if (!MainManager.instance.gameInfo.cycleFlag)
             return;
 
+        if (MainManager.instance.gameInfo.showerFlag)
+        {
+            pc.ChangeState(pc._showerState);
+            return;
+        }
+
         if (!pc.pureStat.pureInfo.autoText)
         {
             pc.autoText.ShowIdleRandomText(pc.basePos, 0);
@@ -70,11 +76,16 @@ public class PureIdleState : MonoBehaviour, IControllerState
         if (pc.fieldWorkState.type == FieldWorkType.None) // 작업을 한 상태가 아닌 경우 return
             return;
 
+        int growPoint = (int)(pc.fieldWorkState.growPoint);
+
+        if(MainManager.instance.gameInfo.mealFlag)
+            growPoint = (int)(growPoint * (1 - PURE_MEAL_DISADVANTAGE));
+
         Instantiate(pc.vfxManager.growthVFX);
-        pc.flowerManager.GetFlowerExp((int)pc.fieldWorkState.growPoint);
+        pc.flowerManager.GetFlowerExp(growPoint);
 
         Instantiate(pc.vfxManager.dewVFX);
-        MainManager.instance.dewUI.Count(pc.fieldWorkState.growPoint);
+        MainManager.instance.dewUI.Count(growPoint);
 
         pc.Initialize();
         MainManager.instance.gameInfo.cycleFlag = false;

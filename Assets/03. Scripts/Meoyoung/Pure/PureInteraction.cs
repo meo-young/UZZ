@@ -9,6 +9,9 @@ public class PureInteraction : MonoBehaviour
 
     void OnMouseDown()
     {
+        if (MainManager.instance.gameInfo.showerFlag)
+            return;
+
         if (flowerManager.isFlowerEvent)
             return;
 

@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 public class GardenUI : MonoBehaviour
 {
@@ -21,7 +22,7 @@ public class GardenUI : MonoBehaviour
     private GardenPlacement currentPlacement;
     private int currentThemeIndex = 0;
 
-    private void Start()
+    private async void Start()
     {
         RightButtonPanel =      Variable.instance.Init<RectTransform>(transform, nameof(RightButtonPanel), RightButtonPanel);
         LeftButtonPanel =       Variable.instance.Init<RectTransform>(transform, nameof(LeftButtonPanel), LeftButtonPanel);
@@ -31,6 +32,13 @@ public class GardenUI : MonoBehaviour
         ThemeContent =          Variable.instance.Init<Transform>(transform, nameof(ThemeContent), ThemeContent);
 
         currentPlacement =      Placement.GetComponent<GardenPlacement>();
+        
+        // DrawManager의 데이터가 로드될 때까지 대기
+        while (!DrawManager.instance.isDataLoaded)
+        {
+            await System.Threading.Tasks.Task.Yield();
+        }
+        
         UpdateThemeContent();
         transform.localScale = Vector3.zero;
     }
