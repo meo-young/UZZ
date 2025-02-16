@@ -55,6 +55,7 @@ public class MainManager : MonoBehaviour
 
     [Header("# Database GameInfo")]
     public GameInfo gameInfo;
+    public GameObject hungry;
 
 
 
@@ -97,6 +98,8 @@ public class MainManager : MonoBehaviour
     {
         if (GetDateDifference())
             gameInfo.totalDayCounter++;
+
+        hungry.SetActive(gameInfo.mealFlag);
     }
 
     private void Update()
@@ -119,6 +122,7 @@ public class MainManager : MonoBehaviour
         {
             gameInfo.mealFlag = true;
             gameInfo.mealTimer = 0;
+            hungry.SetActive(true);
         }
     }
 

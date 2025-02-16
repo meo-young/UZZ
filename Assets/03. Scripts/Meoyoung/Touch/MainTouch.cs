@@ -78,6 +78,10 @@ public class MainTouch : MonoBehaviour
                             isShowerSwiping = true;
                             showerSwipeTimer = 0f;
                             break;
+                        case "Hungry":
+                            MainManager.instance.gameInfo.mealFlag = false;
+                            MainManager.instance.hungry.SetActive(false);
+                            break;
                         case "DragItem":
                             var dragItem = firstTouchedObject.GetComponent<DragItem>();
 
