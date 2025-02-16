@@ -30,6 +30,8 @@ TagManager:
   - PlacementBackground
   - Garden
   - DragItem
+  - PureShower
+  - Hungry
   layers:
   - Default
   - TransparentFX
