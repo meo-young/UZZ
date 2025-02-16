@@ -23,6 +23,7 @@ public class PureShowerState : MonoBehaviour, IControllerState
     public void OnStateExit()
     {
         Debug.Log("샤워 종료");
+        Instantiate(VFXManager.instance.showerVFX, pc.transform.position, Quaternion.identity);
         pc.pureAnimationSet.pureShower.SetActive(false);
     }
 }
