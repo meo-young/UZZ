@@ -16,6 +16,8 @@ public class GameInfo
     public bool cycleFlag;
     public bool showerFlag;
     public float showerTimer;
+    public bool mealFlag;
+    public float mealTimer;
 }
 
 
@@ -103,6 +105,21 @@ public class MainManager : MonoBehaviour
         UpdateInGameTime();
         UpdateLikeabilityTimer();
         UpdateShowerTimer();
+        UpdateMealTimer();
+    }
+
+    void UpdateMealTimer()
+    {
+        if (gameInfo.mealFlag)
+            return;
+
+        gameInfo.mealTimer += Time.deltaTime;
+
+        if (gameInfo.mealTimer > PURE_MEAL_TIME)
+        {
+            gameInfo.mealFlag = true;
+            gameInfo.mealTimer = 0;
+        }
     }
 
     void UpdateLikeabilityTimer()

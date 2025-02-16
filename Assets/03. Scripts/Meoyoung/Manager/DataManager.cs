@@ -95,6 +95,8 @@ public class DataManager : MonoBehaviour
         MainManager.instance.gameInfo.cycleFlag = gameData.gameInfo.cycleFlag;
         MainManager.instance.gameInfo.showerFlag = gameData.gameInfo.showerFlag;
         MainManager.instance.gameInfo.showerTimer = gameData.gameInfo.showerTimer + Utility.instance.GetIntervalDateTime();
+        MainManager.instance.gameInfo.mealFlag = gameData.gameInfo.mealFlag;
+        MainManager.instance.gameInfo.mealTimer = gameData.gameInfo.mealTimer + Utility.instance.GetIntervalDateTime();
 
 
         FlowerManager.instance.flowerInfo.level = gameData.flowerInfo.level;

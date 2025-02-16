@@ -180,17 +180,37 @@ public class FlowerManager : MonoBehaviour
     #region Reward
     public void GetBigEventReward()
     {
+        // 꽃 이벤트 비활성화
         isFlowerEvent = false;
-        MainManager.instance.pureStat.GetLikeability(BIGEVENT_LIKEABILITY);
         BackToDefaultFlower();
-        GetFlowerExp(BIGEVENT_GROWTH);
+
+        // 보상 수치
+        float growPoint = BIGEVENT_GROWTH;
+
+        // 배고픔 상태이면 보상 감소
+        if(MainManager.instance.gameInfo.mealFlag)
+            growPoint = (int)(growPoint * (1 - PURE_MEAL_DISADVANTAGE));
+
+        // 보상처리
+        MainManager.instance.pureStat.GetLikeability(BIGEVENT_LIKEABILITY);
+        GetFlowerExp(growPoint);
     }
 
     public void GetMiniEventReward()
     {
+        // 꽃 이벤트 비활성화
         isFlowerEvent = false;
         BackToDefaultFlower();
-        GetFlowerExp(MINIEVENT_GROWTH);
+
+        // 보상 수치
+        float growPoint = MINIEVENT_GROWTH;
+
+        // 배고픔 상태이면 보상 감소
+        if(MainManager.instance.gameInfo.mealFlag)
+            growPoint = (int)(growPoint * (1 - PURE_MEAL_DISADVANTAGE));
+
+        // 보상처리
+        GetFlowerExp(growPoint);
     }
     #endregion
 

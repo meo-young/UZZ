@@ -55,5 +55,7 @@ public static class Constant
     public const float  PURE_AUTO_TEXT_TIME = 10;               // 푸르 자동 대사 시간
     public const float  PURE_SHOWER_TIME = 3600 * 8;            // 푸르 씻겨주기 시간
     public const float  PURE_SHOWER_SWIPETIME = 3;              // 푸르 씻겨주기 스와이프 시간
+    public const float  PURE_MEAL_TIME = 3600 * 1;              // 푸르 밥주기 시간
+    public const float  PURE_MEAL_DISADVANTAGE = 0.2f;          // 푸르 밥주기 영향 0.2 => 20% 감소
     
 }
