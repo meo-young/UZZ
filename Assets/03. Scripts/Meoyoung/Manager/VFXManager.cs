@@ -35,6 +35,9 @@ public class VFXManager : MonoBehaviour
     [Header("# 뽑기 VFX")]
     public GameObject furnitureVFX;
 
+    [Header("# 샤워 VFX")]
+    public GameObject showerVFX;
+
     private void Awake()
     {
         if(instance == null)
