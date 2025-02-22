@@ -78,6 +78,20 @@ public class PureIdleState : MonoBehaviour, IControllerState
 
         int growPoint = (int)(pc.fieldWorkState.growPoint);
 
+        // 정령의 힘 이벤트 시
+        if(pc.spiritEventCheckFlag)
+        {
+            growPoint = (int)(growPoint * SPIRIT_EVENT_GROWTH_REWARD);
+            pc.spiritEventCheckFlag = false;
+        }
+
+        // 광고보기 선택 시
+        if(pc.spiritAdvertisementFlag)
+        {
+            growPoint *= 2;
+            pc.spiritAdvertisementFlag = false;
+        }
+
         if(MainManager.instance.gameInfo.mealFlag)
             growPoint = (int)(growPoint * (1 - PURE_MEAL_DISADVANTAGE));
 

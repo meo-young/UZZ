@@ -19,6 +19,8 @@ public class PureController : MonoBehaviour
     [HideInInspector] public bool autoWorkCheckFlag;
     [HideInInspector] public bool helpEventCheckFlag; // 도움작업을 받았는지 체크하는 변수
     [HideInInspector] public bool flowerEventCheckFlag; // 꽃 이벤트를 확인했는지 체크하는 변수
+    [HideInInspector] public bool spiritEventCheckFlag; // 정령의 힘 이벤트가 걸렸는지 확인하는 변수
+    [HideInInspector] public bool spiritAdvertisementFlag; // 광고를 본 경우 true
     [HideInInspector] public FieldWork fieldWorkState; //푸르의 현재 작업 상태를 나타내기위한 변수. FieldWorkUI의 OnClick핸들러에서 접근함.
 
     [HideInInspector] public PureStat pureStat;

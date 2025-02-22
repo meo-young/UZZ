@@ -16,7 +16,8 @@ public static class Constant
     [Header("# 작업 관련 수치")]
     public const float  FIELDWORK_REQUIRED_TIME = 10;           // 작업 소요 시간
     public const int    FIELDWORK_LIKEABILITY = 2;              // 작업 끝났을 때 주는 호감도
-    public const float  FIELDWORK_HELP_PROBABILITY = 10;        // 작업 도움 확률
+    public const float  FIELDWORK_HELP_CHECK_TIME = 5;          // 작업 도움 확률 체크 시간
+    public const float  FIELDWORK_HELP_PROBABILITY = 10;      // 작업 도움 확률
     public const float  FIELDWORK_AUTO_PROBABILITY = 5;         // 자동작업 걸릴 확률
     public const float  FIELDWORK_AUTO_CHECK_TIME = 5;          // 자동작업 확인 시간
     public const int    FIELDWORK_WATERING_COOLTIME = 60;       // 물뿌리개 작업 쿨타임
