@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: GlassBeads
+  m_EditorClassIdentifier: 
+  m_GroupName: GlassBeads
+  m_GUID: b4ecaeceb61e10f4bb2ec504e261c462
+  m_SerializeEntries:
+  - m_GUID: 00d928d603be1c1469e29fc58569ed3d
+    m_Address: beads_1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 231a72fdbe0151441951054311b12b1f
+    m_Address: beads_3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aab528fe60744be44a4560070c5cb8a6
+    m_Address: beads_5
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b8b1c374d39986d46992c7e4286b831e
+    m_Address: beads_2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bfad6a68b8322a54da8650c9c12f15fe
+    m_Address: beads_4
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: cf3717de0e9a4af428626d2255ce0c93, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: d517c04eabaf52e478138c4258c4b853, type: 2}
+    - {fileID: 11400000, guid: 98c4454b619279d4f91a14e54fb3a464, type: 2}
