@@ -34,11 +34,24 @@ public class PureWorkState : MonoBehaviour, IControllerState
         if (pc.helpEventCheckFlag)
             return;
 
-        if (pc.workTimer < FIELDWORK_HELP_PROBABILITY) // 작업도움확률체크 시간이 된 경우 확률체크
+        if (pc.workTimer < FIELDWORK_HELP_CHECK_TIME) // 작업도움확률체크 시간이 된 경우 확률체크
             return;
 
+        // 작업도움이 걸린 경우 정령의 힘 이벤트 확률 체크
+        // 만약 정령의 힘 이벤트가 걸리지 않았다면 작업도움 실행
         if (pc.fieldWorkManager.CheckHelpProbability())
+        {
+            if(pc.fieldWorkManager.CheckSpiritEventProbability())
+            {
+                // 정령의 힘 이벤트 실행
+                Debug.Log("정령의 힘 이벤트 실행");
+                pc.spiritEventCheckFlag = true;
+            }
+
             pc.ChangeState(pc._workHelpState);
+            
+        }
+           
 
         pc.helpEventCheckFlag = true;
     }

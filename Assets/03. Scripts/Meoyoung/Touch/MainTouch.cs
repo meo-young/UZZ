@@ -102,6 +102,11 @@ public class MainTouch : MonoBehaviour
                             pc.ChangeState(pc._presentGiveState);
                             break;
                         case "Pure_HelpWork":
+                            if(pc.spiritEventCheckFlag)
+                            {
+                                AdvertisementUI.instance.Show();
+                                return;
+                            }
                             SoundManager.instance.PlaySFX(SFX.Ambience.SOLVE);
                             pc.ChangeState(pc._workState);
                             break;

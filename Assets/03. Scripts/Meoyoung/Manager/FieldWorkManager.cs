@@ -53,6 +53,12 @@ public class FieldWorkManager : MonoBehaviour
         return UnityEngine.Random.Range(0, 100) < FIELDWORK_HELP_PROBABILITY;
     }
 
+    // 정령의 힘 이벤트 확률 체크
+    public bool CheckSpiritEventProbability()
+    {
+        return UnityEngine.Random.Range(0, 100) < SPIRIT_EVENT_PROBABILITY;
+    }
+
     // 자동작업 확률 체크
     public bool CheckAutoWorkProbability()
     {

@@ -38,6 +38,10 @@ public class VFXManager : MonoBehaviour
     [Header("# 샤워 VFX")]
     public GameObject showerVFX;
 
+    [Header("# 정령의 힘 VFX")]
+    public GameObject spiritEventVFX;
+    public GameObject spiritVFX;
+    
     private void Awake()
     {
         if(instance == null)

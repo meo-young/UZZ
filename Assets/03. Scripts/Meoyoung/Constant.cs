@@ -16,7 +16,8 @@ public static class Constant
     [Header("# 작업 관련 수치")]
     public const float  FIELDWORK_REQUIRED_TIME = 10;           // 작업 소요 시간
     public const int    FIELDWORK_LIKEABILITY = 2;              // 작업 끝났을 때 주는 호감도
-    public const float  FIELDWORK_HELP_PROBABILITY = 10;        // 작업 도움 확률
+    public const float  FIELDWORK_HELP_CHECK_TIME = 5;          // 작업 도움 확률 체크 시간
+    public const float  FIELDWORK_HELP_PROBABILITY = 10;      // 작업 도움 확률
     public const float  FIELDWORK_AUTO_PROBABILITY = 5;         // 자동작업 걸릴 확률
     public const float  FIELDWORK_AUTO_CHECK_TIME = 5;          // 자동작업 확인 시간
     public const int    FIELDWORK_WATERING_COOLTIME = 60;       // 물뿌리개 작업 쿨타임
@@ -57,5 +58,13 @@ public static class Constant
     public const float  PURE_SHOWER_SWIPETIME = 3;              // 푸르 씻겨주기 스와이프 시간
     public const float  PURE_MEAL_TIME = 3600 * 1;              // 푸르 밥주기 시간
     public const float  PURE_MEAL_DISADVANTAGE = 0.2f;          // 푸르 밥주기 영향 0.2 => 20% 감소
+
+    [Header("# 정령의 힘 관련 수치")]
+    public const int    SPIRIT_EVENT_PROBABILITY = 10;          // 정령의 힘 이벤트 발생 확률
+    public const float  SPIRIT_EVENT_REWARD_MULTIFLIER = 1.5f;  // 정령의 힘 이벤트 보상 배수
+    public const int    SPIRIT_EVENT_DEW_REWARD = 40;           // 정령의 힘 이벤트 이슬 보상
+    public const float  SPIRIT_EVENT_GROWTH_REWARD = 30;        // 정령의 힘 이벤트 성장치 보상
+    public const int    SPIRIT_EVENT_LIKEABILITY_REWARD = 20;   // 정령의 힘 이벤트 호감도 보상
+    public const int    SPIRIT_EVENT_GLASS_REWARD = 10;         // 정령의 힘 이벤트 유리구슬 보상
     
 }
