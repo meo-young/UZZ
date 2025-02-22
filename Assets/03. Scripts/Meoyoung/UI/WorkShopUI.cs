@@ -20,6 +20,11 @@ public class WorkShopUI : MonoBehaviour
     [SerializeField] GameObject equipBehind;
     [SerializeField] GameObject equipPanel;
 
+    [Header("# 유리구슬")]
+    [SerializeField] GameObject glassFront;
+    [SerializeField] GameObject glassBehind;
+    [SerializeField] GameObject glassPanel;
+
     [Header("# Equipment Contents")]
     [SerializeField] Image[] icons;
     [SerializeField] TMP_Text[] steps, levels;
@@ -29,12 +34,12 @@ public class WorkShopUI : MonoBehaviour
     [SerializeField] GameObject[] lockImages;
     [SerializeField] Transform[] buttonPos;
 
-
     [Header("# Dew Contents")]
     [SerializeField] GameObject[] dewImages;
     [SerializeField] TMP_Text dewLevel;
     [SerializeField] TMP_Text dewPrice;
     [SerializeField] GameObject dewBtn;
+
 
     private void Awake()
     {
@@ -62,6 +67,9 @@ public class WorkShopUI : MonoBehaviour
         dewFront.SetActive(false);
         dewBehind.SetActive(true);
         dewPanel.SetActive(false);
+        glassFront.SetActive(false);
+        glassBehind.SetActive(true);
+        glassPanel.SetActive(false);
     }
 
     public void OnEquipmentPurchaseBtnHandler(int _index)
@@ -110,6 +118,9 @@ public class WorkShopUI : MonoBehaviour
         dewFront.SetActive(true);
         dewBehind.SetActive(false);
         dewPanel.SetActive(true);
+        glassFront.SetActive(false);
+        glassBehind.SetActive(true);
+        glassPanel.SetActive(false);
     }
 
     public void UpdateDewInfo(int _index, int _level, int _price)
@@ -132,4 +143,17 @@ public class WorkShopUI : MonoBehaviour
         AutoGrowManager.instance.AutoGrowLevelUp();
     }
     #endregion
+
+    public void OnGlassBtnHandler()
+    {
+        equipFront.SetActive(false);
+        equipBehind.SetActive(true);
+        equipPanel.SetActive(false);
+        dewFront.SetActive(false);
+        dewBehind.SetActive(true);
+        dewPanel.SetActive(false);
+        glassFront.SetActive(true);
+        glassBehind.SetActive(false);
+        glassPanel.SetActive(true);
+    }
 }
