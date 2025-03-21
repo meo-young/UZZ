@@ -1,0 +1,12 @@
+S_0214_waterdrop_02.png
+	size: 180, 156
+	filter: Linear, Linear
+	pma: true
+Body
+	bounds: 0, 42, 180, 113
+	offsets: 0, 1, 181, 136
+Face
+	bounds: 89, 15, 70, 27
+Leaf
+	bounds: 0, 0, 89, 42
+	offsets: 0, 2, 89, 44

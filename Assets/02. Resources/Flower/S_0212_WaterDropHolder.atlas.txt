@@ -1,0 +1,27 @@
+S_0212_WaterDropHolder.png
+	size: 880, 456
+	filter: Linear, Linear
+	pma: true
+Leaf_1
+	bounds: 477, 283, 400, 170
+Leaf_2
+	bounds: 795, 0, 83, 63
+	offsets: 12, 0, 95, 63
+Stem_1_Down
+	bounds: 477, 89, 103, 356
+	offsets: 17, 0, 120, 356
+	rotate: 90
+Stem_1_UP
+	bounds: 833, 63, 42, 129
+Stem_2
+	bounds: 477, 192, 91, 385
+	offsets: 0, 7, 92, 392
+	rotate: 90
+Stem_3
+	bounds: 477, 19, 70, 318
+	offsets: 6, 0, 79, 318
+	rotate: 90
+배경
+	bounds: 0, 21, 432, 477
+	offsets: 1, 1, 434, 479
+	rotate: 90
