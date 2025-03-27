@@ -98,8 +98,7 @@ public class FlowerManager : MonoBehaviour
     public bool CheckFlowerEventProbability()
     {
         int randNum = Random.Range(0, 100);
-        if (randNum < FLOWER_EVENT_PROBABILITY
-)
+        if (randNum < FLOWER_EVENT_PROBABILITY)
         {
             isFlowerEvent = true;
             CheckBigEventProbability();

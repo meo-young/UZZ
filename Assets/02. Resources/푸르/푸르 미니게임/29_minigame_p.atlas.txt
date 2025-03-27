@@ -1,0 +1,49 @@
+29_minigame_p.png
+	size: 640, 568
+	filter: Linear, Linear
+	pma: true
+ob_10
+	bounds: 504, 72, 93, 90
+ob_11
+	bounds: 417, 62, 87, 100
+ob_112_2
+	bounds: 174, 8, 146, 54
+	offsets: 35, 26, 215, 106
+ob_12
+	bounds: 174, 62, 141, 108
+	rotate: 90
+ob_13
+	bounds: 541, 268, 122, 97
+	rotate: 90
+ob_13_2
+	bounds: 0, 0, 25, 23
+	offsets: 94, 41, 215, 106
+ob_14
+	bounds: 282, 162, 211, 225
+	offsets: 0, 0, 249, 225
+ob_14_2
+	bounds: 538, 390, 178, 101
+	offsets: 21, 4, 215, 106
+	rotate: 90
+ob_15
+	bounds: 282, 68, 94, 135
+	rotate: 90
+ob_156_2
+	bounds: 493, 172, 215, 48
+	offsets: 0, 28, 215, 106
+	rotate: 90
+ob_16
+	bounds: 273, 387, 265, 181
+ob_17
+	bounds: 0, 203, 267, 181
+	offsets: 0, 0, 268, 181
+ob_17_2
+	bounds: 0, 384, 273, 184
+	offsets: 90, 14, 418, 228
+ob_18
+	bounds: 0, 23, 174, 180
+ob_22_2
+	bounds: 541, 162, 88, 106
+	offsets: 106, 0, 215, 106
+ob_9
+	bounds: 597, 136, 17, 26
