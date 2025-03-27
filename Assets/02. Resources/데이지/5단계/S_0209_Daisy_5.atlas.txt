@@ -1,0 +1,76 @@
+S_0209_Daisy_5.png
+	size: 1604, 840
+	filter: Linear, Linear
+	pma: true
+Flower_1
+	bounds: 1040, 526, 333, 314
+	offsets: 0, 3, 337, 318
+Flower_2
+	bounds: 1373, 552, 167, 166
+	offsets: 0, 4, 171, 170
+Flower_3
+	bounds: 1040, 287, 242, 239
+	offsets: 0, 3, 243, 242
+Leaf_1
+	bounds: 1348, 0, 104, 79
+	offsets: 2, 2, 106, 81
+	rotate: 90
+Leaf_10
+	bounds: 1471, 252, 131, 87
+	offsets: 0, 5, 132, 92
+	rotate: 90
+Leaf_11
+	bounds: 1213, 95, 192, 115
+	offsets: 12, 2, 204, 166
+	rotate: 90
+Leaf_2
+	bounds: 1040, 2, 56, 33
+	offsets: 1, 2, 59, 37
+Leaf_3
+	bounds: 1213, 12, 135, 83
+	offsets: 0, 4, 135, 87
+Leaf_4
+	bounds: 1466, 147, 121, 105
+	offsets: 0, 4, 121, 109
+Leaf_5
+	bounds: 1328, 167, 123, 65
+	offsets: 0, 4, 125, 69
+	rotate: 90
+Leaf_6
+	bounds: 1282, 290, 236, 124
+	offsets: 0, 2, 236, 126
+	rotate: 90
+Leaf_7_Down
+	bounds: 1439, 108, 98, 39
+Leaf_7_Up
+	bounds: 1040, 35, 252, 173
+	offsets: 0, 2, 253, 175
+	rotate: 90
+Leaf_8
+	bounds: 1393, 151, 111, 73
+	offsets: 0, 4, 111, 77
+	rotate: 90
+Leaf_9
+	bounds: 1373, 718, 231, 122
+Pot
+	bounds: 0, 1, 839, 1040
+	rotate: 90
+Stem_1
+	bounds: 1540, 568, 47, 150
+	offsets: 0, 5, 49, 155
+Stem_2
+	bounds: 1556, 432, 44, 136
+	offsets: 0, 6, 44, 142
+Stem_3
+	bounds: 1471, 383, 85, 169
+	offsets: 0, 5, 205, 174
+Stem_4
+	bounds: 1406, 262, 65, 290
+	offsets: 14, 50, 79, 340
+Stem_5
+	bounds: 1427, 24, 65, 80
+	offsets: 0, 7, 95, 373
+Stem_6
+	bounds: 1328, 104, 47, 111
+	offsets: 0, 5, 47, 116
+	rotate: 90

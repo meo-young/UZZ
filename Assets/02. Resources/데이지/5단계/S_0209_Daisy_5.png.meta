@@ -1,0 +1,702 @@
+fileFormatVersion: 2
+guid: 0f2f5e0865a4a6e49b118a9184da6f50
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2100616355932308951
+    second: S_0209_Daisy_5_0
+  - first:
+      213: -8094765682130513519
+    second: S_0209_Daisy_5_1
+  - first:
+      213: -3174802997827674485
+    second: S_0209_Daisy_5_2
+  - first:
+      213: -1817941011380451487
+    second: S_0209_Daisy_5_3
+  - first:
+      213: -35878452941723305
+    second: S_0209_Daisy_5_4
+  - first:
+      213: 5967370905855298523
+    second: S_0209_Daisy_5_5
+  - first:
+      213: -1797366671684897535
+    second: S_0209_Daisy_5_6
+  - first:
+      213: -6807056453551706144
+    second: S_0209_Daisy_5_7
+  - first:
+      213: 8847140320280651479
+    second: S_0209_Daisy_5_8
+  - first:
+      213: 6615391701646961264
+    second: S_0209_Daisy_5_9
+  - first:
+      213: -3444987622496446398
+    second: S_0209_Daisy_5_10
+  - first:
+      213: 2456869146820291345
+    second: S_0209_Daisy_5_11
+  - first:
+      213: -3826842413910458334
+    second: S_0209_Daisy_5_12
+  - first:
+      213: 8386205685644259526
+    second: S_0209_Daisy_5_13
+  - first:
+      213: -8138753198067416817
+    second: S_0209_Daisy_5_14
+  - first:
+      213: -9181003201353131583
+    second: S_0209_Daisy_5_15
+  - first:
+      213: 2865753206188017002
+    second: S_0209_Daisy_5_16
+  - first:
+      213: 5756140628508540178
+    second: S_0209_Daisy_5_17
+  - first:
+      213: 474043427932239467
+    second: S_0209_Daisy_5_18
+  - first:
+      213: -9079110136792534992
+    second: S_0209_Daisy_5_19
+  - first:
+      213: -4770348985660259952
+    second: S_0209_Daisy_5_20
+  - first:
+      213: 4930906678490165187
+    second: S_0209_Daisy_5_21
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 0
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 0
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 0
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: S_0209_Daisy_5_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1040
+        height: 839
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d588b83273e62d10800000000000000
+      internalID: 2100616355932308951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_0209_Daisy_5_1
+      rect:
+        serializedVersion: 2
+        x: 1039
+        y: 804
+        width: 58
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1919690008d99af80800000000000000
+      internalID: -8094765682130513519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_0209_Daisy_5_2
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 553
+        width: 174
+        height: 253
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8ed2aa8e75d0f3d0800000000000000
+      internalID: -3174802997827674485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_0209_Daisy_5_3
+      rect:
+        serializedVersion: 2
+        x: 1213
+        y: 744
+        width: 135
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 167cd02384065c6e0800000000000000
+      internalID: -1817941011380451487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_0209_Daisy_5_4
+      rect:
+        serializedVersion: 2
+        x: 1348
+        y: 735
+        width: 80
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7596155bcb8808ff0800000000000000
+      internalID: -35878452941723305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_0209_Daisy_5_5
+      rect:
+        serializedVersion: 2
+        x: 1427
+        y: 736
+        width: 64
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdb818ee83c50d250800000000000000
+      internalID: 5967370905855298523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_0209_Daisy_5_6
+      rect:
+        serializedVersion: 2
+        x: 1213
+        y: 552
+        width: 116
+        height: 193
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1057813f8887e07e0800000000000000
+      internalID: -1797366671684897535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_0209_Daisy_5_7
+      rect:
+        serializedVersion: 2
+        x: 1328
+        y: 689
+        width: 112
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ef2508883a7881a0800000000000000
+      internalID: -6807056453551706144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_0209_Daisy_5_8
+      rect:
+        serializedVersion: 2
+        x: 1439
+        y: 693
+        width: 98
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d62d544f3b57ca70800000000000000
+      internalID: 8847140320280651479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_0209_Daisy_5_9
+      rect:
+        serializedVersion: 2
+        x: 1466
+        y: 587
+        width: 121
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07aebbae3b79ecb50800000000000000
+      internalID: 6615391701646961264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_0209_Daisy_5_10
+      rect:
+        serializedVersion: 2
+        x: 1328
+        y: 550
+        width: 66
+        height: 124
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2485b797202f030d0800000000000000
+      internalID: -3444987622496446398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_0209_Daisy_5_11
+      rect:
+        serializedVersion: 2
+        x: 1393
+        y: 578
+        width: 74
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11b27d3d87d881220800000000000000
+      internalID: 2456869146820291345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_0209_Daisy_5_12
+      rect:
+        serializedVersion: 2
+        x: 1407
+        y: 290
+        width: 64
+        height: 288
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 220087b991354eac0800000000000000
+      internalID: -3826842413910458334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_0209_Daisy_5_13
+      rect:
+        serializedVersion: 2
+        x: 1471
+        y: 457
+        width: 88
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c0ff2a93a9c16470800000000000000
+      internalID: 8386205685644259526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_0209_Daisy_5_14
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 313
+        width: 243
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f010e9a56175d0f80800000000000000
+      internalID: -8138753198067416817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_0209_Daisy_5_15
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 0
+        width: 334
+        height: 315
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c95f9d3b36869080800000000000000
+      internalID: -9181003201353131583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_0209_Daisy_5_16
+      rect:
+        serializedVersion: 2
+        x: 1282
+        y: 314
+        width: 125
+        height: 236
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6506cc8b5335c720800000000000000
+      internalID: 2865753206188017002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_0209_Daisy_5_17
+      rect:
+        serializedVersion: 2
+        x: 1471
+        y: 287
+        width: 86
+        height: 170
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21df17f776be1ef40800000000000000
+      internalID: 5756140628508540178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_0209_Daisy_5_18
+      rect:
+        serializedVersion: 2
+        x: 1556
+        y: 271
+        width: 44
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6672027cf3249600800000000000000
+      internalID: 474043427932239467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_0209_Daisy_5_19
+      rect:
+        serializedVersion: 2
+        x: 1373
+        y: 121
+        width: 168
+        height: 167
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03035db0f65800280800000000000000
+      internalID: -9079110136792534992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_0209_Daisy_5_20
+      rect:
+        serializedVersion: 2
+        x: 1373
+        y: 0
+        width: 231
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09143173fd05ccdb0800000000000000
+      internalID: -4770348985660259952
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: S_0209_Daisy_5_21
+      rect:
+        serializedVersion: 2
+        x: 1540
+        y: 121
+        width: 48
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cfe100cf791e6440800000000000000
+      internalID: 4930906678490165187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      S_0209_Daisy_5_0: 2100616355932308951
+      S_0209_Daisy_5_1: -8094765682130513519
+      S_0209_Daisy_5_10: -3444987622496446398
+      S_0209_Daisy_5_11: 2456869146820291345
+      S_0209_Daisy_5_12: -3826842413910458334
+      S_0209_Daisy_5_13: 8386205685644259526
+      S_0209_Daisy_5_14: -8138753198067416817
+      S_0209_Daisy_5_15: -9181003201353131583
+      S_0209_Daisy_5_16: 2865753206188017002
+      S_0209_Daisy_5_17: 5756140628508540178
+      S_0209_Daisy_5_18: 474043427932239467
+      S_0209_Daisy_5_19: -9079110136792534992
+      S_0209_Daisy_5_2: -3174802997827674485
+      S_0209_Daisy_5_20: -4770348985660259952
+      S_0209_Daisy_5_21: 4930906678490165187
+      S_0209_Daisy_5_3: -1817941011380451487
+      S_0209_Daisy_5_4: -35878452941723305
+      S_0209_Daisy_5_5: 5967370905855298523
+      S_0209_Daisy_5_6: -1797366671684897535
+      S_0209_Daisy_5_7: -6807056453551706144
+      S_0209_Daisy_5_8: 8847140320280651479
+      S_0209_Daisy_5_9: 6615391701646961264
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

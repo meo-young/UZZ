@@ -16,6 +16,7 @@ public class AutoGrowManager : MonoBehaviour
     public AutoGrowInfo autoGrowInfo;
     [SerializeField] LoadAutoGrowthData loadAutoGrow;
     [SerializeField] WorkShopUI workShopUI;
+    [SerializeField] GameObject[] waterDewSprites;
 
     private float counter;
 
@@ -30,6 +31,7 @@ public class AutoGrowManager : MonoBehaviour
     private void Start()
     {
         workShopUI.UpdateDewInfo(loadAutoGrow.autoGrowData[autoGrowInfo.level].imageIndex, autoGrowInfo.level + 1, loadAutoGrow.autoGrowData[autoGrowInfo.level + 1].price);
+        UpdateWaterDewSprite();
 
         if (loadAutoGrow.autoGrowData[autoGrowInfo.level + 1].price == 0)
             workShopUI.UnableDewBtn();
@@ -68,9 +70,22 @@ public class AutoGrowManager : MonoBehaviour
         MainManager.instance.dewUI.Count(-loadAutoGrow.autoGrowData[autoGrowInfo.level+1].price);
         autoGrowInfo.level++;
         workShopUI.UpdateDewInfo(loadAutoGrow.autoGrowData[autoGrowInfo.level].imageIndex, autoGrowInfo.level + 1, loadAutoGrow.autoGrowData[autoGrowInfo.level + 1].price);
+        UpdateWaterDewSprite();
 
         if (loadAutoGrow.autoGrowData[autoGrowInfo.level + 1].price == 0)
             workShopUI.UnableDewBtn();
+    }
+
+    public void UpdateWaterDewSprite()
+    {
+        if(autoGrowInfo.level >= waterDewSprites.Length) return;
+
+        foreach(GameObject waterDewSprite in waterDewSprites)
+        {
+            waterDewSprite.SetActive(false);
+        }
+
+        waterDewSprites[autoGrowInfo.level].SetActive(true);
     }
 
 
